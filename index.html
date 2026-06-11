@@ -3,39 +3,35 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>Presence OS: apareça e cresça no LinkedIn sem virar um trabalho</title>
-<meta name="description" content="Um concierge que aprende o seu jeito, acompanha o mundo em qualquer idioma e deixa seus posts, comentários e respostas prontos. Você só revisa e aprova. Lançamento em 20 de junho de 2026. Inscrições abertas." />
-<meta name="theme-color" content="#ffffff" />
+<title>PresenceIn: pare de ser invisível no LinkedIn</title>
+<meta name="description" content="O PresenceIn aprende sobre você, acompanha o mundo em qualquer idioma e deixa seus posts, comentários e respostas prontos. Você revisa, aprova e publica. Beta privado a partir de 20 de junho. Vagas limitadas." />
+<meta name="theme-color" content="#0a66c2" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Presence OS: o concierge da sua presença no LinkedIn" />
-<meta property="og:description" content="Escreve como você, encontra a pauta certa e mantém você presente. Você só aprova. Lançamento 20/06/2026, inscrições abertas." />
+<meta property="og:title" content="PresenceIn: vire referência no LinkedIn (e aprove tudo antes de publicar)" />
+<meta property="og:description" content="Concierge de presença que escreve no seu tom, monitora o mundo e prepara tudo. Nada vai pro ar sem o seu aval. Acesso antecipado ao beta: 20/jun." />
 <meta property="og:locale" content="pt_BR" />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link rel="preconnect" href="https://api.iconify.design" crossorigin />
+<link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preconnect" href="https://api.iconify.design" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233b82f6'/%3E%3Cstop offset='1' stop-color='%234338ca'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23fff' stroke-width='2.2'/%3E%3Ccircle cx='16' cy='16' r='11.5' fill='none' stroke='%23fff' stroke-width='1.8' opacity='.55'/%3E%3C/svg%3E" />
-
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231a85e0'/%3E%3Cstop offset='1' stop-color='%23084e96'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23fff' stroke-width='2.2'/%3E%3Ccircle cx='16' cy='16' r='11.5' fill='none' stroke='%23fff' stroke-width='1.8' opacity='.55'/%3E%3C/svg%3E" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-<script>(function(){ try{ var rm = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches; if(window.gsap && !rm) document.documentElement.classList.add('ganim'); }catch(e){} })();</script>
-
+<script>(function(){ try{ var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches; if(window.gsap&&!rm) document.documentElement.classList.add('ganim'); }catch(e){} })();</script>
 <style>
 :root{
-  --bg:#ffffff; --muted-bg:#f6f7fb; --surface:#ffffff; --surface-2:#eef0f4;
-  --line:#e6e8ee; --line-2:#d3d7e0;
-  --ink:#14161c; --ink-2:#4a4f5b; --ink-3:#5d6473; --ink-ph:#a2a8b6;
-  --i:#4f46e5; --i-hover:#4338ca; --i-soft:#eef0ff; --i-line:#dfe2ff; --blue:#3b82f6;
+  --bg:#ffffff; --muted-bg:#f4f7fb; --surface:#ffffff; --surface-2:#eaf0f7;
+  --line:#e3e8ef; --line-2:#cfd8e3;
+  --ink:#14161c; --ink-2:#454c59; --ink-3:#5b6473; --ink-ph:#9aa6b5;
+  --i:#0a66c2; --i-hover:#084e96; --i-bright:#1a85e0; --i-soft:#e8f1fb; --i-line:#cfe3f6;
   --ok:#16a34a; --ok-text:#047857; --warn-text:#92660c; --danger:#e11d48;
   --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:22px; --r-pill:999px;
   --ease:cubic-bezier(.22,1,.36,1);
   --sh-1:0 1px 2px rgba(16,18,27,.04), 0 1px 3px rgba(16,18,27,.06);
-  --sh-2:0 6px 18px -6px rgba(40,44,80,.12), 0 2px 6px rgba(40,44,80,.05);
-  --sh-3:0 30px 70px -24px rgba(40,44,80,.34), 0 8px 20px -12px rgba(40,44,80,.16);
-  --maxw:1160px; --gutter:clamp(20px,4vw,40px); --sec:clamp(64px,7.5vw,104px);
+  --sh-2:0 6px 18px -6px rgba(20,48,80,.14), 0 2px 6px rgba(20,48,80,.06);
+  --sh-3:0 30px 70px -24px rgba(20,48,80,.34), 0 8px 20px -12px rgba(20,48,80,.16);
+  --maxw:1160px; --gutter:clamp(20px,4vw,40px); --sec:clamp(60px,7vw,100px);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth; scroll-padding-top:86px}
+html{scroll-behavior:smooth; scroll-padding-top:120px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0; background:var(--bg); color:var(--ink-2); font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif; font-size:16px; line-height:1.6; -webkit-font-smoothing:antialiased; overflow-x:hidden;}
 a{color:var(--i); text-decoration:none} a:hover{color:var(--i-hover)}
@@ -43,347 +39,354 @@ h1,h2,h3,h4{margin:0; color:var(--ink); letter-spacing:-.02em} h1,h2{text-wrap:b
 .nb{white-space:nowrap}
 .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter)}
 .kicker{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--i); font-weight:500}
-.skip{position:fixed; top:8px; left:8px; z-index:300; transform:translateY(-160%); background:var(--surface); color:var(--ink); padding:10px 16px; border-radius:var(--r-sm); border:1px solid var(--line-2); box-shadow:var(--sh-2); transition:transform .2s var(--ease)} .skip:focus{transform:none}
+.skip{position:fixed; top:8px; left:8px; z-index:400; transform:translateY(-160%); background:var(--surface); color:var(--ink); padding:10px 16px; border-radius:var(--r-sm); border:1px solid var(--line-2); box-shadow:var(--sh-2); transition:transform .2s var(--ease)} .skip:focus{transform:none}
 :focus-visible{outline:2px solid var(--i); outline-offset:3px; border-radius:6px}
 main,footer{position:relative; z-index:1}
 .ganim .reveal, .ganim .h-anim{opacity:0}
 
-/* background interativo */
 .bg-fx{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
 .bg-fx .orb{position:absolute; border-radius:50%; filter:blur(60px); opacity:.5; will-change:transform}
-.bg-fx .o1{width:42vw;height:42vw;left:-6vw;top:-10vh;background:radial-gradient(circle at 40% 40%,#d7dcff,transparent 65%)}
-.bg-fx .o2{width:36vw;height:36vw;right:-6vw;top:-4vh;background:radial-gradient(circle at 50% 50%,#dbe7ff,transparent 64%)}
-.bg-fx .o3{width:34vw;height:34vw;left:46vw;top:30vh;background:radial-gradient(circle at 50% 50%,#ece2ff,transparent 66%);opacity:.35}
-.bg-fx .grid{position:absolute;inset:0;background-image:radial-gradient(rgba(40,44,80,.05) 1px,transparent 1px);background-size:26px 26px;-webkit-mask:radial-gradient(120% 70% at 50% 0%,#000 25%,transparent 72%);mask:radial-gradient(120% 70% at 50% 0%,#000 25%,transparent 72%)}
+.bg-fx .o1{width:42vw;height:42vw;left:-6vw;top:-10vh;background:radial-gradient(circle at 40% 40%,#d3e6fb,transparent 65%)}
+.bg-fx .o2{width:36vw;height:36vw;right:-6vw;top:-4vh;background:radial-gradient(circle at 50% 50%,#dbeafe,transparent 64%)}
+.bg-fx .o3{width:34vw;height:34vw;left:46vw;top:30vh;background:radial-gradient(circle at 50% 50%,#e3eefb,transparent 66%);opacity:.4}
+.bg-fx .grid{position:absolute;inset:0;background-image:radial-gradient(rgba(20,48,80,.05) 1px,transparent 1px);background-size:26px 26px;-webkit-mask:radial-gradient(120% 70% at 50% 0%,#000 25%,transparent 72%);mask:radial-gradient(120% 70% at 50% 0%,#000 25%,transparent 72%)}
 
-/* logo */
-.logo{display:inline-flex; align-items:center; gap:11px; color:var(--ink); font-weight:600; font-size:18px; letter-spacing:-.015em}
-.logo .mk{position:relative; width:34px; height:34px; border-radius:10px; display:grid; place-items:center; flex:none; background:linear-gradient(150deg,#3b82f6,#4f46e5 55%,#4338ca); box-shadow:inset 0 1.5px 0 rgba(255,255,255,.5), inset 0 -3px 7px rgba(43,35,120,.5), 0 8px 18px -6px rgba(59,90,246,.6)}
-.logo .mk::after{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,.3),transparent 45%);pointer-events:none}
-.logo .nm{line-height:1; white-space:nowrap}
+/* topo sticky (alerta + nav) */
+.topstick{position:sticky; top:0; z-index:120}
+.annbar{background:linear-gradient(90deg,#084e96,#0a66c2 50%,#1a85e0); color:#fff; font-size:13.5px}
+.annbar .row{display:flex; align-items:center; gap:12px; justify-content:center; max-width:var(--maxw); margin:0 auto; padding:9px var(--gutter); text-align:center; flex-wrap:wrap}
+.annbar b{font-weight:600}
+.annbar .cd{font-family:'IBM Plex Mono',monospace; font-weight:600; background:rgba(255,255,255,.16); padding:2px 9px; border-radius:99px; font-variant-numeric:tabular-nums; letter-spacing:.02em}
+.annbar a.ann-cta{color:#fff; font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap}
+.annbar .ann-x{position:absolute; right:10px; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.16); border:none; color:#fff; width:24px; height:24px; border-radius:50%; cursor:pointer; display:grid; place-items:center; font-size:15px; line-height:1}
+.annbar .row{position:relative}
+.annbar .ann-x:hover{background:rgba(255,255,255,.3)}
+@media (max-width:640px){.annbar .ann-x{display:none}.annbar{font-size:12.5px}}
+.ann-closed .annbar{display:none}
 
-/* nav */
-.nav{position:sticky; top:0; z-index:120; background:color-mix(in srgb,var(--bg) 78%,transparent); backdrop-filter:blur(16px) saturate(1.3); border-bottom:1px solid transparent; transition:border-color .3s, box-shadow .3s, background .3s}
-.nav.scrolled{border-color:var(--line); box-shadow:0 1px 0 rgba(16,18,27,.03); background:color-mix(in srgb,var(--bg) 92%,transparent)}
-.nav .row{display:flex; align-items:center; gap:10px; height:68px; max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter)}
-.nav .spacer{flex:1}
-.nav .links{display:flex; gap:2px; align-items:center; background:rgba(246,247,251,.7); border:1px solid var(--line); border-radius:var(--r-pill); padding:4px}
-.nav .links > a, .nav .links .recbtn{position:relative; display:inline-flex; align-items:center; gap:6px; height:38px; padding:0 16px; border-radius:var(--r-pill); color:var(--ink-2); font-size:14.5px; font-weight:500; background:none; border:none; cursor:pointer; font-family:inherit; transition:background .15s, color .15s}
-.nav .links > a:hover, .nav .links .has-mega:hover .recbtn, .nav .links .has-mega:focus-within .recbtn{color:var(--ink); background:#fff; box-shadow:var(--sh-1)}
+/* nav (centralizado: logo | links centro | cta) */
+.nav{background:color-mix(in srgb,var(--bg) 80%,transparent); backdrop-filter:blur(16px) saturate(1.3); border-bottom:1px solid var(--line); transition:box-shadow .3s, background .3s}
+.nav.scrolled{box-shadow:0 1px 0 rgba(16,18,27,.03); background:color-mix(in srgb,var(--bg) 93%,transparent)}
+.nav .row{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px; height:64px; max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter)}
+.nav .links{display:flex; gap:2px; align-items:center; justify-content:center}
+.nav .links > a, .nav .links .recbtn{position:relative; display:inline-flex; align-items:center; gap:6px; height:38px; padding:0 15px; border-radius:var(--r-pill); color:var(--ink-2); font-size:14.5px; font-weight:500; background:none; border:none; cursor:pointer; font-family:inherit; transition:background .15s, color .15s}
+.nav .links > a:hover, .nav .links .has-mega:hover .recbtn, .nav .links .has-mega:focus-within .recbtn{color:var(--ink); background:var(--muted-bg)}
+.nav .right{display:flex; justify-content:flex-end; align-items:center; gap:8px}
+.logo{display:inline-flex; align-items:center; gap:10px; color:var(--ink); font-weight:600; font-size:18px; letter-spacing:-.015em}
+.logo .mk{position:relative; width:32px; height:32px; border-radius:9px; display:grid; place-items:center; flex:none; background:linear-gradient(150deg,#1a85e0,#0a66c2 55%,#084e96); box-shadow:inset 0 1.5px 0 rgba(255,255,255,.5), inset 0 -3px 7px rgba(8,55,120,.5), 0 8px 18px -6px rgba(10,102,194,.6)}
+.logo .mk::after{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,.32),transparent 45%)}
+.logo .nm{line-height:1; white-space:nowrap} .logo .nm i{font-style:normal; color:var(--i)}
 .has-mega{position:relative}
 .has-mega .recbtn .chev{transition:transform .2s var(--ease)}
 .has-mega:hover .recbtn .chev, .has-mega:focus-within .recbtn .chev{transform:rotate(180deg)}
-.mega{position:absolute; top:calc(100% + 10px); left:50%; transform:translateX(-50%) translateY(8px); width:min(640px,86vw); background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-3); padding:12px; opacity:0; pointer-events:none; transition:opacity .2s var(--ease), transform .2s var(--ease); z-index:130}
+.mega{position:absolute; top:calc(100% + 12px); left:50%; transform:translateX(-50%) translateY(8px); width:min(620px,86vw); background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-3); padding:12px; opacity:0; pointer-events:none; transition:opacity .2s var(--ease), transform .2s var(--ease); z-index:130}
 .has-mega:hover .mega, .has-mega:focus-within .mega{opacity:1; pointer-events:auto; transform:translateX(-50%) translateY(0)}
-.mega::before{content:'';position:absolute;top:-14px;left:0;right:0;height:14px}
+.mega::before{content:'';position:absolute;top:-16px;left:0;right:0;height:16px}
 .mega-grid{display:grid; grid-template-columns:1fr 1fr; gap:4px}
 .mega a{display:flex; gap:11px; align-items:flex-start; padding:11px 12px; border-radius:var(--r-md); color:var(--ink)} .mega a:hover{background:var(--muted-bg)}
 .mega a .mi{width:34px; height:34px; border-radius:9px; flex:none; display:grid; place-items:center; color:var(--i); background:var(--i-soft); border:1px solid var(--i-line)}
 .mega a b{display:block; font-size:14px; color:var(--ink); font-weight:600} .mega a span{display:block; font-size:12.5px; color:var(--ink-3); line-height:1.4}
-.nav-cta{margin-left:6px}
-.nav-toggle{display:none; width:44px; height:44px; align-items:center; justify-content:center; border-radius:10px; border:1px solid var(--line-2); background:var(--surface); color:var(--ink); cursor:pointer}
+.nav-toggle{display:none; width:42px; height:42px; align-items:center; justify-content:center; border-radius:10px; border:1px solid var(--line-2); background:var(--surface); color:var(--ink); cursor:pointer}
 @media (max-width:1040px){
-  .nav .links{position:absolute; top:68px; left:0; right:0; flex-direction:column; gap:0; align-items:stretch; padding:8px var(--gutter) 16px; background:#fff; border:none; border-radius:0; border-bottom:1px solid var(--line); box-shadow:var(--sh-2); transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity .2s,transform .2s; max-height:82vh; overflow:auto}
+  .nav .row{grid-template-columns:auto 1fr auto}
+  .nav .links{position:absolute; top:64px; left:0; right:0; flex-direction:column; gap:0; align-items:stretch; padding:8px var(--gutter) 16px; background:#fff; border-bottom:1px solid var(--line); box-shadow:var(--sh-2); transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity .2s,transform .2s; max-height:78vh; overflow:auto}
   .nav .links > a, .nav .links .recbtn{height:auto; padding:14px 4px; font-size:16px; border-bottom:1px solid var(--line); border-radius:0; justify-content:flex-start; width:100%}
   .nav.open .links{transform:none; opacity:1; pointer-events:auto}
   .mega{position:static; transform:none; width:auto; box-shadow:none; border:none; padding:6px 0 10px; opacity:1; pointer-events:auto} .mega::before{display:none}
-  .has-mega:hover .mega, .has-mega:focus-within .mega{transform:none} .mega-grid{grid-template-columns:1fr}
-  .nav-cta{margin:10px 0 0} .nav-toggle{display:inline-flex}
+  .has-mega:hover .mega{transform:none} .mega-grid{grid-template-columns:1fr}
+  .nav-toggle{display:inline-flex} .nav .right .btn:not(.nav-toggle){display:none}
 }
 
-/* botões */
 .btn{display:inline-flex; align-items:center; justify-content:center; gap:9px; height:48px; padding:0 22px; border-radius:var(--r-sm); border:1px solid transparent; font:inherit; font-size:15px; font-weight:600; cursor:pointer; white-space:nowrap; text-decoration:none; transition:background .14s var(--ease), transform .08s var(--ease), box-shadow .14s var(--ease), border-color .14s}
-.btn.primary{color:#fff; background:linear-gradient(135deg,#4f6bf5,#4338ca); box-shadow:0 8px 20px -8px rgba(67,56,202,.6)}
-.btn.primary:hover{box-shadow:0 14px 30px -10px rgba(67,56,202,.7); transform:translateY(-1px)} .btn.primary:active{transform:translateY(0)}
+.btn.primary{color:#fff; background:linear-gradient(135deg,#1a85e0,#0a66c2 60%,#084e96); box-shadow:0 8px 20px -8px rgba(10,102,194,.6)}
+.btn.primary:hover{box-shadow:0 14px 30px -10px rgba(10,102,194,.7); transform:translateY(-1px)} .btn.primary:active{transform:translateY(0)}
 .btn.secondary{color:var(--ink); background:var(--surface); border-color:var(--line-2)} .btn.secondary:hover{background:var(--muted-bg); border-color:var(--ink-3); color:var(--ink)}
-.btn.sm{height:40px; padding:0 16px; font-size:14px} .btn.block{width:100%}
+.btn.sm{height:38px; padding:0 16px; font-size:14px} .btn.block{width:100%}
 .badge{display:inline-flex; align-items:center; gap:6px; padding:4px 11px; border-radius:99px; background:var(--surface-2); color:var(--ink-2); font-size:12px; font-weight:500}
 .badge.beta{background:var(--i-soft); color:var(--i-hover); border:1px solid var(--i-line)}
-.live{display:inline-flex; align-items:center; gap:7px; padding:6px 14px; border-radius:99px; background:#fff; border:1px solid var(--line); box-shadow:var(--sh-1); font-size:13px; color:var(--ink-2); font-weight:500}
-.live .pulse{width:8px; height:8px; border-radius:50%; background:#e11d48; box-shadow:0 0 0 0 rgba(225,29,72,.5); animation:pulse 1.8s var(--ease) infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(225,29,72,.5)}70%{box-shadow:0 0 0 7px transparent}100%{box-shadow:0 0 0 0 transparent}}
 
-/* reveal/seções */
 section{position:relative}
 .band{background:var(--muted-bg); border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
 .sec{padding:var(--sec) 0}
-.sec-head{max-width:60ch; margin:0 auto clamp(32px,5vw,48px); text-align:center}
+.sec-head{max-width:60ch; margin:0 auto clamp(30px,5vw,46px); text-align:center}
 .sec-head .kicker{display:block; margin-bottom:12px}
-.sec-head h2{font-size:clamp(26px,3.6vw,40px); line-height:1.12; font-weight:600; color:var(--ink)}
-.sec-head p{margin:13px auto 0; color:var(--ink-2); font-size:17px; line-height:1.6; max-width:52ch}
+.sec-head h2{font-size:clamp(26px,3.6vw,40px); line-height:1.1; font-weight:600; color:var(--ink)}
+.sec-head p{margin:13px auto 0; color:var(--ink-2); font-size:17px; line-height:1.55; max-width:54ch}
 
 /* hero */
-.hero{padding:clamp(48px,6vw,76px) 0 0; text-align:center; position:relative}
-.hero .inner{max-width:880px; margin:0 auto}
-.hero .live{margin-bottom:22px}
-.hero h1{font-size:clamp(36px,5.6vw,62px); line-height:1.04; font-weight:600; letter-spacing:-.03em; color:var(--ink); margin:0; max-width:16ch; margin-inline:auto}
+.hero{padding:clamp(44px,5.5vw,72px) 0 0; text-align:center; position:relative}
+.hero .inner{max-width:900px; margin:0 auto}
+.hero h1{font-size:clamp(34px,5.2vw,58px); line-height:1.05; font-weight:600; letter-spacing:-.03em; color:var(--ink); margin:0; max-width:18ch; margin-inline:auto}
 .hero h1 .hl{color:var(--i)}
-.hero .lede{margin:20px auto 0; font-size:clamp(17px,1.9vw,20px); color:var(--ink-2); line-height:1.6; max-width:50ch; text-wrap:balance}
+.hero .lede{margin:20px auto 0; font-size:clamp(17px,1.9vw,20px); color:var(--ink-2); line-height:1.55; max-width:52ch; text-wrap:balance}
 .hero .lede strong{color:var(--ink); font-weight:600}
 .hero .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:28px}
 .hero .re{display:flex; gap:10px 24px; justify-content:center; flex-wrap:wrap; margin-top:20px; color:var(--ink-3); font-size:14px}
 .hero .re span{display:inline-flex; align-items:center; gap:8px} .hero .re svg{color:var(--ok); flex:none}
 
-/* MacBook */
-.macwrap{position:relative; max-width:980px; margin:clamp(40px,5.5vw,68px) auto 0; perspective:1500px}
-.macwrap::after{content:'';position:absolute;left:8%;right:8%;bottom:-26px;height:60px;background:radial-gradient(50% 100% at 50% 0,rgba(40,44,80,.3),transparent 72%);filter:blur(15px);z-index:-1}
+/* showcase: macbook + iphone */
+.showcase{position:relative; max-width:1000px; margin:clamp(38px,5vw,64px) auto 0; perspective:1500px}
+.showcase::after{content:'';position:absolute;left:8%;right:8%;bottom:-26px;height:60px;background:radial-gradient(50% 100% at 50% 0,rgba(20,48,80,.3),transparent 72%);filter:blur(15px);z-index:-1}
 .macbook{transform-style:preserve-3d; will-change:transform}
 .mb-lid{position:relative; padding:10px; border-radius:20px 20px 7px 7px; background:linear-gradient(180deg,#36363a,#1c1c1f 62%,#141416); box-shadow:inset 0 1px 0 rgba(255,255,255,.16), inset 0 0 0 1px rgba(0,0,0,.5), 0 30px 70px -28px rgba(0,0,0,.55)}
-.mb-screen{position:relative; border-radius:8px; overflow:hidden; aspect-ratio:16/10; box-shadow:inset 0 0 0 1px rgba(0,0,0,.7); background:radial-gradient(120% 90% at 30% 0%,#3a4f8c,#262a55 55%,#1a1c3a)}
-.mb-notch{position:absolute; top:0; left:50%; transform:translateX(-50%); width:120px; height:13px; background:#0c0c0e; border-radius:0 0 9px 9px; z-index:30}
+.mb-screen{position:relative; border-radius:8px; overflow:hidden; aspect-ratio:16/10; box-shadow:inset 0 0 0 1px rgba(0,0,0,.7); background:radial-gradient(120% 90% at 30% 0%,#2a4a73,#1d3354 55%,#13233f)}
+.mb-notch{position:absolute; top:0; left:50%; transform:translateX(-50%); width:118px; height:13px; background:#0c0c0e; border-radius:0 0 9px 9px; z-index:30}
 .mb-base{position:relative; width:114%; margin:0 0 0 -7%; height:14px; border-radius:0 0 12px 12px; background:linear-gradient(180deg,#46464a,#26262a 55%,#0e0e10); box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 16px 26px -12px rgba(0,0,0,.5)}
-.mb-base::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:120px;height:6px;background:#16161a;border-radius:0 0 7px 7px}
-/* barra do macOS (enxuta) */
-.os-bar{position:absolute; top:0; left:0; right:0; height:22px; display:flex; align-items:center; gap:12px; padding:0 11px; font-size:10px; color:#fff; background:rgba(18,16,38,.4); backdrop-filter:blur(8px); z-index:20}
-.os-bar .apple{width:9px; height:11px; opacity:.95}
-.os-bar b{font-weight:600} .os-bar .mi{opacity:.78; font-weight:500} .os-bar .sp{flex:1}
-.os-bar .st{display:inline-flex; align-items:center; gap:9px; opacity:.92}
+.mb-base::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:118px;height:6px;background:#16161a;border-radius:0 0 7px 7px}
+.os-bar{position:absolute; top:0; left:0; right:0; height:22px; display:flex; align-items:center; gap:12px; padding:0 11px; font-size:10px; color:#fff; background:rgba(16,30,52,.42); backdrop-filter:blur(8px); z-index:20}
+.os-bar .apple{width:9px;height:11px;opacity:.95} .os-bar b{font-weight:600} .os-bar .mi{opacity:.78;font-weight:500} .os-bar .sp{flex:1} .os-bar .st{display:inline-flex;align-items:center;gap:9px;opacity:.92}
 @media (max-width:720px){.os-bar .mi{display:none}}
-/* janela */
 .os-win{position:absolute; top:30px; left:3.5%; right:3.5%; bottom:13%; border-radius:10px; overflow:hidden; background:var(--muted-bg); box-shadow:0 24px 50px -16px rgba(0,0,0,.5), 0 0 0 1px rgba(0,0,0,.4); z-index:15; display:flex; flex-direction:column; text-align:left}
 .win-bar{display:flex; align-items:center; gap:9px; height:30px; padding:0 11px; background:linear-gradient(180deg,#1f1f22,#161618); color:#f4f4f4; flex:none}
-.win-bar .tl{display:flex; gap:6px} .win-bar .tl i{width:10px; height:10px; border-radius:50%; display:block}
+.win-bar .tl{display:flex;gap:6px} .win-bar .tl i{width:10px;height:10px;border-radius:50%;display:block}
 .win-bar .tl i:nth-child(1){background:#ff5f57}.win-bar .tl i:nth-child(2){background:#febc2e}.win-bar .tl i:nth-child(3){background:#28c840}
-.win-bar .dl{display:flex; align-items:center; gap:6px; font-weight:600; font-size:10.5px; margin-left:4px}
-.win-bar .crumb{color:#9aa0ad; font-size:10px} .win-bar .crumb b{color:#f4f4f4; font-weight:500} .win-bar .sp{flex:1}
-.win-bar .search{display:inline-flex; align-items:center; gap:5px; height:18px; padding:0 8px; border-radius:99px; border:1px solid #3a3f50; background:rgba(255,255,255,.05); color:#aab; font-size:9px}
-.win-bar .av{width:18px; height:18px; border-radius:50%; background:var(--i); color:#fff; display:grid; place-items:center; font-size:8.5px; font-weight:600}
-.app-body{flex:1; display:grid; grid-template-columns:116px 1fr; min-height:0; font-size:10px; line-height:1.4}
+.win-bar .dl{display:flex;align-items:center;gap:6px;font-weight:600;font-size:10.5px;margin-left:4px}
+.win-bar .crumb{color:#9aa0ad;font-size:10px} .win-bar .crumb b{color:#f4f4f4;font-weight:500} .win-bar .sp{flex:1}
+.win-bar .search{display:inline-flex;align-items:center;gap:5px;height:18px;padding:0 8px;border-radius:99px;border:1px solid #3a3f50;background:rgba(255,255,255,.05);color:#aab;font-size:9px}
+.win-bar .av{width:18px;height:18px;border-radius:50%;background:var(--i);color:#fff;display:grid;place-items:center;font-size:8.5px;font-weight:600}
+.app-body{flex:1; display:grid; grid-template-columns:112px 1fr; min-height:0; font-size:10px; line-height:1.4}
 .app-nav{background:var(--muted-bg); border-right:1px solid var(--line); padding:6px 5px; overflow:hidden}
-.app-nav .g{font-size:7.5px; letter-spacing:.05em; text-transform:uppercase; color:#9097a8; padding:6px 7px 2px; font-weight:600}
-.app-nav .l{display:flex; align-items:center; gap:6px; padding:3.5px 7px; border-radius:5px; color:var(--ink-3); border-left:2px solid transparent; font-size:10px; white-space:nowrap; overflow:hidden}
-.app-nav .l svg{width:11px; height:11px; flex:none; color:#8990a3}
-.app-nav .l.on{background:var(--surface); color:var(--ink); border-left-color:var(--i); font-weight:600} .app-nav .l.on svg{color:var(--i)}
+.app-nav .g{font-size:7.5px;letter-spacing:.05em;text-transform:uppercase;color:#9097a8;padding:6px 7px 2px;font-weight:600}
+.app-nav .l{display:flex;align-items:center;gap:6px;padding:3.5px 7px;border-radius:5px;color:var(--ink-3);border-left:2px solid transparent;font-size:9.5px;white-space:nowrap;overflow:hidden}
+.app-nav .l svg{width:10px;height:10px;flex:none;color:#8990a3}
+.app-nav .l.on{background:var(--surface);color:var(--ink);border-left-color:var(--i);font-weight:600} .app-nav .l.on svg{color:var(--i)}
 .app-main{padding:10px; overflow:hidden; background:var(--muted-bg)}
-.a-hero{display:flex; gap:10px; justify-content:space-between; border-radius:9px; padding:11px; border:1px solid color-mix(in srgb,var(--i) 22%,var(--line)); background:radial-gradient(120% 140% at 0% 0%,color-mix(in srgb,var(--i) 13%,#fff),#fff 58%); box-shadow:var(--sh-1)}
-.a-hero .eb{font-size:7.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
-.a-hero h4{margin:2px 0 4px; font-size:15px; font-weight:600; color:var(--ink)}
-.a-ws{display:inline-flex; align-items:center; gap:4px; font-size:9px; color:var(--ink-2); margin-bottom:4px} .a-ws .dot{width:5px; height:5px; border-radius:50%; background:var(--ok); box-shadow:0 0 0 0 rgba(22,163,74,.5); animation:pulse 2s var(--ease) infinite}
-.a-hero .sum{font-size:9px; color:var(--ink-3)}
-.a-step{flex:none; width:128px; border-left:1px solid var(--line); padding-left:10px; display:flex; flex-direction:column; gap:5px; align-items:flex-start}
-.a-step .eb{color:var(--ink-3)} .a-step .st{font-size:9.5px; color:var(--ink-2); line-height:1.3}
-.a-step .b{display:inline-flex; align-items:center; height:20px; padding:0 9px; border-radius:5px; background:var(--i); color:#fff; font-size:9px; font-weight:600}
-.a-stats{display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin-top:8px}
-.a-stat{background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:6px 7px; box-shadow:var(--sh-1)}
-.a-stat .k{font-size:7.5px; letter-spacing:.03em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
-.a-stat .v{font-size:15px; font-weight:600; color:var(--ink); line-height:1.1; margin-top:2px}
-.a-stat .v.ok{color:var(--ok-text)} .a-stat .v.warn{color:var(--warn-text)}
-.a-today{margin-top:8px; background:var(--surface); border:1px solid var(--line); border-radius:9px; padding:9px 10px; box-shadow:var(--sh-1)}
-.a-today .h{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px}
-.a-today .h b{font-size:10.5px; color:var(--ink); font-weight:600} .a-today .h span{font-size:8px; color:var(--ink-3)}
-.a-today .it{display:flex; align-items:center; gap:7px; padding:4.5px 0; border-top:1px solid var(--line)}
-.a-today .rk{width:15px; height:15px; border-radius:4px; flex:none; display:grid; place-items:center; font-size:8px; font-weight:600; background:var(--i-soft); color:var(--i)}
-.a-today .it.top .rk{background:var(--i); color:#fff}
-.a-today .tx{flex:1; font-size:9.5px; color:var(--ink-2)} .a-today .cta{font-size:8.5px; color:var(--i); font-weight:600; white-space:nowrap}
-/* dock com ícones reais */
-.os-dock{position:absolute; bottom:2.4%; left:50%; transform:translateX(-50%); display:flex; align-items:flex-end; gap:7px; padding:6px 9px; border-radius:16px; background:rgba(255,255,255,.22); border:1px solid rgba(255,255,255,.34); backdrop-filter:blur(14px); box-shadow:0 10px 24px -8px rgba(0,0,0,.5); z-index:20}
-.os-dock .dk{width:30px; height:30px; border-radius:8px; display:grid; place-items:center; background:#fff; box-shadow:0 3px 8px -2px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.6); position:relative; overflow:hidden; transition:transform .18s var(--ease)}
-.os-dock .dk:hover{transform:translateY(-8px) scale(1.12)}
-.os-dock .dk img{width:74%; height:74%; object-fit:contain; pointer-events:none}
-.os-dock .dk.pr{background:linear-gradient(150deg,#3b82f6,#4338ca)}
+.an-top{display:flex; gap:9px}
+.an-card{background:#fff; border:1px solid var(--line); border-radius:9px; padding:10px; box-shadow:var(--sh-1)}
+.an-score{flex:none; width:120px; display:flex; align-items:center; gap:10px}
+.an-score .ring{width:54px;height:54px;flex:none}
+.an-score .sv{font-size:21px;font-weight:700;color:var(--ink);line-height:1} .an-score .sl{font-size:8.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em;font-weight:600;margin-top:2px} .an-score .sd{font-size:8.5px;color:var(--ok-text);margin-top:3px}
+.an-bars{flex:1; display:flex; flex-direction:column}
+.an-bars .ct{font-size:9px;color:var(--ink-3);font-weight:600;margin-bottom:7px;display:flex;justify-content:space-between}
+.an-bars .ct b{color:var(--ink)}
+.an-bars .bars{display:flex; align-items:flex-end; gap:5px; height:46px}
+.an-bars .bars i{flex:1; background:linear-gradient(180deg,#1a85e0,#0a66c2); border-radius:3px 3px 0 0; display:block; opacity:.9}
+.an-bars .bars i:last-child{background:linear-gradient(180deg,#34d399,#16a34a)}
+.an-row2{display:grid; grid-template-columns:1.3fr 1fr; gap:9px; margin-top:9px}
+.an-spark .ct{font-size:9px;color:var(--ink-3);font-weight:600;margin-bottom:4px;display:flex;justify-content:space-between} .an-spark .ct b{color:var(--ok-text)}
+.an-spark svg{width:100%;height:42px;display:block}
+.an-list .ct{font-size:9px;color:var(--ink-3);font-weight:600;margin-bottom:6px}
+.an-li{display:flex;align-items:center;gap:6px;padding:3px 0;font-size:9px;color:var(--ink-2)}
+.an-li .dot{width:6px;height:6px;border-radius:2px;flex:none} .an-li .n{margin-left:auto;font-weight:600;color:var(--ink);font-family:'IBM Plex Mono',monospace}
+@media (max-width:560px){.app-nav{display:none}.app-body{grid-template-columns:1fr}.an-score{width:96px}.an-row2{grid-template-columns:1fr}}
+.os-dock{position:absolute;bottom:2.4%;left:50%;transform:translateX(-50%);display:flex;align-items:flex-end;gap:7px;padding:6px 9px;border-radius:16px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.34);backdrop-filter:blur(14px);box-shadow:0 10px 24px -8px rgba(0,0,0,.5);z-index:20}
+.os-dock .dk{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:#fff;box-shadow:0 3px 8px -2px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.6);position:relative;overflow:hidden;transition:transform .18s var(--ease)}
+.os-dock .dk:hover{transform:translateY(-8px) scale(1.12)} .os-dock .dk img{width:74%;height:74%;object-fit:contain}
+.os-dock .dk.pr{background:linear-gradient(150deg,#1a85e0,#084e96)}
 .os-dock .dk.on::after{content:'';position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.9)}
-@media (max-width:560px){.app-nav{display:none}.app-body{grid-template-columns:1fr}.a-step{display:none}.a-stats{grid-template-columns:repeat(3,1fr)}.a-today{display:none}.os-dock .dk{width:24px;height:24px}}
+@media (max-width:560px){.os-dock .dk{width:24px;height:24px}}
+/* iphone */
+.iphone{position:absolute; right:-6px; bottom:-12px; width:172px; aspect-ratio:9/19.3; border-radius:30px; padding:7px; background:linear-gradient(160deg,#3a3a3e,#161618); box-shadow:0 30px 60px -22px rgba(0,0,0,.6), inset 0 0 0 1px rgba(0,0,0,.6); z-index:25; transform:rotate(4deg)}
+.ip-screen{position:relative; height:100%; border-radius:24px; overflow:hidden; background:linear-gradient(180deg,#eaf2fb,#fff 30%); text-align:left}
+.ip-island{position:absolute; top:7px; left:50%; transform:translateX(-50%); width:46px; height:13px; background:#000; border-radius:99px; z-index:6}
+.ip-body{padding:26px 13px 13px; height:100%; display:flex; flex-direction:column}
+.ip-mk{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(150deg,#1a85e0,#084e96);box-shadow:0 6px 14px -5px rgba(10,102,194,.6);margin-bottom:9px}
+.ip-h{font-size:14px;font-weight:700;color:var(--ink);letter-spacing:-.01em} .ip-h i{font-style:normal;color:var(--i)}
+.ip-sub{font-size:9.5px;color:var(--ink-3);margin:3px 0 12px;line-height:1.35}
+.ip-step{display:flex;align-items:center;gap:8px;padding:8px 9px;border-radius:9px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh-1);margin-bottom:7px;font-size:10px;color:var(--ink);font-weight:500}
+.ip-step .n{width:18px;height:18px;border-radius:6px;flex:none;display:grid;place-items:center;font-size:9px;font-weight:700;background:var(--i-soft);color:var(--i)}
+.ip-step.done .n{background:var(--i);color:#fff}
+.ip-btn{margin-top:auto;height:34px;border-radius:9px;background:linear-gradient(135deg,#1a85e0,#084e96);color:#fff;font-size:11px;font-weight:600;display:grid;place-items:center}
+@media (max-width:880px){.iphone{display:none}}
 
-/* faixa "sua IA" */
-.aistrip{padding:30px 0; text-align:center}
-.aistrip .lbl{font-size:13px; color:var(--ink-3); margin-bottom:16px}
-.aistrip .row{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; align-items:center}
-.aistrip .ai{display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border-radius:var(--r-pill); background:#fff; border:1px solid var(--line); box-shadow:var(--sh-1); font-size:14px; font-weight:500; color:var(--ink-2)}
-.aistrip .ai img{width:18px; height:18px}
-.aistrip .note{margin-top:14px; font-size:13px; color:var(--ink-3)}
+/* AI strip (3 logos grandes) */
+.aistrip{padding:34px 0; text-align:center}
+.aistrip .lbl{font-size:14px; color:var(--ink-3); margin-bottom:18px}
+.aistrip .row{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center}
+.aistrip .ai{display:inline-flex; align-items:center; gap:11px; padding:13px 22px; border-radius:var(--r-md); background:#fff; border:1px solid var(--line); box-shadow:var(--sh-1); font-size:17px; font-weight:600; color:var(--ink)}
+.aistrip .ai img{width:30px; height:30px}
+.aistrip .note{margin-top:16px; font-size:13px; color:var(--ink-3)}
 
-/* personas */
-.personas{text-align:center}
-.personas .lbl{font-size:13.5px; color:var(--ink-3); margin-bottom:18px}
-.personas .chips{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; max-width:980px; margin:0 auto}
-.personas .chip{display:inline-flex; align-items:center; padding:8px 14px; border-radius:99px; border:1px solid var(--line); background:var(--surface); color:var(--ink-2); font-size:13.5px; font-weight:500; box-shadow:var(--sh-1); transition:transform .15s var(--ease), border-color .15s}
-.personas .chip:hover{transform:translateY(-2px); border-color:var(--i-line); color:var(--ink)}
+/* personas marquee */
+.mq-head{text-align:center; margin-bottom:22px}
+.mq-head h2{font-size:clamp(22px,3vw,32px); font-weight:600; color:var(--ink)}
+.mq-head p{margin:10px auto 0; color:var(--ink-2); font-size:16px; max-width:56ch}
+.marquee{overflow:hidden; -webkit-mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.marquee + .marquee{margin-top:12px}
+.mq-track{display:flex; gap:11px; width:max-content; animation:mqscroll 46s linear infinite}
+.mq-track.rev{animation-direction:reverse; animation-duration:54s}
+.marquee:hover .mq-track{animation-play-state:paused}
+.mq-chip{display:inline-flex; align-items:center; gap:8px; padding:10px 17px; border-radius:99px; border:1px solid var(--line); background:var(--surface); color:var(--ink-2); font-size:14.5px; font-weight:500; box-shadow:var(--sh-1); white-space:nowrap}
+.mq-chip .d{width:6px;height:6px;border-radius:50%;background:var(--i);flex:none}
+@keyframes mqscroll{to{transform:translateX(-50%)}}
 
 /* pilares */
 .pillars{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
 .pillar{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:26px; box-shadow:var(--sh-1); display:flex; gap:16px; align-items:flex-start; transition:box-shadow .16s var(--ease), transform .16s var(--ease), border-color .16s}
 .pillar:hover{box-shadow:var(--sh-2); transform:translateY(-3px); border-color:var(--i-line)}
-.pillar .ic{width:48px; height:48px; border-radius:12px; flex:none; display:grid; place-items:center; color:var(--i); background:var(--i-soft); border:1px solid var(--i-line)}
-.pillar h3{font-size:18px; font-weight:600; color:var(--ink); margin-bottom:6px}
-.pillar p{color:var(--ink-2); font-size:14.5px; line-height:1.55}
-.result{margin-top:18px; border-radius:var(--r-lg); border:1px solid var(--i-line); background:linear-gradient(120deg,#4f46e5,#6d5ef0); color:#fff; padding:clamp(24px,4vw,38px); display:flex; gap:22px; align-items:center; flex-wrap:wrap; box-shadow:0 18px 40px -18px rgba(79,70,229,.6)}
-.result .ic{width:52px; height:52px; border-radius:14px; flex:none; display:grid; place-items:center; background:rgba(255,255,255,.16); color:#fff}
-.result h3{color:#fff; font-size:clamp(19px,2.6vw,25px); font-weight:600; margin-bottom:5px}
-.result p{color:rgba(255,255,255,.92); font-size:15px; line-height:1.5; max-width:62ch}
+.pillar .ic{width:48px;height:48px;border-radius:12px;flex:none;display:grid;place-items:center;color:var(--i);background:var(--i-soft);border:1px solid var(--i-line)}
+.pillar h3{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:6px} .pillar p{color:var(--ink-2);font-size:14.5px;line-height:1.5}
+.result{margin-top:18px;border-radius:var(--r-lg);border:1px solid var(--i-line);background:linear-gradient(120deg,#0a66c2,#1a85e0);color:#fff;padding:clamp(24px,4vw,38px);display:flex;gap:22px;align-items:center;flex-wrap:wrap;box-shadow:0 18px 40px -18px rgba(10,102,194,.6)}
+.result .ic{width:52px;height:52px;border-radius:14px;flex:none;display:grid;place-items:center;background:rgba(255,255,255,.18);color:#fff}
+.result h3{color:#fff;font-size:clamp(19px,2.6vw,25px);font-weight:600;margin-bottom:5px} .result p{color:rgba(255,255,255,.92);font-size:15px;line-height:1.5;max-width:62ch}
 @media (max-width:760px){.pillars{grid-template-columns:1fr}}
 
 /* tiles */
 .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-.tile{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:24px; box-shadow:var(--sh-1); transition:box-shadow .16s var(--ease), transform .16s var(--ease), border-color .16s; display:flex; flex-direction:column}
-.tile:hover{box-shadow:var(--sh-2); transform:translateY(-3px); border-color:var(--i-line)}
-.tile .ic{width:44px; height:44px; border-radius:11px; display:grid; place-items:center; color:var(--i); background:var(--i-soft); border:1px solid var(--i-line); margin-bottom:16px; flex:none}
-.tile h3{font-size:17px; font-weight:600; color:var(--ink); margin-bottom:7px}
-.tile p{color:var(--ink-2); font-size:14px; line-height:1.55; flex:1}
-.tile .tags{display:flex; flex-wrap:wrap; gap:7px; margin-top:14px}
-@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:600px){.grid{grid-template-columns:1fr}}
+.tile{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;box-shadow:var(--sh-1);transition:box-shadow .16s var(--ease),transform .16s var(--ease),border-color .16s;display:flex;flex-direction:column}
+.tile:hover{box-shadow:var(--sh-2);transform:translateY(-3px);border-color:var(--i-line)}
+.tile .ic{width:44px;height:44px;border-radius:11px;display:grid;place-items:center;color:var(--i);background:var(--i-soft);border:1px solid var(--i-line);margin-bottom:16px;flex:none}
+.tile h3{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:7px} .tile p{color:var(--ink-2);font-size:14px;line-height:1.5;flex:1}
+.tile .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+@media (max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}} @media (max-width:600px){.grid{grid-template-columns:1fr}}
 
 /* steps */
 .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:18px}
-.step{position:relative; background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:26px; box-shadow:var(--sh-1)}
-.step .n{font-family:'IBM Plex Mono',monospace; font-weight:600; color:#fff; width:38px; height:38px; border-radius:10px; display:grid; place-items:center; background:linear-gradient(135deg,#4f6bf5,#4338ca); box-shadow:0 6px 16px -6px rgba(67,56,202,.55); margin-bottom:16px}
-.step h3{font-size:17px; font-weight:600; color:var(--ink); margin-bottom:8px}
-.step p{color:var(--ink-2); font-size:14.5px; line-height:1.55}
+.step{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:26px;box-shadow:var(--sh-1)}
+.step .n{font-family:'IBM Plex Mono',monospace;font-weight:600;color:#fff;width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#1a85e0,#084e96);box-shadow:0 6px 16px -6px rgba(10,102,194,.55);margin-bottom:16px}
+.step h3{font-size:17px;font-weight:600;color:var(--ink);margin-bottom:8px} .step p{color:var(--ink-2);font-size:14.5px;line-height:1.5}
 @media (max-width:760px){.steps{grid-template-columns:1fr}}
 
 /* prova social */
 .proof-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:24px; align-items:start}
-.pain{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:28px; box-shadow:var(--sh-1)}
-.pain h3{font-size:18px; font-weight:600; color:var(--ink); margin-bottom:14px}
-.pain ul{list-style:none; padding:0; margin:0; display:grid; gap:12px}
-.pain li{display:flex; gap:11px; align-items:flex-start; color:var(--ink-2); font-size:14.5px; line-height:1.45}
-.pain li svg{flex:none; margin-top:3px; color:var(--ink-3)}
-.why{background:linear-gradient(160deg,#fff,var(--i-soft) 140%); border:1px solid var(--i-line); border-radius:var(--r-lg); padding:28px; box-shadow:var(--sh-2)}
-.why .badge{margin-bottom:12px} .why h3{font-size:18px; font-weight:600; color:var(--ink); margin-bottom:9px}
-.why p{color:var(--ink-2); font-size:14.5px; line-height:1.55} .why .btn{margin-top:18px}
-@media (max-width:820px){.proof-grid{grid-template-columns:1fr; gap:16px}}
+.pain{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;box-shadow:var(--sh-1)}
+.pain h3{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:14px} .pain ul{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.pain li{display:flex;gap:11px;align-items:flex-start;color:var(--ink-2);font-size:14.5px;line-height:1.45} .pain li svg{flex:none;margin-top:3px;color:var(--ink-3)}
+.why{background:linear-gradient(160deg,#fff,var(--i-soft) 140%);border:1px solid var(--i-line);border-radius:var(--r-lg);padding:28px;box-shadow:var(--sh-2)}
+.why .badge{margin-bottom:12px} .why h3{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:9px} .why p{color:var(--ink-2);font-size:14.5px;line-height:1.5} .why .btn{margin-top:18px}
+@media (max-width:820px){.proof-grid{grid-template-columns:1fr;gap:16px}}
 
 /* faq */
-.faq{max-width:780px; margin:0 auto; display:grid; gap:11px}
-.faq details{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-md); box-shadow:var(--sh-1); overflow:hidden}
-.faq summary{list-style:none; cursor:pointer; padding:17px 20px; font-size:15.5px; font-weight:600; color:var(--ink); display:flex; align-items:center; justify-content:space-between; gap:12px}
+.faq{max-width:780px;margin:0 auto;display:grid;gap:11px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);box-shadow:var(--sh-1);overflow:hidden}
+.faq summary{list-style:none;cursor:pointer;padding:17px 20px;font-size:15.5px;font-weight:600;color:var(--ink);display:flex;align-items:center;justify-content:space-between;gap:12px}
 .faq summary::-webkit-details-marker{display:none}
-.faq summary .x{flex:none; width:20px; height:20px; position:relative; transition:transform .2s var(--ease)}
-.faq summary .x::before,.faq summary .x::after{content:''; position:absolute; background:var(--i); border-radius:2px}
-.faq summary .x::before{top:9px; left:2px; right:2px; height:2px} .faq summary .x::after{left:9px; top:2px; bottom:2px; width:2px}
-.faq details[open] summary .x{transform:rotate(45deg)}
-.faq .a{padding:0 20px 17px; color:var(--ink-2); font-size:14.5px; line-height:1.55}
+.faq summary .x{flex:none;width:20px;height:20px;position:relative;transition:transform .2s var(--ease)}
+.faq summary .x::before,.faq summary .x::after{content:'';position:absolute;background:var(--i);border-radius:2px}
+.faq summary .x::before{top:9px;left:2px;right:2px;height:2px} .faq summary .x::after{left:9px;top:2px;bottom:2px;width:2px}
+.faq details[open] summary .x{transform:rotate(45deg)} .faq .a{padding:0 20px 17px;color:var(--ink-2);font-size:14.5px;line-height:1.5}
 
-/* beta + contador */
-.beta-card{border-radius:var(--r-xl); border:1px solid var(--i-line); background:linear-gradient(160deg,#fff,var(--i-soft) 130%); box-shadow:var(--sh-2); padding:clamp(28px,5vw,52px)}
-.beta-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,48px); align-items:start}
-.beta-grid h2{font-size:clamp(25px,3.4vw,36px); line-height:1.1; font-weight:600; color:var(--ink)}
-.beta-grid .lede{color:var(--ink-2); font-size:16px; line-height:1.55; margin-top:12px}
-.countdown{display:flex; gap:9px; margin:20px 0 4px; flex-wrap:wrap}
-.cd-box{min-width:62px; text-align:center; background:#fff; border:1px solid var(--line); border-radius:12px; padding:10px 6px; box-shadow:var(--sh-1)}
-.cd-box .num{font-size:27px; font-weight:700; color:var(--ink); font-variant-numeric:tabular-nums; line-height:1; font-family:'IBM Plex Mono',monospace}
-.cd-box .lab{font-size:9.5px; text-transform:uppercase; letter-spacing:.06em; color:var(--ink-3); margin-top:5px; font-weight:600}
-.cd-line{font-size:13px; color:var(--ink-3); margin-top:8px}
-.req{display:flex; gap:10px; align-items:flex-start; margin-top:18px; padding:13px 15px; border-radius:var(--r-md); background:var(--i-soft); border:1px solid var(--i-line); color:var(--ink-2); font-size:13px; line-height:1.45}
-.req svg{flex:none; margin-top:1px; color:var(--i)}
-.perks{list-style:none; padding:0; margin:20px 0 0; display:grid; gap:12px}
-.perks li{display:flex; gap:11px; align-items:flex-start; color:var(--ink-2); font-size:14.5px; line-height:1.45}
-.perks svg{color:var(--ok); flex:none; margin-top:3px}
-form{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:24px; box-shadow:var(--sh-1)}
-.reqnote{font-size:12px; color:var(--ink-3); margin:0 0 16px}
-label{display:block; font-size:13px; font-weight:600; color:var(--ink); margin-bottom:7px} label .opt{font-weight:400; color:var(--ink-3)}
+/* beta */
+.beta-card{border-radius:var(--r-xl);border:1px solid var(--i-line);background:linear-gradient(160deg,#fff,var(--i-soft) 130%);box-shadow:var(--sh-2);padding:clamp(28px,5vw,52px)}
+.beta-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,48px);align-items:start}
+.beta-grid h2{font-size:clamp(25px,3.4vw,36px);line-height:1.1;font-weight:600;color:var(--ink)} .beta-grid .lede{color:var(--ink-2);font-size:16px;line-height:1.5;margin-top:12px}
+.countdown{display:flex;gap:9px;margin:20px 0 4px;flex-wrap:wrap}
+.cd-box{min-width:62px;text-align:center;background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 6px;box-shadow:var(--sh-1)}
+.cd-box .num{font-size:27px;font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1;font-family:'IBM Plex Mono',monospace}
+.cd-box .lab{font-size:9.5px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-3);margin-top:5px;font-weight:600}
+.cd-line{font-size:13px;color:var(--ink-3);margin-top:8px}
+.req{display:flex;gap:10px;align-items:flex-start;margin-top:18px;padding:13px 15px;border-radius:var(--r-md);background:var(--i-soft);border:1px solid var(--i-line);color:var(--ink-2);font-size:13px;line-height:1.45} .req svg{flex:none;margin-top:1px;color:var(--i)}
+.perks{list-style:none;padding:0;margin:20px 0 0;display:grid;gap:12px} .perks li{display:flex;gap:11px;align-items:flex-start;color:var(--ink-2);font-size:14.5px;line-height:1.45} .perks svg{color:var(--ok);flex:none;margin-top:3px}
+form{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:24px;box-shadow:var(--sh-1)}
+.reqnote{font-size:12px;color:var(--ink-3);margin:0 0 16px}
+label{display:block;font-size:13px;font-weight:600;color:var(--ink);margin-bottom:7px} label .opt{font-weight:400;color:var(--ink-3)}
 .field{margin-bottom:14px}
-input,textarea{width:100%; background:var(--surface); color:var(--ink); border:1px solid var(--line-2); border-radius:var(--r-sm); padding:12px 14px; font:inherit; font-size:15px; transition:border-color .15s, box-shadow .15s}
-textarea{resize:vertical; min-height:78px; line-height:1.5}
-input:focus,textarea:focus{outline:none; border-color:var(--i); box-shadow:0 0 0 3px color-mix(in srgb,var(--i) 18%,transparent)}
-input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--danger); box-shadow:0 0 0 3px color-mix(in srgb,var(--danger) 16%,transparent)}
+input,textarea{width:100%;background:var(--surface);color:var(--ink);border:1px solid var(--line-2);border-radius:var(--r-sm);padding:12px 14px;font:inherit;font-size:15px;transition:border-color .15s,box-shadow .15s}
+textarea{resize:vertical;min-height:78px;line-height:1.5}
+input:focus,textarea:focus{outline:none;border-color:var(--i);box-shadow:0 0 0 3px color-mix(in srgb,var(--i) 18%,transparent)}
+input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--danger);box-shadow:0 0 0 3px color-mix(in srgb,var(--danger) 16%,transparent)}
 ::placeholder{color:var(--ink-ph)}
-.fine{font-size:12px; color:var(--ink-3); margin:14px 0 0; text-align:center; line-height:1.5}
-.form-err{color:var(--danger); font-size:13px; margin-top:10px; min-height:16px; text-align:center}
-.form-ok{display:none; text-align:center; padding:8px 0}
-.form-ok .oi{width:56px; height:56px; border-radius:50%; margin:0 auto 16px; display:grid; place-items:center; background:var(--ok); color:#fff}
-.form-ok h3{font-size:19px; color:var(--ink); margin-bottom:8px}
-.form-ok p{color:var(--ink-2); font-size:15px; max-width:42ch; margin:0 auto; line-height:1.5}
+.fine{font-size:12px;color:var(--ink-3);margin:14px 0 0;text-align:center;line-height:1.5}
+.form-err{color:var(--danger);font-size:13px;margin-top:10px;min-height:16px;text-align:center}
+.form-ok{display:none;text-align:center;padding:8px 0}
+.form-ok .oi{width:56px;height:56px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;background:var(--ok);color:#fff}
+.form-ok h3{font-size:19px;color:var(--ink);margin-bottom:8px} .form-ok p{color:var(--ink-2);font-size:15px;max-width:42ch;margin:0 auto;line-height:1.5}
 .is-sent form{display:none}.is-sent .form-ok{display:block}
-@media (max-width:820px){.beta-grid{grid-template-columns:1fr; gap:28px}}
+@media (max-width:820px){.beta-grid{grid-template-columns:1fr;gap:28px}}
 
-/* footer */
-footer{border-top:1px solid var(--line); background:var(--muted-bg)}
-footer .top{display:flex; gap:24px; flex-wrap:wrap; align-items:flex-start; max-width:var(--maxw); margin:0 auto; padding:44px var(--gutter) 24px}
-footer .top .lead{max-width:34ch} footer .top .lead p{color:var(--ink-3); font-size:13.5px; margin-top:12px; line-height:1.55}
+footer{border-top:1px solid var(--line);background:var(--muted-bg)}
+footer .top{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start;max-width:var(--maxw);margin:0 auto;padding:44px var(--gutter) 24px}
+footer .top .lead{max-width:34ch} footer .top .lead p{color:var(--ink-3);font-size:13.5px;margin-top:12px;line-height:1.55}
 footer .top .spacer{flex:1}
-footer .flinks{display:flex; gap:26px; flex-wrap:wrap} footer .flinks a{color:var(--ink-2); font-size:14px} footer .flinks a:hover{color:var(--ink)}
-footer .bottom{border-top:1px solid var(--line); max-width:var(--maxw); margin:0 auto; padding:18px var(--gutter); display:flex; gap:10px 18px; flex-wrap:wrap; align-items:center; color:var(--ink-3); font-size:13px}
-footer .bottom .spacer{flex:1}
+footer .flinks{display:flex;gap:26px;flex-wrap:wrap} footer .flinks a{color:var(--ink-2);font-size:14px} footer .flinks a:hover{color:var(--ink)}
+footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 auto;padding:18px var(--gutter);display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center;color:var(--ink-3);font-size:13px} footer .bottom .spacer{flex:1}
+
+.reveal{will-change:opacity,transform}
 </style>
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <div class="bg-fx" aria-hidden="true" id="bgfx"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="grid"></span></div>
 
-<!-- NAV -->
-<nav class="nav" id="nav">
-  <div class="row">
-    <a class="logo" href="#top" aria-label="Presence OS, início">
-      <span class="mk" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3.4" fill="#fff"/><circle cx="16" cy="16" r="7" fill="none" stroke="#fff" stroke-width="2.2"/><circle cx="16" cy="16" r="11.5" fill="none" stroke="#fff" stroke-width="1.8" opacity=".55"/></svg></span>
-      <span class="nm">Presence OS</span>
-    </a>
-    <span class="spacer"></span>
-    <div class="links" id="navlinks">
-      <a href="#produto">Produto</a>
-      <div class="has-mega">
-        <a class="recbtn" href="#modulos">Recursos <svg class="chev" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6l4 4 4-4"/></svg></a>
-        <div class="mega" role="menu">
-          <div class="mega-grid">
-            <a href="#modulos" role="menuitem"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/></svg></span><span><b>Studio</b><span>Conteúdo no seu tom, pronto pra revisar</span></span></a>
-            <a href="#modulos" role="menuitem"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/></svg></span><span><b>Radar de Autoridade</b><span>As conversas certas pra você entrar</span></span></a>
-            <a href="#modulos" role="menuitem"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.3 8l1.9 1.9L11 6"/></svg></span><span><b>Centro de Aprovação</b><span>Nada vai pro ar sem o seu aval</span></span></a>
-            <a href="#modulos" role="menuitem"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M5 8.5c1.5 1.5 4.5 1.5 6 0M5.5 6.2h.01M10.5 6.2h.01"/></svg></span><span><b>Estratégia & Voz</b><span>Onde ele aprende o seu jeito</span></span></a>
-            <a href="#modulos" role="menuitem"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="3" width="11" height="10.5" rx="1.6"/><path d="M2.5 6.3h11"/></svg></span><span><b>Calendário & Assets</b><span>O que sai e quando, num lugar só</span></span></a>
-            <a href="#modulos" role="menuitem"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.6-3.2 2 1.6L13 5"/></svg></span><span><b>Analytics & Alertas</b><span>O que gera autoridade de verdade</span></span></a>
+<div class="topstick" id="topstick">
+  <!-- BARRA DE ALERTA -->
+  <div class="annbar" id="annbar">
+    <div class="row">
+      <span>Beta privado abre em <b>20 de junho</b>. Enquanto você adia, o seu concorrente posta.</span>
+      <span class="cd" id="ann-cd">00d 00h 00m</span>
+      <a class="ann-cta" href="#beta">Garanta sua vaga →</a>
+      <button class="ann-x" id="annX" aria-label="Fechar aviso">×</button>
+    </div>
+  </div>
+  <!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="row">
+      <a class="logo" href="#top" aria-label="PresenceIn, início">
+        <span class="mk" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3.4" fill="#fff"/><circle cx="16" cy="16" r="7" fill="none" stroke="#fff" stroke-width="2.2"/><circle cx="16" cy="16" r="11.5" fill="none" stroke="#fff" stroke-width="1.8" opacity=".55"/></svg></span>
+        <span class="nm">Presence<i>In</i></span>
+      </a>
+      <div class="links" id="navlinks">
+        <a href="#produto">Produto</a>
+        <div class="has-mega">
+          <a class="recbtn" href="#modulos">Recursos <svg class="chev" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6l4 4 4-4"/></svg></a>
+          <div class="mega" role="menu">
+            <div class="mega-grid">
+              <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/></svg></span><span><b>Studio</b><span>Posts, comentários e respostas prontos</span></span></a>
+              <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/></svg></span><span><b>Radar de Autoridade</b><span>O que está em alta, na hora certa</span></span></a>
+              <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.3 8l1.9 1.9L11 6"/></svg></span><span><b>Centro de Aprovação</b><span>Nada vai pro ar sem o seu aval</span></span></a>
+              <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M5 8.5c1.5 1.5 4.5 1.5 6 0M5.5 6.2h.01M10.5 6.2h.01"/></svg></span><span><b>Estratégia & Voz</b><span>Seu tom, suas ideias, seu objetivo</span></span></a>
+              <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="3" width="11" height="10.5" rx="1.6"/><path d="M2.5 6.3h11"/></svg></span><span><b>Calendário & Assets</b><span>O que sai e quando, sem lembrar</span></span></a>
+              <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.6-3.2 2 1.6L13 5"/></svg></span><span><b>Analytics & Alertas</b><span>O que repercutiu e o que pede ação</span></span></a>
+            </div>
           </div>
         </div>
+        <a href="#como">Como funciona</a>
+        <a href="#quem">Quem usa</a>
+        <a href="#faq">FAQ</a>
       </div>
-      <a href="#como">Como funciona</a>
-      <a href="#quem">Quem usa</a>
-      <a href="#faq">FAQ</a>
+      <div class="right">
+        <a class="btn primary sm" href="#beta">Entrar no beta</a>
+        <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navlinks" aria-label="Abrir menu"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h14M3 10h14M3 14h14"/></svg></button>
+      </div>
     </div>
-    <a class="btn primary sm nav-cta" href="#beta">Inscreva-se</a>
-    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navlinks" aria-label="Abrir menu">
-      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
-    </button>
-  </div>
-</nav>
+  </nav>
+</div>
 
 <main id="conteudo">
 
 <!-- HERO -->
 <header class="hero wrap" id="top">
   <div class="inner">
-    <span class="live h-anim"><span class="pulse"></span> Lançamento 20 de junho · inscrições abertas</span>
-    <h1 class="h-anim">Apareça no LinkedIn <span class="nb">todo dia.</span> <span class="hl nb">Sem escrever todo dia.</span></h1>
-    <p class="lede h-anim">Um concierge que aprende o seu jeito, acompanha o mundo em qualquer idioma e deixa seus posts, comentários e respostas prontos. <strong>Você só revisa e aprova.</strong></p>
+    <h1 class="h-anim">O LinkedIn não esquece quem aparece. <span class="hl nb">E some com quem fica calado.</span></h1>
+    <p class="lede h-anim">O PresenceIn é o concierge que aprende sobre você, acompanha o mundo em qualquer idioma e deixa seus posts, comentários e respostas prontos. <strong>Você só revisa e aprova.</strong></p>
     <div class="cta h-anim">
-      <a class="btn primary" href="#beta">Quero me inscrever no beta
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
+      <a class="btn primary" href="#beta">Quero minha vaga no beta
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
       <a class="btn secondary" href="#como">Ver como funciona</a>
     </div>
     <div class="re h-anim">
-      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg> Escreve no seu tom</span>
-      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg> Qualquer idioma</span>
-      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg> Nada publica sem o seu aval</span>
+      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8.5l3 3 7-7"/></svg> No seu tom, não num tom genérico</span>
+      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8.5l3 3 7-7"/></svg> Nada publica sem o seu aval</span>
+      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8.5l3 3 7-7"/></svg> Use a sua própria IA</span>
     </div>
   </div>
 
-  <!-- MACBOOK -->
-  <div class="macwrap h-anim" id="macwrap" aria-hidden="true">
+  <!-- SHOWCASE: MacBook (analytics) + iPhone (wizard) -->
+  <div class="showcase h-anim" id="showcase" aria-hidden="true">
     <div class="macbook" id="macbook">
       <div class="mb-lid">
         <div class="mb-screen">
           <div class="mb-notch"></div>
           <div class="os-bar">
             <svg class="apple" viewBox="0 0 14 17" fill="#fff"><path d="M11.2 9c0-1.7 1.4-2.5 1.4-2.5-.8-1.1-2-1.3-2.4-1.3-1-.1-2 .6-2.5.6s-1.3-.6-2.1-.6C4 5.2 2.6 6.3 2.6 8.6c0 2.6 2 5.6 3.2 5.6.6 0 .9-.4 1.9-.4s1.2.4 1.9.4c1.2 0 3-2.8 3-4.2-1.4-.6-1.4-1-1.4-1zM9.3 4.2c.6-.7.5-1.7.5-1.9-.5 0-1.2.4-1.6.9-.4.4-.7 1.1-.6 1.8.6 0 1.1-.3 1.7-.8z"/></svg>
-            <b>Presence OS</b><span class="mi">Arquivo</span><span class="mi">Editar</span><span class="mi">Visualizar</span><span class="mi">Janela</span><span class="mi">Ajuda</span>
+            <b>PresenceIn</b><span class="mi">Arquivo</span><span class="mi">Editar</span><span class="mi">Visualizar</span><span class="mi">Janela</span>
             <span class="sp"></span>
-            <span class="st"><svg width="13" height="10" viewBox="0 0 16 12" fill="#fff"><path d="M8 11l3-3a4.2 4.2 0 0 0-6 0zM8 6.5l5.5-5.5a11 11 0 0 0-11 0z" opacity=".9"/></svg><svg width="18" height="10" viewBox="0 0 24 12" fill="none"><rect x="1" y="2" width="19" height="8" rx="2" stroke="#fff" opacity=".7"/><rect x="2.5" y="3.5" width="13" height="5" rx="1" fill="#fff"/><rect x="21" y="4" width="2" height="4" rx="1" fill="#fff" opacity=".7"/></svg><b style="font-weight:500">9:41</b></span>
+            <span class="st"><svg width="13" height="10" viewBox="0 0 16 12" fill="#fff"><path d="M8 11l3-3a4.2 4.2 0 0 0-6 0zM8 6.5l5.5-5.5a11 11 0 0 0-11 0z" opacity=".9"/></svg><svg width="18" height="10" viewBox="0 0 24 12" fill="none"><rect x="1" y="2" width="19" height="8" rx="2" stroke="#fff" opacity=".7"/><rect x="2.5" y="3.5" width="13" height="5" rx="1" fill="#fff"/></svg><b style="font-weight:500">9:41</b></span>
           </div>
           <div class="os-win">
             <div class="win-bar">
               <span class="tl"><i></i><i></i><i></i></span>
-              <span class="dl"><svg width="12" height="12" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3.4" fill="#818cf8"/><circle cx="16" cy="16" r="7" fill="none" stroke="#818cf8" stroke-width="2.4"/></svg> Presence OS</span>
-              <span class="crumb">Cockpit · <b>Hoje</b></span>
-              <span class="sp"></span>
-              <span class="search">Buscar… ⌘K</span>
-              <span class="av">MA</span>
+              <span class="dl"><svg width="12" height="12" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3.4" fill="#7fb8ee"/><circle cx="16" cy="16" r="7" fill="none" stroke="#7fb8ee" stroke-width="2.4"/></svg> PresenceIn</span>
+              <span class="crumb">Cockpit · <b>Analytics</b></span><span class="sp"></span>
+              <span class="search">Buscar… ⌘K</span><span class="av">MA</span>
             </div>
             <div class="app-body">
               <aside class="app-nav">
-                <div class="l on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg> Hoje</div>
+                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg> Hoje</div>
                 <div class="g">Criar</div>
                 <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 1.5L3.5 9H7l-1 5.5L12.5 7H9z"/></svg> Post</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="12" height="10"/><circle cx="6" cy="7" r="1.2"/><path d="M3 12l3.5-3.5 2.5 2.5"/></svg> Imagem</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2l6 3-6 3-6-3z"/><path d="M2 8l6 3 6-3"/></svg> Visual Studio</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.5 8l1.8 1.8L11 6"/></svg> Proof Vault</div>
+                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="12" height="10"/><circle cx="6" cy="7" r="1.2"/></svg> Imagem</div>
+                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2l6 3-6 3-6-3z"/></svg> Visual Studio</div>
                 <div class="g">Descobrir</div>
                 <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/></svg> Radar</div>
                 <div class="g">Relacionar</div>
@@ -391,157 +394,153 @@ footer .bottom .spacer{flex:1}
                 <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="6" cy="5" r="2"/><path d="M2 13c0-2.2 1.8-3.5 4-3.5s4 1.3 4 3.5"/></svg> Leads / CRM</div>
                 <div class="g">Publicar & medir</div>
                 <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.5 8l1.8 1.8L11 6"/></svg> Aprovações</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/><path d="M2.5 6h11"/></svg> Calendário</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="12" height="10"/><circle cx="6" cy="7" r="1.2"/></svg> Galeria</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.5-3 2 1.5L13 5"/></svg> Analytics</div>
-                <div class="g">Conta</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 14l1-3 7-7 2 2-7 7z"/></svg> Estratégia & Voz</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.8 2.2-4.5 5-4.5s5 1.7 5 4.5"/></svg> Perfil</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6.5 9.5l3-3M8 4.5l1-1a2.8 2.8 0 0 1 4 4l-1 1"/></svg> Conexão LinkedIn</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 7a4 4 0 0 1 8 0c0 3 1 4 1 4H3s1-1 1-4z"/></svg> Alertas</div>
+                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/></svg> Calendário</div>
+                <div class="l on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.5-3 2 1.5L13 5"/></svg> Analytics</div>
               </aside>
               <div class="app-main">
-                <div class="a-hero">
-                  <div>
-                    <div class="eb">Presence OS · Cockpit</div>
-                    <h4>Olá, Marina</h4>
-                    <div class="a-ws"><span class="dot"></span> Marina Alves · Autoridade em Tech &amp; IA</div>
-                    <div class="sum">8 leads quentes · 3 em aprovação · 5 agendados · 6 oportunidades</div>
+                <div class="an-top">
+                  <div class="an-card an-score">
+                    <svg class="ring" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" fill="none" stroke="#e3e8ef" stroke-width="3.4"/><circle cx="18" cy="18" r="15.5" fill="none" stroke="#0a66c2" stroke-width="3.4" stroke-linecap="round" pathLength="100" stroke-dasharray="78 100" transform="rotate(-90 18 18)"/></svg>
+                    <div><div class="sv">78</div><div class="sl">Autoridade</div><div class="sd">▲ +12 no mês</div></div>
                   </div>
-                  <div class="a-step"><div class="eb">Próximo passo</div><div class="st">3 itens aguardando sua aprovação.</div><span class="b">Revisar →</span></div>
+                  <div class="an-card an-bars">
+                    <div class="ct">Alcance por semana <b>+34%</b></div>
+                    <div class="bars"><i style="height:38%"></i><i style="height:52%"></i><i style="height:45%"></i><i style="height:64%"></i><i style="height:58%"></i><i style="height:80%"></i><i style="height:96%"></i></div>
+                  </div>
                 </div>
-                <div class="a-stats">
-                  <div class="a-stat"><div class="k">Leads</div><div class="v ok">8</div></div>
-                  <div class="a-stat"><div class="k">Aprovações</div><div class="v warn">3</div></div>
-                  <div class="a-stat"><div class="k">Agendados</div><div class="v">5</div></div>
-                  <div class="a-stat"><div class="k">Prontos</div><div class="v">12</div></div>
-                  <div class="a-stat"><div class="k">Oportun.</div><div class="v">6</div></div>
-                </div>
-                <div class="a-today">
-                  <div class="h"><b>Hoje · suas próximas ações</b><span>nada publica sozinho</span></div>
-                  <div class="it top"><span class="rk">1</span><span class="tx">Revisar 3 itens aguardando aprovação</span><span class="cta">Revisar →</span></div>
-                  <div class="it"><span class="rk">2</span><span class="tx">Comentar em 6 oportunidades quentes do Radar</span><span class="cta">Abrir →</span></div>
-                  <div class="it"><span class="rk">3</span><span class="tx">Abordar 8 leads quentes ainda sem contato</span><span class="cta">Ver →</span></div>
+                <div class="an-row2">
+                  <div class="an-card an-spark">
+                    <div class="ct">Seguidores <b>+1.284</b></div>
+                    <svg viewBox="0 0 120 40" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a66c2" stop-opacity=".22"/><stop offset="1" stop-color="#0a66c2" stop-opacity="0"/></linearGradient></defs><path d="M0 34 L18 30 L36 31 L54 22 L72 24 L90 13 L108 9 L120 4 L120 40 L0 40 Z" fill="url(#sg)"/><path d="M0 34 L18 30 L36 31 L54 22 L72 24 L90 13 L108 9 L120 4" fill="none" stroke="#0a66c2" stroke-width="2" stroke-linecap="round"/></svg>
+                  </div>
+                  <div class="an-card an-list">
+                    <div class="ct">Temas em alta</div>
+                    <div class="an-li"><span class="dot" style="background:#0a66c2"></span> IA aplicada <span class="n">92</span></div>
+                    <div class="an-li"><span class="dot" style="background:#1a85e0"></span> Liderança <span class="n">76</span></div>
+                    <div class="an-li"><span class="dot" style="background:#7fb8ee"></span> Carreira <span class="n">61</span></div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <div class="os-dock">
-            <span class="dk pr on" title="Presence OS"><svg width="18" height="18" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3.4" fill="#fff"/><circle cx="16" cy="16" r="7" fill="none" stroke="#fff" stroke-width="2.4"/><circle cx="16" cy="16" r="11.5" fill="none" stroke="#dfe3ff" stroke-width="2"/></svg></span>
+            <span class="dk pr on" title="PresenceIn"><svg width="18" height="18" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3.4" fill="#fff"/><circle cx="16" cy="16" r="7" fill="none" stroke="#fff" stroke-width="2.4"/><circle cx="16" cy="16" r="11.5" fill="none" stroke="#cfe3f6" stroke-width="2"/></svg></span>
             <span class="dk" title="Safari"><img src="https://api.iconify.design/logos/safari.svg" alt="" loading="lazy"></span>
             <span class="dk" title="LinkedIn"><img src="https://api.iconify.design/logos/linkedin-icon.svg" alt="" loading="lazy"></span>
             <span class="dk" title="Figma"><img src="https://api.iconify.design/logos/figma.svg" alt="" loading="lazy"></span>
             <span class="dk" title="Slack"><img src="https://api.iconify.design/logos/slack-icon.svg" alt="" loading="lazy"></span>
             <span class="dk" title="Notion"><img src="https://api.iconify.design/logos/notion-icon.svg" alt="" loading="lazy"></span>
             <span class="dk" title="Spotify"><img src="https://api.iconify.design/logos/spotify-icon.svg" alt="" loading="lazy"></span>
-            <span class="dk" title="Calendário"><img src="https://api.iconify.design/logos/google-calendar.svg" alt="" loading="lazy"></span>
           </div>
         </div>
       </div>
       <div class="mb-base"></div>
     </div>
+
+    <!-- iPHONE com wizard -->
+    <div class="iphone">
+      <div class="ip-screen">
+        <div class="ip-island"></div>
+        <div class="ip-body">
+          <div class="ip-mk"><svg width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3.4" fill="#fff"/><circle cx="16" cy="16" r="7" fill="none" stroke="#fff" stroke-width="2.4"/><circle cx="16" cy="16" r="11.5" fill="none" stroke="#cfe3f6" stroke-width="2"/></svg></div>
+          <div class="ip-h">Presence<i>In</i></div>
+          <div class="ip-sub">Funciona no seu bolso. Pronto em 3 passos.</div>
+          <div class="ip-step done"><span class="n">✓</span> Conecte o LinkedIn</div>
+          <div class="ip-step"><span class="n">2</span> Conecte a sua IA</div>
+          <div class="ip-step"><span class="n">3</span> Seu tom & objetivo</div>
+          <div class="ip-btn">Começar agora</div>
+        </div>
+      </div>
+    </div>
   </div>
 </header>
 
-<!-- FAIXA: SUA IA -->
+<!-- AI STRIP -->
 <section class="aistrip band reveal">
   <div class="wrap">
-    <div class="lbl">Use a IA que você já tem. Sem custo extra de modelo.</div>
+    <div class="lbl">Funciona com a IA que você já usa</div>
     <div class="row">
       <span class="ai"><img src="https://api.iconify.design/logos/claude.svg" alt="" loading="lazy"> Claude</span>
-      <span class="ai"><img src="https://api.iconify.design/logos/openai-icon.svg" alt="" loading="lazy"> ChatGPT · Codex</span>
+      <span class="ai"><img src="https://api.iconify.design/logos/openai-icon.svg" alt="" loading="lazy"> ChatGPT</span>
       <span class="ai"><img src="https://api.iconify.design/logos/google-gemini.svg" alt="" loading="lazy"> Gemini</span>
-      <span class="ai"><img src="https://api.iconify.design/logos/mistral-ai-icon.svg" alt="" loading="lazy"> Mistral</span>
     </div>
-    <div class="note">Conecte a sua assinatura (Claude, ChatGPT/Codex) ou uma API key (Gemini e outros). A IA roda na sua conta.</div>
+    <div class="note">Você conecta a sua assinatura ou a sua API key. Sem intermediário, sem cota nossa no meio.</div>
   </div>
 </section>
 
-<!-- PERSONAS -->
-<section class="sec wrap personas" style="padding-top:clamp(48px,6vw,72px);padding-bottom:clamp(48px,6vw,72px)">
-  <div class="lbl reveal">Para todo profissional que vive (ou devia viver) do LinkedIn</div>
-  <div class="chips reveal">
-    <span class="chip">Fundadores</span><span class="chip">CEOs</span><span class="chip">CTOs</span><span class="chip">CMOs</span><span class="chip">CFOs</span>
-    <span class="chip">Heads de Produto</span><span class="chip">Heads de Marketing</span><span class="chip">Heads de Vendas</span><span class="chip">Diretores</span><span class="chip">Gerentes</span>
-    <span class="chip">Consultores</span><span class="chip">Advogados</span><span class="chip">Médicos</span><span class="chip">Contadores</span><span class="chip">Professores</span>
-    <span class="chip">Pesquisadores</span><span class="chip">Investidores</span><span class="chip">Coaches</span><span class="chip">Mentores</span><span class="chip">Designers</span>
-    <span class="chip">Engenheiros</span><span class="chip">Product Managers</span><span class="chip">Recrutadores</span><span class="chip">RH</span><span class="chip">SDRs</span>
-    <span class="chip">Account Executives</span><span class="chip">Freelancers</span><span class="chip">Agências</span><span class="chip">Criadores B2B</span><span class="chip">Em transição de carreira</span>
+<!-- PERSONAS (marquee) -->
+<section class="sec wrap" style="padding-top:clamp(46px,6vw,72px);padding-bottom:clamp(46px,6vw,72px)">
+  <div class="mq-head reveal">
+    <h2>Feito para quem precisa ser lembrado.</h2>
+    <p>Founders, executivos, vendedores, recrutadores, consultores e especialistas: quem some do feed, some da cabeça das pessoas.</p>
   </div>
+  <div class="marquee reveal"><div class="mq-track" id="mq1"></div></div>
+  <div class="marquee reveal"><div class="mq-track rev" id="mq2"></div></div>
 </section>
 
 <!-- PILARES -->
 <section class="sec wrap" id="produto">
   <div class="sec-head reveal">
-    <span class="kicker">O que ele faz por você</span>
-    <h2>Aprende com você, fala com o mundo e mantém você presente.</h2>
+    <span class="kicker">O que o PresenceIn faz por você</span>
+    <h2>Quatro coisas que ele faz. E uma que nunca faz sem permissão.</h2>
   </div>
   <div class="pillars">
-    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l1.8 4 4.2.4-3.2 2.8 1 4.3L8 10.8 4.2 13l1-4.3L2 5.9l4.2-.4z"/></svg></div><div><h3>Aprende você</h3><p>Absorve o seu tom e as suas ideias. O que sai parece escrito por você, não por uma ferramenta genérica.</p></div></div>
-    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M2 8h12M8 1.7c1.8 1.7 1.8 10.9 0 12.6M8 1.7c-1.8 1.7-1.8 10.9 0 12.6"/></svg></div><div><h3>Acompanha o mundo</h3><p>Notícias e tendências do mundo todo, em qualquer idioma. Você entra na conversa enquanto ela ainda está quente.</p></div></div>
-    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 8a5 5 0 1 1-1.5-3.5"/><path d="M13 2v3h-3"/></svg></div><div><h3>Trabalha como concierge</h3><p>Depois que aprende, deixa posts, comentários e respostas prontos e mantém um ritmo constante, sem você pedir.</p></div></div>
-    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5.5 2.3v3.6c0 3.4-2.4 5.6-5.5 6.6-3.1-1-5.5-3.2-5.5-6.6V3.8z"/><path d="M5.7 8l1.6 1.6L10.6 6"/></svg></div><div><h3>Você aprova</h3><p>Cada conteúdo passa pela sua mão antes de existir. Nada é publicado sem o seu sim.</p></div></div>
+    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l1.8 4 4.2.4-3.2 2.8 1 4.3L8 10.8 4.2 13l1-4.3L2 5.9l4.2-.4z"/></svg></div><div><h3>Aprende sobre você</h3><p>Como você fala, o seu tom, as suas ideias e o seu objetivo. O texto sai com a sua cara, não com a cara de um robô.</p></div></div>
+    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M2 8h12M8 1.7c1.8 1.7 1.8 10.9 0 12.6M8 1.7c-1.8 1.7-1.8 10.9 0 12.6"/></svg></div><div><h3>Acompanha o mundo</h3><p>Enquanto você dorme, ele lê o que importa no seu mercado, em qualquer língua, e traz o assunto antes de virar lugar-comum.</p></div></div>
+    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 8a5 5 0 1 1-1.5-3.5"/><path d="M13 2v3h-3"/></svg></div><div><h3>Trabalha como concierge</h3><p>Post, comentário e resposta prontos pra você decidir. Você abre o app e o trabalho pesado já está feito.</p></div></div>
+    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5.5 2.3v3.6c0 3.4-2.4 5.6-5.5 6.6-3.1-1-5.5-3.2-5.5-6.6V3.8z"/><path d="M5.7 8l1.6 1.6L10.6 6"/></svg></div><div><h3>Você aprova</h3><p>Nada vai pro ar sem o seu aval. Você manda, sempre.</p></div></div>
   </div>
   <div class="result reveal">
     <div class="ic"><svg width="26" height="26" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.6-3.2 2 1.6L13 4.5"/><path d="M13 4.5h-2.4M13 4.5V7"/></svg></div>
-    <div><h3>Mais visibilidade e autoridade, com consistência.</h3><p>Presença constante constrói reputação. Você ganha alcance e vira referência, sem gastar horas por dia pra isso.</p></div>
+    <div><h3>Você aparece com consistência e vira referência.</h3><p>A referência que vem à cabeça primeiro. Sem gastar horas por dia, e sem terceirizar a sua voz.</p></div>
   </div>
 </section>
 
 <!-- MÓDULOS -->
 <section class="sec band" id="modulos">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Recursos</span>
-      <h2>Seis módulos, uma memória só do seu jeito.</h2>
-    </div>
+    <div class="sec-head reveal"><span class="kicker">Recursos</span><h2>Seis módulos pra você sair da inércia e ocupar espaço.</h2></div>
     <div class="grid">
-      <div class="tile reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/><path d="M9.5 3.5l2.2 2.2"/></svg></div><h3>Studio</h3><p>Post, comentário, resposta e imagem no seu tom. Refina e revisa antes de você bater o olho.</p><div class="tags"><span class="badge">No seu tom</span><span class="badge">Auditoria</span><span class="badge">Imagens</span></div></div>
-      <div class="tile reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.2"/><circle cx="8" cy="8" r="2.6"/><path d="M8 8l4.4-4.4"/></svg></div><h3>Radar de Autoridade</h3><p>Acha as conversas certas e já deixa o comentário pronto pra você revisar. Você aparece onde o público está.</p><div class="tags"><span class="badge">Oportunidades</span><span class="badge">Autopilot</span></div></div>
-      <div class="tile reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.3 8l1.9 1.9L11 6"/></svg></div><h3>Centro de Aprovação</h3><p>Sua fila de revisão num lugar só. O Publish Guard checa cada peça, e você aprova com tranquilidade.</p><div class="tags"><span class="badge">Publish Guard</span><span class="badge">Controle</span></div></div>
-      <div class="tile reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M5 8.5c1.5 1.5 4.5 1.5 6 0M5.5 6.2h.01M10.5 6.2h.01"/></svg></div><h3>Estratégia & Voz</h3><p>Onde ele aprende o seu objetivo, o seu público e o seu tom. A base pra tudo soar como você.</p><div class="tags"><span class="badge">Tom de voz</span><span class="badge">Objetivos</span></div></div>
-      <div class="tile reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="3" width="11" height="10.5" rx="1.6"/><path d="M2.5 6.3h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg></div><h3>Calendário & Assets</h3><p>O que vai sair e quando, com a sua biblioteca de textos e imagens à mão. Sem planilha paralela.</p><div class="tags"><span class="badge">Calendário</span><span class="badge">Biblioteca</span></div></div>
-      <div class="tile reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.6-3.2 2 1.6L13 5"/></svg></div><h3>Analytics & Alertas</h3><p>O que está performando e o que pede atenção agora. Você dobra a aposta no que funciona.</p><div class="tags"><span class="badge">Métricas</span><span class="badge">Alertas</span></div></div>
+      <div class="tile reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/><path d="M9.5 3.5l2.2 2.2"/></svg></div><h3>Studio</h3><p>Onde seus posts, comentários e respostas ficam prontos pra revisar e aprovar.</p><div class="tags"><span class="badge">Posts</span><span class="badge">Comentários</span></div></div>
+      <div class="tile reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.2"/><circle cx="8" cy="8" r="2.6"/><path d="M8 8l4.4-4.4"/></svg></div><h3>Radar de Autoridade</h3><p>Capta o que está em alta no seu mercado, em qualquer idioma, e te dá o assunto na hora certa.</p><div class="tags"><span class="badge">Monitoramento</span><span class="badge">Multi-idioma</span></div></div>
+      <div class="tile reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.3 8l1.9 1.9L11 6"/></svg></div><h3>Centro de Aprovação</h3><p>Tudo passa por você antes de publicar. Aprova, ajusta ou descarta em segundos.</p><div class="tags"><span class="badge">Controle total</span><span class="badge">Aprovação</span></div></div>
+      <div class="tile reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M5 8.5c1.5 1.5 4.5 1.5 6 0M5.5 6.2h.01M10.5 6.2h.01"/></svg></div><h3>Estratégia & Voz</h3><p>Ensina o sistema sobre o seu tom, as suas ideias e o seu objetivo de presença.</p><div class="tags"><span class="badge">Seu tom</span><span class="badge">Posicionamento</span></div></div>
+      <div class="tile reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="3" width="11" height="10.5" rx="1.6"/><path d="M2.5 6.3h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg></div><h3>Calendário & Assets</h3><p>Organiza o que sai e quando, sem você ter que lembrar de aparecer.</p><div class="tags"><span class="badge">Agenda</span><span class="badge">Consistência</span></div></div>
+      <div class="tile reveal"><div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.6-3.2 2 1.6L13 5"/></svg></div><h3>Analytics & Alertas</h3><p>Mostra o que repercutiu e te avisa das oportunidades que passariam batido.</p><div class="tags"><span class="badge">Métricas</span><span class="badge">Alertas</span></div></div>
     </div>
   </div>
 </section>
 
 <!-- COMO FUNCIONA -->
 <section class="sec wrap" id="como">
-  <div class="sec-head reveal">
-    <span class="kicker">Como funciona</span>
-    <h2>Três passos. Depois disso, ele toca sozinho.</h2>
-  </div>
+  <div class="sec-head reveal"><span class="kicker">Como funciona</span><h2>Três passos. Depois é só aprovar.</h2></div>
   <div class="steps">
-    <div class="step reveal"><div class="n">1</div><h3>Ele aprende você</h3><p>Você mostra o objetivo, o público e exemplos do seu jeito de escrever. Ele absorve o seu tom.</p></div>
-    <div class="step reveal"><div class="n">2</div><h3>Prepara, acompanhando o mundo</h3><p>Encontra as oportunidades no seu nicho, em qualquer idioma, e deixa tudo pronto no seu tom.</p></div>
-    <div class="step reveal"><div class="n">3</div><h3>Você aprova e publica</h3><p>As propostas chegam na sua fila. Você ajusta, aprova com um clique e só então vai pro ar.</p></div>
+    <div class="step reveal"><div class="n">1</div><h3>Aprende sobre você</h3><p>Você mostra como fala e o que quer. Ele absorve o seu tom, as suas ideias e o seu objetivo.</p></div>
+    <div class="step reveal"><div class="n">2</div><h3>Prepara acompanhando o mundo</h3><p>Monitora o seu mercado em qualquer idioma e deixa posts, comentários e respostas prontos.</p></div>
+    <div class="step reveal"><div class="n">3</div><h3>Você aprova e publica</h3><p>Você revisa, aprova e vai pro ar. Nada acontece sem o seu aval.</p></div>
   </div>
 </section>
 
 <!-- PROVA SOCIAL -->
 <section class="sec band" id="quem">
   <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="kicker">Quem usa</span>
-      <h2>Você tem o que dizer. Falta tempo e constância.</h2>
-    </div>
+    <div class="sec-head reveal"><span class="kicker">Quem usa</span><h2>Você já sabe que devia aparecer mais.</h2></div>
     <div class="proof-grid">
       <div class="pain reveal">
-        <h3>A dor que você reconhece</h3>
+        <h3>Reconhece alguma destas?</h3>
         <ul>
-          <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5"/></svg> Você sabe que presença gera oportunidade, mas passa semanas sem postar.</li>
-          <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5"/></svg> A tela em branco engole uma hora do seu dia.</li>
-          <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5"/></svg> Vê a notícia certa pra comentar e percebe tarde, quando a conversa já esfriou.</li>
-          <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5"/></svg> O que as ferramentas genéricas entregam não parece você, então você não publica.</li>
+          <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5"/></svg> Você abre pra postar, trava na primeira frase e fecha o app.</li>
+          <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5"/></svg> Some do feed por semanas e ninguém lembra que você existe.</li>
+          <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5"/></svg> Vê um concorrente menos preparado virar autoridade no seu lugar.</li>
+          <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5"/></svg> Tem o que dizer, mas a oportunidade passa no "depois eu escrevo".</li>
         </ul>
       </div>
       <div class="why reveal">
         <span class="badge beta">Por que entrar agora</span>
-        <h3>Entre antes, e com vantagem.</h3>
-        <p>Beta privado, acesso antecipado em lotes pequenos. Quem entra agora testa antes de todo mundo, ganha acesso premium aos módulos e ajuda a moldar o produto.</p>
-        <a class="btn primary" href="#beta">Garantir meu acesso
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
+        <h3>Quem chega cedo sai na frente.</h3>
+        <p>Beta privado, em lotes pequenos. Quem entra cedo molda o produto e garante acesso premium aos módulos. As primeiras vagas abrem em 20 de junho e não voltam pelo mesmo preço.</p>
+        <a class="btn primary" href="#beta">Quero entrar no primeiro lote
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
       </div>
     </div>
   </div>
@@ -551,54 +550,54 @@ footer .bottom .spacer{flex:1}
 <section class="sec wrap" id="faq">
   <div class="sec-head reveal"><span class="kicker">Perguntas frequentes</span><h2>O que dá pra esperar.</h2></div>
   <div class="faq reveal">
-    <details><summary>Preciso de qual IA pra usar?<span class="x" aria-hidden="true"></span></summary><div class="a">Você usa a sua própria IA: uma assinatura do Claude (Anthropic), do ChatGPT com Codex (OpenAI), ou uma API key (Gemini do Google e outros modelos). A IA roda na sua conta, então não tem custo de modelo embutido no Presence OS.</div></details>
-    <details><summary>Ele publica sozinho, sem eu ver?<span class="x" aria-hidden="true"></span></summary><div class="a">Não. Ele prepara tudo, mas nada vai pro ar sem a sua aprovação. Você revisa na fila do Centro de Aprovação e só então publica.</div></details>
-    <details><summary>Como ele aprende o meu tom?<span class="x" aria-hidden="true"></span></summary><div class="a">No módulo Estratégia & Voz você define objetivo, público e mostra exemplos do seu jeito de escrever. A partir daí, ele escreve tudo na sua voz e vai refinando conforme você aprova.</div></details>
-    <details><summary>Funciona em outros idiomas?<span class="x" aria-hidden="true"></span></summary><div class="a">Sim. Ele acompanha o mundo em qualquer idioma e entrega o conteúdo no idioma e no tom que você usa com o seu público.</div></details>
-    <details><summary>Preciso saber escrever bem?<span class="x" aria-hidden="true"></span></summary><div class="a">Não. Essa é a parte que ele resolve, como um concierge. Você traz as ideias e o aval, ele cuida do texto e da consistência.</div></details>
-    <details><summary>Quando lança e como funciona o acesso?<span class="x" aria-hidden="true"></span></summary><div class="a">O lançamento é em 20 de junho de 2026. As inscrições do beta privado estão abertas, em lotes pequenos, com acesso premium e condição especial de quem chegou cedo.</div></details>
+    <details><summary>Preciso de qual IA?<span class="x"></span></summary><div class="a">A sua. Conecte a assinatura do Claude, do ChatGPT (OpenAI) ou a API key do Gemini e outros. Você usa a IA que já confia, e ela roda na sua conta.</div></details>
+    <details><summary>Ele publica sozinho?<span class="x"></span></summary><div class="a">Não. Tudo fica pronto, mas nada vai pro ar sem a sua aprovação. O controle é seu, do começo ao fim.</div></details>
+    <details><summary>Como ele aprende o meu tom?<span class="x"></span></summary><div class="a">Você mostra como fala, as suas ideias e o seu objetivo. O PresenceIn usa isso pra escrever com a sua voz, não com um tom genérico.</div></details>
+    <details><summary>Funciona em outros idiomas?<span class="x"></span></summary><div class="a">Sim. Ele acompanha o mundo em qualquer idioma e prepara o conteúdo no idioma que você quiser.</div></details>
+    <details><summary>Preciso saber escrever?<span class="x"></span></summary><div class="a">Não. Esse é o ponto. Ele deixa pronto, você só revisa e aprova com um clique.</div></details>
+    <details><summary>Quando lança e como é o acesso?<span class="x"></span></summary><div class="a">Beta privado a partir de 20 de junho de 2026, em lotes pequenos. Quem entra cedo tem acesso premium aos módulos e condição de quem chegou primeiro.</div></details>
   </div>
 </section>
 
-<!-- BETA + CONTADOR -->
+<!-- BETA -->
 <section class="sec band" id="beta">
   <div class="wrap">
     <div class="beta-card reveal">
       <div class="beta-grid">
         <div>
-          <span class="badge beta" style="margin-bottom:14px">Beta privado · acesso antecipado</span>
+          <span class="badge beta" style="margin-bottom:14px">Beta privado · vagas limitadas</span>
           <h2>Inscreva-se para participar do beta.</h2>
-          <p class="lede">O Presence OS lança em <strong>20 de junho de 2026</strong>. As vagas do beta são limitadas e liberadas em lotes pequenos. Corra: quando o lote fecha, fecha.</p>
+          <p class="lede">As primeiras vagas abrem em <strong>20 de junho de 2026</strong>, em lotes pequenos, e cada lote fecha rápido. Enquanto você decide, o feed segue sem você.</p>
           <div class="countdown" id="countdown" aria-label="Contagem regressiva para o lançamento">
             <div class="cd-box"><div class="num" id="cd-d">00</div><div class="lab">dias</div></div>
             <div class="cd-box"><div class="num" id="cd-h">00</div><div class="lab">horas</div></div>
             <div class="cd-box"><div class="num" id="cd-m">00</div><div class="lab">min</div></div>
             <div class="cd-box"><div class="num" id="cd-s">00</div><div class="lab">seg</div></div>
           </div>
-          <div class="cd-line" id="cd-line">para o lançamento</div>
-          <div class="req"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5.5 2.3v3.6c0 3.4-2.4 5.6-5.5 6.6-3.1-1-5.5-3.2-5.5-6.6V3.8z"/></svg><span>Você usa a sua própria IA: assinatura do <strong>Claude</strong>, do <strong>ChatGPT/Codex</strong> (OpenAI) ou uma <strong>API key</strong> (Gemini e outros).</span></div>
+          <div class="cd-line">para o lançamento</div>
+          <div class="req"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5.5 2.3v3.6c0 3.4-2.4 5.6-5.5 6.6-3.1-1-5.5-3.2-5.5-6.6V3.8z"/></svg><span>Você usa a sua própria IA: assinatura do <strong>Claude</strong>, do <strong>ChatGPT</strong> (OpenAI) ou uma <strong>API key</strong> (Gemini e outros).</span></div>
           <ul class="perks">
-            <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg> Acesso premium a todos os módulos, antes do lançamento.</li>
-            <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg> Seu feedback vira recurso: você ajuda a crescer o produto.</li>
-            <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg> Condição especial de quem chegou cedo, que não volta depois.</li>
+            <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8.5l3 3 7-7"/></svg> Acesso premium aos módulos.</li>
+            <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8.5l3 3 7-7"/></svg> Seu feedback vira recurso de verdade.</li>
+            <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8.5l3 3 7-7"/></svg> Condição de quem chegou cedo, garantida.</li>
           </ul>
         </div>
         <div>
           <form id="waitlist" data-endpoint="" data-contact="beta@soberanus.com" novalidate>
             <p class="reqnote"><span style="color:var(--i)">*</span> obrigatório</p>
-            <div class="field"><label for="nome">Nome <span style="color:var(--i)" aria-hidden="true">*</span></label><input id="nome" name="nome" type="text" autocomplete="name" placeholder="Como te chamamos?" required aria-required="true" aria-describedby="formErr" /></div>
-            <div class="field"><label for="email">E-mail <span style="color:var(--i)" aria-hidden="true">*</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="voce@empresa.com" required aria-required="true" aria-describedby="formErr" /></div>
+            <div class="field"><label for="nome">Nome <span style="color:var(--i)">*</span></label><input id="nome" name="nome" type="text" autocomplete="name" placeholder="Como te chamamos?" required aria-required="true" aria-describedby="formErr" /></div>
+            <div class="field"><label for="email">E-mail <span style="color:var(--i)">*</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="voce@empresa.com" required aria-required="true" aria-describedby="formErr" /></div>
             <div class="field"><label for="linkedin">Seu LinkedIn <span class="opt">(perfil ou @)</span></label><input id="linkedin" name="linkedin" type="text" placeholder="linkedin.com/in/voce" /></div>
             <div class="field"><label for="motivo">Por que você quer entrar? <span class="opt">(opcional)</span></label><textarea id="motivo" name="motivo" placeholder="O que você quer construir aparecendo mais no LinkedIn?"></textarea></div>
-            <button class="btn primary block" type="submit" id="submitBtn">Garantir minha inscrição
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></button>
+            <button class="btn primary block" type="submit" id="submitBtn">Garantir minha vaga
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></button>
             <div class="form-err" id="formErr" role="alert"></div>
-            <p class="fine">Sem cartão pra começar. Nada é publicado sem a sua aprovação.</p>
+            <p class="fine">Sem cartão. Você usa a sua própria IA. Nada é publicado sem o seu aval.</p>
           </form>
           <div class="form-ok" id="formOk" aria-live="polite">
             <span class="oi"><svg width="26" height="26" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 8.5l3 3 7-7"/></svg></span>
-            <h3>Inscrição garantida.</h3>
-            <p>Recebemos o seu pedido. Você está na fila do acesso antecipado. Fique de olho no seu e-mail: o convite do próximo lote chega por lá.</p>
+            <h3>Você está na fila.</h3>
+            <p>Pronto. Você está na fila do beta. A gente avisa assim que a sua vaga abrir.</p>
           </div>
         </div>
       </div>
@@ -611,92 +610,88 @@ footer .bottom .spacer{flex:1}
 <footer>
   <div class="top">
     <div class="lead">
-      <a class="logo" href="#top">
-        <span class="mk" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3.4" fill="#fff"/><circle cx="16" cy="16" r="7" fill="none" stroke="#fff" stroke-width="2.2"/><circle cx="16" cy="16" r="11.5" fill="none" stroke="#fff" stroke-width="1.8" opacity=".55"/></svg></span>
-        <span class="nm">Presence OS</span>
-      </a>
-      <p>Você presente todo dia, sem virar um trabalho. Um produto Soberanus.</p>
+      <a class="logo" href="#top"><span class="mk" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3.4" fill="#fff"/><circle cx="16" cy="16" r="7" fill="none" stroke="#fff" stroke-width="2.2"/><circle cx="16" cy="16" r="11.5" fill="none" stroke="#fff" stroke-width="1.8" opacity=".55"/></svg></span><span class="nm">Presence<i>In</i></span></a>
+      <p>O concierge que faz você ser lembrado no LinkedIn. Um produto Soberanus.</p>
     </div>
     <span class="spacer"></span>
-    <nav class="flinks" aria-label="Rodapé">
-      <a href="#produto">Produto</a><a href="#modulos">Recursos</a><a href="#como">Como funciona</a><a href="#faq">FAQ</a><a href="#beta">Inscreva-se</a>
-    </nav>
+    <nav class="flinks" aria-label="Rodapé"><a href="#produto">Produto</a><a href="#modulos">Recursos</a><a href="#como">Como funciona</a><a href="#faq">FAQ</a><a href="#beta">Entrar no beta</a></nav>
   </div>
-  <div class="bottom">
-    <span>Você no controle, da primeira ideia ao clique final: nada é publicado sem a sua aprovação.</span>
-    <span class="spacer"></span>
-    <span>© <span id="yr">2026</span> Soberanus</span>
-  </div>
+  <div class="bottom"><span>Nada é publicado sem a sua aprovação.</span><span class="spacer"></span><span>© <span id="yr">2026</span> Soberanus</span></div>
 </footer>
 
 <script>
 (function(){
-  var doc = document.documentElement;
-  try{ document.getElementById('yr').textContent = String(new Date().getFullYear()); }catch(e){}
-  var nav = document.getElementById('nav');
-  var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 8); };
-  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
-  var tg = document.getElementById('navToggle');
-  if(tg){ tg.addEventListener('click', function(){ var o = nav.classList.toggle('open'); tg.setAttribute('aria-expanded', String(o)); });
-    document.querySelectorAll('#navlinks a[href^="#"]').forEach(function(a){ a.addEventListener('click', function(){ nav.classList.remove('open'); tg.setAttribute('aria-expanded','false'); }); }); }
+  var doc=document.documentElement;
+  try{ document.getElementById('yr').textContent=String(new Date().getFullYear()); }catch(e){}
+  // alerta fechável
+  try{ if(sessionStorage.getItem('annClosed')==='1') doc.classList.add('ann-closed'); }catch(e){}
+  var annX=document.getElementById('annX');
+  if(annX) annX.addEventListener('click',function(){ doc.classList.add('ann-closed'); try{ sessionStorage.setItem('annClosed','1'); }catch(e){} });
+  // nav
+  var nav=document.getElementById('nav');
+  var onScroll=function(){ nav.classList.toggle('scrolled', window.scrollY>8); }; onScroll(); window.addEventListener('scroll',onScroll,{passive:true});
+  var tg=document.getElementById('navToggle');
+  if(tg){ tg.addEventListener('click',function(){ var o=nav.classList.toggle('open'); tg.setAttribute('aria-expanded',String(o)); });
+    document.querySelectorAll('#navlinks a[href^="#"]').forEach(function(a){ a.addEventListener('click',function(){ nav.classList.remove('open'); tg.setAttribute('aria-expanded','false'); }); }); }
 
-  // Contador regressivo até 20/06/2026
-  var target = new Date(2026,5,20,0,0,0).getTime();
+  // marquee personas
+  var roles=['Founder','CEO','CTO','CMO','CFO','Head de Vendas','Head de Produto','Head de Marketing','Diretor','Gerente','Consultor','Advogado','Médico','Contador','Professor','Pesquisador','Investidor','Coach','Mentor','Designer','Engenheiro','Product Manager','Recrutador','RH','SDR','Account Executive','Tech Lead','Freelancer','Agência','Creator B2B'];
+  function fill(id,list){ var el=document.getElementById(id); if(!el) return; var html=list.map(function(r){return '<span class="mq-chip"><span class="d"></span>'+r+'</span>';}).join(''); el.innerHTML=html+html; }
+  fill('mq1',roles); fill('mq2',roles.slice().reverse());
+
+  // contador
+  var target=new Date(2026,5,20,0,0,0).getTime();
   function pad(n){ return (n<10?'0':'')+n; }
   function tick(){
-    var d = target - Date.now();
-    if(d<=0){ ['cd-d','cd-h','cd-m','cd-s'].forEach(function(id){ var el=document.getElementById(id); if(el) el.textContent='00'; }); var l=document.getElementById('cd-line'); if(l) l.textContent='O Presence OS já lançou.'; return; }
-    var days=Math.floor(d/864e5), h=Math.floor(d/36e5)%24, m=Math.floor(d/6e4)%60, s=Math.floor(d/1e3)%60;
-    var set=function(id,v){ var el=document.getElementById(id); if(el) el.textContent=pad(v); };
-    set('cd-d',days); set('cd-h',h); set('cd-m',m); set('cd-s',s);
+    var d=target-Date.now();
+    var anncd=document.getElementById('ann-cd');
+    if(d<=0){ ['cd-d','cd-h','cd-m','cd-s'].forEach(function(id){var e=document.getElementById(id);if(e)e.textContent='00';}); if(anncd)anncd.textContent='no ar!'; return; }
+    var days=Math.floor(d/864e5),h=Math.floor(d/36e5)%24,m=Math.floor(d/6e4)%60,s=Math.floor(d/1e3)%60;
+    var set=function(id,v){var e=document.getElementById(id);if(e)e.textContent=pad(v);};
+    set('cd-d',days);set('cd-h',h);set('cd-m',m);set('cd-s',s);
+    if(anncd) anncd.textContent=days+'d '+pad(h)+'h '+pad(m)+'m';
   }
   tick(); setInterval(tick,1000);
 
-  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
-  var hasGsap = !!window.gsap && doc.classList.contains('ganim');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
+  var hasGsap=!!window.gsap&&doc.classList.contains('ganim');
   if(hasGsap){
     gsap.registerPlugin(window.ScrollTrigger);
-    gsap.set('.hero .inner .h-anim', { y:24 });
-    gsap.set('#macwrap', { y:42, scale:.975, transformOrigin:'50% 100%' });
-    gsap.timeline({ defaults:{ ease:'power3.out' } })
-      .to('.hero .inner .h-anim', { opacity:1, y:0, duration:.7, stagger:.09 })
-      .to('#macwrap', { opacity:1, y:0, scale:1, duration:.9 }, '-=.3');
-    gsap.set('.reveal', { y:26 });
-    window.ScrollTrigger.batch('.reveal', { start:'top 88%', once:true, onEnter:function(b){ gsap.to(b,{opacity:1,y:0,duration:.6,stagger:.08,ease:'power3.out'}); } });
-    window.addEventListener('load', function(){ window.ScrollTrigger.refresh(); setTimeout(function(){ document.querySelectorAll('.reveal').forEach(function(e){ if(parseFloat(getComputedStyle(e).opacity)<.05) gsap.to(e,{opacity:1,y:0,duration:.4}); }); }, 3500); });
+    gsap.set('.hero .inner .h-anim',{y:24}); gsap.set('#showcase',{y:42,scale:.975,transformOrigin:'50% 100%'});
+    gsap.timeline({defaults:{ease:'power3.out'}}).to('.hero .inner .h-anim',{opacity:1,y:0,duration:.7,stagger:.09}).to('#showcase',{opacity:1,y:0,scale:1,duration:.9},'-=.3');
+    gsap.set('.reveal',{y:26});
+    window.ScrollTrigger.batch('.reveal',{start:'top 88%',once:true,onEnter:function(b){ gsap.to(b,{opacity:1,y:0,duration:.6,stagger:.08,ease:'power3.out'}); }});
+    window.addEventListener('load',function(){ window.ScrollTrigger.refresh(); setTimeout(function(){ document.querySelectorAll('.reveal').forEach(function(e){ if(parseFloat(getComputedStyle(e).opacity)<.05) gsap.to(e,{opacity:1,y:0,duration:.4}); }); },3500); });
   }
-  // background orbs seguem o mouse
   var bg=document.getElementById('bgfx');
-  if(bg && !reduce && window.gsap){
+  if(bg&&!reduce&&window.gsap){
     var o1=bg.querySelector('.o1'),o2=bg.querySelector('.o2'),o3=bg.querySelector('.o3');
     var q1x=gsap.quickTo(o1,'x',{duration:1.1,ease:'power2.out'}),q1y=gsap.quickTo(o1,'y',{duration:1.1,ease:'power2.out'});
     var q2x=gsap.quickTo(o2,'x',{duration:1.3,ease:'power2.out'}),q2y=gsap.quickTo(o2,'y',{duration:1.3,ease:'power2.out'});
     var q3x=gsap.quickTo(o3,'x',{duration:1.6,ease:'power2.out'}),q3y=gsap.quickTo(o3,'y',{duration:1.6,ease:'power2.out'});
     window.addEventListener('pointermove',function(e){ var px=e.clientX/window.innerWidth-.5,py=e.clientY/window.innerHeight-.5; q1x(px*40);q1y(py*40);q2x(px*-50);q2y(py*-30);q3x(px*30);q3y(py*-40); },{passive:true});
   }
-  // MacBook inteiro inclina junto
-  var book=document.getElementById('macbook'),mw=document.getElementById('macwrap');
-  if(book && mw && !reduce && window.innerWidth>700){
+  var book=document.getElementById('macbook'),mw=document.getElementById('showcase');
+  if(book&&mw&&!reduce&&window.innerWidth>700){
     var setRX,setRY;
     if(window.gsap){ setRX=gsap.quickTo(book,'rotationX',{duration:.5,ease:'power2.out'}); setRY=gsap.quickTo(book,'rotationY',{duration:.5,ease:'power2.out'}); }
-    mw.addEventListener('pointermove',function(e){ var r=mw.getBoundingClientRect();var px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5; if(setRX){setRX(-py*6);setRY(px*8);}else{book.style.transform='rotateX('+(-py*6)+'deg) rotateY('+(px*8)+'deg)';} });
+    mw.addEventListener('pointermove',function(e){ var r=mw.getBoundingClientRect();var px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5; if(setRX){setRX(-py*5);setRY(px*7);}else{book.style.transform='rotateX('+(-py*5)+'deg) rotateY('+(px*7)+'deg)';} });
     mw.addEventListener('pointerleave',function(){ if(setRX){setRX(0);setRY(0);}else{book.style.transform='';} });
   }
-  // form
   var form=document.getElementById('waitlist'); if(!form) return;
   var errEl=document.getElementById('formErr'),btn=document.getElementById('submitBtn');
   function setErr(m,f){ if(errEl) errEl.textContent=m||''; ['nome','email'].forEach(function(n){ form[n].removeAttribute('aria-invalid'); }); if(f){ form[f].setAttribute('aria-invalid','true'); form[f].focus(); } }
   form.addEventListener('submit',function(ev){
     ev.preventDefault(); setErr('');
-    var d={nome:form.nome.value.trim(),email:form.email.value.trim(),linkedin:form.linkedin.value.trim(),motivo:form.motivo.value.trim(),produto:'Presence OS',origem:location.href};
+    var d={nome:form.nome.value.trim(),email:form.email.value.trim(),linkedin:form.linkedin.value.trim(),motivo:form.motivo.value.trim(),produto:'PresenceIn',origem:location.href};
     if(!d.nome){ setErr('Conta pra gente o seu nome.','nome'); return; }
     if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(d.email)){ setErr('Confere o e-mail, por favor.','email'); return; }
     var ep=(form.getAttribute('data-endpoint')||'').trim(),ct=(form.getAttribute('data-contact')||'beta@soberanus.com').trim();
-    if(!ep){ var s=encodeURIComponent('Inscrição no beta: Presence OS'); var b=encodeURIComponent('Nome: '+d.nome+'\nE-mail: '+d.email+'\nLinkedIn: '+(d.linkedin||'nao informado')+'\n\nPor que quero entrar:\n'+(d.motivo||'nao informado')+'\n'); window.location.href='mailto:'+ct+'?subject='+s+'&body='+b; form.closest('.beta-card').classList.add('is-sent'); return; }
+    if(!ep){ var s=encodeURIComponent('Inscrição no beta: PresenceIn'); var b=encodeURIComponent('Nome: '+d.nome+'\nE-mail: '+d.email+'\nLinkedIn: '+(d.linkedin||'nao informado')+'\n\nPor que quero entrar:\n'+(d.motivo||'nao informado')+'\n'); window.location.href='mailto:'+ct+'?subject='+s+'&body='+b; form.closest('.beta-card').classList.add('is-sent'); return; }
     btn.disabled=true; var old=btn.textContent; btn.textContent='Enviando…';
     fetch(ep,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(d)})
       .then(function(r){ if(!r.ok) throw new Error('s'+r.status); form.closest('.beta-card').classList.add('is-sent'); })
-      .catch(function(){ setErr('Não conseguimos enviar agora. Confere o e-mail e tenta de novo, ou escreve pra gente em '+ct+'.'); })
+      .catch(function(){ setErr('Não consegui registrar agora. Confira o e-mail e tente de novo, ou escreve pra gente em '+ct+'.'); })
       .finally(function(){ btn.disabled=false; btn.textContent=old; });
   });
 })();
