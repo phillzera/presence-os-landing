@@ -12,7 +12,7 @@
 <meta property="og:locale" content="pt_BR" />
 <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preconnect" href="https://api.iconify.design" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%231a85e0'/%3E%3Cstop offset='1' stop-color='%23084e96'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%23fff'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%23fff' stroke-width='2.2'/%3E%3Ccircle cx='16' cy='16' r='11.5' fill='none' stroke='%23fff' stroke-width='1.8' opacity='.55'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232a92ee'/%3E%3Cstop offset='1' stop-color='%23064a8f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='22.5' font-family='Arial,Helvetica,sans-serif' font-size='17' font-weight='700' fill='%23fff' text-anchor='middle'%3Ein%3C/text%3E%3Ccircle cx='24' cy='9' r='2.6' fill='%2334d399'/%3E%3C/svg%3E" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>(function(){ try{ var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches; if(window.gsap&&!rm) document.documentElement.classList.add('ganim'); }catch(e){} })();</script>
@@ -50,6 +50,9 @@ main,footer{position:relative; z-index:1}
 .bg-fx .o2{width:36vw;height:36vw;right:-6vw;top:-4vh;background:radial-gradient(circle at 50% 50%,#dbeafe,transparent 64%)}
 .bg-fx .o3{width:34vw;height:34vw;left:46vw;top:30vh;background:radial-gradient(circle at 50% 50%,#e3eefb,transparent 66%);opacity:.4}
 .bg-fx .grid{position:absolute;inset:0;background-image:radial-gradient(rgba(20,48,80,.05) 1px,transparent 1px);background-size:26px 26px;-webkit-mask:radial-gradient(120% 70% at 50% 0%,#000 25%,transparent 72%);mask:radial-gradient(120% 70% at 50% 0%,#000 25%,transparent 72%)}
+.bg-fx .gridlit{position:absolute;inset:0;background-image:radial-gradient(rgba(10,102,194,.5) 1px,transparent 1px);background-size:26px 26px;opacity:.9;-webkit-mask:radial-gradient(190px circle at var(--mx,-200px) var(--my,-200px),#000,transparent 68%);mask:radial-gradient(190px circle at var(--mx,-200px) var(--my,-200px),#000,transparent 68%);transition:opacity .4s}
+.bg-fx .spot{position:absolute;inset:0;background:radial-gradient(320px circle at var(--mx,50%) var(--my,-300px),rgba(26,133,224,.13),transparent 70%);transition:opacity .4s}
+@media (prefers-reduced-motion:reduce){.bg-fx .gridlit,.bg-fx .spot{display:none}}
 
 /* topo sticky (alerta + nav) */
 .topstick{position:sticky; top:0; z-index:120}
@@ -68,13 +71,18 @@ main,footer{position:relative; z-index:1}
 .nav{background:color-mix(in srgb,var(--bg) 80%,transparent); backdrop-filter:blur(16px) saturate(1.3); border-bottom:1px solid var(--line); transition:box-shadow .3s, background .3s}
 .nav.scrolled{box-shadow:0 1px 0 rgba(16,18,27,.03); background:color-mix(in srgb,var(--bg) 93%,transparent)}
 .nav .row{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px; height:64px; max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter)}
-.nav .links{display:flex; gap:2px; align-items:center; justify-content:center}
-.nav .links > a, .nav .links .recbtn{position:relative; display:inline-flex; align-items:center; gap:6px; height:38px; padding:0 15px; border-radius:var(--r-pill); color:var(--ink-2); font-size:14.5px; font-weight:500; background:none; border:none; cursor:pointer; font-family:inherit; transition:background .15s, color .15s}
-.nav .links > a:hover, .nav .links .has-mega:hover .recbtn, .nav .links .has-mega:focus-within .recbtn{color:var(--ink); background:var(--muted-bg)}
+.nav .links{display:flex; gap:2px; align-items:center; justify-content:center; padding:4px; border-radius:var(--r-pill); background:color-mix(in srgb,var(--muted-bg) 62%,#fff); border:1px solid var(--line); box-shadow:inset 0 1px 2px rgba(16,18,27,.03)}
+.nav .links > a, .nav .links .recbtn{position:relative; display:inline-flex; align-items:center; gap:6px; height:34px; padding:0 14px; border-radius:var(--r-pill); color:var(--ink-2); font-size:14px; font-weight:500; background:none; border:none; cursor:pointer; font-family:inherit; transition:background .18s var(--ease), color .18s, box-shadow .18s}
+.nav .links > a:hover, .nav .links .has-mega:hover .recbtn, .nav .links .has-mega:focus-within .recbtn{color:var(--i-hover); background:#fff; box-shadow:var(--sh-1)}
 .nav .right{display:flex; justify-content:flex-end; align-items:center; gap:8px}
 .logo{display:inline-flex; align-items:center; gap:10px; color:var(--ink); font-weight:600; font-size:18px; letter-spacing:-.015em}
-.logo .mk{position:relative; width:32px; height:32px; border-radius:9px; display:grid; place-items:center; flex:none; background:linear-gradient(150deg,#1a85e0,#0a66c2 55%,#084e96); box-shadow:inset 0 1.5px 0 rgba(255,255,255,.5), inset 0 -3px 7px rgba(8,55,120,.5), 0 8px 18px -6px rgba(10,102,194,.6)}
-.logo .mk::after{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,.32),transparent 45%)}
+.logo .mk{position:relative; width:34px; height:34px; border-radius:10px; display:grid; place-items:center; flex:none; background:linear-gradient(145deg,#2a92ee,#0a66c2 52%,#064a8f); box-shadow:inset 0 1.5px 0 rgba(255,255,255,.55), inset 0 -3px 8px rgba(6,50,110,.55), 0 8px 18px -6px rgba(10,102,194,.55)}
+.logo .mk::after{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,.34),transparent 46%)}
+.logo .mk b{position:relative; z-index:1; font-weight:700; font-size:16px; letter-spacing:-.06em; color:#fff; line-height:1; font-family:'IBM Plex Sans',sans-serif}
+.logo .mk .live{position:absolute; top:6px; right:6px; width:5px; height:5px; border-radius:50%; background:#34d399; box-shadow:0 0 0 1.6px rgba(255,255,255,.9); z-index:2}
+.logo .mk .live::after{content:''; position:absolute; inset:-3px; border-radius:50%; border:1.5px solid rgba(52,211,153,.65); animation:livepulse 2.2s var(--ease) infinite}
+@keyframes livepulse{0%{transform:scale(.55);opacity:.9}70%{transform:scale(1.7);opacity:0}100%{opacity:0}}
+@media (prefers-reduced-motion:reduce){.logo .mk .live::after{animation:none}}
 .logo .nm{line-height:1; white-space:nowrap} .logo .nm i{font-style:normal; color:var(--i)}
 .has-mega{position:relative}
 .has-mega .recbtn .chev{transition:transform .2s var(--ease)}
@@ -89,7 +97,7 @@ main,footer{position:relative; z-index:1}
 .nav-toggle{display:none; width:42px; height:42px; align-items:center; justify-content:center; border-radius:10px; border:1px solid var(--line-2); background:var(--surface); color:var(--ink); cursor:pointer}
 @media (max-width:1040px){
   .nav .row{grid-template-columns:auto 1fr auto}
-  .nav .links{position:absolute; top:64px; left:0; right:0; flex-direction:column; gap:0; align-items:stretch; padding:8px var(--gutter) 16px; background:#fff; border-bottom:1px solid var(--line); box-shadow:var(--sh-2); transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity .2s,transform .2s; max-height:78vh; overflow:auto}
+  .nav .links{position:absolute; top:64px; left:0; right:0; flex-direction:column; gap:0; align-items:stretch; padding:8px var(--gutter) 16px; background:#fff; border:none; border-bottom:1px solid var(--line); border-radius:0; box-shadow:var(--sh-2); transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity .2s,transform .2s; max-height:78vh; overflow:auto}
   .nav .links > a, .nav .links .recbtn{height:auto; padding:14px 4px; font-size:16px; border-bottom:1px solid var(--line); border-radius:0; justify-content:flex-start; width:100%}
   .nav.open .links{transform:none; opacity:1; pointer-events:auto}
   .mega{position:static; transform:none; width:auto; box-shadow:none; border:none; padding:6px 0 10px; opacity:1; pointer-events:auto} .mega::before{display:none}
@@ -176,25 +184,28 @@ section{position:relative}
 .os-dock .dk.on::after{content:'';position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.9)}
 @media (max-width:560px){.os-dock .dk{width:24px;height:24px}}
 /* iphone */
-.iphone{position:absolute; right:-6px; bottom:-12px; width:172px; aspect-ratio:9/19.3; border-radius:30px; padding:7px; background:linear-gradient(160deg,#3a3a3e,#161618); box-shadow:0 30px 60px -22px rgba(0,0,0,.6), inset 0 0 0 1px rgba(0,0,0,.6); z-index:25; transform:rotate(4deg)}
-.ip-screen{position:relative; height:100%; border-radius:24px; overflow:hidden; background:linear-gradient(180deg,#eaf2fb,#fff 30%); text-align:left}
-.ip-island{position:absolute; top:7px; left:50%; transform:translateX(-50%); width:46px; height:13px; background:#000; border-radius:99px; z-index:6}
-.ip-body{padding:26px 13px 13px; height:100%; display:flex; flex-direction:column}
-.ip-mk{width:40px;height:40px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(150deg,#1a85e0,#084e96);box-shadow:0 6px 14px -5px rgba(10,102,194,.6);margin-bottom:9px}
-.ip-h{font-size:14px;font-weight:700;color:var(--ink);letter-spacing:-.01em} .ip-h i{font-style:normal;color:var(--i)}
-.ip-sub{font-size:9.5px;color:var(--ink-3);margin:3px 0 12px;line-height:1.35}
-.ip-step{display:flex;align-items:center;gap:8px;padding:8px 9px;border-radius:9px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh-1);margin-bottom:7px;font-size:10px;color:var(--ink);font-weight:500}
-.ip-step .n{width:18px;height:18px;border-radius:6px;flex:none;display:grid;place-items:center;font-size:9px;font-weight:700;background:var(--i-soft);color:var(--i)}
-.ip-step.done .n{background:var(--i);color:#fff}
-.ip-btn{margin-top:auto;height:34px;border-radius:9px;background:linear-gradient(135deg,#1a85e0,#084e96);color:#fff;font-size:11px;font-weight:600;display:grid;place-items:center}
+.iphone{position:absolute; right:14px; bottom:-8px; width:152px; aspect-ratio:9/19.3; border-radius:28px; padding:6px; background:linear-gradient(160deg,#3a3a3e,#161618); box-shadow:0 34px 64px -22px rgba(0,0,0,.62), inset 0 0 0 1px rgba(0,0,0,.6), inset 0 0 0 2.5px #2a2a2e; z-index:25; transform:rotate(3deg)}
+.ip-screen{position:relative; height:100%; border-radius:23px; overflow:hidden; background:linear-gradient(180deg,#eef4fc,#fff 28%); text-align:left}
+.ip-island{position:absolute; top:8px; left:50%; transform:translateX(-50%); width:42px; height:12px; background:#000; border-radius:99px; z-index:6}
+.ip-body{padding:30px 12px 12px; height:100%; display:flex; flex-direction:column}
+.ip-mk{position:relative;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(145deg,#2a92ee,#0a66c2 52%,#064a8f);box-shadow:0 6px 14px -5px rgba(10,102,194,.6);margin-bottom:10px}
+.ip-mk b{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.06em;line-height:1}
+.ip-h{font-size:13.5px;font-weight:700;color:var(--ink);letter-spacing:-.01em} .ip-h i{font-style:normal;color:var(--i)}
+.ip-sub{font-size:9px;color:var(--ink-3);margin:3px 0 13px;line-height:1.4}
+.ip-step{display:flex;align-items:center;gap:8px;padding:8px 9px;border-radius:9px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh-1);margin-bottom:7px;font-size:9.5px;color:var(--ink);font-weight:500;line-height:1.2}
+.ip-step .n{width:17px;height:17px;border-radius:6px;flex:none;display:grid;place-items:center;font-size:8.5px;font-weight:700;background:var(--i-soft);color:var(--i)}
+.ip-step.done{border-color:var(--i-line);background:var(--i-soft)} .ip-step.done .n{background:var(--i);color:#fff}
+.ip-btn{margin-top:auto;height:33px;border-radius:9px;background:linear-gradient(135deg,#1a85e0,#0a66c2 60%,#084e96);color:#fff;font-size:10.5px;font-weight:600;display:grid;place-items:center;box-shadow:0 6px 14px -6px rgba(10,102,194,.6)}
 @media (max-width:880px){.iphone{display:none}}
 
 /* AI strip (3 logos grandes) */
 .aistrip{padding:34px 0; text-align:center}
 .aistrip .lbl{font-size:14px; color:var(--ink-3); margin-bottom:18px}
 .aistrip .row{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center}
-.aistrip .ai{display:inline-flex; align-items:center; gap:11px; padding:13px 22px; border-radius:var(--r-md); background:#fff; border:1px solid var(--line); box-shadow:var(--sh-1); font-size:17px; font-weight:600; color:var(--ink)}
-.aistrip .ai img{width:30px; height:30px}
+.aistrip .ai{display:inline-flex; align-items:center; gap:12px; padding:14px 26px; border-radius:var(--r-md); background:#fff; border:1px solid var(--line); box-shadow:var(--sh-1); font-size:17px; font-weight:600; color:var(--ink); transition:box-shadow .18s var(--ease), transform .18s var(--ease), border-color .18s}
+.aistrip .ai:hover{box-shadow:var(--sh-2); transform:translateY(-2px); border-color:var(--i-line)}
+.aistrip .ai .mk{width:28px; height:28px; display:grid; place-items:center; flex:none}
+.aistrip .ai .mk img, .aistrip .ai .mk svg{width:100%; height:100%; object-fit:contain; display:block}
 .aistrip .note{margin-top:16px; font-size:13px; color:var(--ink-3)}
 
 /* personas marquee */
@@ -296,13 +307,13 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
 </head>
 <body>
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
-<div class="bg-fx" aria-hidden="true" id="bgfx"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="grid"></span></div>
+<div class="bg-fx" aria-hidden="true" id="bgfx"><span class="orb o1"></span><span class="orb o2"></span><span class="orb o3"></span><span class="grid"></span><span class="gridlit"></span><span class="spot"></span></div>
 
 <div class="topstick" id="topstick">
   <!-- BARRA DE ALERTA -->
   <div class="annbar" id="annbar">
     <div class="row">
-      <span>Beta privado abre em <b>20 de junho</b>. Enquanto você adia, o seu concorrente posta.</span>
+      <span>Acesso antecipado: o beta privado abre em <b>20 de junho</b>. As primeiras vagas saem por lote.</span>
       <span class="cd" id="ann-cd">00d 00h 00m</span>
       <a class="ann-cta" href="#beta">Garanta sua vaga →</a>
       <button class="ann-x" id="annX" aria-label="Fechar aviso">×</button>
@@ -312,7 +323,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
   <nav class="nav" id="nav">
     <div class="row">
       <a class="logo" href="#top" aria-label="PresenceIn, início">
-        <span class="mk" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3.4" fill="#fff"/><circle cx="16" cy="16" r="7" fill="none" stroke="#fff" stroke-width="2.2"/><circle cx="16" cy="16" r="11.5" fill="none" stroke="#fff" stroke-width="1.8" opacity=".55"/></svg></span>
+        <span class="mk" aria-hidden="true"><b>in</b><span class="live"></span></span>
         <span class="nm">Presence<i>In</i></span>
       </a>
       <div class="links" id="navlinks">
@@ -376,7 +387,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
           <div class="os-win">
             <div class="win-bar">
               <span class="tl"><i></i><i></i><i></i></span>
-              <span class="dl"><svg width="12" height="12" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3.4" fill="#7fb8ee"/><circle cx="16" cy="16" r="7" fill="none" stroke="#7fb8ee" stroke-width="2.4"/></svg> PresenceIn</span>
+              <span class="dl"><svg width="13" height="13" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#0a66c2"/><text x="16" y="22.5" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">in</text></svg> PresenceIn</span>
               <span class="crumb">Cockpit · <b>Analytics</b></span><span class="sp"></span>
               <span class="search">Buscar… ⌘K</span><span class="av">MA</span>
             </div>
@@ -424,7 +435,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
             </div>
           </div>
           <div class="os-dock">
-            <span class="dk pr on" title="PresenceIn"><svg width="18" height="18" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3.4" fill="#fff"/><circle cx="16" cy="16" r="7" fill="none" stroke="#fff" stroke-width="2.4"/><circle cx="16" cy="16" r="11.5" fill="none" stroke="#cfe3f6" stroke-width="2"/></svg></span>
+            <span class="dk pr on" title="PresenceIn"><svg width="20" height="20" viewBox="0 0 32 32"><text x="16" y="23" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">in</text></svg></span>
             <span class="dk" title="Safari"><img src="https://api.iconify.design/logos/safari.svg" alt="" loading="lazy"></span>
             <span class="dk" title="LinkedIn"><img src="https://api.iconify.design/logos/linkedin-icon.svg" alt="" loading="lazy"></span>
             <span class="dk" title="Figma"><img src="https://api.iconify.design/logos/figma.svg" alt="" loading="lazy"></span>
@@ -442,12 +453,12 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
       <div class="ip-screen">
         <div class="ip-island"></div>
         <div class="ip-body">
-          <div class="ip-mk"><svg width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3.4" fill="#fff"/><circle cx="16" cy="16" r="7" fill="none" stroke="#fff" stroke-width="2.4"/><circle cx="16" cy="16" r="11.5" fill="none" stroke="#cfe3f6" stroke-width="2"/></svg></div>
+          <div class="ip-mk"><b>in</b></div>
           <div class="ip-h">Presence<i>In</i></div>
-          <div class="ip-sub">Funciona no seu bolso. Pronto em 3 passos.</div>
+          <div class="ip-sub">Também no seu bolso. Configure em 3 passos.</div>
           <div class="ip-step done"><span class="n">✓</span> Conecte o LinkedIn</div>
           <div class="ip-step"><span class="n">2</span> Conecte a sua IA</div>
-          <div class="ip-step"><span class="n">3</span> Seu tom & objetivo</div>
+          <div class="ip-step"><span class="n">3</span> Seu tom e objetivo</div>
           <div class="ip-btn">Começar agora</div>
         </div>
       </div>
@@ -460,9 +471,9 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
   <div class="wrap">
     <div class="lbl">Funciona com a IA que você já usa</div>
     <div class="row">
-      <span class="ai"><img src="https://api.iconify.design/logos/claude.svg" alt="" loading="lazy"> Claude</span>
-      <span class="ai"><img src="https://api.iconify.design/logos/openai-icon.svg" alt="" loading="lazy"> ChatGPT</span>
-      <span class="ai"><img src="https://api.iconify.design/logos/google-gemini.svg" alt="" loading="lazy"> Gemini</span>
+      <span class="ai"><span class="mk"><img src="https://api.iconify.design/logos/claude-icon.svg" alt="" loading="lazy"></span> Claude</span>
+      <span class="ai"><span class="mk"><img src="https://api.iconify.design/logos/openai-icon.svg" alt="" loading="lazy"></span> ChatGPT</span>
+      <span class="ai"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4285f4"/><stop offset=".5" stop-color="#9168f0"/><stop offset="1" stop-color="#d96570"/></linearGradient></defs><path fill="url(#gem)" d="M12 2c.4 4.9 3.1 7.6 8 8-4.9.4-7.6 3.1-8 8-.4-4.9-3.1-7.6-8-8 4.9-.4 7.6-3.1 8-8z"/></svg></span> Gemini</span>
     </div>
     <div class="note">Você conecta a sua assinatura ou a sua API key. Sem intermediário, sem cota nossa no meio.</div>
   </div>
@@ -610,7 +621,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
 <footer>
   <div class="top">
     <div class="lead">
-      <a class="logo" href="#top"><span class="mk" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 32 32"><circle cx="16" cy="16" r="3.4" fill="#fff"/><circle cx="16" cy="16" r="7" fill="none" stroke="#fff" stroke-width="2.2"/><circle cx="16" cy="16" r="11.5" fill="none" stroke="#fff" stroke-width="1.8" opacity=".55"/></svg></span><span class="nm">Presence<i>In</i></span></a>
+      <a class="logo" href="#top"><span class="mk" aria-hidden="true"><b>in</b></span><span class="nm">Presence<i>In</i></span></a>
       <p>O concierge que faz você ser lembrado no LinkedIn. Um produto Soberanus.</p>
     </div>
     <span class="spacer"></span>
@@ -664,12 +675,18 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
     window.addEventListener('load',function(){ window.ScrollTrigger.refresh(); setTimeout(function(){ document.querySelectorAll('.reveal').forEach(function(e){ if(parseFloat(getComputedStyle(e).opacity)<.05) gsap.to(e,{opacity:1,y:0,duration:.4}); }); },3500); });
   }
   var bg=document.getElementById('bgfx');
-  if(bg&&!reduce&&window.gsap){
-    var o1=bg.querySelector('.o1'),o2=bg.querySelector('.o2'),o3=bg.querySelector('.o3');
-    var q1x=gsap.quickTo(o1,'x',{duration:1.1,ease:'power2.out'}),q1y=gsap.quickTo(o1,'y',{duration:1.1,ease:'power2.out'});
-    var q2x=gsap.quickTo(o2,'x',{duration:1.3,ease:'power2.out'}),q2y=gsap.quickTo(o2,'y',{duration:1.3,ease:'power2.out'});
-    var q3x=gsap.quickTo(o3,'x',{duration:1.6,ease:'power2.out'}),q3y=gsap.quickTo(o3,'y',{duration:1.6,ease:'power2.out'});
-    window.addEventListener('pointermove',function(e){ var px=e.clientX/window.innerWidth-.5,py=e.clientY/window.innerHeight-.5; q1x(px*40);q1y(py*40);q2x(px*-50);q2y(py*-30);q3x(px*30);q3y(py*-40); },{passive:true});
+  if(bg&&!reduce){
+    var orbMove=null;
+    if(window.gsap){
+      var o1=bg.querySelector('.o1'),o2=bg.querySelector('.o2'),o3=bg.querySelector('.o3');
+      var q1x=gsap.quickTo(o1,'x',{duration:1.1,ease:'power2.out'}),q1y=gsap.quickTo(o1,'y',{duration:1.1,ease:'power2.out'});
+      var q2x=gsap.quickTo(o2,'x',{duration:1.3,ease:'power2.out'}),q2y=gsap.quickTo(o2,'y',{duration:1.3,ease:'power2.out'});
+      var q3x=gsap.quickTo(o3,'x',{duration:1.6,ease:'power2.out'}),q3y=gsap.quickTo(o3,'y',{duration:1.6,ease:'power2.out'});
+      orbMove=function(px,py){ q1x(px*40);q1y(py*40);q2x(px*-50);q2y(py*-30);q3x(px*30);q3y(py*-40); };
+    }
+    var raf=0,mx=0,my=0;
+    window.addEventListener('pointermove',function(e){ mx=e.clientX;my=e.clientY; if(orbMove) orbMove(mx/window.innerWidth-.5,my/window.innerHeight-.5);
+      if(!raf) raf=requestAnimationFrame(function(){ raf=0; bg.style.setProperty('--mx',mx+'px'); bg.style.setProperty('--my',my+'px'); }); },{passive:true});
   }
   var book=document.getElementById('macbook'),mw=document.getElementById('showcase');
   if(book&&mw&&!reduce&&window.innerWidth>700){
