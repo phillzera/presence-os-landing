@@ -14,13 +14,20 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234f46e5'/%3E%3Ccircle cx='16' cy='23' r='2.6' fill='%23fff'/%3E%3Cg fill='none' stroke-width='2.3' stroke-linecap='round'%3E%3Cpath d='M11.5 20 A5.5 5.5 0 0 1 20.5 20' stroke='%23fff'/%3E%3Cpath d='M8 16.5 A9.5 9.5 0 0 1 24 16.5' stroke='%23c7cbff'/%3E%3Cpath d='M5 13 A13.5 13.5 0 0 1 27 13' stroke='%23c7cbff'/%3E%3C/g%3E%3C/svg%3E" />
 
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%234f46e5'/%3E%3Ccircle cx='16' cy='23' r='2.6' fill='%23fff'/%3E%3Cg fill='none' stroke='%23fff' stroke-width='2.3' stroke-linecap='round'%3E%3Cpath d='M11.5 20 A5.5 5.5 0 0 1 20.5 20'/%3E%3Cpath d='M8 16.5 A9.5 9.5 0 0 1 24 16.5' stroke='%23c7cbff'/%3E%3Cpath d='M5 13 A13.5 13.5 0 0 1 27 13' stroke='%23c7cbff'/%3E%3C/g%3E%3C/svg%3E" />
+<!-- GSAP (premium animations) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  /* só esconde p/ animar se o GSAP carregou E o usuário aceita motion (sem flash, sem risco de tela vazia) */
+  (function(){ try{ var rm = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
+    if(window.gsap && !rm) document.documentElement.classList.add('ganim'); }catch(e){} })();
+</script>
 
 <style>
 /* ============================================================================
-   Presence OS landing: light enterprise (IBM Carbon). Marketing-grade.
-   Self-contained, sem build.
+   Presence OS landing: light enterprise (IBM Carbon) + GSAP. Marketing-grade.
    ============================================================================ */
 :root{
   --bg:#ffffff; --muted-bg:#f6f7f9; --surface:#ffffff; --surface-2:#eef0f4;
@@ -36,40 +43,62 @@
   --maxw:1160px; --gutter:clamp(20px,4vw,40px); --sec:clamp(68px,8vw,108px);
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth} html{scroll-padding-top:84px}
+html{scroll-behavior:smooth; scroll-padding-top:84px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 body{margin:0; background:var(--bg); color:var(--ink-2);
   font-family:'IBM Plex Sans',system-ui,-apple-system,sans-serif; font-size:16px; line-height:1.6;
   -webkit-font-smoothing:antialiased; overflow-x:hidden;}
 a{color:var(--i); text-decoration:none} a:hover{color:var(--i-hover)}
-h1,h2,h3,h4{margin:0; color:var(--ink); letter-spacing:-.02em; text-wrap:balance}
-p{margin:0; text-wrap:pretty}
+h1,h2,h3,h4{margin:0; color:var(--ink); letter-spacing:-.02em}
+h1,h2{text-wrap:balance} p{margin:0; text-wrap:pretty}
+.nb{white-space:nowrap}
 .mono{font-family:'IBM Plex Mono',ui-monospace,monospace}
 .wrap{max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter)}
 .kicker{font-family:'IBM Plex Mono',monospace; font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--i); font-weight:500}
-.skip{position:fixed; top:8px; left:8px; z-index:200; transform:translateY(-160%); background:var(--surface); color:var(--ink); padding:10px 16px; border-radius:var(--r-sm); border:1px solid var(--line-2); box-shadow:var(--sh-2); transition:transform .2s var(--ease)}
+.skip{position:fixed; top:8px; left:8px; z-index:300; transform:translateY(-160%); background:var(--surface); color:var(--ink); padding:10px 16px; border-radius:var(--r-sm); border:1px solid var(--line-2); box-shadow:var(--sh-2); transition:transform .2s var(--ease)}
 .skip:focus{transform:none}
 :focus-visible{outline:2px solid var(--i); outline-offset:3px; border-radius:6px}
 
-/* ── Logo (mark broadcast: propagar presença) ─────────────────────────────── */
+/* GSAP: estado inicial só quando .ganim (gsap pronto + motion ok) */
+.ganim .reveal, .ganim .h-anim{opacity:0}
+
+/* ── Logo (broadcast: propagar presença) ──────────────────────────────────── */
 .logo{display:inline-flex; align-items:center; gap:10px; color:var(--ink); font-weight:600; font-size:17px; letter-spacing:-.01em}
 .logo .mk{width:32px; height:32px; border-radius:9px; display:grid; place-items:center; background:linear-gradient(150deg,#5b54ec,#4338ca); box-shadow:0 5px 14px -4px rgba(79,70,229,.65); flex:none}
 .logo .by{font-size:11px; color:var(--ink-3); font-weight:500; line-height:1}
 .logo .nm{line-height:1.1; white-space:nowrap}
 
-/* ── Nav ──────────────────────────────────────────────────────────────────── */
-.nav{position:sticky; top:0; z-index:100; background:color-mix(in srgb,var(--bg) 82%,transparent); backdrop-filter:blur(14px); border-bottom:1px solid transparent; transition:border-color .3s, box-shadow .3s, background .3s}
-.nav.scrolled{border-color:var(--line); box-shadow:0 1px 0 rgba(16,18,27,.02); background:color-mix(in srgb,var(--bg) 93%,transparent)}
-.nav .row{display:flex; align-items:center; gap:18px; height:68px; max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter)}
+/* ── Nav (premium: links com underline animado + mega-menu) ───────────────── */
+.nav{position:sticky; top:0; z-index:120; background:color-mix(in srgb,var(--bg) 82%,transparent); backdrop-filter:blur(14px); border-bottom:1px solid transparent; transition:border-color .3s, box-shadow .3s, background .3s}
+.nav.scrolled{border-color:var(--line); box-shadow:0 1px 0 rgba(16,18,27,.02); background:color-mix(in srgb,var(--bg) 94%,transparent)}
+.nav .row{display:flex; align-items:center; gap:8px; height:70px; max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter)}
 .nav .spacer{flex:1}
-.nav .links{display:flex; gap:26px; align-items:center}
-.nav .links a{color:var(--ink-2); font-size:14.5px; font-weight:500}
-.nav .links a:hover{color:var(--ink)}
+.nav .links{display:flex; gap:4px; align-items:center}
+.nav .links > a, .nav .links > .has-mega > button{position:relative; display:inline-flex; align-items:center; gap:6px; padding:9px 14px; border-radius:var(--r-sm); color:var(--ink-2); font-size:14.5px; font-weight:500; background:none; border:none; cursor:pointer; font-family:inherit}
+.nav .links > a:hover, .nav .links > .has-mega:hover > button, .nav .links > .has-mega:focus-within > button{color:var(--ink); background:var(--muted-bg)}
+.nav .links > a::after{content:''; position:absolute; left:14px; right:14px; bottom:5px; height:2px; background:var(--i); border-radius:2px; transform:scaleX(0); transform-origin:left; transition:transform .25s var(--ease)}
+.nav .links > a:hover::after{transform:scaleX(1)}
+.has-mega > button .chev{transition:transform .2s var(--ease)}
+.has-mega:hover > button .chev, .has-mega:focus-within > button .chev{transform:rotate(180deg)}
+.mega{position:absolute; top:calc(100% - 4px); left:50%; transform:translateX(-50%) translateY(8px); width:min(620px,86vw); background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); box-shadow:var(--sh-3); padding:12px; opacity:0; pointer-events:none; transition:opacity .2s var(--ease), transform .2s var(--ease); z-index:130}
+.has-mega:hover .mega, .has-mega:focus-within .mega{opacity:1; pointer-events:auto; transform:translateX(-50%) translateY(0)}
+.mega-grid{display:grid; grid-template-columns:1fr 1fr; gap:6px}
+.mega a{display:flex; gap:11px; align-items:flex-start; padding:11px 12px; border-radius:var(--r-md); color:var(--ink)}
+.mega a:hover{background:var(--muted-bg)}
+.mega a .mi{width:34px; height:34px; border-radius:9px; flex:none; display:grid; place-items:center; color:var(--i); background:var(--i-soft); border:1px solid var(--i-line)}
+.mega a b{display:block; font-size:14px; color:var(--ink); font-weight:600}
+.mega a span{display:block; font-size:12.5px; color:var(--ink-3); line-height:1.4}
+.nav-cta{margin-left:8px}
 .nav-toggle{display:none; width:44px; height:44px; align-items:center; justify-content:center; border-radius:10px; border:1px solid var(--line-2); background:var(--surface); color:var(--ink); cursor:pointer}
-@media (max-width:960px){
-  .nav .links{position:absolute; top:68px; left:0; right:0; flex-direction:column; gap:0; padding:8px var(--gutter) 16px; background:color-mix(in srgb,#fff 96%,transparent); backdrop-filter:blur(16px); border-bottom:1px solid var(--line); box-shadow:var(--sh-2); transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity .2s,transform .2s}
-  .nav .links a{padding:14px 0; font-size:16px; border-bottom:1px solid var(--line)}
+@media (max-width:1000px){
+  .nav .links{position:absolute; top:70px; left:0; right:0; flex-direction:column; gap:0; align-items:stretch; padding:8px var(--gutter) 16px; background:color-mix(in srgb,#fff 97%,transparent); backdrop-filter:blur(16px); border-bottom:1px solid var(--line); box-shadow:var(--sh-2); transform:translateY(-8px); opacity:0; pointer-events:none; transition:opacity .2s,transform .2s; max-height:80vh; overflow:auto}
+  .nav .links > a, .nav .links > .has-mega > button{padding:14px 4px; font-size:16px; border-bottom:1px solid var(--line); border-radius:0; justify-content:flex-start}
+  .nav .links > a::after{display:none}
   .nav.open .links{transform:none; opacity:1; pointer-events:auto}
+  .mega{position:static; transform:none; width:auto; box-shadow:none; border:none; padding:6px 0 10px; opacity:1; pointer-events:auto}
+  .has-mega:hover .mega, .has-mega:focus-within .mega{transform:none}
+  .mega-grid{grid-template-columns:1fr}
+  .nav-cta{margin:10px 0 0}
   .nav-toggle{display:inline-flex} .logo .by{display:none}
 }
 
@@ -81,14 +110,8 @@ p{margin:0; text-wrap:pretty}
 .btn.secondary{color:var(--ink); background:var(--surface); border-color:var(--line-2)}
 .btn.secondary:hover{background:var(--muted-bg); border-color:var(--ink-3); color:var(--ink)}
 .btn.sm{height:40px; padding:0 16px; font-size:14px} .btn.block{width:100%}
-
 .badge{display:inline-flex; align-items:center; gap:6px; padding:4px 11px; border-radius:99px; background:var(--surface-2); color:var(--ink-2); font-size:12px; font-weight:500}
 .badge.beta{background:var(--i-soft); color:var(--i-hover); border:1px solid var(--i-line)}
-
-/* ── Reveal ───────────────────────────────────────────────────────────────── */
-.js .reveal{opacity:0; transform:translateY(16px); transition:opacity .6s var(--ease), transform .6s var(--ease)}
-.reveal.in{opacity:1; transform:none}
-@media (prefers-reduced-motion:reduce){.js .reveal{opacity:1; transform:none; transition:none}}
 
 /* ── Seções ───────────────────────────────────────────────────────────────── */
 section{position:relative}
@@ -96,73 +119,100 @@ section{position:relative}
 .sec{padding:var(--sec) 0}
 .sec-head{max-width:62ch; margin:0 auto clamp(34px,5vw,50px); text-align:center}
 .sec-head .kicker{display:block; margin-bottom:14px}
-.sec-head h2{font-size:clamp(26px,3.6vw,40px); line-height:1.1; font-weight:600; color:var(--ink)}
+.sec-head h2{font-size:clamp(26px,3.6vw,40px); line-height:1.12; font-weight:600; color:var(--ink)}
 .sec-head p{margin:14px auto 0; color:var(--ink-2); font-size:17px; line-height:1.6; max-width:56ch}
 
 /* ── Hero ─────────────────────────────────────────────────────────────────── */
 .hero{padding:clamp(52px,6.5vw,84px) 0 0; text-align:center; position:relative}
-.hero::before{content:''; position:absolute; inset:0 0 auto; height:560px; z-index:-1; pointer-events:none; background:radial-gradient(58% 70% at 50% -6%, rgba(79,70,229,.10), transparent 70%)}
-.hero .inner{max-width:860px; margin:0 auto}
+.hero::before{content:''; position:absolute; inset:0 0 auto; height:600px; z-index:-1; pointer-events:none; background:radial-gradient(56% 70% at 50% -6%, rgba(79,70,229,.10), transparent 70%)}
+.hero .inner{max-width:880px; margin:0 auto}
 .hero .kicker{margin-bottom:18px}
-.hero h1{font-size:clamp(34px,5.4vw,60px); line-height:1.04; font-weight:600; letter-spacing:-.03em; color:var(--ink); margin:0}
+.hero h1{font-size:clamp(34px,5.4vw,60px); line-height:1.05; font-weight:600; letter-spacing:-.03em; color:var(--ink); margin:0; max-width:17ch; margin-inline:auto}
 .hero h1 .hl{color:var(--i)}
-.hero .lede{margin:20px auto 0; font-size:clamp(17px,2vw,20px); color:var(--ink-2); line-height:1.6; max-width:58ch}
+.hero .lede{margin:22px auto 0; font-size:clamp(17px,1.9vw,20px); color:var(--ink-2); line-height:1.6; max-width:54ch; text-wrap:balance}
 .hero .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:30px}
 .hero .re{display:flex; gap:10px 26px; justify-content:center; flex-wrap:wrap; margin-top:22px; color:var(--ink-3); font-size:14px}
 .hero .re span{display:inline-flex; align-items:center; gap:8px}
 .hero .re svg{color:var(--ok); flex:none}
 
-/* ── MacBook Pro Space Black + cockpit ────────────────────────────────────── */
-.macwrap{position:relative; max-width:940px; margin:clamp(44px,6vw,72px) auto 0}
-.macwrap::after{content:''; position:absolute; left:8%; right:8%; bottom:-26px; height:60px; background:radial-gradient(50% 100% at 50% 0, rgba(40,44,80,.28), transparent 72%); filter:blur(14px); z-index:-1}
-.mb-lid{position:relative; padding:11px; border-radius:22px 22px 7px 7px; background:linear-gradient(180deg,#36363a,#1c1c1f 62%,#141416); box-shadow:inset 0 1px 0 rgba(255,255,255,.16), inset 0 0 0 1px rgba(0,0,0,.5), 0 30px 70px -28px rgba(0,0,0,.55)}
-.mb-screen{position:relative; border-radius:9px; overflow:hidden; background:#0a0b0e; aspect-ratio:16/10; box-shadow:inset 0 0 0 1px rgba(0,0,0,.7)}
-.mb-notch{position:absolute; top:0; left:50%; transform:translateX(-50%); width:148px; height:18px; background:#1c1c1f; border-radius:0 0 11px 11px; z-index:8; display:flex; align-items:center; justify-content:center}
-.mb-notch i{width:5px; height:5px; border-radius:50%; background:#0c0c0e; box-shadow:0 0 0 1.5px #26262a}
+/* ── MacBook Pro (Space Black) + macOS desktop + dock ─────────────────────── */
+.macwrap{position:relative; max-width:980px; margin:clamp(42px,6vw,72px) auto 0}
+.macwrap::after{content:''; position:absolute; left:8%; right:8%; bottom:-26px; height:60px; background:radial-gradient(50% 100% at 50% 0, rgba(40,44,80,.3), transparent 72%); filter:blur(15px); z-index:-1}
+.mb-lid{position:relative; padding:11px; border-radius:22px 22px 7px 7px; background:linear-gradient(180deg,#36363a,#1c1c1f 62%,#141416); box-shadow:inset 0 1px 0 rgba(255,255,255,.16), inset 0 0 0 1px rgba(0,0,0,.5), 0 30px 70px -28px rgba(0,0,0,.55); transform-style:preserve-3d; will-change:transform}
+.mb-screen{position:relative; border-radius:9px; overflow:hidden; aspect-ratio:16/10; box-shadow:inset 0 0 0 1px rgba(0,0,0,.7);
+  background:radial-gradient(120% 90% at 30% 0%, #4b3f86, #2c2350 55%, #1c1736)}
+.mb-notch{position:absolute; top:0; left:50%; transform:translateX(-50%); width:142px; height:16px; background:#0c0c0e; border-radius:0 0 10px 10px; z-index:30; display:flex; align-items:center; justify-content:center}
+.mb-notch i{width:5px; height:5px; border-radius:50%; background:#1a1a1f; box-shadow:0 0 0 1.5px #2a2a30}
 .mb-base{position:relative; width:114%; margin:0 0 0 -7%; height:15px; border-radius:0 0 13px 13px; background:linear-gradient(180deg,#46464a,#26262a 55%,#0e0e10); box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 16px 26px -12px rgba(0,0,0,.5)}
 .mb-base::before{content:''; position:absolute; top:0; left:50%; transform:translateX(-50%); width:128px; height:7px; background:#16161a; border-radius:0 0 8px 8px}
-.dash{position:absolute; inset:0; display:flex; flex-direction:column; background:var(--muted-bg); color:var(--ink); font-size:11px; line-height:1.45; text-align:left; overflow:hidden}
-.d-head{display:flex; align-items:center; gap:8px; height:34px; padding:0 12px; background:linear-gradient(180deg,#1c1c1c,#161616); color:#f4f4f4; flex:none}
-.d-head .dl{display:flex; align-items:center; gap:7px; font-weight:600; font-size:11.5px}
-.d-head .crumb{color:#9aa0ad; font-size:10.5px} .d-head .crumb b{color:#f4f4f4; font-weight:500}
-.d-head .sp{flex:1}
-.d-head .search{display:inline-flex; align-items:center; gap:6px; height:21px; padding:0 8px; border-radius:99px; border:1px solid #3a3f50; background:rgba(255,255,255,.05); color:#aab; font-size:10px}
-.d-head .av{width:21px; height:21px; border-radius:50%; background:var(--i); color:#fff; display:grid; place-items:center; font-size:9.5px; font-weight:600}
-.d-body{flex:1; display:grid; grid-template-columns:132px 1fr; min-height:0}
-.d-nav{background:var(--muted-bg); border-right:1px solid var(--line); padding:8px 6px; overflow:hidden}
-.d-nav .g{font-size:8.5px; letter-spacing:.06em; text-transform:uppercase; color:#9097a8; padding:8px 8px 3px; font-weight:600}
-.d-nav .l{display:flex; align-items:center; gap:7px; padding:5px 8px; border-radius:6px; color:var(--ink-3); border-left:2px solid transparent; font-size:11px}
-.d-nav .l svg{width:12px; height:12px; flex:none; color:#8990a3}
-.d-nav .l.on{background:var(--surface); color:var(--ink); border-left-color:var(--i); font-weight:600} .d-nav .l.on svg{color:var(--i)}
-.d-main{padding:12px; overflow:hidden; background:var(--muted-bg)}
-.d-hero{display:flex; gap:12px; justify-content:space-between; border-radius:10px; padding:14px; border:1px solid color-mix(in srgb,var(--i) 22%,var(--line)); background:radial-gradient(120% 140% at 0% 0%, color-mix(in srgb,var(--i) 13%,#fff), #fff 58%); box-shadow:var(--sh-1)}
-.d-hero .eb{font-size:8.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
-.d-hero h4{margin:3px 0 5px; font-size:17px; font-weight:600; color:var(--ink); letter-spacing:-.01em}
-.d-ws{display:inline-flex; align-items:center; gap:5px; font-size:10px; color:var(--ink-2); margin-bottom:5px}
-.d-ws .dot{width:6px; height:6px; border-radius:50%; background:var(--ok)}
-.d-hero .sum{font-size:10px; color:var(--ink-3)}
-.d-step{flex:none; width:158px; border-left:1px solid var(--line); padding-left:12px; display:flex; flex-direction:column; gap:6px; align-items:flex-start}
-.d-step .eb{color:var(--ink-3)} .d-step .st{font-size:11px; color:var(--ink-2); line-height:1.35}
-.d-step .b{display:inline-flex; align-items:center; gap:5px; height:24px; padding:0 11px; border-radius:6px; background:var(--i); color:#fff; font-size:10px; font-weight:600}
-.d-stats{display:grid; grid-template-columns:repeat(5,1fr); gap:7px; margin-top:10px}
-.d-stat{background:var(--surface); border:1px solid var(--line); border-radius:8px; padding:8px 9px; box-shadow:var(--sh-1)}
-.d-stat .k{font-size:8.5px; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
-.d-stat .v{font-size:18px; font-weight:600; color:var(--ink); line-height:1.1; margin-top:3px}
-.d-stat .v.ok{color:var(--ok-text)} .d-stat .v.warn{color:var(--warn-text)}
-.d-today{margin-top:10px; background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:11px 12px; box-shadow:var(--sh-1)}
-.d-today .h{display:flex; align-items:center; justify-content:space-between; margin-bottom:8px}
-.d-today .h b{font-size:12px; color:var(--ink); font-weight:600} .d-today .h span{font-size:9px; color:var(--ink-3)}
-.d-today .it{display:flex; align-items:center; gap:8px; padding:6px 0; border-top:1px solid var(--line)}
-.d-today .rk{width:17px; height:17px; border-radius:5px; flex:none; display:grid; place-items:center; font-size:9px; font-weight:600; background:var(--i-soft); color:var(--i)}
-.d-today .it.top .rk{background:var(--i); color:#fff}
-.d-today .tx{flex:1; font-size:10.5px; color:var(--ink-2)} .d-today .cta{font-size:9.5px; color:var(--i); font-weight:600; white-space:nowrap}
-@media (max-width:560px){.d-step{display:none}.d-stats{grid-template-columns:repeat(3,1fr)}.d-today{display:none}.d-nav{display:none}.d-body{grid-template-columns:1fr}}
+/* macOS menu bar */
+.os-bar{position:absolute; top:0; left:0; right:0; height:4.6%; min-height:18px; display:flex; align-items:center; gap:14px; padding:0 12px; font-size:10.5px; color:#fff; background:rgba(20,18,40,.42); backdrop-filter:blur(8px); z-index:20}
+.os-bar .apple{width:11px; height:13px; opacity:.95}
+.os-bar b{font-weight:600} .os-bar .mi{opacity:.82; font-weight:500}
+.os-bar .sp{flex:1}
+.os-bar .st{display:inline-flex; align-items:center; gap:10px; opacity:.9}
+@media (max-width:720px){.os-bar .mi{display:none}}
+/* janela do app */
+.os-win{position:absolute; top:7%; left:3.5%; right:3.5%; bottom:15%; border-radius:11px; overflow:hidden; background:var(--muted-bg);
+  box-shadow:0 24px 50px -16px rgba(0,0,0,.5), 0 0 0 1px rgba(0,0,0,.4); z-index:15; display:flex; flex-direction:column; text-align:left}
+.win-bar{display:flex; align-items:center; gap:9px; height:14%; min-height:30px; padding:0 12px; background:linear-gradient(180deg,#1f1f22,#161618); color:#f4f4f4; flex:none}
+.win-bar .tl{display:flex; gap:7px}
+.win-bar .tl i{width:11px; height:11px; border-radius:50%; display:block}
+.win-bar .tl i:nth-child(1){background:#ff5f57}.win-bar .tl i:nth-child(2){background:#febc2e}.win-bar .tl i:nth-child(3){background:#28c840}
+.win-bar .dl{display:flex; align-items:center; gap:6px; font-weight:600; font-size:11px; margin-left:4px}
+.win-bar .crumb{color:#9aa0ad; font-size:10px} .win-bar .crumb b{color:#f4f4f4; font-weight:500}
+.win-bar .sp{flex:1}
+.win-bar .search{display:inline-flex; align-items:center; gap:5px; height:19px; padding:0 8px; border-radius:99px; border:1px solid #3a3f50; background:rgba(255,255,255,.05); color:#aab; font-size:9px}
+.win-bar .av{width:19px; height:19px; border-radius:50%; background:var(--i); color:#fff; display:grid; place-items:center; font-size:8.5px; font-weight:600}
+.app-body{flex:1; display:grid; grid-template-columns:118px 1fr; min-height:0; font-size:10px; line-height:1.4}
+.app-nav{background:var(--muted-bg); border-right:1px solid var(--line); padding:6px 5px; overflow:hidden}
+.app-nav .g{font-size:7.5px; letter-spacing:.05em; text-transform:uppercase; color:#9097a8; padding:7px 7px 2px; font-weight:600}
+.app-nav .l{display:flex; align-items:center; gap:6px; padding:3.5px 7px; border-radius:5px; color:var(--ink-3); border-left:2px solid transparent; font-size:10px; white-space:nowrap; overflow:hidden}
+.app-nav .l svg{width:11px; height:11px; flex:none; color:#8990a3}
+.app-nav .l.on{background:var(--surface); color:var(--ink); border-left-color:var(--i); font-weight:600} .app-nav .l.on svg{color:var(--i)}
+.app-main{padding:10px; overflow:hidden; background:var(--muted-bg)}
+.a-hero{display:flex; gap:10px; justify-content:space-between; border-radius:9px; padding:11px; border:1px solid color-mix(in srgb,var(--i) 22%,var(--line)); background:radial-gradient(120% 140% at 0% 0%, color-mix(in srgb,var(--i) 13%,#fff), #fff 58%); box-shadow:var(--sh-1)}
+.a-hero .eb{font-size:7.5px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.a-hero h4{margin:2px 0 4px; font-size:15px; font-weight:600; color:var(--ink)}
+.a-ws{display:inline-flex; align-items:center; gap:4px; font-size:9px; color:var(--ink-2); margin-bottom:4px}
+.a-ws .dot{width:5px; height:5px; border-radius:50%; background:var(--ok)}
+.a-hero .sum{font-size:9px; color:var(--ink-3)}
+.a-step{flex:none; width:130px; border-left:1px solid var(--line); padding-left:10px; display:flex; flex-direction:column; gap:5px; align-items:flex-start}
+.a-step .eb{color:var(--ink-3)} .a-step .st{font-size:9.5px; color:var(--ink-2); line-height:1.3}
+.a-step .b{display:inline-flex; align-items:center; height:20px; padding:0 9px; border-radius:5px; background:var(--i); color:#fff; font-size:9px; font-weight:600}
+.a-stats{display:grid; grid-template-columns:repeat(5,1fr); gap:6px; margin-top:8px}
+.a-stat{background:var(--surface); border:1px solid var(--line); border-radius:7px; padding:6px 7px; box-shadow:var(--sh-1)}
+.a-stat .k{font-size:7.5px; letter-spacing:.03em; text-transform:uppercase; color:var(--ink-3); font-weight:600}
+.a-stat .v{font-size:15px; font-weight:600; color:var(--ink); line-height:1.1; margin-top:2px}
+.a-stat .v.ok{color:var(--ok-text)} .a-stat .v.warn{color:var(--warn-text)}
+.a-today{margin-top:8px; background:var(--surface); border:1px solid var(--line); border-radius:9px; padding:9px 10px; box-shadow:var(--sh-1)}
+.a-today .h{display:flex; align-items:center; justify-content:space-between; margin-bottom:6px}
+.a-today .h b{font-size:10.5px; color:var(--ink); font-weight:600} .a-today .h span{font-size:8px; color:var(--ink-3)}
+.a-today .it{display:flex; align-items:center; gap:7px; padding:4.5px 0; border-top:1px solid var(--line)}
+.a-today .rk{width:15px; height:15px; border-radius:4px; flex:none; display:grid; place-items:center; font-size:8px; font-weight:600; background:var(--i-soft); color:var(--i)}
+.a-today .it.top .rk{background:var(--i); color:#fff}
+.a-today .tx{flex:1; font-size:9.5px; color:var(--ink-2)} .a-today .cta{font-size:8.5px; color:var(--i); font-weight:600; white-space:nowrap}
+/* dock */
+.os-dock{position:absolute; bottom:2.6%; left:50%; transform:translateX(-50%); display:flex; align-items:flex-end; gap:7px; padding:6px 9px; border-radius:16px; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.3); backdrop-filter:blur(14px); box-shadow:0 10px 24px -8px rgba(0,0,0,.5); z-index:20}
+.os-dock .dk{width:30px; height:30px; border-radius:8px; display:grid; place-items:center; box-shadow:0 3px 8px -2px rgba(0,0,0,.4); position:relative; transition:transform .18s var(--ease)}
+.os-dock .dk:hover{transform:translateY(-6px) scale(1.08)}
+.os-dock .dk.on::after{content:''; position:absolute; bottom:-5px; left:50%; transform:translateX(-50%); width:3px; height:3px; border-radius:50%; background:rgba(255,255,255,.85)}
+.os-dock .dk.f{background:linear-gradient(180deg,#5ea9ff,#1f6fe0)}
+.os-dock .dk.s{background:linear-gradient(180deg,#e9eef5,#c2cbd8)}
+.os-dock .dk.m{background:linear-gradient(180deg,#3ad17a,#15a85a)}
+.os-dock .dk.c{background:linear-gradient(180deg,#fff,#e6e8ee)}
+.os-dock .dk.g{background:linear-gradient(180deg,#8a90a2,#5d6473)}
+.os-dock .dk.p{background:linear-gradient(150deg,#5b54ec,#4338ca)}
+@media (max-width:560px){
+  .app-nav{display:none}.app-body{grid-template-columns:1fr}.a-step{display:none}.a-stats{grid-template-columns:repeat(3,1fr)}.a-today{display:none}
+  .os-dock .dk{width:24px;height:24px}
+}
 
-/* ── Personas band ────────────────────────────────────────────────────────── */
+/* ── Personas ─────────────────────────────────────────────────────────────── */
 .personas{text-align:center}
-.personas .lbl{font-size:13px; color:var(--ink-3); margin-bottom:16px}
-.personas .chips{display:flex; flex-wrap:wrap; gap:10px; justify-content:center}
-.personas .chip{display:inline-flex; align-items:center; gap:8px; padding:9px 16px; border-radius:99px; border:1px solid var(--line); background:var(--surface); color:var(--ink-2); font-size:14px; font-weight:500; box-shadow:var(--sh-1)}
+.personas .lbl{font-size:13.5px; color:var(--ink-3); margin-bottom:18px}
+.personas .chips{display:flex; flex-wrap:wrap; gap:10px; justify-content:center; max-width:920px; margin:0 auto}
+.personas .chip{display:inline-flex; align-items:center; gap:9px; padding:9px 16px; border-radius:99px; border:1px solid var(--line); background:var(--surface); color:var(--ink-2); font-size:14px; font-weight:500; box-shadow:var(--sh-1)}
 .personas .chip svg{color:var(--i); flex:none}
 
 /* ── Pilares ──────────────────────────────────────────────────────────────── */
@@ -175,7 +225,7 @@ section{position:relative}
 .result{margin-top:18px; border-radius:var(--r-lg); border:1px solid var(--i-line); background:linear-gradient(120deg,var(--i),#6d5ef0); color:#fff; padding:clamp(26px,4vw,40px); display:flex; gap:24px; align-items:center; flex-wrap:wrap; box-shadow:0 18px 40px -18px rgba(79,70,229,.6)}
 .result .ic{width:54px; height:54px; border-radius:14px; flex:none; display:grid; place-items:center; background:rgba(255,255,255,.16); color:#fff}
 .result h3{color:#fff; font-size:clamp(20px,2.6vw,26px); font-weight:600; margin-bottom:6px}
-.result p{color:rgba(255,255,255,.9); font-size:15.5px; line-height:1.55; max-width:64ch}
+.result p{color:rgba(255,255,255,.92); font-size:15.5px; line-height:1.55; max-width:64ch}
 @media (max-width:760px){.pillars{grid-template-columns:1fr}}
 
 /* ── Tiles (módulos) ──────────────────────────────────────────────────────── */
@@ -197,7 +247,7 @@ section{position:relative}
 .step p{color:var(--ink-2); font-size:14.5px; line-height:1.6}
 @media (max-width:760px){.steps{grid-template-columns:1fr}}
 
-/* ── Prova social (dor + por que agora) ───────────────────────────────────── */
+/* ── Prova social ─────────────────────────────────────────────────────────── */
 .proof-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:28px; align-items:start}
 .pain{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:30px; box-shadow:var(--sh-1)}
 .pain h3{font-size:19px; font-weight:600; color:var(--ink); margin-bottom:16px}
@@ -223,7 +273,7 @@ section{position:relative}
 .faq details[open] summary .x{transform:rotate(45deg)}
 .faq .a{padding:0 20px 18px; color:var(--ink-2); font-size:14.5px; line-height:1.6}
 
-/* ── Beta CTA ─────────────────────────────────────────────────────────────── */
+/* ── Beta ─────────────────────────────────────────────────────────────────── */
 .beta-card{border-radius:var(--r-xl); border:1px solid var(--i-line); background:linear-gradient(160deg,#fff,var(--i-soft) 130%); box-shadow:var(--sh-2); padding:clamp(30px,5vw,56px)}
 .beta-grid{display:grid; grid-template-columns:1fr 1fr; gap:clamp(28px,5vw,52px); align-items:start}
 .beta-grid h2{font-size:clamp(25px,3.4vw,36px); line-height:1.1; font-weight:600; color:var(--ink)}
@@ -253,8 +303,7 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--dang
 /* ── Footer ───────────────────────────────────────────────────────────────── */
 footer{border-top:1px solid var(--line); background:var(--muted-bg)}
 footer .top{display:flex; gap:24px; flex-wrap:wrap; align-items:flex-start; max-width:var(--maxw); margin:0 auto; padding:44px var(--gutter) 24px}
-footer .top .lead{max-width:34ch}
-footer .top .lead p{color:var(--ink-3); font-size:13.5px; margin-top:12px; line-height:1.55}
+footer .top .lead{max-width:34ch} footer .top .lead p{color:var(--ink-3); font-size:13.5px; margin-top:12px; line-height:1.55}
 footer .top .spacer{flex:1}
 footer .flinks{display:flex; gap:26px; flex-wrap:wrap}
 footer .flinks a{color:var(--ink-2); font-size:14px} footer .flinks a:hover{color:var(--ink)}
@@ -273,14 +322,26 @@ footer .bottom .spacer{flex:1}
       <span><span class="nm" style="display:block">Presence OS</span><span class="by" style="display:block">um produto Soberanus</span></span>
     </a>
     <span class="spacer"></span>
-    <nav class="links" id="navlinks" aria-label="Seções">
+    <div class="links" id="navlinks">
       <a href="#produto">Produto</a>
-      <a href="#modulos">Recursos</a>
+      <div class="has-mega">
+        <button type="button" aria-haspopup="true">Recursos <svg class="chev" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6l4 4 4-4"/></svg></button>
+        <div class="mega" role="menu">
+          <div class="mega-grid">
+            <a href="#modulos" role="menuitem"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/></svg></span><span><b>Studio</b><span>Posts, comentários e imagens no seu tom</span></span></a>
+            <a href="#modulos" role="menuitem"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/></svg></span><span><b>Radar de Autoridade</b><span>As conversas certas pra você entrar</span></span></a>
+            <a href="#modulos" role="menuitem"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.3 8l1.9 1.9L11 6"/></svg></span><span><b>Centro de Aprovação</b><span>Nada vai pro ar sem o seu aval</span></span></a>
+            <a href="#modulos" role="menuitem"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M5 8.5c1.5 1.5 4.5 1.5 6 0M5.5 6.2h.01M10.5 6.2h.01"/></svg></span><span><b>Estratégia & Voz</b><span>Onde ele aprende o seu jeito</span></span></a>
+            <a href="#modulos" role="menuitem"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="3" width="11" height="10.5" rx="1.6"/><path d="M2.5 6.3h11"/></svg></span><span><b>Calendário & Assets</b><span>O que sai e quando, num lugar só</span></span></a>
+            <a href="#modulos" role="menuitem"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.6-3.2 2 1.6L13 5"/></svg></span><span><b>Analytics & Alertas</b><span>O que gera autoridade de verdade</span></span></a>
+          </div>
+        </div>
+      </div>
       <a href="#como">Como funciona</a>
       <a href="#quem">Quem usa</a>
       <a href="#faq">FAQ</a>
-    </nav>
-    <a class="btn primary sm" href="#beta">Entrar no beta</a>
+      <a class="btn primary sm nav-cta" href="#beta">Entrar no beta</a>
+    </div>
     <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navlinks" aria-label="Abrir menu">
       <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
     </button>
@@ -292,74 +353,110 @@ footer .bottom .spacer{flex:1}
 <!-- HERO -->
 <header class="hero wrap" id="top">
   <div class="inner">
-    <p class="kicker reveal in">Um produto Soberanus · Beta privado</p>
-    <h1 class="reveal in">Apareça no LinkedIn todo dia. <span class="hl">Sem escrever todo dia.</span></h1>
-    <p class="lede reveal in">O Presence OS aprende o seu tom e as suas ideias, acompanha o que está acontecendo no seu nicho (em qualquer idioma) e rascunha seus posts, comentários e respostas. Você revisa, aprova e publica. A presença vira constante, a sua agenda continua livre.</p>
-    <div class="cta reveal in">
+    <p class="kicker h-anim">Um produto Soberanus · Beta privado</p>
+    <h1 class="h-anim">Apareça no LinkedIn <span class="nb">todo dia.</span> <span class="hl nb">Sem escrever todo dia.</span></h1>
+    <p class="lede h-anim">O Presence OS aprende o seu tom e as suas ideias, acompanha o seu nicho em qualquer idioma e rascunha seus posts, comentários e respostas. Você revisa, aprova e publica: a presença vira constante, a sua agenda continua livre.</p>
+    <div class="cta h-anim">
       <a class="btn primary" href="#beta">Quero minha vaga no beta
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
       <a class="btn secondary" href="#como">Ver como funciona</a>
     </div>
-    <div class="re reveal in">
+    <div class="re h-anim">
       <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg> Escreve no seu tom, não em tom de robô</span>
       <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg> Monitora o mundo em qualquer idioma</span>
       <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg> Nada é publicado sem o seu aval</span>
     </div>
   </div>
 
-  <!-- MACBOOK PRO (Space Black) + cockpit -->
-  <div class="macwrap reveal" aria-hidden="true">
-    <div class="mb-lid">
+  <!-- MACBOOK PRO Space Black + macOS desktop + dock + app real -->
+  <div class="macwrap h-anim" id="macwrap" aria-hidden="true">
+    <div class="mb-lid" id="mblid">
       <div class="mb-screen">
         <div class="mb-notch"><i></i></div>
-        <div class="dash">
-          <div class="d-head">
-            <span class="dl"><svg width="14" height="14" viewBox="0 0 32 32"><circle cx="16" cy="23" r="2.6" fill="#fff"/><g fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M11.5 20 A5.5 5.5 0 0 1 20.5 20" stroke="#fff"/><path d="M8 16.5 A9.5 9.5 0 0 1 24 16.5" stroke="#818cf8"/></g></svg> Presence OS</span>
-            <span class="crumb">Cockpit · <b>Dashboard</b></span>
+        <!-- barra do macOS -->
+        <div class="os-bar">
+          <svg class="apple" viewBox="0 0 14 17" fill="#fff"><path d="M11.2 9c0-1.7 1.4-2.5 1.4-2.5-.8-1.1-2-1.3-2.4-1.3-1-.1-2 .6-2.5.6s-1.3-.6-2.1-.6C4 5.2 2.6 6.3 2.6 8.6c0 2.6 2 5.6 3.2 5.6.6 0 .9-.4 1.9-.4s1.2.4 1.9.4c1.2 0 3-2.8 3-4.2-1.4-.6-1.4-1-1.4-1zM9.3 4.2c.6-.7.5-1.7.5-1.9-.5 0-1.2.4-1.6.9-.4.4-.7 1.1-.6 1.8.6 0 1.1-.3 1.7-.8z"/></svg>
+          <b>Presence OS</b><span class="mi">Arquivo</span><span class="mi">Editar</span><span class="mi">Visualizar</span><span class="mi">Janela</span><span class="mi">Ajuda</span>
+          <span class="sp"></span>
+          <span class="st">
+            <svg width="14" height="11" viewBox="0 0 16 12" fill="#fff"><path d="M8 11l3-3a4.2 4.2 0 0 0-6 0zM8 6.5l5.5-5.5a11 11 0 0 0-11 0z" opacity=".9"/></svg>
+            <svg width="20" height="11" viewBox="0 0 24 12" fill="none"><rect x="1" y="2" width="19" height="8" rx="2" stroke="#fff" opacity=".7"/><rect x="2.5" y="3.5" width="13" height="5" rx="1" fill="#fff"/><rect x="21" y="4" width="2" height="4" rx="1" fill="#fff" opacity=".7"/></svg>
+            <b style="font-weight:500">9:41</b>
+          </span>
+        </div>
+        <!-- janela do app -->
+        <div class="os-win">
+          <div class="win-bar">
+            <span class="tl"><i></i><i></i><i></i></span>
+            <span class="dl"><svg width="13" height="13" viewBox="0 0 32 32"><circle cx="16" cy="23" r="2.6" fill="#fff"/><g fill="none" stroke-width="2.4" stroke-linecap="round"><path d="M11.5 20 A5.5 5.5 0 0 1 20.5 20" stroke="#fff"/><path d="M8 16.5 A9.5 9.5 0 0 1 24 16.5" stroke="#818cf8"/></g></svg> Presence OS</span>
+            <span class="crumb">Cockpit · <b>Hoje</b></span>
             <span class="sp"></span>
             <span class="search">Buscar… ⌘K</span>
             <span class="av">MA</span>
           </div>
-          <div class="d-body">
-            <aside class="d-nav">
+          <div class="app-body">
+            <aside class="app-nav">
+              <div class="l on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg> Hoje</div>
               <div class="g">Criar</div>
-              <div class="l on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg> Dashboard</div>
-              <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 14l1-3 7-7 2 2-7 7z"/></svg> Studio</div>
+              <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 1.5L3.5 9H7l-1 5.5L12.5 7H9z"/></svg> Post</div>
+              <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="12" height="10"/><circle cx="6" cy="7" r="1.2"/><path d="M3 12l3.5-3.5 2.5 2.5"/></svg> Imagem</div>
+              <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2l6 3-6 3-6-3z"/><path d="M2 8l6 3 6-3"/></svg> Visual Studio</div>
+              <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.5 8l1.8 1.8L11 6"/></svg> Proof Vault</div>
+              <div class="g">Descobrir</div>
               <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/></svg> Radar</div>
+              <div class="g">Relacionar</div>
+              <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 3h12v8H6l-3 3z"/></svg> Engajar</div>
+              <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="6" cy="5" r="2"/><path d="M2 13c0-2.2 1.8-3.5 4-3.5s4 1.3 4 3.5"/></svg> Leads / CRM</div>
+              <div class="g">Publicar & medir</div>
               <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.5 8l1.8 1.8L11 6"/></svg> Aprovações</div>
-              <div class="g">Medir</div>
               <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/><path d="M2.5 6h11"/></svg> Calendário</div>
+              <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="12" height="10"/><circle cx="6" cy="7" r="1.2"/></svg> Galeria</div>
               <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.5-3 2 1.5L13 5"/></svg> Analytics</div>
+              <div class="g">Conta</div>
+              <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 14l1-3 7-7 2 2-7 7z"/></svg> Estratégia & Voz</div>
+              <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="5" r="2.5"/><path d="M3 14c0-2.8 2.2-4.5 5-4.5s5 1.7 5 4.5"/></svg> Perfil</div>
+              <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2l6 3-6 3-6-3z"/></svg> Fontes / Nicho</div>
+              <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6.5 9.5l3-3M8 4.5l1-1a2.8 2.8 0 0 1 4 4l-1 1"/></svg> Conexão LinkedIn</div>
+              <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 7a4 4 0 0 1 8 0c0 3 1 4 1 4H3s1-1 1-4z"/></svg> Alertas</div>
             </aside>
-            <div class="d-main">
-              <div class="d-hero">
+            <div class="app-main">
+              <div class="a-hero">
                 <div>
                   <div class="eb">Presence OS · Cockpit</div>
                   <h4>Olá, Marina</h4>
-                  <div class="d-ws"><span class="dot"></span> Marina Alves · Autoridade em Tech &amp; IA</div>
+                  <div class="a-ws"><span class="dot"></span> Marina Alves · Autoridade em Tech &amp; IA</div>
                   <div class="sum">8 leads quentes · 3 em aprovação · 5 agendados · 6 oportunidades</div>
                 </div>
-                <div class="d-step">
+                <div class="a-step">
                   <div class="eb">Próximo passo</div>
-                  <div class="st">3 itens aguardando sua aprovação antes de ir ao ar.</div>
-                  <span class="b">Revisar aprovações →</span>
+                  <div class="st">3 itens aguardando sua aprovação.</div>
+                  <span class="b">Revisar →</span>
                 </div>
               </div>
-              <div class="d-stats">
-                <div class="d-stat"><div class="k">Leads quentes</div><div class="v ok">8</div></div>
-                <div class="d-stat"><div class="k">Aprovações</div><div class="v warn">3</div></div>
-                <div class="d-stat"><div class="k">Agendados</div><div class="v">5</div></div>
-                <div class="d-stat"><div class="k">Rascunhos</div><div class="v">12</div></div>
-                <div class="d-stat"><div class="k">Oportunidades</div><div class="v">6</div></div>
+              <div class="a-stats">
+                <div class="a-stat"><div class="k">Leads</div><div class="v ok">8</div></div>
+                <div class="a-stat"><div class="k">Aprovações</div><div class="v warn">3</div></div>
+                <div class="a-stat"><div class="k">Agendados</div><div class="v">5</div></div>
+                <div class="a-stat"><div class="k">Rascunhos</div><div class="v">12</div></div>
+                <div class="a-stat"><div class="k">Oportun.</div><div class="v">6</div></div>
               </div>
-              <div class="d-today">
-                <div class="h"><b>Hoje · suas próximas ações</b><span>priorizado pelo estado real · nada publica sozinho</span></div>
+              <div class="a-today">
+                <div class="h"><b>Hoje · suas próximas ações</b><span>nada publica sozinho</span></div>
                 <div class="it top"><span class="rk">1</span><span class="tx">Revisar 3 itens aguardando aprovação</span><span class="cta">Revisar →</span></div>
-                <div class="it"><span class="rk">2</span><span class="tx">Comentar em 6 oportunidades quentes do Radar</span><span class="cta">Abrir Radar →</span></div>
-                <div class="it"><span class="rk">3</span><span class="tx">Abordar 8 leads quentes ainda sem contato</span><span class="cta">Ver leads →</span></div>
+                <div class="it"><span class="rk">2</span><span class="tx">Comentar em 6 oportunidades quentes do Radar</span><span class="cta">Abrir →</span></div>
+                <div class="it"><span class="rk">3</span><span class="tx">Abordar 8 leads quentes ainda sem contato</span><span class="cta">Ver →</span></div>
               </div>
             </div>
           </div>
+        </div>
+        <!-- dock -->
+        <div class="os-dock">
+          <span class="dk f" title="Finder"></span>
+          <span class="dk p on" title="Presence OS"><svg width="18" height="18" viewBox="0 0 32 32"><circle cx="16" cy="23" r="2.6" fill="#fff"/><g fill="none" stroke-width="2.6" stroke-linecap="round"><path d="M11.5 20 A5.5 5.5 0 0 1 20.5 20" stroke="#fff"/><path d="M8 16.5 A9.5 9.5 0 0 1 24 16.5" stroke="#c7cbff"/></g></svg></span>
+          <span class="dk s" title="Safari"></span>
+          <span class="dk m" title="Mensagens"></span>
+          <span class="dk c" title="Calendário"></span>
+          <span class="dk g" title="Ajustes"></span>
         </div>
       </div>
     </div>
@@ -368,16 +465,18 @@ footer .bottom .spacer{flex:1}
 </header>
 
 <!-- PERSONAS -->
-<section class="band reveal" style="padding:36px 0">
+<section class="band reveal" style="padding:38px 0">
   <div class="wrap personas">
     <div class="lbl">Feito para quem precisa de autoridade e não tem tempo de produzir</div>
     <div class="chips">
-      <span class="chip"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="5" r="2.6"/><path d="M3 13c0-2.8 2.2-4.5 5-4.5s5 1.7 5 4.5"/></svg> Fundadores B2B</span>
-      <span class="chip"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 13V6l6-3 6 3v7"/><path d="M6 13V9h4v4"/></svg> Executivos C-level</span>
-      <span class="chip"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1"/></svg> Consultores e especialistas</span>
-      <span class="chip"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/></svg> Criadores B2B</span>
-      <span class="chip"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg> Profissionais em transição</span>
-      <span class="chip"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 1.5l1.8 4 4.2.4-3.2 2.8 1 4.3L8 10.8 4.2 13l1-4.3L2 5.9l4.2-.4z"/></svg> Futuras referências do nicho</span>
+      <span class="chip"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 13V6l6-3 6 3v7"/><path d="M6 13V9h4v4"/></svg> Fundadores B2B</span>
+      <span class="chip"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="5" r="2.6"/><path d="M3 13c0-2.8 2.2-4.5 5-4.5s5 1.7 5 4.5"/></svg> CEOs e C-level</span>
+      <span class="chip"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 1"/></svg> Consultores</span>
+      <span class="chip"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/><path d="M9.5 3.5l2.2 2.2"/></svg> Criadores B2B</span>
+      <span class="chip"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 1.5l1.8 4 4.2.4-3.2 2.8 1 4.3L8 10.8 4.2 13l1-4.3L2 5.9l4.2-.4z"/></svg> Especialistas</span>
+      <span class="chip"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.6-3.2 2 1.6L13 5"/></svg> Vendas e SDRs</span>
+      <span class="chip"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="6" cy="5" r="2"/><path d="M2 13c0-2.2 1.8-3.5 4-3.5s4 1.3 4 3.5"/><path d="M11 4.2a2 2 0 0 1 0 3.6"/></svg> Recrutadores e RH</span>
+      <span class="chip"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg> Em transição de carreira</span>
     </div>
   </div>
 </section>
@@ -386,33 +485,18 @@ footer .bottom .spacer{flex:1}
 <section class="sec wrap" id="produto">
   <div class="sec-head reveal">
     <span class="kicker">O que o Presence OS faz por você</span>
-    <h2>Ele aprende você, busca o mundo e mantém você presente.</h2>
+    <h2>Ele aprende com você, entende o seu tom de voz e fala pro mundo, mantendo você presente.</h2>
     <p>Quatro coisas trabalhando juntas pra transformar a sua presença num sistema, não num esforço de força de vontade toda segunda de manhã.</p>
   </div>
   <div class="pillars">
-    <div class="pillar reveal">
-      <div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l1.8 4 4.2.4-3.2 2.8 1 4.3L8 10.8 4.2 13l1-4.3L2 5.9l4.2-.4z"/></svg></div>
-      <div><h3>Aprende você</h3><p>Absorve o seu tom, as suas opiniões e o seu jeito de construir uma frase. O que sai parece escrito por você num dia inspirado, não por uma ferramenta genérica.</p></div>
-    </div>
-    <div class="pillar reveal">
-      <div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M2 8h12M8 1.7c1.8 1.7 1.8 10.9 0 12.6M8 1.7c-1.8 1.7-1.8 10.9 0 12.6"/></svg></div>
-      <div><h3>Sempre atualizado com o mundo</h3><p>Acompanha notícias e tendências do mundo todo, em qualquer idioma, e separa o que é relevante pro seu nicho. Você entra na conversa enquanto ela ainda está quente, não três dias depois.</p></div>
-    </div>
-    <div class="pillar reveal">
-      <div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 8a5 5 0 1 1-1.5-3.5"/><path d="M13 2v3h-3"/></svg></div>
-      <div><h3>Automatiza e mantém o fluxo</h3><p>Depois que aprende com você, trabalha sozinho: rascunha posts, comentários e respostas e mantém um ritmo de presença constante. A sua consistência deixa de depender da sua disposição.</p></div>
-    </div>
-    <div class="pillar reveal">
-      <div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5.5 2.3v3.6c0 3.4-2.4 5.6-5.5 6.6-3.1-1-5.5-3.2-5.5-6.6V3.8z"/><path d="M5.7 8l1.6 1.6L10.6 6"/></svg></div>
-      <div><h3>Você aprova, e só então vai pro ar</h3><p>Cada conteúdo passa pela sua mão antes de existir publicamente. As suas ideias e o seu tom ficam seguros, e nada é publicado sem o seu sim.</p></div>
-    </div>
+    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l1.8 4 4.2.4-3.2 2.8 1 4.3L8 10.8 4.2 13l1-4.3L2 5.9l4.2-.4z"/></svg></div><div><h3>Aprende você</h3><p>Absorve o seu tom, as suas opiniões e o seu jeito de construir uma frase. O que sai parece escrito por você num dia inspirado, não por uma ferramenta genérica.</p></div></div>
+    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M2 8h12M8 1.7c1.8 1.7 1.8 10.9 0 12.6M8 1.7c-1.8 1.7-1.8 10.9 0 12.6"/></svg></div><div><h3>Sempre atualizado com o mundo</h3><p>Acompanha notícias e tendências do mundo todo, em qualquer idioma, e separa o que é relevante pro seu nicho. Você entra na conversa enquanto ela ainda está quente.</p></div></div>
+    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 8a5 5 0 1 1-1.5-3.5"/><path d="M13 2v3h-3"/></svg></div><div><h3>Automatiza e mantém o fluxo</h3><p>Depois que aprende com você, trabalha sozinho: rascunha posts, comentários e respostas e mantém um ritmo de presença constante. A consistência deixa de depender da sua disposição.</p></div></div>
+    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5.5 2.3v3.6c0 3.4-2.4 5.6-5.5 6.6-3.1-1-5.5-3.2-5.5-6.6V3.8z"/><path d="M5.7 8l1.6 1.6L10.6 6"/></svg></div><div><h3>Você aprova, e só então vai pro ar</h3><p>Cada conteúdo passa pela sua mão antes de existir publicamente. As suas ideias e o seu tom ficam seguros, e nada é publicado sem o seu sim.</p></div></div>
   </div>
   <div class="result reveal">
     <div class="ic"><svg width="26" height="26" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.6-3.2 2 1.6L13 4.5"/><path d="M13 4.5h-2.4M13 4.5V7"/></svg></div>
-    <div>
-      <h3>Mais visibilidade e autoridade, com consistência.</h3>
-      <p>Presença constante e relevante constrói reputação. Você ganha alcance, vira referência no seu assunto e propaga a sua marca pessoal sem gastar horas por dia pra isso.</p>
-    </div>
+    <div><h3>Mais visibilidade e autoridade, com consistência.</h3><p>Presença constante e relevante constrói reputação. Você ganha alcance, vira referência no seu assunto e propaga a sua marca pessoal sem gastar horas por dia pra isso.</p></div>
   </div>
 </section>
 
@@ -449,7 +533,7 @@ footer .bottom .spacer{flex:1}
   </div>
 </section>
 
-<!-- PROVA SOCIAL: dor + por que agora -->
+<!-- PROVA SOCIAL -->
 <section class="sec band" id="quem">
   <div class="wrap">
     <div class="sec-head reveal">
@@ -562,21 +646,54 @@ footer .bottom .spacer{flex:1}
 
 <script>
 (function(){
-  document.documentElement.classList.add('js');
+  var doc = document.documentElement;
   try{ document.getElementById('yr').textContent = String(new Date().getFullYear()); }catch(e){}
+
+  // nav
   var nav = document.getElementById('nav');
   var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 8); };
   onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
   var tg = document.getElementById('navToggle');
   if(tg){ tg.addEventListener('click', function(){ var o = nav.classList.toggle('open'); tg.setAttribute('aria-expanded', String(o)); });
-    document.querySelectorAll('#navlinks a').forEach(function(a){ a.addEventListener('click', function(){ nav.classList.remove('open'); tg.setAttribute('aria-expanded','false'); }); }); }
-  var reveals = document.querySelectorAll('.reveal:not(.in)');
-  var revealAll = function(){ reveals.forEach(function(el){ el.classList.add('in'); }); };
-  if('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } }); }, {rootMargin:'0px 0px -8% 0px', threshold:0.04});
-    reveals.forEach(function(el){ io.observe(el); });
-    window.addEventListener('load', function(){ setTimeout(revealAll, 1600); });
-  } else { revealAll(); }
+    document.querySelectorAll('#navlinks a[href^="#"]').forEach(function(a){ a.addEventListener('click', function(){ nav.classList.remove('open'); tg.setAttribute('aria-expanded','false'); }); }); }
+
+  var hasGsap = !!window.gsap && doc.classList.contains('ganim');
+
+  if(hasGsap){
+    gsap.registerPlugin(window.ScrollTrigger);
+    // Hero: entrada (anima ATÉ visível; estado inicial 0 vem do .ganim)
+    gsap.set('.hero .inner .h-anim', { y:24 });
+    gsap.set('#macwrap', { y:42, scale:.975, transformOrigin:'50% 100%' });
+    gsap.timeline({ defaults:{ ease:'power3.out' } })
+      .to('.hero .inner .h-anim', { opacity:1, y:0, duration:.7, stagger:.09 })
+      .to('#macwrap', { opacity:1, y:0, scale:1, duration:.9 }, '-=.3');
+    // Seções: reveal no scroll, com stagger pros que entram juntos (linhas)
+    gsap.set('.reveal', { y:26 });
+    window.ScrollTrigger.batch('.reveal', { start:'top 88%', once:true,
+      onEnter:function(b){ gsap.to(b, { opacity:1, y:0, duration:.6, stagger:.08, ease:'power3.out' }); } });
+    // rede de segurança: nada fica invisível (aba oculta / headless / sem scroll)
+    window.addEventListener('load', function(){
+      window.ScrollTrigger.refresh();
+      setTimeout(function(){ document.querySelectorAll('.reveal').forEach(function(e){
+        if(parseFloat(getComputedStyle(e).opacity) < .05) gsap.to(e, { opacity:1, y:0, duration:.4 }); }); }, 3500);
+    });
+  }
+
+  // MacBook: tilt 3D seguindo o mouse (mexer nele)
+  var lid = document.getElementById('mblid'), mw = document.getElementById('macwrap');
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(lid && mw && !reduce && window.innerWidth > 700){
+    mw.style.perspective = '1400px';
+    var setRX, setRY;
+    if(window.gsap){ setRX = gsap.quickTo(lid,'rotationX',{duration:.5,ease:'power2.out'}); setRY = gsap.quickTo(lid,'rotationY',{duration:.5,ease:'power2.out'}); }
+    mw.addEventListener('pointermove', function(e){
+      var r = mw.getBoundingClientRect(); var px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+      if(setRX){ setRX(-py*7); setRY(px*9); } else { lid.style.transform='perspective(1400px) rotateX('+(-py*7)+'deg) rotateY('+(px*9)+'deg)'; }
+    });
+    mw.addEventListener('pointerleave', function(){ if(setRX){ setRX(0); setRY(0); } else { lid.style.transform=''; } });
+  }
+
+  // form
   var form = document.getElementById('waitlist'); if(!form) return;
   var errEl = document.getElementById('formErr'), btn = document.getElementById('submitBtn');
   function setErr(m,f){ if(errEl) errEl.textContent = m||''; ['nome','email'].forEach(function(n){ form[n].removeAttribute('aria-invalid'); }); if(f){ form[f].setAttribute('aria-invalid','true'); form[f].focus(); } }
