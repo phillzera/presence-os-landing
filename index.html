@@ -12,7 +12,7 @@
 <meta property="og:locale" content="pt_BR" />
 <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin /><link rel="preconnect" href="https://api.iconify.design" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232a92ee'/%3E%3Cstop offset='1' stop-color='%23064a8f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='16' y='22.5' font-family='Arial,Helvetica,sans-serif' font-size='17' font-weight='700' fill='%23fff' text-anchor='middle'%3Ein%3C/text%3E%3Ccircle cx='24' cy='9' r='2.6' fill='%2334d399'/%3E%3C/svg%3E" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%232a92ee'/%3E%3Cstop offset='1' stop-color='%23064a8f'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='8' y='22' font-family='Arial,Helvetica,sans-serif' font-size='18' font-weight='700' fill='%23fff'%3EP%3C/text%3E%3Ctext x='18.5' y='22' font-family='Arial,Helvetica,sans-serif' font-size='11' font-weight='700' fill='%23bfe0ff'%3Ein%3C/text%3E%3C/svg%3E" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>(function(){ try{ var rm=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches; if(window.gsap&&!rm) document.documentElement.classList.add('ganim'); }catch(e){} })();</script>
@@ -83,7 +83,9 @@ main,footer{position:relative; z-index:1}
 .logo{display:inline-flex; align-items:center; gap:11px; color:var(--ink); font-weight:600; font-size:18.5px; letter-spacing:-.022em}
 .logo .mk{position:relative; width:34px; height:34px; border-radius:10px; display:grid; place-items:center; flex:none; background:linear-gradient(145deg,#2a92ee,#0a66c2 52%,#064a8f); box-shadow:inset 0 1.5px 0 rgba(255,255,255,.55), inset 0 -3px 8px rgba(6,50,110,.55), 0 8px 18px -6px rgba(10,102,194,.55)}
 .logo .mk::after{content:'';position:absolute;inset:0;border-radius:inherit;background:linear-gradient(180deg,rgba(255,255,255,.34),transparent 46%)}
-.logo .mk b{position:relative; z-index:1; font-weight:700; font-size:16px; letter-spacing:-.06em; color:#fff; line-height:1; font-family:'IBM Plex Sans',sans-serif}
+.logo .mk b{position:relative; z-index:1; display:inline-flex; align-items:baseline; color:#fff; line-height:1; font-family:'IBM Plex Sans',sans-serif}
+.logo .mk b .p{font-size:18px; font-weight:700; letter-spacing:-.05em}
+.logo .mk b .in{font-size:11px; font-weight:700; letter-spacing:-.04em; color:#bfe0ff; margin-left:.5px}
 .logo .mk .live{position:absolute; top:6px; right:6px; width:5px; height:5px; border-radius:50%; background:#34d399; box-shadow:0 0 0 1.6px rgba(255,255,255,.9); z-index:2}
 .logo .mk .live::after{content:''; position:absolute; inset:-3px; border-radius:50%; border:1.5px solid rgba(52,211,153,.65); animation:livepulse 2.2s var(--ease) infinite}
 @keyframes livepulse{0%{transform:scale(.55);opacity:.9}70%{transform:scale(1.7);opacity:0}100%{opacity:0}}
@@ -135,11 +137,12 @@ section{position:relative}
 .hero .lede{margin:20px auto 0; font-size:clamp(17px,1.9vw,20px); color:var(--ink-2); line-height:1.55; max-width:52ch; text-wrap:balance}
 .hero .lede strong{color:var(--ink); font-weight:600}
 .hero .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:28px}
-.hero .re{display:flex; gap:10px 24px; justify-content:center; flex-wrap:wrap; margin-top:20px; color:var(--ink-3); font-size:14px}
-.hero .re span{display:inline-flex; align-items:center; gap:8px} .hero .re svg{color:var(--ok); flex:none}
+.hero .re{display:flex; gap:10px; justify-content:center; flex-wrap:wrap; margin-top:26px}
+.hero .re span{display:inline-flex; align-items:center; gap:8px; padding:9px 15px; border-radius:var(--r-pill); background:color-mix(in srgb,#fff 72%,transparent); border:1px solid var(--line); box-shadow:var(--sh-1); -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px); color:var(--ink-2); font-size:13.5px; font-weight:500}
+.hero .re span svg{color:var(--i); flex:none}
 @media (max-width:560px){
   .hero h1 .nb{white-space:normal}
-  .hero .re{flex-direction:column; align-items:center; gap:9px}
+  .hero .re{gap:8px}
 }
 
 /* showcase: macbook + iphone */
@@ -168,25 +171,33 @@ section{position:relative}
 .app-nav .l{display:flex;align-items:center;gap:6px;padding:3.5px 7px;border-radius:5px;color:var(--ink-3);border-left:2px solid transparent;font-size:9.5px;white-space:nowrap;overflow:hidden}
 .app-nav .l svg{width:10px;height:10px;flex:none;color:#8990a3}
 .app-nav .l.on{background:var(--surface);color:var(--ink);border-left-color:var(--i);font-weight:600} .app-nav .l.on svg{color:var(--i)}
-.app-main{padding:10px; overflow:hidden; background:var(--muted-bg)}
-.an-top{display:flex; gap:9px}
-.an-card{background:#fff; border:1px solid var(--line); border-radius:9px; padding:10px; box-shadow:var(--sh-1)}
-.an-score{flex:none; width:120px; display:flex; align-items:center; gap:10px}
-.an-score .ring{width:54px;height:54px;flex:none}
-.an-score .sv{font-size:21px;font-weight:700;color:var(--ink);line-height:1} .an-score .sl{font-size:8.5px;color:var(--ink-3);text-transform:uppercase;letter-spacing:.04em;font-weight:600;margin-top:2px} .an-score .sd{font-size:8.5px;color:var(--ok-text);margin-top:3px}
-.an-bars{flex:1; display:flex; flex-direction:column}
-.an-bars .ct{font-size:9px;color:var(--ink-3);font-weight:600;margin-bottom:7px;display:flex;justify-content:space-between}
-.an-bars .ct b{color:var(--ink)}
-.an-bars .bars{display:flex; align-items:flex-end; gap:5px; height:46px}
-.an-bars .bars i{flex:1; background:linear-gradient(180deg,#1a85e0,#0a66c2); border-radius:3px 3px 0 0; display:block; opacity:.9}
-.an-bars .bars i:last-child{background:linear-gradient(180deg,#34d399,#16a34a)}
-.an-row2{display:grid; grid-template-columns:1.3fr 1fr; gap:9px; margin-top:9px}
-.an-spark .ct{font-size:9px;color:var(--ink-3);font-weight:600;margin-bottom:4px;display:flex;justify-content:space-between} .an-spark .ct b{color:var(--ok-text)}
-.an-spark svg{width:100%;height:42px;display:block}
-.an-list .ct{font-size:9px;color:var(--ink-3);font-weight:600;margin-bottom:6px}
-.an-li{display:flex;align-items:center;gap:6px;padding:3px 0;font-size:9px;color:var(--ink-2)}
-.an-li .dot{width:6px;height:6px;border-radius:2px;flex:none} .an-li .n{margin-left:auto;font-weight:600;color:var(--ink);font-family:'IBM Plex Mono',monospace}
-@media (max-width:560px){.app-nav{display:none}.app-body{grid-template-columns:1fr}.an-score{width:96px}.an-row2{grid-template-columns:1fr}}
+.app-main{padding:11px; overflow:hidden; background:var(--muted-bg); display:flex; flex-direction:column; gap:9px}
+.ck-eye{font-size:7px;letter-spacing:.11em;text-transform:uppercase;color:var(--i);font-weight:700;font-family:'IBM Plex Mono',monospace}
+.ck-hi{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.02em;margin-top:2px;line-height:1}
+.ck-ws{display:inline-flex;align-items:center;gap:4px;margin-top:6px;font-size:8px;color:var(--ink-3);background:#fff;border:1px solid var(--line);border-radius:99px;padding:2px 8px}
+.ck-ws::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--ok)}
+.ck-grid{display:grid;grid-template-columns:1fr 1.12fr;gap:9px}
+.ck-card{background:#fff;border:1px solid var(--line);border-radius:9px;padding:10px;box-shadow:var(--sh-1)}
+.ck-ct{font-size:9px;color:var(--ink-3);font-weight:600;margin-bottom:8px}
+.ck-srow{display:flex;align-items:center;gap:11px}
+.ck-num{font-size:31px;font-weight:700;color:var(--i);line-height:.85;letter-spacing:-.03em}
+.ck-comp{flex:1;display:flex;flex-direction:column;gap:5px}
+.ck-c span{font-size:8px;color:var(--ink-2);display:flex;justify-content:space-between;margin-bottom:2.5px} .ck-c span b{color:var(--ink);font-weight:600}
+.ck-c i{height:4px;border-radius:99px;background:var(--surface-2);display:block;position:relative;overflow:hidden}
+.ck-c i::after{content:'';position:absolute;left:0;top:0;bottom:0;width:var(--w,60%);border-radius:99px;background:linear-gradient(90deg,#1a85e0,#0a66c2)}
+.ck-act{display:flex;flex-direction:column}
+.ck-a{display:flex;align-items:center;gap:7px;padding:5px 6px;border-radius:6px;font-size:9px}
+.ck-a + .ck-a{margin-top:2px}
+.ck-a.hot{background:var(--i-soft)}
+.ck-a .r{width:14px;height:14px;border-radius:5px;flex:none;display:grid;place-items:center;font-size:8px;font-weight:700;background:var(--surface-2);color:var(--ink-3)}
+.ck-a.hot .r{background:var(--i);color:#fff}
+.ck-a .t{flex:1;color:var(--ink);font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ck-a .go{font-size:8px;color:var(--i);font-weight:600;flex:none}
+.ck-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:7px}
+.ck-s{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 9px;box-shadow:var(--sh-1)}
+.ck-s b{display:block;font-size:16px;font-weight:700;color:var(--ink);line-height:1}
+.ck-s span{font-size:7.5px;color:var(--ink-3);margin-top:3px;display:block}
+@media (max-width:560px){.app-nav{display:none}.app-body{grid-template-columns:1fr}.ck-grid{grid-template-columns:1fr}.ck-stats{grid-template-columns:repeat(2,1fr)}}
 .os-dock{position:absolute;bottom:2.4%;left:50%;transform:translateX(-50%);display:flex;align-items:flex-end;gap:7px;padding:6px 9px;border-radius:16px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.34);backdrop-filter:blur(14px);box-shadow:0 10px 24px -8px rgba(0,0,0,.5);z-index:20}
 .os-dock .dk{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:#fff;box-shadow:0 3px 8px -2px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.6);position:relative;overflow:hidden;transition:transform .18s var(--ease)}
 .os-dock .dk:hover{transform:translateY(-8px) scale(1.12)} .os-dock .dk img{width:74%;height:74%;object-fit:contain}
@@ -194,18 +205,32 @@ section{position:relative}
 .os-dock .dk.on::after{content:'';position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.9)}
 @media (max-width:560px){.os-dock .dk{width:24px;height:24px}}
 /* iphone */
-.iphone{position:absolute; right:14px; bottom:-8px; width:152px; aspect-ratio:9/19.3; border-radius:28px; padding:6px; background:linear-gradient(160deg,#3a3a3e,#161618); box-shadow:0 34px 64px -22px rgba(0,0,0,.62), inset 0 0 0 1px rgba(0,0,0,.6), inset 0 0 0 2.5px #2a2a2e; z-index:25; transform:rotate(3deg)}
-.ip-screen{position:relative; height:100%; border-radius:23px; overflow:hidden; background:linear-gradient(180deg,#eef4fc,#fff 28%); text-align:left}
+.iphone{position:absolute; right:14px; bottom:-10px; width:154px; aspect-ratio:9/20.2; border-radius:28px; padding:6px; background:linear-gradient(160deg,#3a3a3e,#161618); box-shadow:0 34px 64px -22px rgba(0,0,0,.62), inset 0 0 0 1px rgba(0,0,0,.6), inset 0 0 0 2.5px #2a2a2e; z-index:25; transform:rotate(3deg)}
+.ip-screen{position:relative; height:100%; border-radius:23px; overflow:hidden; background:#f3f5f8; text-align:left; display:flex; flex-direction:column}
 .ip-island{position:absolute; top:8px; left:50%; transform:translateX(-50%); width:42px; height:12px; background:#000; border-radius:99px; z-index:6}
-.ip-body{padding:30px 12px 12px; height:100%; display:flex; flex-direction:column}
-.ip-mk{position:relative;width:34px;height:34px;border-radius:10px;display:grid;place-items:center;background:linear-gradient(145deg,#2a92ee,#0a66c2 52%,#064a8f);box-shadow:0 6px 14px -5px rgba(10,102,194,.6);margin-bottom:10px}
-.ip-mk b{font-size:15px;font-weight:700;color:#fff;letter-spacing:-.06em;line-height:1}
-.ip-h{font-size:13.5px;font-weight:700;color:var(--ink);letter-spacing:-.01em} .ip-h i{font-style:normal;color:var(--i)}
-.ip-sub{font-size:9px;color:var(--ink-3);margin:3px 0 13px;line-height:1.4}
-.ip-step{display:flex;align-items:center;gap:8px;padding:8px 9px;border-radius:9px;background:#fff;border:1px solid var(--line);box-shadow:var(--sh-1);margin-bottom:7px;font-size:9.5px;color:var(--ink);font-weight:500;line-height:1.2}
-.ip-step .n{width:17px;height:17px;border-radius:6px;flex:none;display:grid;place-items:center;font-size:8.5px;font-weight:700;background:var(--i-soft);color:var(--i)}
-.ip-step.done{border-color:var(--i-line);background:var(--i-soft)} .ip-step.done .n{background:var(--i);color:#fff}
-.ip-btn{margin-top:auto;height:33px;border-radius:9px;background:linear-gradient(135deg,#1a85e0,#0a66c2 60%,#084e96);color:#fff;font-size:10.5px;font-weight:600;display:grid;place-items:center;box-shadow:0 6px 14px -6px rgba(10,102,194,.6)}
+.ip-stat{height:27px; display:flex; align-items:flex-end; justify-content:space-between; padding:0 13px 3px; font-size:8.5px; font-weight:700; color:var(--ink); flex:none}
+.ip-stat .ic{display:inline-flex; gap:3px; align-items:center}
+.ip-hd{display:flex; align-items:center; gap:7px; padding:4px 12px 7px; background:#fff; border-bottom:1px solid var(--line); flex:none}
+.ip-hd .m{width:20px;height:20px;border-radius:6px;display:grid;place-items:center;background:linear-gradient(145deg,#2a92ee,#064a8f);flex:none}
+.ip-hd .m b{display:inline-flex;align-items:baseline;color:#fff;line-height:1}
+.ip-hd .m .p{font-size:10px;font-weight:700;letter-spacing:-.05em} .ip-hd .m .in{font-size:6.5px;font-weight:700;color:#bfe0ff;margin-left:.4px}
+.ip-hd .ti{font-size:12px;font-weight:700;color:var(--ink);letter-spacing:-.015em}
+.ip-hd .bdg{margin-left:auto;font-size:8px;font-weight:700;color:#fff;background:var(--i);border-radius:99px;padding:1.5px 7px}
+.ip-body{flex:1; padding:8px 11px 6px; display:flex; flex-direction:column; min-height:0}
+.ip-eye{font-size:7.5px;color:var(--ink-3);font-weight:600;margin-bottom:6px;text-transform:uppercase;letter-spacing:.05em}
+.ip-card{background:#fff;border:1px solid var(--line);border-radius:11px;box-shadow:var(--sh-1);padding:9px;display:flex;flex-direction:column}
+.ip-au{display:flex;align-items:center;gap:7px;margin-bottom:7px}
+.ip-au .av{width:21px;height:21px;border-radius:50%;background:linear-gradient(145deg,#1a85e0,#084e96);color:#fff;display:grid;place-items:center;font-size:8.5px;font-weight:700;flex:none}
+.ip-au .nm{font-size:9.5px;font-weight:700;color:var(--ink);line-height:1.15} .ip-au .nm span{display:block;font-size:7.5px;color:var(--ink-3);font-weight:500}
+.ip-tx{font-size:9px;color:var(--ink-2);line-height:1.42;margin-bottom:8px}
+.ip-bd{display:flex;gap:5px;margin-bottom:9px}
+.ip-bd span{font-size:7.5px;font-weight:600;border-radius:99px;padding:2px 7px;border:1px solid var(--line)}
+.ip-bd .ok{color:var(--ok-text);background:#e9f9ef;border-color:#bfe8cd}
+.ip-bd .ri{color:var(--ink-3);background:var(--surface-2)}
+.ip-act{display:flex;flex-direction:column;gap:5px;margin-top:auto}
+.ip-approve{height:28px;border-radius:8px;background:linear-gradient(135deg,#1a85e0,#0a66c2 60%,#084e96);color:#fff;font-size:9.5px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:5px;box-shadow:0 6px 14px -6px rgba(10,102,194,.6)}
+.ip-adjust{height:25px;border-radius:8px;background:#fff;border:1px solid var(--line-2);color:var(--ink);font-size:9px;font-weight:600;display:grid;place-items:center}
+.ip-foot{text-align:center;font-size:7.5px;color:var(--ink-3);padding:6px 0 3px;flex:none}
 @media (max-width:880px){.iphone{display:none}}
 
 /* AI strip (3 logos grandes) */
@@ -333,7 +358,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
   <nav class="nav" id="nav">
     <div class="row">
       <a class="logo" href="#top" aria-label="PresenceIn, início">
-        <span class="mk" aria-hidden="true"><b>in</b><span class="live"></span></span>
+        <span class="mk" aria-hidden="true"><b><span class="p">P</span><span class="in">in</span></b><span class="live"></span></span>
         <span class="nm">Presence<i>In</i></span>
       </a>
       <div class="links" id="navlinks">
@@ -368,17 +393,17 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
 <!-- HERO -->
 <header class="hero wrap" id="top">
   <div class="inner">
-    <h1 class="h-anim">O LinkedIn não esquece quem aparece. <span class="hl nb">E some com quem fica calado.</span></h1>
-    <p class="lede h-anim">O PresenceIn é o concierge que aprende sobre você, acompanha o mundo em qualquer idioma e deixa seus posts, comentários e respostas prontos. <strong>Você só revisa e aprova.</strong></p>
+    <h1 class="h-anim">Apareça como autoridade no LinkedIn. <span class="hl nb">Toda semana, no seu tom.</span></h1>
+    <p class="lede h-anim">O PresenceIn aprende como você pensa e escreve, acompanha o seu mercado em qualquer idioma e te entrega posts, comentários e respostas prontos. <strong>Você revisa, ajusta e aprova.</strong> Sempre na sua voz, nunca com cara de robô.</p>
     <div class="cta h-anim">
       <a class="btn primary" href="#beta">Quero minha vaga no beta
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
       <a class="btn secondary" href="#como">Ver como funciona</a>
     </div>
     <div class="re h-anim">
-      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8.5l3 3 7-7"/></svg> No seu tom, não num tom genérico</span>
-      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8.5l3 3 7-7"/></svg> Nada publica sem o seu aval</span>
-      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8.5l3 3 7-7"/></svg> Use a sua própria IA</span>
+      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/><path d="M9.5 3.5l2.2 2.2"/></svg> Escreve no seu tom, sem cara de robô</span>
+      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 1.6l5.4 2.2v3.5c0 3.3-2.3 5.5-5.4 6.5-3.1-1-5.4-3.2-5.4-6.5V3.8z"/><path d="M5.7 8l1.6 1.6L10.5 6"/></svg> Nada publica sem o seu aval</span>
+      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8.5 1.5L3 9h3.5l-1 5.5L13 7H9z"/></svg> Funciona com a sua própria IA</span>
     </div>
   </div>
 
@@ -397,55 +422,69 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
           <div class="os-win">
             <div class="win-bar">
               <span class="tl"><i></i><i></i><i></i></span>
-              <span class="dl"><svg width="13" height="13" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#0a66c2"/><text x="16" y="22.5" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="700" fill="#fff" text-anchor="middle">in</text></svg> PresenceIn</span>
-              <span class="crumb">Cockpit · <b>Analytics</b></span><span class="sp"></span>
+              <span class="dl"><svg width="13" height="13" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#0a66c2"/><text x="8" y="22" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="700" fill="#fff">P</text><text x="18.5" y="22" font-family="Arial,Helvetica,sans-serif" font-size="11" font-weight="700" fill="#bfe0ff">in</text></svg> PresenceIn</span>
+              <span class="crumb">Cockpit · <b>Hoje</b></span><span class="sp"></span>
               <span class="search">Buscar… ⌘K</span><span class="av">MA</span>
             </div>
             <div class="app-body">
               <aside class="app-nav">
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg> Hoje</div>
+                <div class="l on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg> Hoje</div>
                 <div class="g">Criar</div>
                 <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 1.5L3.5 9H7l-1 5.5L12.5 7H9z"/></svg> Post</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="12" height="10"/><circle cx="6" cy="7" r="1.2"/></svg> Imagem</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2l6 3-6 3-6-3z"/></svg> Visual Studio</div>
+                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="12" height="10"/><circle cx="6" cy="7" r="1.2"/><path d="M2 11l3.5-3 2.5 2 3-2.5 3 3"/></svg> Imagem</div>
+                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2l6 3-6 3-6-3z"/><path d="M2 8l6 3 6-3M2 11l6 3 6-3"/></svg> Visual Studio</div>
+                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 1.6l5.4 2.2v3.5c0 3.3-2.3 5.5-5.4 6.5-3.1-1-5.4-3.2-5.4-6.5V3.8z"/><path d="M5.7 8l1.6 1.6L10.5 6"/></svg> Proof Vault</div>
                 <div class="g">Descobrir</div>
                 <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/></svg> Radar</div>
                 <div class="g">Relacionar</div>
                 <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 3h12v8H6l-3 3z"/></svg> Engajar</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="6" cy="5" r="2"/><path d="M2 13c0-2.2 1.8-3.5 4-3.5s4 1.3 4 3.5"/></svg> Leads / CRM</div>
+                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="6" cy="5" r="2"/><path d="M2 13c0-2.2 1.8-3.5 4-3.5s4 1.3 4 3.5"/><circle cx="12" cy="6" r="1.6"/></svg> Leads / CRM</div>
                 <div class="g">Publicar & medir</div>
                 <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.5 8l1.8 1.8L11 6"/></svg> Aprovações</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/></svg> Calendário</div>
-                <div class="l on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.5-3 2 1.5L13 5"/></svg> Analytics</div>
+                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/><path d="M2.5 6h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg> Calendário</div>
+                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="12" height="10" rx="1.4"/><circle cx="5.5" cy="6.5" r="1"/><path d="M2 11l3.5-3 3 2.4 2.5-2 3 2.6"/></svg> Galeria</div>
+                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.5-3 2 1.5L13 5"/></svg> Analytics</div>
+                <div class="g">Conta</div>
+                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/><path d="M9.5 3.5l2.2 2.2"/></svg> Estratégia & Voz</div>
+                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 2a3 3 0 0 1 3 3c0 4 1.5 5 1.5 5h-9s1.5-1 1.5-5a3 3 0 0 1 3-3z"/><path d="M6.5 13a1.5 1.5 0 0 0 3 0"/></svg> Alertas</div>
               </aside>
               <div class="app-main">
-                <div class="an-top">
-                  <div class="an-card an-score">
-                    <svg class="ring" viewBox="0 0 36 36"><circle cx="18" cy="18" r="15.5" fill="none" stroke="#e3e8ef" stroke-width="3.4"/><circle cx="18" cy="18" r="15.5" fill="none" stroke="#0a66c2" stroke-width="3.4" stroke-linecap="round" pathLength="100" stroke-dasharray="78 100" transform="rotate(-90 18 18)"/></svg>
-                    <div><div class="sv">78</div><div class="sl">Autoridade</div><div class="sd">▲ +12 no mês</div></div>
+                <div class="ck-hero">
+                  <div class="ck-eye">PresenceIn · Cockpit</div>
+                  <div class="ck-hi">Olá, Marina</div>
+                  <div class="ck-ws">Phil · Segurança Fintech</div>
+                </div>
+                <div class="ck-grid">
+                  <div class="ck-card ck-score">
+                    <div class="ck-ct">Score de autoridade</div>
+                    <div class="ck-srow">
+                      <div class="ck-num">74</div>
+                      <div class="ck-comp">
+                        <div class="ck-c"><span>Consistência <b>33/40</b></span><i style="--w:82%"></i></div>
+                        <div class="ck-c"><span>Engajamento <b>18/25</b></span><i style="--w:72%"></i></div>
+                        <div class="ck-c"><span>Provas reais <b>14/20</b></span><i style="--w:70%"></i></div>
+                        <div class="ck-c"><span>Pipeline <b>9/15</b></span><i style="--w:60%"></i></div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="an-card an-bars">
-                    <div class="ct">Alcance por semana <b>+34%</b></div>
-                    <div class="bars"><i style="height:38%"></i><i style="height:52%"></i><i style="height:45%"></i><i style="height:64%"></i><i style="height:58%"></i><i style="height:80%"></i><i style="height:96%"></i></div>
+                  <div class="ck-card ck-act">
+                    <div class="ck-ct">Hoje — suas próximas ações</div>
+                    <div class="ck-a hot"><span class="r">1</span><span class="t">Aprovar 3 posts prontos na sua voz</span><span class="go">Abrir →</span></div>
+                    <div class="ck-a"><span class="r">2</span><span class="t">Comentar em 2 oportunidades do Radar</span><span class="go">Ver</span></div>
+                    <div class="ck-a"><span class="r">3</span><span class="t">Responder 1 lead quente</span><span class="go">Ver</span></div>
                   </div>
                 </div>
-                <div class="an-row2">
-                  <div class="an-card an-spark">
-                    <div class="ct">Seguidores <b>+1.284</b></div>
-                    <svg viewBox="0 0 120 40" preserveAspectRatio="none"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a66c2" stop-opacity=".22"/><stop offset="1" stop-color="#0a66c2" stop-opacity="0"/></linearGradient></defs><path d="M0 34 L18 30 L36 31 L54 22 L72 24 L90 13 L108 9 L120 4 L120 40 L0 40 Z" fill="url(#sg)"/><path d="M0 34 L18 30 L36 31 L54 22 L72 24 L90 13 L108 9 L120 4" fill="none" stroke="#0a66c2" stroke-width="2" stroke-linecap="round"/></svg>
-                  </div>
-                  <div class="an-card an-list">
-                    <div class="ct">Temas em alta</div>
-                    <div class="an-li"><span class="dot" style="background:#0a66c2"></span> IA aplicada <span class="n">92</span></div>
-                    <div class="an-li"><span class="dot" style="background:#1a85e0"></span> Liderança <span class="n">76</span></div>
-                    <div class="an-li"><span class="dot" style="background:#7fb8ee"></span> Carreira <span class="n">61</span></div>
-                  </div>
+                <div class="ck-stats">
+                  <div class="ck-s"><b>8</b><span>Leads quentes</span></div>
+                  <div class="ck-s"><b>3</b><span>Aprovações pend.</span></div>
+                  <div class="ck-s"><b>5</b><span>Agendados</span></div>
+                  <div class="ck-s"><b>12</b><span>Oportunidades</span></div>
                 </div>
               </div>
             </div>
           </div>
           <div class="os-dock">
-            <span class="dk pr on" title="PresenceIn"><svg width="20" height="20" viewBox="0 0 32 32"><text x="16" y="23" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" fill="#fff" text-anchor="middle">in</text></svg></span>
+            <span class="dk pr on" title="PresenceIn"><svg width="20" height="20" viewBox="0 0 32 32"><text x="6" y="23" font-family="Arial,Helvetica,sans-serif" font-size="19" font-weight="700" fill="#fff">P</text><text x="18" y="23" font-family="Arial,Helvetica,sans-serif" font-size="12" font-weight="700" fill="#bfe0ff">in</text></svg></span>
             <span class="dk" title="Safari"><img src="https://api.iconify.design/logos/safari.svg" alt="" loading="lazy"></span>
             <span class="dk" title="LinkedIn"><img src="https://api.iconify.design/logos/linkedin-icon.svg" alt="" loading="lazy"></span>
             <span class="dk" title="Figma"><img src="https://api.iconify.design/logos/figma.svg" alt="" loading="lazy"></span>
@@ -458,18 +497,31 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
       <div class="mb-base"></div>
     </div>
 
-    <!-- iPHONE com wizard -->
+    <!-- iPHONE: Aprovações (Approval Center real) -->
     <div class="iphone">
       <div class="ip-screen">
         <div class="ip-island"></div>
+        <div class="ip-stat"><span>9:41</span><span class="ic"><svg width="13" height="9" viewBox="0 0 16 11" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".6"/><rect x="3.8" y="5" width="2.6" height="6" rx=".6"/><rect x="7.6" y="2.6" width="2.6" height="8.4" rx=".6"/><rect x="11.4" y="0" width="2.6" height="11" rx=".6"/></svg><svg width="17" height="9" viewBox="0 0 24 12" fill="none"><rect x="1" y="1.5" width="19" height="9" rx="2.4" stroke="currentColor" stroke-width="1.2" opacity=".5"/><rect x="2.6" y="3" width="14" height="6" rx="1.2" fill="currentColor"/><rect x="21" y="4" width="1.6" height="4" rx=".8" fill="currentColor" opacity=".5"/></svg></span></div>
+        <div class="ip-hd">
+          <span class="m"><b><span class="p">P</span><span class="in">in</span></b></span>
+          <span class="ti">Aprovações</span>
+          <span class="bdg">3</span>
+        </div>
         <div class="ip-body">
-          <div class="ip-mk"><b>in</b></div>
-          <div class="ip-h">Presence<i>In</i></div>
-          <div class="ip-sub">Também no seu bolso. Configure em 3 passos.</div>
-          <div class="ip-step done"><span class="n">✓</span> Conecte o LinkedIn</div>
-          <div class="ip-step"><span class="n">2</span> Conecte a sua IA</div>
-          <div class="ip-step"><span class="n">3</span> Seu tom e objetivo</div>
-          <div class="ip-btn">Começar agora</div>
+          <div class="ip-eye">1 aguardando o seu aval</div>
+          <div class="ip-card">
+            <div class="ip-au">
+              <span class="av">MA</span>
+              <span class="nm">Marina Alves<span>pronto · na sua voz</span></span>
+            </div>
+            <div class="ip-tx">"Todo mundo fala em 'cultura de segurança'. Na prática, ela começa no onboarding, não no incidente…"</div>
+            <div class="ip-bd"><span class="ok">Nota 86/100</span><span class="ri">Risco IA 12</span></div>
+            <div class="ip-act">
+              <div class="ip-approve"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2"><path d="M3 8.5l3 3 7-7"/></svg> Aprovar e publicar</div>
+              <div class="ip-adjust">Ajustar</div>
+            </div>
+          </div>
+          <div class="ip-foot">Nada publica sem o seu OK.</div>
         </div>
       </div>
     </div>
@@ -631,7 +683,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
 <footer>
   <div class="top">
     <div class="lead">
-      <a class="logo" href="#top"><span class="mk" aria-hidden="true"><b>in</b></span><span class="nm">Presence<i>In</i></span></a>
+      <a class="logo" href="#top"><span class="mk" aria-hidden="true"><b><span class="p">P</span><span class="in">in</span></b></span><span class="nm">Presence<i>In</i></span></a>
       <p>O concierge que faz você ser lembrado no LinkedIn. Um produto Soberanus.</p>
     </div>
     <span class="spacer"></span>
