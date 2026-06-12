@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 <title>PresenceIn: pare de ser invisível no LinkedIn</title>
-<meta name="description" content="O PresenceIn aprende sobre você, acompanha o mundo em qualquer idioma e deixa seus posts, comentários e respostas prontos. Você revisa, aprova e publica. Beta privado a partir de 20 de junho. Vagas limitadas." />
+<meta name="description" content="O PresenceIn aprende sobre você, acompanha o mundo em todos os idiomas e deixa seus posts, comentários e respostas prontos. Você revisa, aprova e publica. Beta privado a partir de 20 de junho. Vagas limitadas." />
 <meta name="theme-color" content="#0a66c2" />
 <meta property="og:type" content="website" />
 <meta property="og:title" content="PresenceIn: vire referência no LinkedIn (e aprove tudo antes de publicar)" />
@@ -145,18 +145,17 @@ section{position:relative}
 .hero h1 .hl{color:var(--i)}
 .hero .lede{margin:20px auto 0; font-size:clamp(17px,1.9vw,20px); color:var(--ink-2); line-height:1.55; max-width:52ch; text-wrap:balance}
 .hero .lede strong{color:var(--ink); font-weight:600}
-.hero .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:28px}
-.hero .re{display:inline-flex; align-items:center; justify-content:center; flex-wrap:wrap; margin-top:28px; padding:6px; border-radius:var(--r-pill); background:color-mix(in srgb,#fff 62%,transparent); border:1px solid var(--line); box-shadow:var(--sh-1), inset 0 1px 0 rgba(255,255,255,.6); -webkit-backdrop-filter:blur(10px); backdrop-filter:blur(10px)}
-.hero .re span{position:relative; display:inline-flex; align-items:center; gap:8px; padding:5px 18px; font-size:13px; font-weight:500; color:var(--ink-2)}
-.hero .re span + span::before{content:''; position:absolute; left:0; top:50%; transform:translateY(-50%); width:1px; height:17px; background:var(--line-2)}
-.hero .re span svg{color:var(--i); flex:none}
-.hero .re b{color:var(--ink); font-weight:600}
+.hero .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:42px 0 40px}
+.hero .re{display:inline-flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:0}
+.hero .re span{position:relative; display:inline-flex; align-items:center; gap:9px; padding:8px 16px 8px 8px; font-size:13px; font-weight:500; color:var(--ink-2); background:color-mix(in srgb,#fff 70%,transparent); border:1px solid var(--line); border-radius:var(--r-pill); box-shadow:var(--sh-1); -webkit-backdrop-filter:blur(9px); backdrop-filter:blur(9px); transition:transform .26s var(--ease), box-shadow .26s var(--ease)}
+.hero .re span:hover{transform:translateY(-2px); box-shadow:var(--sh-2)}
+.hero .re .re-ic{width:25px; height:25px; border-radius:50%; background:var(--i-soft); display:grid; place-items:center; flex:none}
+.hero .re .re-ic svg{width:14px; height:14px; color:var(--i); flex:none}
+.hero .re b{color:var(--ink); font-weight:700}
 @media (max-width:620px){
   .hero h1 .nb{white-space:normal}
-  .hero .re{flex-direction:column; align-items:stretch; border-radius:16px; padding:4px 8px; width:min(360px,92%)}
-  .hero .re span{justify-content:flex-start; padding:10px 8px}
-  .hero .re span + span::before{display:none}
-  .hero .re span + span{border-top:1px solid var(--line)}
+  .hero .re{flex-direction:column; align-items:stretch; width:min(360px,92%)}
+  .hero .re span{justify-content:flex-start; padding:10px 12px}
 }
 
 /* showcase: macbook + iphone */
@@ -377,10 +376,13 @@ section{position:relative}
 .rotw .rw{display:inline-block; color:var(--rotc,#0a66c2); transition:opacity .22s var(--ease), transform .22s var(--ease); will-change:opacity,transform}
 .rotw::after{content:''; position:absolute; left:6%; right:6%; bottom:-3px; height:3px; border-radius:3px; background:var(--rotc,#0a66c2); transition:background .35s var(--ease)}
 @media (max-width:520px){.rotw{min-width:8.5ch}}
-.marquee{overflow:hidden; -webkit-mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent); mask:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.marquee + .marquee{margin-top:12px}
+.mq-zone{margin-top:clamp(26px,4vw,40px); padding:clamp(18px,3vw,26px) 0; border-radius:var(--r-xl); border:1px solid var(--line); background:radial-gradient(120% 130% at 0 0,var(--i-soft),var(--surface) 58%); box-shadow:var(--sh-1); overflow:hidden}
+.marquee{overflow:hidden; -webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.marquee + .marquee{margin-top:11px}
 .mq-track{display:flex; gap:11px; width:max-content; animation:mqscroll 46s linear infinite}
 .mq-track.rev{animation-direction:reverse; animation-duration:54s}
+.mq-zone .marquee:nth-child(3) .mq-track{animation-duration:50s}
+.mq-zone .marquee:nth-child(4) .mq-track{animation-duration:58s}
 .marquee:hover .mq-track{animation-play-state:paused}
 .mq-chip{display:inline-flex; align-items:center; gap:8px; padding:6px 15px; border-radius:99px; border:1px solid var(--line); background:var(--surface); color:var(--ink-2); font-size:13px; font-weight:600; letter-spacing:-.01em; box-shadow:var(--sh-1); white-space:nowrap}
 .mq-chip .mq-dot{width:6px; height:6px; border-radius:50%; flex:none}
@@ -422,7 +424,7 @@ section{position:relative}
 /* mini-preview do Studio */
 .bento .mini{background:#fff; border:1px solid var(--line); border-radius:12px; padding:13px; box-shadow:var(--sh-1)}
 .bento .mini-row{display:flex; align-items:center; gap:9px; margin-bottom:9px}
-.bento .mini-av{width:28px; height:28px; border-radius:50%; flex:none; display:grid; place-items:center; background:linear-gradient(145deg,#1a85e0,#084e96); color:#fff; font-size:12px; font-weight:700}
+.bento .mini-av{width:28px; height:28px; border-radius:50%; flex:none; object-fit:cover; background:var(--surface-2)}
 .bento .mini-row b{display:block; font-size:13px; color:var(--ink); font-weight:600; line-height:1.2} .bento .mini-row span{font-size:11px; color:var(--ink-3)}
 .bento .mini-tx{font-size:13px; color:var(--ink-2); line-height:1.5; margin-bottom:11px}
 .bento .mini-hd{display:flex; align-items:center; gap:7px; font-size:11px; font-weight:600; color:var(--ink-3); margin-bottom:9px}
@@ -461,7 +463,19 @@ section{position:relative}
 .bento .mspark{text-align:right}
 .bento .mspark svg{width:100%; height:46px; display:block}
 .bento .mspark .pct{font-size:12px; font-weight:700; color:var(--ok-text)}
-@media (max-width:900px){.bento{grid-template-columns:repeat(2,1fr)} .bento .feat{grid-column:span 2} .bento .banner{grid-column:span 2}}
+/* gerador de imagem */
+.bento .imgbanner{background:radial-gradient(130% 150% at 0 0,var(--i-soft),#fff 56%)}
+.bento .imgshow{width:min(300px,100%); flex:none; display:flex; flex-direction:column; gap:9px}
+.bento .imgprompt{display:inline-flex; align-items:center; gap:7px; font-size:11.5px; font-weight:600; color:var(--ink-2); background:#fff; border:1px solid var(--line); border-radius:99px; padding:6px 12px; box-shadow:var(--sh-1)}
+.bento .imgprompt svg{color:var(--i); flex:none} .bento .imgprompt em{font-style:normal; color:var(--ink-3); font-weight:500}
+.bento .imgrow{display:grid; grid-template-columns:repeat(3,1fr); gap:9px}
+.bento .ig{aspect-ratio:1; border-radius:11px; position:relative; box-shadow:var(--sh-1); overflow:hidden}
+.bento .ig::after{content:''; position:absolute; inset:0; background:radial-gradient(65% 55% at 28% 18%,rgba(255,255,255,.55),transparent 70%)}
+.bento .ig1{background:linear-gradient(140deg,#3a9bf0,#0a66c2 58%,#054889)}
+.bento .ig2{background:linear-gradient(140deg,#34d399,#0d9488 58%,#0f5e58)}
+.bento .ig3{background:linear-gradient(140deg,#a78bfa,#7c3aed 58%,#4c1d95)}
+.bento .ig .tag{position:absolute; left:6px; bottom:6px; z-index:2; font-size:8px; font-weight:700; letter-spacing:.04em; color:#fff; background:rgba(0,0,0,.28); border-radius:99px; padding:2px 7px; backdrop-filter:blur(3px)}
+@media (max-width:900px){.bento{grid-template-columns:repeat(2,1fr)} .bento .feat{grid-column:span 2} .bento .banner{grid-column:span 2} .bento .imgshow{width:100%}}
 @media (max-width:680px){.bento{grid-template-columns:1fr} .bento .feat,.bento .banner{grid-column:span 1; flex-direction:column; align-items:stretch; gap:18px} .bento .feat .ic,.bento .banner .ic{margin-bottom:0} .bento .banner .mspark{width:100%}}
 
 /* steps (stepper conectado) */
@@ -471,7 +485,24 @@ section{position:relative}
 .step .n{position:relative; font-family:'Spline Sans Mono',monospace; font-weight:600; font-size:24px; color:#fff; width:66px; height:66px; border-radius:20px; display:grid; place-items:center; background:linear-gradient(140deg,#3a9bf0,#0a66c2 55%,#084e96); box-shadow:0 14px 28px -10px rgba(10,102,194,.6), inset 0 2px 0 rgba(255,255,255,.42); border:4px solid var(--bg)}
 .step .stag{margin-top:18px; font-family:'Spline Sans Mono',monospace; font-size:11px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--i)}
 .step h3{font-size:18px;font-weight:600;color:var(--ink);margin-top:6px} .step p{color:var(--ink-2);font-size:14.5px;line-height:1.55;margin-top:8px;max-width:32ch}
-@media (max-width:760px){.steps{grid-template-columns:1fr; gap:16px} .steps::before{left:32px; top:24px; bottom:24px; right:auto; width:2px; height:auto; background:repeating-linear-gradient(180deg,var(--i-line) 0 7px,transparent 7px 13px)} .step{flex-direction:row; align-items:flex-start; text-align:left; gap:16px} .step .n{width:54px;height:54px;font-size:20px;border-radius:16px;flex:none} .step .stag{margin-top:4px} .step h3{margin-top:2px} .step .tx{padding-top:2px}}
+/* mini-telas da plataforma em cada passo */
+.step .svis{width:100%; max-width:300px; margin:20px auto 0; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:12px; box-shadow:var(--sh-1); text-align:left; display:flex; flex-direction:column; gap:9px}
+.step .sv-hd{display:flex; align-items:center; gap:7px; font-size:11px; font-weight:600; color:var(--ink-3)}
+.step .sv-dot{width:7px; height:7px; border-radius:50%; background:var(--ink-3); flex:none}
+.step .sv-dot.ok{background:var(--ok)} .step .sv-dot.scan{background:var(--i); animation:scanpulse 1.1s ease-in-out infinite}
+.step .sv-chips{display:flex; flex-wrap:wrap; gap:5px}
+.step .sv-chips span{font-size:11px; font-weight:600; color:var(--i); background:var(--i-soft); border:1px solid var(--i-line); border-radius:99px; padding:3px 9px}
+.step .sv-line{font-size:11.5px; color:var(--ink-2); font-weight:600}
+.step .sv-opp{display:flex; align-items:center; gap:8px; background:var(--surface-2); border:1px solid var(--line); border-radius:9px; padding:8px 10px}
+.step .sv-opp b{flex:1; font-size:12px; font-weight:600; color:var(--ink)} .step .sv-opp i{font-style:normal; font-size:10px; font-weight:700; color:var(--i); background:#fff; border:1px solid var(--i-line); border-radius:99px; padding:2px 7px; flex:none}
+.step .sv-post{display:flex; align-items:center; gap:8px; background:#fff; border:1px solid var(--line); border-radius:10px; padding:8px 9px}
+.step .sv-post img{width:26px; height:26px; border-radius:50%; object-fit:cover; flex:none}
+.step .sv-pm{flex:1; min-width:0} .step .sv-pm b{display:block; font-size:12px; color:var(--ink); font-weight:600; line-height:1.2} .step .sv-pm span{font-size:10.5px; color:var(--ink-3)}
+.step .sv-sched{font-size:9.5px; font-weight:700; color:var(--i); background:var(--i-soft); border:1px solid var(--i-line); border-radius:99px; padding:3px 8px; flex:none; display:inline-flex; align-items:center; gap:4px}
+.step .sv-acts{display:flex; gap:6px}
+.step .sv-btn{flex:1; text-align:center; font-size:11px; font-weight:600; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--line); border-radius:7px; padding:6px 0}
+.step .sv-btn.pri{color:#fff; background:var(--i); border-color:var(--i)}
+@media (max-width:760px){.steps{grid-template-columns:1fr; gap:16px} .steps::before{left:32px; top:24px; bottom:24px; right:auto; width:2px; height:auto; background:repeating-linear-gradient(180deg,var(--i-line) 0 7px,transparent 7px 13px)} .step{flex-direction:row; align-items:flex-start; text-align:left; gap:16px} .step .n{width:54px;height:54px;font-size:20px;border-radius:16px;flex:none} .step .stag{margin-top:4px} .step h3{margin-top:2px} .step .tx{padding-top:2px} .step .svis{margin:14px 0 0}}
 
 /* prova social */
 .radar-panel{position:relative; background:radial-gradient(135% 145% at 0% 0%, var(--i-soft), #fff 52%); border:1px solid var(--i-line); border-radius:var(--r-xl); padding:clamp(26px,4vw,40px) clamp(24px,4vw,44px) 0; box-shadow:var(--sh-2); margin-bottom:26px; display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(22px,4vw,48px)}
@@ -624,16 +655,16 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
 <header class="hero wrap" id="top">
   <div class="inner">
     <h1 class="h-anim">Apareça como autoridade no LinkedIn. <span class="hl nb">Toda semana, no seu tom.</span></h1>
-    <p class="lede h-anim">O PresenceIn aprende como você pensa e escreve, acompanha o seu mercado em qualquer idioma e te entrega posts, comentários e respostas prontos. <strong>Você revisa, ajusta e aprova.</strong> Sempre na sua voz, nunca com cara de robô.</p>
+    <p class="lede h-anim">O PresenceIn aprende como você pensa e escreve, lê o seu mercado no mundo todo sem barreira de idioma e te entrega posts, comentários e respostas prontos. <strong>Você revisa, ajusta e aprova.</strong><br>Sempre na sua voz, nunca com cara de robô.</p>
     <div class="cta h-anim">
       <a class="btn primary" href="#beta">Quero minha vaga no beta
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
       <a class="btn secondary" href="#como">Ver como funciona</a>
     </div>
     <div class="re h-anim">
-      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/><path d="M9.5 3.5l2.2 2.2"/></svg> No seu tom, <b>sem cara de robô</b></span>
-      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 1.6l5.4 2.2v3.5c0 3.3-2.3 5.5-5.4 6.5-3.1-1-5.4-3.2-5.4-6.5V3.8z"/><path d="M5.7 8l1.6 1.6L10.5 6"/></svg> Você aprova <b>cada publicação</b></span>
-      <span><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8.5 1.5L3 9h3.5l-1 5.5L13 7H9z"/></svg> Com a <b>sua própria IA</b></span>
+      <span><i class="re-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/><path d="M9.5 3.5l2.2 2.2"/></svg></i> Escreve <b>no seu tom</b></span>
+      <span><i class="re-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 1.6l5.4 2.2v3.5c0 3.3-2.3 5.5-5.4 6.5-3.1-1-5.4-3.2-5.4-6.5V3.8z"/><path d="M5.7 8l1.6 1.6L10.5 6"/></svg></i> Você aprova <b>cada post</b></span>
+      <span><i class="re-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8.5 1.5L3 9h3.5l-1 5.5L13 7H9z"/></svg></i> Roda na <b>sua própria IA</b></span>
     </div>
   </div>
 
@@ -828,17 +859,17 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
     <div class="ai-grid">
       <div class="ai-copy">
         <h2>Conectado à sua conta, com a sua assinatura.</h2>
-        <p>Você liga a sua assinatura do Claude ou do ChatGPT, ou a sua API key do Gemini. O PresenceIn trabalha na sua conta e na sua máquina: a IA escreve pra você sem que os seus dados ou as suas ideias passeiem por servidor nenhum.</p>
+        <p>Você conecta a assinatura que já paga, ChatGPT, Claude ou Gemini, e o PresenceIn escreve com ela. Sem mais uma mensalidade de IA por cima, e as suas ideias continuam sendo só suas.</p>
         <ul class="ai-points">
-          <li><span class="pic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="10" height="7" rx="1.6"/><path d="M5.2 7V5a2.8 2.8 0 0 1 5.6 0v2"/></svg></span><span><b>Roda na sua máquina, com a sua chave.</b> Nada do que você escreve é compartilhado com a gente.</span></li>
+          <li><span class="pic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="10" height="7" rx="1.6"/><path d="M5.2 7V5a2.8 2.8 0 0 1 5.6 0v2"/></svg></span><span><b>Trabalha com a sua assinatura.</b> Nada do que você escreve é compartilhado com a gente.</span></li>
           <li><span class="pic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.2"/><path d="M8 4.5v7M6 6.4c0-1 .9-1.6 2-1.6s2 .6 2 1.6-1 1.5-2 1.6-2 .6-2 1.6.9 1.6 2 1.6 2-.6 2-1.6"/></svg></span><span><b>Sua própria assinatura.</b> Sem mensalidade de IA cobrada por cima do plano.</span></li>
           <li><span class="pic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.6l5.4 2.2v3.5c0 3.3-2.3 5.5-5.4 6.5-3.1-1-5.4-3.2-5.4-6.5V3.8z"/><path d="M5.7 8l1.6 1.6L10.5 6"/></svg></span><span><b>Nada vai pro LinkedIn sem o seu aval.</b> Você revisa e aprova cada publicação.</span></li>
         </ul>
       </div>
       <div class="ai-logos">
         <div class="lbl">Utilize a sua assinatura:</div>
-        <span class="ai"><span class="mk"><img src="https://api.iconify.design/logos/claude-icon.svg" alt="" loading="lazy"></span> Claude</span>
         <span class="ai"><span class="mk"><img src="https://api.iconify.design/logos/openai-icon.svg" alt="" loading="lazy"></span> ChatGPT</span>
+        <span class="ai"><span class="mk"><img src="https://api.iconify.design/logos/claude-icon.svg" alt="" loading="lazy"></span> Claude</span>
         <span class="ai"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4285f4"/><stop offset=".5" stop-color="#9168f0"/><stop offset="1" stop-color="#d96570"/></linearGradient></defs><path fill="url(#gem)" d="M12 2c.4 4.9 3.1 7.6 8 8-4.9.4-7.6 3.1-8 8-.4-4.9-3.1-7.6-8-8 4.9-.4 7.6-3.1 8-8z"/></svg></span> Gemini</span>
       </div>
     </div>
@@ -852,9 +883,13 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
       <h2>Feito para <span class="rotw"><span class="rw" id="rotw">Founders</span></span></h2>
       <p>Quem some do feed, some da cabeça das pessoas. Se a sua próxima oportunidade vem do LinkedIn, aparecer toda semana deixou de ser opcional.</p>
     </div>
+    <div class="mq-zone reveal">
+      <div class="marquee"><div class="mq-track" id="mq1"></div></div>
+      <div class="marquee"><div class="mq-track rev" id="mq2"></div></div>
+      <div class="marquee"><div class="mq-track" id="mq3"></div></div>
+      <div class="marquee"><div class="mq-track rev" id="mq4"></div></div>
+    </div>
   </div>
-  <div class="marquee reveal"><div class="mq-track" id="mq1"></div></div>
-  <div class="marquee reveal"><div class="mq-track rev" id="mq2"></div></div>
 </section>
 
 <!-- PILARES -->
@@ -865,7 +900,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
   </div>
   <div class="pillars">
     <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l1.8 4 4.2.4-3.2 2.8 1 4.3L8 10.8 4.2 13l1-4.3L2 5.9l4.2-.4z"/></svg></div><div><h3>Aprende sobre você</h3><p>Seu tom, suas ideias, o seu jeito de pensar. O texto sai com a sua cara, nunca com a de um robô genérico.</p></div></div>
-    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M2 8h12M8 1.7c1.8 1.7 1.8 10.9 0 12.6M8 1.7c-1.8 1.7-1.8 10.9 0 12.6"/></svg></div><div><h3>Acompanha o mundo</h3><p>Enquanto você toca o resto, ele lê o que importa no seu mercado, em qualquer idioma, e traz o assunto antes de virar lugar-comum.</p></div></div>
+    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M2 8h12M8 1.7c1.8 1.7 1.8 10.9 0 12.6M8 1.7c-1.8 1.7-1.8 10.9 0 12.6"/></svg></div><div><h3>Acompanha o mundo</h3><p>Enquanto você toca o resto, ele lê o que importa no seu mercado, em todos os idiomas e no mundo todo, e traz o assunto antes de virar lugar-comum.</p></div></div>
     <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 8a5 5 0 1 1-1.5-3.5"/><path d="M13 2v3h-3"/></svg></div><div><h3>Faz o trabalho pesado</h3><p>Post, comentário e resposta já prontos quando você abre o app. O esforço fica com ele, a decisão fica com você.</p></div></div>
     <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5.5 2.3v3.6c0 3.4-2.4 5.6-5.5 6.6-3.1-1-5.5-3.2-5.5-6.6V3.8z"/><path d="M5.7 8l1.6 1.6L10.6 6"/></svg></div><div><h3>Você dá a palavra final</h3><p>Nada vai pro ar sem o seu aval. O controle é seu, do rascunho ao publicar.</p></div></div>
   </div>
@@ -889,19 +924,28 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
         </div>
         <div class="mini">
           <div class="mini-hd"><span class="dot"></span> Post Inteligente <span class="vz">na sua voz</span></div>
+          <div class="mini-row"><img class="mini-av" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=56&q=80" alt="" loading="lazy"><span><b>Marina Alves</b><span>CISO · Segurança da Informação</span></span></div>
           <div class="mini-tx">"Três coisas que eu mudei na rotina de segurança da minha equipe, e por que a primeira é a que ninguém faz…"</div>
-          <div class="mini-tools"><span><svg width="9" height="9" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> Variantes</span><span>Humanizar</span><span>Auditar</span></div>
+          <div class="mini-tools"><span><svg width="9" height="9" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> Variantes</span><span>Humanizar</span><span>Auditar</span><span>Imagem</span></div>
           <div class="mini-foot"><span class="mini-chip ok">Nota 86</span><span class="mini-chip">Risco IA 12</span><span class="mini-send">Enviar →</span></div>
         </div>
       </div>
       <div class="bx reveal">
         <div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.2"/><circle cx="8" cy="8" r="2.6"/><path d="M8 8l4.4-4.4"/></svg></div>
         <h3>Radar de Autoridade</h3>
-        <p>Lê sinais de fóruns e notícias em qualquer idioma e cruza com o seu nicho pra virar oportunidade de conteúdo na hora certa.</p>
+        <p>Lê fóruns, notícias e tendências do seu mercado, em todos os idiomas e no mundo todo, e cruza com o seu nicho pra te entregar o assunto certo antes de virar lugar-comum.</p>
         <div class="trend">
-          <span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l4-4 3 3 4-6"/><path d="M11 4h3v3"/></svg> IA aplicada</span>
-          <span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l4-4 3 3 4-6"/><path d="M11 4h3v3"/></svg> Liderança</span>
-          <span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l4-4 3 3 4-6"/><path d="M11 4h3v3"/></svg> Carreira</span>
+          <span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l4-4 3 3 4-6"/><path d="M11 4h3v3"/></svg> Em alta agora</span>
+          <span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l4-4 3 3 4-6"/><path d="M11 4h3v3"/></svg> No seu nicho</span>
+          <span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l4-4 3 3 4-6"/><path d="M11 4h3v3"/></svg> Pouco explorado</span>
+        </div>
+      </div>
+      <div class="bx banner imgbanner reveal">
+        <div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="10" rx="1.8"/><circle cx="5.6" cy="6.6" r="1.1"/><path d="M2.5 11l3.2-3 2.3 1.8 2.6-2.4 3 2.8"/></svg></div>
+        <div class="tx"><h3>Imagens que param o feed</h3><p>De qualquer post, ideia ou link, a IA gera a imagem certa no estilo da sua marca. Capa, ilustração ou carrossel, prontos pra publicar junto.</p></div>
+        <div class="imgshow">
+          <div class="imgprompt"><svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> "cultura de segurança" <em>→ imagem</em></div>
+          <div class="imgrow"><span class="ig ig1"><span class="tag">Capa</span></span><span class="ig ig2"><span class="tag">Ilustração</span></span><span class="ig ig3"><span class="tag">Carrossel</span></span></div>
         </div>
       </div>
       <div class="bx reveal">
@@ -941,9 +985,24 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
 <section class="sec wrap" id="como">
   <div class="sec-head reveal"><h2>Comece em minutos. Apareça pra sempre.</h2><p>Você ensina uma vez quem é você. A partir daí, o trabalho é dele e a aprovação é sua.</p></div>
   <div class="steps">
-    <div class="step reveal"><div class="n">1</div><div class="tx"><div class="stag">Passo 1</div><h3>Aprende sobre você</h3><p>Você mostra como fala e o que quer. Ele absorve o seu tom, as suas ideias e o seu objetivo.</p></div></div>
-    <div class="step reveal"><div class="n">2</div><div class="tx"><div class="stag">Passo 2</div><h3>Vigia o seu mercado e prepara</h3><p>O Radar lê fóruns e notícias do seu nicho, em qualquer idioma, e a IA já deixa post, comentário e resposta prontos. No Autopilot, um lote de uma vez.</p></div></div>
-    <div class="step reveal"><div class="n">3</div><div class="tx"><div class="stag">Passo 3</div><h3>Você aprova e publica</h3><p>Você revisa, ajusta o que quiser e aprova. Vai pro ar no seu nome, no seu tom.</p></div></div>
+    <div class="step reveal"><div class="n">1</div><div class="tx"><div class="stag">Passo 1</div><h3>Aprende sobre você</h3><p>Você mostra como fala e o que quer. Ele absorve o seu tom, as suas ideias e o seu objetivo.</p>
+      <div class="svis">
+        <div class="sv-hd"><span class="sv-dot ok"></span> Sua voz</div>
+        <div class="sv-chips"><span>Direto</span><span>Técnico</span><span>1ª pessoa</span><span>Sem jargão</span></div>
+        <div class="sv-line">94% de match com os seus posts antigos</div>
+      </div></div></div>
+    <div class="step reveal"><div class="n">2</div><div class="tx"><div class="stag">Passo 2</div><h3>Vigia o seu mercado e prepara</h3><p>O Radar lê fóruns e notícias do seu nicho, em todos os idiomas, e a IA já deixa post, comentário e resposta prontos. No Autopilot, um lote de uma vez.</p>
+      <div class="svis">
+        <div class="sv-hd"><span class="sv-dot scan"></span> Radar · varrendo agora</div>
+        <div class="sv-opp"><b>Cultura começa no onboarding</b><i>fit 8</i></div>
+        <div class="sv-opp"><b>Open banking e os novos riscos</b><i>fit 7</i></div>
+      </div></div></div>
+    <div class="step reveal"><div class="n">3</div><div class="tx"><div class="stag">Passo 3</div><h3>Você aprova, publica ou agenda</h3><p>Revisa, ajusta o que quiser e decide: publica na hora ou agenda pro melhor horário. Sempre no seu nome e no seu tom.</p>
+      <div class="svis">
+        <div class="sv-hd"><span class="sv-dot ok"></span> Aprovações</div>
+        <div class="sv-post"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=56&q=80" alt="" loading="lazy"><span class="sv-pm"><b>Post pronto</b><span>na sua voz</span></span><span class="sv-sched"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/><path d="M2.5 6h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg> Agendado · ter 9h</span></div>
+        <div class="sv-acts"><span class="sv-btn">Editar</span><span class="sv-btn">Agendar</span><span class="sv-btn pri">Publicar</span></div>
+      </div></div></div>
   </div>
 </section>
 
@@ -955,7 +1014,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
       <div class="rp-stage">
         <div class="rp-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="8" cy="8" r="6.3"/><path d="M2 8h12M8 1.7c1.8 1.7 1.8 10.9 0 12.6M8 1.7c-1.8 1.7-1.8 10.9 0 12.6"/></svg></div>
         <b>Capta os sinais</b>
-        <span>Lê fóruns, notícias e tendências do seu mercado, em qualquer idioma. Sem você abrir nada.</span>
+        <span>Lê fóruns, notícias e tendências do seu mercado, em todos os idiomas e no mundo todo. Sem você abrir nada.</span>
       </div>
       <div class="rp-stage">
         <div class="rp-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><path d="M1.5 3h13l-5 6v4l-3 1.5V9z"/></svg></div>
@@ -967,7 +1026,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
         <b>Entrega a pauta pronta</b>
         <span>Com ângulo, formato e prioridade, pronta pra virar post, comentário ou carrossel.</span>
       </div>
-      <div class="rp-srcs">Fontes: Hacker News · Reddit · Google News · GitHub e outras</div>
+      <div class="rp-srcs">Fontes selecionadas por você: sites de notícias tech · Reddit · Google News · GitHub e outras</div>
     </div>
     <div class="proof-grid">
       <div class="pain reveal">
@@ -994,10 +1053,10 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
 <section class="sec wrap" id="faq">
   <div class="sec-head reveal"><h2>Perguntas frequentes</h2></div>
   <div class="faq reveal">
-    <details><summary>Preciso de qual IA?<span class="x"></span></summary><div class="a">A sua. Conecte a assinatura do Claude, do ChatGPT (OpenAI) ou a API key do Gemini e outros. Você usa a IA que já confia, e ela roda na sua conta.</div></details>
+    <details><summary>Preciso de qual IA?<span class="x"></span></summary><div class="a">A sua. Conecte a assinatura que já tem do ChatGPT, do Claude ou do Gemini. Você usa a IA que já confia, e ela trabalha na sua conta.</div></details>
     <details><summary>Ele publica sozinho?<span class="x"></span></summary><div class="a">Não. Tudo fica pronto, mas nada vai pro ar sem a sua aprovação. O controle é seu, do começo ao fim.</div></details>
     <details><summary>Como ele aprende o meu tom?<span class="x"></span></summary><div class="a">Você mostra como fala, as suas ideias e o seu objetivo. O PresenceIn usa isso pra escrever com a sua voz, não com um tom genérico.</div></details>
-    <details><summary>Funciona em outros idiomas?<span class="x"></span></summary><div class="a">Sim. Ele acompanha o mundo em qualquer idioma e prepara o conteúdo no idioma que você quiser.</div></details>
+    <details><summary>Funciona em outros idiomas?<span class="x"></span></summary><div class="a">Sim. Ele acompanha o mundo em todos os idiomas, sem barreira linguística, e prepara o conteúdo no idioma que você quiser.</div></details>
     <details><summary>Preciso saber escrever?<span class="x"></span></summary><div class="a">Não. Esse é o ponto. Ele deixa pronto, você só revisa e aprova com um clique.</div></details>
     <details><summary>O que é o Autopilot?<span class="x"></span></summary><div class="a">É o modo em que a IA prepara um lote inteiro de conteúdo na sua voz de uma vez só. Você revisa tudo junto e aprova o que gostar. Mesmo no Autopilot, nada vai pro ar sem você.</div></details>
     <details><summary>Ele comenta e responde também?<span class="x"></span></summary><div class="a">Sim. Além de posts, ele sugere onde comentar (no feed, no inbox e em perfis de empresas) e deixa o comentário pronto no seu tom. Você copia, posta e marca como feito. Nada é enviado sozinho.</div></details>
@@ -1022,7 +1081,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
             <div class="cd-box"><div class="num" id="cd-s">00</div><div class="lab">seg</div></div>
           </div>
           <div class="cd-line">para o lançamento</div>
-          <div class="req"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5.5 2.3v3.6c0 3.4-2.4 5.6-5.5 6.6-3.1-1-5.5-3.2-5.5-6.6V3.8z"/></svg><span>Você usa a sua própria IA: assinatura do <strong>Claude</strong>, do <strong>ChatGPT</strong> (OpenAI) ou uma <strong>API key</strong> (Gemini e outros).</span></div>
+          <div class="req"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5.5 2.3v3.6c0 3.4-2.4 5.6-5.5 6.6-3.1-1-5.5-3.2-5.5-6.6V3.8z"/></svg><span>Você usa a sua própria IA: a sua assinatura do <strong>ChatGPT</strong>, do <strong>Claude</strong> ou do <strong>Gemini</strong>.</span></div>
           <ul class="perks">
             <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8.5l3 3 7-7"/></svg> Acesso premium aos módulos.</li>
             <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8.5l3 3 7-7"/></svg> Seu feedback vira recurso de verdade.</li>
@@ -1063,7 +1122,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
     <div class="brand">
       <a class="logo" href="#top"><span class="mk" aria-hidden="true"><b>P</b><svg class="sig" width="11" height="11" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"><circle class="nd" cx="3" cy="9" r="1.25" fill="currentColor" stroke="none"/><path d="M3 6.1A2.9 2.9 0 0 1 5.9 9"/><path d="M3 3.3A5.7 5.7 0 0 1 8.7 9"/></svg></span><span class="nm">Presence<i>In</i></span></a>
       <p>O concierge que faz você ser lembrado no LinkedIn. A IA trabalha, você aprova.</p>
-      <div class="ftrust"><span>No seu tom</span><span>Sua própria IA</span><span>Você aprova</span></div>
+      <div class="ftrust"><span>Escreve no seu tom</span><span>Roda na sua IA</span><span>Você aprova cada post</span></div>
       <a class="fmail" href="mailto:beta@soberanus.com"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="3" width="13" height="10" rx="1.6"/><path d="M2 4l6 4.5L14 4"/></svg> beta@soberanus.com</a>
     </div>
     <div class="col">
@@ -1113,8 +1172,12 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
   // marquee personas
   var roles=['Founder','CEO','CTO','CMO','CFO','Head de Vendas','Head de Produto','Head de Marketing','Diretor','Gerente','Consultor','Advogado','Médico','Contador','Professor','Pesquisador','Investidor','Coach','Mentor','Designer','Engenheiro','Product Manager','Recrutador','RH','SDR','Account Executive','Tech Lead','Freelancer','Agência','Creator B2B'];
   var mqDot=['#0a66c2','#0d9488','#7c3aed','#e0476b','#d9870a','#2563eb'];
-  function fill(id,list){ var el=document.getElementById(id); if(!el) return; var off=id==='mq2'?2:0; var html=list.map(function(r,i){return '<span class="mq-chip"><i class="mq-dot" style="background:'+mqDot[(i+off)%mqDot.length]+'"></i>'+r+'</span>';}).join(''); el.innerHTML=html+html; }
-  fill('mq1',roles); fill('mq2',roles.slice().reverse());
+  function fill(id,list,off){ var el=document.getElementById(id); if(!el) return; off=off||0; var html=list.map(function(r,i){return '<span class="mq-chip"><i class="mq-dot" style="background:'+mqDot[(i+off)%mqDot.length]+'"></i>'+r+'</span>';}).join(''); el.innerHTML=html+html; }
+  function rot(a,n){ return a.slice(n).concat(a.slice(0,n)); }
+  fill('mq1',roles,0);
+  fill('mq2',rot(roles,7).slice().reverse(),2);
+  fill('mq3',rot(roles,15),4);
+  fill('mq4',rot(roles,22).slice().reverse(),1);
 
   // palavra rotativa "Feito para ___" (troca rápida + sublinhado muda de cor)
   var rotEl=document.getElementById('rotw');
