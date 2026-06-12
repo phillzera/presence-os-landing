@@ -75,8 +75,8 @@ main,footer{position:relative; z-index:1}
 .ann-closed .annbar{display:none}
 
 /* nav (centralizado: logo | links centro | cta) */
-.nav{background:color-mix(in srgb,var(--bg) 76%,transparent); backdrop-filter:blur(22px) saturate(1.5); -webkit-backdrop-filter:blur(22px) saturate(1.5); border-bottom:1px solid color-mix(in srgb,var(--line) 55%,transparent); transition:box-shadow .35s var(--ease), background .35s, border-color .35s}
-.nav.scrolled{background:color-mix(in srgb,var(--bg) 92%,transparent); border-bottom-color:var(--line); box-shadow:0 10px 34px -20px rgba(20,48,80,.28)}
+.nav{background:color-mix(in srgb,var(--bg) 85%,transparent); backdrop-filter:blur(20px) saturate(1.4); -webkit-backdrop-filter:blur(20px) saturate(1.4); border-bottom:1px solid color-mix(in srgb,var(--line) 60%,transparent); transition:box-shadow .3s var(--ease), background .3s, border-color .3s}
+.nav.scrolled{background:#fff; border-bottom-color:var(--line); box-shadow:0 6px 22px -10px rgba(20,48,80,.16)}
 .nav .row{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px; height:68px; max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter)}
 .nav .links{display:flex; gap:2px; align-items:center; justify-content:center}
 .nav .links > a, .nav .links .recbtn{display:inline-flex; align-items:center; gap:5px; height:36px; padding:0 14px; border-radius:9px; color:var(--ink-2); font-size:14.5px; font-weight:500; letter-spacing:-.006em; background:none; border:none; cursor:pointer; font-family:inherit; transition:color .18s var(--ease), background .18s var(--ease)}
@@ -229,6 +229,40 @@ section{position:relative}
 .li-bar{display:flex; border-top:1px solid var(--line)}
 .li-bar div{flex:1; display:flex; align-items:center; justify-content:center; gap:4px; padding:7px 0; font-size:8px; font-weight:600; color:var(--ink-3)}
 .li-bar svg{width:12px; height:12px; color:var(--ink-3)}
+/* MacBook: demo animado Radar -> Sugerir -> Publicar */
+.macsteps{display:flex; align-items:center; padding:8px 13px; background:#fff; border-bottom:1px solid var(--line); flex:none}
+.macstep{display:inline-flex; align-items:center; gap:5px; font-size:8.5px; font-weight:600; color:var(--ink-3); transition:color .45s var(--ease)}
+.macstep .n{width:16px; height:16px; border-radius:50%; display:grid; place-items:center; font-size:8px; font-weight:700; border:1.4px solid var(--line); background:#fff; color:var(--ink-3); transition:background .45s var(--ease), border-color .45s var(--ease), color .45s var(--ease), box-shadow .45s var(--ease)}
+.macstep.on{color:var(--ink)} .macstep.on .n{background:var(--i); border-color:var(--i); color:#fff; box-shadow:0 0 0 3px var(--i-soft)}
+.macstep.done .n{background:var(--ok); border-color:var(--ok); color:#fff}
+.mac-seg{flex:1; height:1.6px; min-width:16px; background:var(--line); margin:0 8px; border-radius:2px; position:relative; overflow:hidden}
+.mac-seg::after{content:''; position:absolute; inset:0; transform:scaleX(0); transform-origin:left; background:var(--ok); transition:transform .5s var(--ease)}
+.mac-seg.fill::after{transform:scaleX(1)}
+.app-screens{position:relative; flex:1; min-height:0}
+.scr{position:absolute; inset:0; opacity:0; transform:translateY(8px); transition:opacity .55s var(--ease), transform .55s var(--ease); pointer-events:none; display:flex; flex-direction:column; overflow:hidden; padding:11px 13px}
+.scr.on{opacity:1; transform:none}
+.scr-hd{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:9px; flex:none}
+.scan{display:inline-flex; align-items:center; gap:5px; font-size:8px; font-weight:600; color:var(--i); background:var(--i-soft); border:1px solid var(--i-line); border-radius:99px; padding:3px 9px}
+.scan-dot{width:5px; height:5px; border-radius:50%; background:var(--i); animation:scanpulse 1.1s ease-in-out infinite}
+@keyframes scanpulse{0%,100%{opacity:.35; transform:scale(.7)}50%{opacity:1; transform:scale(1.25)}}
+.rdr-src{display:flex; flex-wrap:wrap; gap:5px; margin-bottom:11px}
+.rdr-src .src{font-size:8px; font-weight:600; color:var(--ink-3); background:var(--surface-2); border:1px solid var(--line); border-radius:99px; padding:3px 9px 3px 7px; display:inline-flex; align-items:center; gap:5px}
+.rdr-src .src::before{content:''; width:5px; height:5px; border-radius:50%; background:var(--ink-3); opacity:.35}
+.rdr-src .src.on{color:var(--ok-text); background:#e9f9ef; border-color:#bfe8cd} .rdr-src .src.on::before{background:var(--ok); opacity:1}
+.rdr-list{display:flex; flex-direction:column; gap:7px}
+.opp{display:flex; align-items:center; gap:9px; background:#fff; border:1px solid var(--line); border-radius:9px; padding:9px 11px; box-shadow:var(--sh-1)}
+.opp-main{flex:1; min-width:0} .opp-main b{display:block; font-size:9.5px; font-weight:700; color:var(--ink); letter-spacing:-.01em} .opp-main span{display:block; font-size:8px; color:var(--ink-3); margin-top:2px}
+.opp-fit{font-size:8px; font-weight:700; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--line); border-radius:99px; padding:3px 8px; flex:none}
+.opp.sel{border-color:var(--i); box-shadow:0 0 0 2px var(--i-soft), var(--sh-2)}
+.opp.sel .opp-fit.hi{color:#fff; background:var(--i); border-color:var(--i)}
+.opp-go{font-size:8px; font-weight:700; color:var(--i); flex:none}
+.est-body{display:flex; flex-direction:column; flex:1; min-height:0} .est-body .st-ed{flex:1}
+.pub-body{display:flex; flex-direction:column; flex:1; min-height:0}
+.pub-body .li-img{height:60px}
+.pub-actions{display:flex; gap:7px; margin-top:9px; flex:none}
+.pub-approve{flex:1; height:29px; border-radius:8px; border:none; background:var(--i); color:#fff; font-size:9px; font-weight:700; font-family:inherit; display:inline-flex; align-items:center; justify-content:center; gap:5px; cursor:pointer; box-shadow:0 6px 13px -5px rgba(10,102,194,.55)}
+.pub-sched{height:29px; border-radius:8px; border:1px solid var(--line); background:#fff; color:var(--ink-2); font-size:9px; font-weight:600; font-family:inherit; padding:0 11px; cursor:pointer; display:inline-flex; align-items:center; gap:5px}
+@media (prefers-reduced-motion:reduce){.scr{transition:none} .scan-dot{animation:none}}
 @media (max-width:560px){.app-nav{display:none}.app-body{grid-template-columns:1fr}.st-grid{grid-template-columns:1fr}.st-compose{display:none}}
 .os-dock{position:absolute;bottom:2.4%;left:50%;transform:translateX(-50%);display:flex;align-items:flex-end;gap:7px;padding:6px 9px;border-radius:16px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.34);backdrop-filter:blur(14px);box-shadow:0 10px 24px -8px rgba(0,0,0,.5);z-index:20}
 .os-dock .dk{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:#fff;box-shadow:0 3px 8px -2px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.6);position:relative;overflow:hidden;transition:transform .18s var(--ease)}
@@ -244,20 +278,27 @@ section{position:relative}
 .ip-island{position:absolute; top:8px; left:50%; transform:translateX(-50%); width:42px; height:12px; background:#000; border-radius:99px; z-index:6}
 .ip-stat{height:27px; display:flex; align-items:flex-end; justify-content:space-between; padding:0 13px 3px; font-size:8.5px; font-weight:700; color:var(--ink); flex:none; background:#fff}
 .ip-stat .ic{display:inline-flex; gap:3px; align-items:center}
-/* LinkedIn mobile */
-.lin-hd{display:flex; align-items:center; gap:8px; padding:3px 11px 8px; background:#fff; border-bottom:1px solid #e3e8ef; flex:none}
-.lin-hd .lin-me{width:24px; height:24px; border-radius:50%; object-fit:cover; flex:none}
-.lin-hd .lin-search{flex:1; height:21px; border-radius:5px; background:#edf3f8; display:flex; align-items:center; gap:5px; padding:0 8px; font-size:8px; color:#5b6473; font-weight:500}
-.lin-hd .lin-search svg, .lin-hd .lin-msg{color:#5b6473; flex:none}
-.lin-feed{flex:1; padding:7px; overflow:hidden; min-height:0}
-.lin-feed .li-post{box-shadow:0 1px 3px rgba(20,48,80,.1); border-color:#e3e8ef}
-.lin-feed .li-hd{padding:8px 9px 0} .lin-feed .li-av{width:27px;height:27px}
-.lin-feed .li-tx{font-size:8.5px; line-height:1.4; padding:5px 9px 6px}
-.lin-feed .li-img{height:52px}
-.lin-feed .li-stats{padding:5px 9px}
-.lin-feed .li-bar div{padding:6px 0; font-size:7.5px}
-.lin-badge{display:flex; align-items:center; justify-content:center; gap:6px; padding:8px 0 9px; font-size:8px; font-weight:600; color:var(--ink-2); flex:none}
-.lin-badge .lb-mk{width:15px; height:15px; border-radius:5px; background:linear-gradient(145deg,#3a9bf0,#054889); display:grid; place-items:center; color:#fff; font-size:9px; font-weight:800; font-family:'Schibsted Grotesk',sans-serif}
+/* iPhone: tela de login PresenceIn */
+.ip-screen.login{background:linear-gradient(180deg,#fff 0%,#f4f8fc 58%,#eaf2fa 100%)}
+.lg{flex:1; display:flex; flex-direction:column; padding:16px 16px 14px; min-height:0}
+.lg-top{display:flex; align-items:center; gap:7px; margin-top:6px}
+.lg-mk{width:24px; height:24px; border-radius:7px; background:linear-gradient(150deg,#3a9bf0,#0a66c2 52%,#054889); display:grid; place-items:center; position:relative; box-shadow:0 4px 10px -3px rgba(10,102,194,.55)}
+.lg-mk b{color:#fff; font-family:'Schibsted Grotesk',sans-serif; font-weight:800; font-size:14px; line-height:1}
+.lg-mk .sig{position:absolute; top:3px; right:2.5px; color:#76e8b8}
+.lg-wm{font-weight:700; font-size:13px; letter-spacing:-.035em; color:var(--ink)}
+.lg-h{font-size:15px; font-weight:700; letter-spacing:-.025em; color:var(--ink); line-height:1.15; margin-top:20px}
+.lg-sub{font-size:9px; color:var(--ink-2); line-height:1.4; margin-top:4px}
+.lg-li{display:flex; align-items:center; justify-content:center; gap:6px; height:31px; border-radius:8px; background:#0a66c2; color:#fff; font-size:9.5px; font-weight:700; margin-top:18px; box-shadow:0 6px 14px -5px rgba(10,102,194,.6)}
+.lg-or{display:flex; align-items:center; gap:7px; margin:13px 0; color:var(--ink-3); font-size:7.5px; font-weight:600; letter-spacing:.04em}
+.lg-or::before, .lg-or::after{content:''; flex:1; height:1px; background:var(--line)}
+.lg-fld{height:29px; border-radius:8px; border:1px solid var(--line); background:#fff; display:flex; align-items:center; gap:6px; padding:0 9px; font-size:9px; color:var(--ink-2); margin-bottom:8px}
+.lg-fld svg{color:var(--ink-3); flex:none} .lg-fld .ph{color:var(--ink-2)} .lg-fld .dots{letter-spacing:2px; color:var(--ink); font-size:11px; line-height:1}
+.lg-fld .car{width:1.4px; height:13px; background:var(--i); display:inline-block; animation:cursorblink 1.1s step-end infinite}
+.lg-enter{height:30px; border-radius:8px; background:var(--ink); color:#fff; display:flex; align-items:center; justify-content:center; font-size:9.5px; font-weight:700; margin-top:3px}
+.lg-forgot{text-align:center; font-size:8px; color:var(--i); font-weight:600; margin-top:9px}
+.lg-foot{margin-top:auto; display:flex; align-items:center; justify-content:center; gap:5px; font-size:7.5px; color:var(--ink-3); font-weight:500; padding-top:10px}
+.lg-foot svg{color:var(--ok); flex:none}
+@media (prefers-reduced-motion:reduce){.lg-fld .car{animation:none}}
 @media (max-width:880px){.iphone{display:none}}
 
 /* AI strip (3 logos grandes) */
@@ -564,36 +605,66 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
             <div class="win-bar">
               <span class="tl"><i></i><i></i><i></i></span>
               <span class="dl"><svg width="13" height="13" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#0a66c2"/><text x="9" y="23" font-family="Arial,Helvetica,sans-serif" font-size="20" font-weight="700" fill="#fff">P</text><circle cx="21" cy="23" r="2" fill="#76e8b8"/></svg> PresenceIn</span>
-              <span class="crumb">Studio · <b>Post</b></span><span class="sp"></span>
+              <span class="crumb" id="macCrumb">Radar · <b>Oportunidades</b></span><span class="sp"></span>
               <span class="search">Buscar… ⌘K</span><span class="av">MA</span>
             </div>
             <div class="app-body">
               <aside class="app-nav">
                 <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg> Hoje</div>
-                <div class="l on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 1.5L3.5 9H7l-1 5.5L12.5 7H9z"/></svg> Post</div>
+                <div class="l" data-k="1"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 1.5L3.5 9H7l-1 5.5L12.5 7H9z"/></svg> Post</div>
                 <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="12" height="10"/><circle cx="6" cy="7" r="1.2"/><path d="M2 11l3.5-3 2.5 2 3-2.5 3 3"/></svg> Imagem</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/></svg> Radar</div>
-                <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.5 8l1.8 1.8L11 6"/></svg> Aprovações</div>
+                <div class="l on" data-k="0"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/></svg> Radar</div>
+                <div class="l" data-k="2"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.5 8l1.8 1.8L11 6"/></svg> Aprovações</div>
                 <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/><path d="M2.5 6h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg> Calendário</div>
                 <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.5-3 2 1.5L13 5"/></svg> Analytics</div>
                 <div class="l"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/><path d="M9.5 3.5l2.2 2.2"/></svg> Estratégia</div>
               </aside>
-              <div class="app-main">
-                <div class="studio">
-                  <div class="st-head">
-                    <div><div class="st-eye">Studio · Post</div><div class="st-h">Post Inteligente</div></div>
-                    <span class="st-voice"><span class="dot"></span> na sua voz</span>
+              <div class="app-main" id="macStage">
+                <div class="macsteps">
+                  <span class="macstep" data-k="0"><span class="n">1</span> Radar</span>
+                  <span class="mac-seg" data-seg="0"></span>
+                  <span class="macstep" data-k="1"><span class="n">2</span> Sugerir</span>
+                  <span class="mac-seg" data-seg="1"></span>
+                  <span class="macstep" data-k="2"><span class="n">3</span> Publicar</span>
+                </div>
+                <div class="app-screens">
+                  <!-- Passo 1: Radar busca sinais -->
+                  <div class="scr" data-k="0">
+                    <div class="scr-hd">
+                      <div><div class="st-eye">Radar · Oportunidades</div><div class="st-h">Sinais no seu nicho</div></div>
+                      <span class="scan"><span class="scan-dot"></span> Analisando</span>
+                    </div>
+                    <div class="rdr-src">
+                      <span class="src on">Notícias de tech</span><span class="src on">Hacker News</span><span class="src">Reddit</span><span class="src">Seu feed</span>
+                    </div>
+                    <div class="rdr-list">
+                      <div class="opp"><div class="opp-main"><b>IA aplicada à segurança em fintechs</b><span>Discussão em alta nas últimas 6h</span></div><span class="opp-fit">fit 9</span></div>
+                      <div class="opp sel"><div class="opp-main"><b>Cultura de segurança começa no onboarding</b><span>Ângulo forte pra sua voz</span></div><span class="opp-fit hi">fit 8</span><span class="opp-go">Gerar →</span></div>
+                      <div class="opp"><div class="opp-main"><b>O que um incidente real ensina</b><span>Tema recorrente do seu setor</span></div><span class="opp-fit">fit 7</span></div>
+                    </div>
                   </div>
-                  <div class="st-grid">
-                    <div class="st-compose">
+                  <!-- Passo 2: Estúdio escreve na sua voz -->
+                  <div class="scr" data-k="1">
+                    <div class="scr-hd">
+                      <div><div class="st-eye">Studio · Post</div><div class="st-h">Escrevendo na sua voz</div></div>
+                      <span class="st-voice"><span class="dot"></span> na sua voz</span>
+                    </div>
+                    <div class="est-body">
                       <div class="st-ed">
                         <p>Todo mundo fala em "cultura de segurança". Na prática, ela começa no onboarding, não no incidente.</p>
                         <p>Três coisas que eu mudei na minha equipe<span class="cursor"></span></p>
                       </div>
                       <div class="st-tools"><span class="t1"><svg width="8" height="8" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> Variantes</span><span>Humanizar</span><span>Auditar</span><span>Imagem</span></div>
-                      <div class="st-foot"><span class="st-chip ok">Nota 86</span><span class="st-chip">Risco IA 12</span><span class="st-send">Enviar →</span></div>
+                      <div class="st-foot"><span class="st-chip ok">Nota 86</span><span class="st-chip">Risco IA 12</span><span class="st-send">Revisar →</span></div>
                     </div>
-                    <div class="st-preview">
+                  </div>
+                  <!-- Passo 3: Publicar / agendar com aprovação -->
+                  <div class="scr" data-k="2">
+                    <div class="scr-hd">
+                      <div><div class="st-eye">Aprovações</div><div class="st-h">Pronto pra publicar</div></div>
+                      <span class="st-voice"><span class="dot"></span> aguardando você</span>
+                    </div>
+                    <div class="pub-body">
                       <div class="st-pv-tab"><svg width="11" height="11" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Como aparece no LinkedIn</div>
                       <div class="li-post">
                         <div class="li-hd">
@@ -605,15 +676,13 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
                           </div>
                           <span class="li-more">···</span>
                         </div>
-                        <div class="li-tx">Todo mundo fala em "cultura de segurança". Na prática, ela começa no onboarding, não no incidente. Três coisas que eu mudei na minha equipe. <b>#segurança #lideranca</b></div>
+                        <div class="li-tx">Todo mundo fala em "cultura de segurança". Na prática, ela começa no onboarding, não no incidente. <b>#segurança #lideranca</b></div>
                         <img class="li-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=480&q=80" alt="" loading="lazy">
                         <div class="li-stats"><span class="li-rx"><i class="b"></i><i class="r"></i><i class="y"></i></span> Você e 127 outros <span class="sp">24 comentários</span></div>
-                        <div class="li-bar">
-                          <div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 7v6H2.5V7zM5 7l2.5-5c1.1 0 1.8.9 1.6 2L8.5 6h3.6c.9 0 1.5.8 1.3 1.7l-1 4c-.1.8-.8 1.3-1.5 1.3H5"/></svg> Gostei</div>
-                          <div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 3h12v8H6l-3 3z"/></svg> Comentar</div>
-                          <div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 5L1.5 7.5 4 10M1.5 7.5H11a3.5 3.5 0 0 1 3.5 3.5v1"/></svg> Republicar</div>
-                          <div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14.5 1.5L7 9M14.5 1.5L10 14l-3-5-5-3z"/></svg> Enviar</div>
-                        </div>
+                      </div>
+                      <div class="pub-actions">
+                        <button class="pub-approve"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.8"><path d="M3 8.5l3 3 7-7.5"/></svg> Aprovar e publicar</button>
+                        <button class="pub-sched"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/><path d="M2.5 6h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg> Terça, 9h</button>
                       </div>
                     </div>
                   </div>
@@ -635,39 +704,29 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
       <div class="mb-base"></div>
     </div>
 
-    <!-- iPHONE: Aprovações (Approval Center real) -->
+    <!-- iPHONE: tela de login do PresenceIn -->
     <div class="iphone">
-      <div class="ip-screen">
+      <div class="ip-screen login">
         <div class="ip-island"></div>
         <div class="ip-stat"><span>9:41</span><span class="ic"><svg width="13" height="9" viewBox="0 0 16 11" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".6"/><rect x="3.8" y="5" width="2.6" height="6" rx=".6"/><rect x="7.6" y="2.6" width="2.6" height="8.4" rx=".6"/><rect x="11.4" y="0" width="2.6" height="11" rx=".6"/></svg><svg width="17" height="9" viewBox="0 0 24 12" fill="none"><rect x="1" y="1.5" width="19" height="9" rx="2.4" stroke="currentColor" stroke-width="1.2" opacity=".5"/><rect x="2.6" y="3" width="14" height="6" rx="1.2" fill="currentColor"/><rect x="21" y="4" width="1.6" height="4" rx=".8" fill="currentColor" opacity=".5"/></svg></span></div>
-        <div class="lin-hd">
-          <img class="lin-me" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=64&q=80" alt="" loading="lazy">
-          <div class="lin-search"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg> Pesquisar</div>
-          <svg class="lin-msg" width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 3h12v8H6l-3 3z"/></svg>
-        </div>
-        <div class="lin-feed">
-          <div class="li-post">
-            <div class="li-hd">
-              <img class="li-av" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=72&q=80" alt="" loading="lazy">
-              <div class="li-meta">
-                <b>Marina Alves <em>· 1º</em></b>
-                <span class="li-sub">CISO · Segurança da Informação em Fintechs</span>
-                <span class="li-time">2h · <svg width="8" height="8" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6.5"/><path d="M2 8h12M8 1.5c1.7 1.7 1.7 11.3 0 13M8 1.5c-1.7 1.7-1.7 11.3 0 13"/></svg></span>
-              </div>
-              <span class="li-more">···</span>
-            </div>
-            <div class="li-tx">Todo mundo fala em "cultura de segurança". Na prática, ela começa no onboarding. <b>#segurança</b></div>
-            <img class="li-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=480&q=80" alt="" loading="lazy">
-            <div class="li-stats"><span class="li-rx"><i class="b"></i><i class="r"></i><i class="y"></i></span> Você e 127 <span class="sp">24 comentários</span></div>
-            <div class="li-bar">
-              <div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M5 7v6H2.5V7zM5 7l2.5-5c1.1 0 1.8.9 1.6 2L8.5 6h3.6c.9 0 1.5.8 1.3 1.7l-1 4c-.1.8-.8 1.3-1.5 1.3H5"/></svg> Gostei</div>
-              <div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 3h12v8H6l-3 3z"/></svg> Comentar</div>
-              <div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 5L1.5 7.5 4 10M1.5 7.5H11a3.5 3.5 0 0 1 3.5 3.5v1"/></svg> Republicar</div>
-              <div><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M14.5 1.5L7 9M14.5 1.5L10 14l-3-5-5-3z"/></svg> Enviar</div>
-            </div>
+        <div class="lg">
+          <div class="lg-top">
+            <span class="lg-mk"><b>P</b><svg class="sig" width="8" height="8" viewBox="0 0 12 12" fill="none" stroke="#76e8b8" stroke-width="1.5" stroke-linecap="round"><circle cx="3" cy="9" r="1.25" fill="#76e8b8" stroke="none"/><path d="M3 6.1A2.9 2.9 0 0 1 5.9 9"/><path d="M3 3.3A5.7 5.7 0 0 1 8.7 9"/></svg></span>
+            <span class="lg-wm">PresenceIn</span>
           </div>
+          <div class="lg-h">Bem-vindo<br>de volta.</div>
+          <div class="lg-sub">Sua presença no LinkedIn, conduzida pela IA e aprovada por você.</div>
+          <div class="lg-li">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            Continuar com LinkedIn
+          </div>
+          <div class="lg-or">ou com e-mail</div>
+          <div class="lg-fld"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="3" width="13" height="10" rx="1.8"/><path d="M2 4l6 4.5L14 4"/></svg> <span class="ph">marina@empresa.com</span></div>
+          <div class="lg-fld"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="7" width="10" height="7" rx="1.6"/><path d="M5.2 7V5a2.8 2.8 0 0 1 5.6 0v2"/></svg> <span class="dots">••••••••</span><span class="car"></span></div>
+          <div class="lg-enter">Entrar</div>
+          <div class="lg-forgot">Esqueci minha senha</div>
+          <div class="lg-foot"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5 2v4c0 3.2-2.1 5.5-5 7-2.9-1.5-5-3.8-5-7v-4z"/><path d="M5.8 8l1.6 1.6L10.4 6.5"/></svg> Você aprova tudo antes de publicar</div>
         </div>
-        <div class="lin-badge"><span class="lb-mk"><b>P</b></span> Criado e aprovado no PresenceIn</div>
       </div>
     </div>
   </div>
@@ -1016,6 +1075,30 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
     mw.addEventListener('pointermove',function(e){ var r=mw.getBoundingClientRect();var px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5; if(setRX){setRX(-py*5);setRY(px*7);}else{book.style.transform='rotateX('+(-py*5)+'deg) rotateY('+(px*7)+'deg)';} });
     mw.addEventListener('pointerleave',function(){ if(setRX){setRX(0);setRY(0);}else{book.style.transform='';} });
   }
+  // MacBook: ciclo Radar -> Sugerir -> Publicar
+  (function(){
+    var stage=document.getElementById('macStage'); if(!stage) return;
+    var scrs=[].slice.call(stage.querySelectorAll('.scr'));
+    var steps=[].slice.call(stage.querySelectorAll('.macstep'));
+    var segs=[].slice.call(stage.querySelectorAll('.mac-seg'));
+    var navs=[].slice.call(document.querySelectorAll('.app-nav .l[data-k]'));
+    var crumb=document.getElementById('macCrumb');
+    var crumbs=['Radar · <b>Oportunidades</b>','Studio · <b>Post</b>','Aprovações · <b>Revisão</b>'];
+    function show(n){
+      scrs.forEach(function(s){ s.classList.toggle('on',+s.getAttribute('data-k')===n); });
+      steps.forEach(function(s){ var k=+s.getAttribute('data-k'); s.classList.toggle('on',k===n); s.classList.toggle('done',k<n); });
+      segs.forEach(function(s){ s.classList.toggle('fill',+s.getAttribute('data-seg')<n); });
+      navs.forEach(function(s){ s.classList.toggle('on',+s.getAttribute('data-k')===n); });
+      if(crumb) crumb.innerHTML=crumbs[n];
+    }
+    if(reduce){ show(2); return; }
+    var i=0; show(0);
+    var timer=null;
+    function start(){ if(timer) return; timer=setInterval(function(){ i=(i+1)%3; show(i); },2600); }
+    function stop(){ if(timer){ clearInterval(timer); timer=null; } }
+    if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting?start():stop(); }); },{threshold:.2}).observe(stage); }
+    else start();
+  })();
   var form=document.getElementById('waitlist'); if(!form) return;
   var errEl=document.getElementById('formErr'),btn=document.getElementById('submitBtn');
   function setErr(m,f){ if(errEl) errEl.textContent=m||''; ['nome','email'].forEach(function(n){ form[n].removeAttribute('aria-invalid'); }); if(f){ form[f].setAttribute('aria-invalid','true'); form[f].focus(); } }
