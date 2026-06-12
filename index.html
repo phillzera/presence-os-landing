@@ -350,8 +350,8 @@ section{position:relative}
 .bento .mspark{flex:none;width:120px;text-align:right}
 .bento .mspark svg{width:100%;height:40px;display:block}
 .bento .mspark .pct{font-size:11px;font-weight:700;color:var(--ok-text)}
-@media (max-width:900px){.bento{grid-template-columns:repeat(2,1fr)} .bento .feat{grid-column:span 2; grid-row:auto} .bento .wide{grid-column:span 2}}
-@media (max-width:600px){.bento{grid-template-columns:1fr} .bento .feat,.bento .wide{grid-column:span 1} .bento .row{flex-direction:column; gap:12px} .bento .row .ic{margin-bottom:0}}
+@media (max-width:900px){.bento{grid-template-columns:repeat(2,1fr); grid-auto-rows:auto} .bento .feat{grid-column:span 2; grid-row:auto} .bento .wide{grid-column:span 2} .bento .trend,.bento .vtags,.bento .mapv{margin-top:16px}}
+@media (max-width:600px){.bento{grid-template-columns:1fr} .bento .feat,.bento .wide{grid-column:span 1} .bento .row{flex-direction:row; gap:14px} .bento .mcal,.bento .mspark{display:none}}
 
 /* steps (stepper conectado) */
 .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; position:relative}
