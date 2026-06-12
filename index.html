@@ -265,13 +265,37 @@ section{position:relative}
 .pub-actions{display:flex; gap:7px; margin-top:9px; flex:none}
 .pub-approve{flex:1; height:29px; border-radius:8px; border:none; background:var(--i); color:#fff; font-size:9px; font-weight:700; font-family:inherit; display:inline-flex; align-items:center; justify-content:center; gap:5px; cursor:pointer; box-shadow:0 6px 13px -5px rgba(10,102,194,.55)}
 .pub-sched{height:29px; border-radius:8px; border:1px solid var(--line); background:#fff; color:var(--ink-2); font-size:9px; font-weight:600; font-family:inherit; padding:0 11px; cursor:pointer; display:inline-flex; align-items:center; gap:5px}
-/* nichos + dados internos */
-.rdr-niche{display:flex; flex-wrap:wrap; gap:5px; align-items:center; margin-bottom:9px}
+/* radar: status + varredura + nichos + fontes */
+.rdr-status{display:flex; align-items:center; gap:6px; font-size:9px; font-weight:600; color:var(--ink-2); margin-bottom:6px}
+.rdr-status svg{color:var(--i); flex:none; animation:rdrspin 4s linear infinite}
+.rdr-status .rdr-count{margin-left:auto; font-size:7.5px; font-weight:700; color:var(--i); background:var(--i-soft); border:1px solid var(--i-line); border-radius:99px; padding:2px 7px}
+@keyframes rdrspin{to{transform:rotate(360deg)}}
+.rdr-sweep{height:3px; border-radius:2px; background:var(--surface-2); overflow:hidden; position:relative; margin-bottom:11px}
+.rdr-sweep span{position:absolute; top:0; left:0; width:38%; height:100%; border-radius:2px; background:linear-gradient(90deg,transparent,var(--i),transparent); animation:rdrsweep 1.6s ease-in-out infinite}
+@keyframes rdrsweep{0%{left:-38%}100%{left:100%}}
+.rdr-srchead{font-size:7px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); font-weight:700; margin-bottom:6px}
+.rdr-niche{display:flex; flex-wrap:wrap; gap:5px; align-items:center; margin:9px 0 0}
 .rdr-niche .nch{font-size:8px; font-weight:600; color:var(--ink-2); background:#fff; border:1px solid var(--line); border-radius:99px; padding:3px 9px}
 .rdr-niche .nch.on{color:#fff; background:var(--i); border-color:var(--i)}
 .rdr-niche .nch-add{font-size:8px; font-weight:700; color:var(--ink-3); padding-left:1px}
-.est-meta{display:flex; gap:16px; margin-top:9px; padding:8px 11px; background:#fff; border:1px solid var(--line); border-radius:8px; box-shadow:var(--sh-1)}
-.est-meta div{line-height:1.2} .est-meta b{font-size:10px; color:var(--ink); font-weight:700} .est-meta span{display:block; font-size:7.5px; color:var(--ink-3); margin-top:1px}
+.rdr-list{margin-top:10px}
+/* estúdio: editor + painel lateral de edição */
+.est-grid{flex:1; display:grid; grid-template-columns:1.3fr 1fr; gap:10px; min-height:0}
+.est-col{display:flex; flex-direction:column; min-height:0} .est-col .st-ed{flex:1}
+.est-side{display:flex; flex-direction:column; gap:8px; min-height:0}
+.es-blk{background:#fff; border:1px solid var(--line); border-radius:9px; padding:9px 10px; box-shadow:var(--sh-1)}
+.es-blk.es-grow{flex:1; min-height:0; overflow:hidden}
+.es-t{display:flex; align-items:center; gap:6px; font-size:7px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); font-weight:700; margin-bottom:7px}
+.es-t em{margin-left:auto; font-style:normal; letter-spacing:0; text-transform:none; font-size:8px; color:var(--ok-text); background:#e9f9ef; border:1px solid #bfe8cd; border-radius:99px; padding:1px 6px}
+.es-chips{display:flex; flex-wrap:wrap; gap:4px}
+.es-chips span{font-size:7.5px; font-weight:600; color:var(--i); background:var(--i-soft); border:1px solid var(--i-line); border-radius:99px; padding:2px 7px}
+.es-var{display:flex; align-items:center; gap:6px; font-size:8.5px; color:var(--ink-2); padding:5px 8px; border-radius:7px; border:1px solid var(--line); margin-bottom:5px}
+.es-var:last-child{margin-bottom:0}
+.es-var span{width:13px; height:13px; border-radius:4px; display:grid; place-items:center; font-size:7px; font-weight:700; background:var(--surface-2); color:var(--ink-3); flex:none}
+.es-var.on{color:var(--i); border-color:var(--i-line); background:var(--i-soft); font-weight:600} .es-var.on span{background:var(--i); color:#fff}
+.es-acts{display:flex; gap:6px}
+.es-btn{flex:1; height:27px; border-radius:7px; border:1px solid var(--i); background:var(--i); color:#fff; font-size:8.5px; font-weight:700; font-family:inherit; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:4px}
+.es-btn.alt{background:#fff; color:var(--ink-2); border-color:var(--line)}
 .li-an{display:flex; align-items:center; gap:5px; padding:6px 10px; border-top:1px solid var(--line); font-size:7.5px; color:var(--i); font-weight:600; background:var(--i-soft)} .li-an svg{flex:none}
 .pub-2nd{height:29px; border-radius:8px; border:1px solid var(--line); background:#fff; color:var(--ink-2); font-size:9px; font-weight:600; font-family:inherit; padding:0 12px; cursor:pointer; display:inline-flex; align-items:center; gap:5px}
 .pub-body{position:relative}
@@ -285,7 +309,7 @@ section{position:relative}
 .mac-cursor svg{display:block}
 .mac-click{position:absolute; top:0; left:0; width:26px; height:26px; margin:-13px 0 0 -13px; border-radius:50%; background:radial-gradient(circle,rgba(10,102,194,.28),transparent 68%); border:1.5px solid var(--i); transform:scale(.2); opacity:0; z-index:39; pointer-events:none}
 @media (prefers-reduced-motion:reduce){.scr{transition:none} .scan-dot{animation:none} .mac-cursor,.mac-click{display:none}}
-@media (max-width:560px){.app-nav{display:none}.app-body{grid-template-columns:1fr}.st-grid{grid-template-columns:1fr}.st-compose{display:none}}
+@media (max-width:560px){.app-nav{display:none}.app-body{grid-template-columns:1fr}.st-grid{grid-template-columns:1fr}.st-compose{display:none}.est-grid{grid-template-columns:1fr}.est-side{display:none}}
 .os-dock{position:absolute;bottom:2.4%;left:50%;transform:translateX(-50%);display:flex;align-items:flex-end;gap:7px;padding:6px 9px;border-radius:16px;background:rgba(255,255,255,.22);border:1px solid rgba(255,255,255,.34);backdrop-filter:blur(14px);box-shadow:0 10px 24px -8px rgba(0,0,0,.5);z-index:20}
 .os-dock .dk{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:#fff;box-shadow:0 3px 8px -2px rgba(0,0,0,.4),inset 0 1px 0 rgba(255,255,255,.6);position:relative;overflow:hidden;transition:transform .18s var(--ease)}
 .os-dock .dk:hover{transform:translateY(-8px) scale(1.12)} .os-dock .dk img{width:74%;height:74%;object-fit:contain}
@@ -295,31 +319,31 @@ section{position:relative}
 .os-dock .dk.on::after{content:'';position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.9)}
 @media (max-width:560px){.os-dock .dk{width:24px;height:24px}}
 /* iphone */
-.iphone{position:absolute; right:-6px; bottom:-26px; width:162px; aspect-ratio:9/20.9; border-radius:30px; padding:6px; background:linear-gradient(160deg,#3a3a3e,#161618); box-shadow:0 38px 70px -24px rgba(0,0,0,.6), inset 0 0 0 1px rgba(0,0,0,.6), inset 0 0 0 2.5px #2a2a2e; z-index:25; transform:rotate(0deg)}
+.iphone{position:absolute; right:-4px; bottom:-24px; width:174px; aspect-ratio:9/20.9; border-radius:31px; padding:6px; background:linear-gradient(160deg,#3a3a3e,#161618); box-shadow:0 38px 70px -24px rgba(0,0,0,.6), inset 0 0 0 1px rgba(0,0,0,.6), inset 0 0 0 2.5px #2a2a2e; z-index:25; transform:rotate(0deg)}
 .ip-screen{position:relative; height:100%; border-radius:23px; overflow:hidden; background:#f3f2ef; text-align:left; display:flex; flex-direction:column}
 .ip-island{position:absolute; top:8px; left:50%; transform:translateX(-50%); width:42px; height:12px; background:#000; border-radius:99px; z-index:6}
 .ip-stat{height:27px; display:flex; align-items:flex-end; justify-content:space-between; padding:0 13px 3px; font-size:8.5px; font-weight:700; color:var(--ink); flex:none; background:#fff}
 .ip-stat .ic{display:inline-flex; gap:3px; align-items:center}
 /* iPhone: tela de login PresenceIn */
 .ip-screen.login{background:linear-gradient(180deg,#fff 0%,#f4f8fc 58%,#eaf2fa 100%)}
-.lg{flex:1; display:flex; flex-direction:column; padding:16px 16px 14px; min-height:0}
-.lg-top{display:flex; align-items:center; gap:7px; margin-top:6px}
-.lg-mk{width:24px; height:24px; border-radius:7px; background:linear-gradient(150deg,#3a9bf0,#0a66c2 52%,#054889); display:grid; place-items:center; position:relative; box-shadow:0 4px 10px -3px rgba(10,102,194,.55)}
+.lg{flex:1; display:flex; flex-direction:column; padding:15px 14px 13px; min-height:0}
+.lg-top{display:flex; align-items:center; gap:7px; margin-top:5px}
+.lg-mk{width:25px; height:25px; border-radius:7px; background:linear-gradient(150deg,#3a9bf0,#0a66c2 52%,#054889); display:grid; place-items:center; position:relative; box-shadow:0 4px 10px -3px rgba(10,102,194,.55)}
 .lg-mk b{color:#fff; font-family:'Schibsted Grotesk',sans-serif; font-weight:800; font-size:14px; line-height:1}
 .lg-mk .sig{position:absolute; top:3px; right:2.5px; color:#76e8b8}
 .lg-wm{font-weight:700; font-size:13px; letter-spacing:-.035em; color:var(--ink)}
-.lg-h{font-size:15px; font-weight:700; letter-spacing:-.025em; color:var(--ink); line-height:1.15; margin-top:20px}
-.lg-sub{font-size:9px; color:var(--ink-2); line-height:1.4; margin-top:4px}
-.lg-li{display:flex; align-items:center; justify-content:center; gap:6px; height:32px; border-radius:9px; background:#0a66c2; color:#fff; font-size:9px; font-weight:700; white-space:nowrap; margin-top:18px; box-shadow:0 6px 14px -5px rgba(10,102,194,.6)}
+.lg-h{font-size:15px; font-weight:700; letter-spacing:-.025em; color:var(--ink); line-height:1.14; margin-top:18px}
+.lg-sub{font-size:8.5px; color:var(--ink-2); line-height:1.45; margin-top:5px; max-width:90%}
+.lg-li{display:flex; align-items:center; justify-content:center; gap:6px; height:32px; border-radius:9px; background:#0a66c2; color:#fff; font-size:8.5px; font-weight:700; white-space:nowrap; margin-top:16px; box-shadow:0 6px 14px -5px rgba(10,102,194,.6)}
 .lg-li svg{flex:none}
-.lg-or{display:flex; align-items:center; gap:7px; margin:13px 0; color:var(--ink-3); font-size:7.5px; font-weight:600; letter-spacing:.04em}
+.lg-or{display:flex; align-items:center; gap:7px; margin:11px 0; color:var(--ink-3); font-size:7px; font-weight:600; letter-spacing:.05em; text-transform:uppercase}
 .lg-or::before, .lg-or::after{content:''; flex:1; height:1px; background:var(--line)}
-.lg-fld{height:29px; border-radius:8px; border:1px solid var(--line); background:#fff; display:flex; align-items:center; gap:6px; padding:0 9px; font-size:9px; color:var(--ink-2); margin-bottom:8px}
-.lg-fld svg{color:var(--ink-3); flex:none} .lg-fld .ph{color:var(--ink-2)} .lg-fld .dots{letter-spacing:2px; color:var(--ink); font-size:11px; line-height:1}
-.lg-fld .car{width:1.4px; height:13px; background:var(--i); display:inline-block; animation:cursorblink 1.1s step-end infinite}
-.lg-enter{height:30px; border-radius:8px; background:var(--ink); color:#fff; display:flex; align-items:center; justify-content:center; font-size:9.5px; font-weight:700; margin-top:3px}
-.lg-forgot{text-align:center; font-size:8px; color:var(--i); font-weight:600; margin-top:9px}
-.lg-foot{margin-top:auto; display:flex; align-items:center; justify-content:center; gap:5px; font-size:7.5px; color:var(--ink-3); font-weight:500; padding-top:10px}
+.lg-fld{height:30px; border-radius:8px; border:1px solid var(--line); background:#fff; display:flex; align-items:center; gap:6px; padding:0 9px; font-size:8.5px; color:var(--ink-2); margin-bottom:7px; overflow:hidden}
+.lg-fld svg{color:var(--ink-3); flex:none} .lg-fld .ph{color:var(--ink-2); white-space:nowrap; overflow:hidden; text-overflow:ellipsis} .lg-fld .dots{letter-spacing:2px; color:var(--ink); font-size:11px; line-height:1}
+.lg-fld .car{width:1.4px; height:13px; background:var(--i); display:inline-block; flex:none; animation:cursorblink 1.1s step-end infinite}
+.lg-enter{height:31px; border-radius:8px; background:var(--ink); color:#fff; display:flex; align-items:center; justify-content:center; font-size:9.5px; font-weight:700; margin-top:4px}
+.lg-forgot{text-align:center; font-size:8px; color:var(--i); font-weight:600; margin-top:10px}
+.lg-foot{margin-top:auto; display:flex; align-items:center; justify-content:center; gap:5px; font-size:7.5px; color:var(--ink-3); font-weight:500; padding-top:11px; text-align:center}
 .lg-foot svg{color:var(--ok); flex:none}
 @media (prefers-reduced-motion:reduce){.lg-fld .car{animation:none}}
 @media (max-width:880px){.iphone{display:none}}
@@ -358,8 +382,9 @@ section{position:relative}
 .mq-track{display:flex; gap:11px; width:max-content; animation:mqscroll 46s linear infinite}
 .mq-track.rev{animation-direction:reverse; animation-duration:54s}
 .marquee:hover .mq-track{animation-play-state:paused}
-.mq-chip{display:inline-flex; align-items:center; gap:9px; padding:7px 16px 7px 7px; border-radius:99px; border:1px solid var(--line); background:var(--surface); color:var(--ink); font-size:14px; font-weight:500; box-shadow:var(--sh-1); white-space:nowrap}
-.mq-chip .mq-av{width:28px; height:28px; border-radius:50%; flex:none; object-fit:cover; background:var(--surface-2); box-shadow:0 0 0 1px rgba(20,48,80,.08)}
+.mq-chip{display:inline-flex; align-items:center; gap:8px; padding:6px 15px; border-radius:99px; border:1px solid var(--line); background:var(--surface); color:var(--ink-2); font-size:13px; font-weight:600; letter-spacing:-.01em; box-shadow:var(--sh-1); white-space:nowrap}
+.mq-chip .mq-dot{width:6px; height:6px; border-radius:50%; flex:none}
+.brandblue{color:var(--i)}
 @keyframes mqscroll{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.mq-track{animation:none}}
 
@@ -653,43 +678,62 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
                   <span class="macstep" data-k="2"><span class="n">3</span> Publicar</span>
                 </div>
                 <div class="app-screens">
-                  <!-- Passo 1: Radar busca sinais -->
+                  <!-- Passo 1: Radar varrendo fontes -->
                   <div class="scr" data-k="0">
                     <div class="scr-hd">
                       <div><div class="st-eye">Radar · Oportunidades</div><div class="st-h">Sinais no seu nicho</div></div>
-                      <span class="scan"><span class="scan-dot"></span> Analisando 6 fontes</span>
+                      <span class="scan"><span class="scan-dot"></span> Varrendo agora</span>
+                    </div>
+                    <div class="rdr-status">
+                      <svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6.2"/><circle cx="8" cy="8" r="2.4"/><path d="M8 8l4.2-4.2"/></svg>
+                      <span>Buscando novidades dos últimos 3 dias</span><span class="rdr-count">12 sinais</span>
+                    </div>
+                    <div class="rdr-sweep"><span></span></div>
+                    <div class="rdr-srchead">Fontes selecionadas por você</div>
+                    <div class="rdr-src">
+                      <span class="src on">Notícias tech</span><span class="src on">Reddit</span><span class="src on">Google News</span><span class="src">GitHub</span><span class="src">+2 fontes</span>
                     </div>
                     <div class="rdr-niche">
-                      <span class="nch on">Segurança em Fintech</span><span class="nch">Liderança</span><span class="nch">Carreira em Dados</span><span class="nch">IA aplicada</span><span class="nch-add">+3 nichos</span>
-                    </div>
-                    <div class="rdr-src">
-                      <span class="src on">Notícias</span><span class="src on">Hacker News</span><span class="src on">Reddit</span><span class="src">Seu feed</span><span class="src">Newsletters</span>
+                      <span class="nch on">Segurança em Fintech</span><span class="nch">Liderança</span><span class="nch">Carreira em Dados</span><span class="nch-add">+3 nichos</span>
                     </div>
                     <div class="rdr-list">
                       <div class="opp"><div class="opp-main"><b>IA aplicada à segurança em fintechs</b><span>Em alta há 6h · 3 concorrentes já postaram</span></div><span class="opp-fit">fit 9</span></div>
                       <div class="opp sel"><div class="opp-main"><b>Cultura de segurança começa no onboarding</b><span>Forte na sua voz · alcance estimado ~1,1k</span></div><span class="opp-fit hi">fit 8</span><span class="opp-go" id="tGerar">Gerar →</span></div>
-                      <div class="opp"><div class="opp-main"><b>O que um incidente real ensina</b><span>Tema recorrente do seu setor</span></div><span class="opp-fit">fit 7</span></div>
+                      <div class="opp"><div class="opp-main"><b>O que um incidente real ensina</b><span>Tema recorrente do seu setor · 2 dias atrás</span></div><span class="opp-fit">fit 7</span></div>
+                      <div class="opp"><div class="opp-main"><b>Open banking e os novos riscos</b><span>Pauta quente no Reddit · 1 dia atrás</span></div><span class="opp-fit">fit 7</span></div>
                     </div>
                   </div>
-                  <!-- Passo 2: Estúdio escreve na sua voz -->
+                  <!-- Passo 2: Estúdio escreve na sua voz, com painel pra editar -->
                   <div class="scr" data-k="1">
                     <div class="scr-hd">
                       <div><div class="st-eye">Studio · Post</div><div class="st-h">Escrevendo na sua voz</div></div>
                       <span class="st-voice"><span class="dot"></span> na sua voz</span>
                     </div>
-                    <div class="est-body">
-                      <div class="st-ed">
-                        <p>Todo mundo fala em "cultura de segurança". Na prática, ela começa no onboarding, não no incidente.</p>
-                        <p>Três coisas que eu mudei na minha equipe<span class="cursor"></span></p>
+                    <div class="est-grid">
+                      <div class="est-col">
+                        <div class="st-ed">
+                          <p>Todo mundo fala em "cultura de segurança". Na prática, ela começa no onboarding, não no incidente.</p>
+                          <p>Três coisas que eu mudei na minha equipe<span class="cursor"></span></p>
+                        </div>
+                        <div class="st-tools"><span class="t1"><svg width="8" height="8" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> Variantes</span><span>Humanizar</span><span>Auditar</span><span>Imagem</span></div>
+                        <div class="st-foot"><span class="st-chip ok">Nota 86</span><span class="st-chip">Risco IA 12</span><span class="st-send" id="tRevisar">Revisar →</span></div>
                       </div>
-                      <div class="est-meta">
-                        <div><b>94%</b><span>match de voz</span></div>
-                        <div><b>3</b><span>variantes</span></div>
-                        <div><b>~1,1k</b><span>alcance estimado</span></div>
-                        <div><b>ter 9h</b><span>melhor horário</span></div>
-                      </div>
-                      <div class="st-tools"><span class="t1"><svg width="8" height="8" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> Variantes</span><span>Humanizar</span><span>Auditar</span><span>Imagem</span></div>
-                      <div class="st-foot"><span class="st-chip ok">Nota 86</span><span class="st-chip">Risco IA 12</span><span class="st-send" id="tRevisar">Revisar →</span></div>
+                      <aside class="est-side">
+                        <div class="es-blk">
+                          <div class="es-t">Tom de voz <em>94% match</em></div>
+                          <div class="es-chips"><span>Direto</span><span>Técnico</span><span>1ª pessoa</span><span>Sem jargão</span></div>
+                        </div>
+                        <div class="es-blk es-grow">
+                          <div class="es-t">Variantes</div>
+                          <div class="es-var on"><span>A</span> pelo onboarding</div>
+                          <div class="es-var"><span>B</span> pós-incidente</div>
+                          <div class="es-var"><span>C</span> em checklist</div>
+                        </div>
+                        <div class="es-acts">
+                          <button class="es-btn"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 11l7-7 3 3-7 7H2z"/><path d="M9 4l3 3"/></svg> Editar</button>
+                          <button class="es-btn alt"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3v10M3 8h10"/></svg> Acrescentar</button>
+                        </div>
+                      </aside>
                     </div>
                   </div>
                   <!-- Passo 3: Editar / Agendar / Aprovar -> Publicar -->
@@ -816,7 +860,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
 <!-- PILARES -->
 <section class="sec wrap" id="produto">
   <div class="sec-head reveal">
-    <h2>O PresenceIn faz o trabalho. A autoridade é toda sua.</h2>
+    <h2>O <span class="brandblue">PresenceIn</span> faz o trabalho. A autoridade é toda sua.</h2>
     <p>Ele aprende sobre você, vigia o seu mercado e deixa tudo pronto. A palavra final é sempre sua.</p>
   </div>
   <div class="pillars">
@@ -1068,8 +1112,8 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
 
   // marquee personas
   var roles=['Founder','CEO','CTO','CMO','CFO','Head de Vendas','Head de Produto','Head de Marketing','Diretor','Gerente','Consultor','Advogado','Médico','Contador','Professor','Pesquisador','Investidor','Coach','Mentor','Designer','Engenheiro','Product Manager','Recrutador','RH','SDR','Account Executive','Tech Lead','Freelancer','Agência','Creator B2B'];
-  var mqPhotos=['photo-1573497019940-1c28c88b4f3e','photo-1507003211169-0a1dd7228f2d','photo-1494790108377-be9c29b29330','photo-1500648767791-00dcc994a43e','photo-1438761681033-6461ffad8d80','photo-1472099645785-5658abf4ff4e','photo-1568602471122-7832951cc4c5','photo-1519345182560-3f2917c472ef'];
-  function fill(id,list){ var el=document.getElementById(id); if(!el) return; var off=id==='mq2'?3:0; var html=list.map(function(r,i){return '<span class="mq-chip"><img class="mq-av" src="https://images.unsplash.com/'+mqPhotos[(i+off)%mqPhotos.length]+'?auto=format&fit=crop&w=48&q=80" alt="">'+r+'</span>';}).join(''); el.innerHTML=html+html; }
+  var mqDot=['#0a66c2','#0d9488','#7c3aed','#e0476b','#d9870a','#2563eb'];
+  function fill(id,list){ var el=document.getElementById(id); if(!el) return; var off=id==='mq2'?2:0; var html=list.map(function(r,i){return '<span class="mq-chip"><i class="mq-dot" style="background:'+mqDot[(i+off)%mqDot.length]+'"></i>'+r+'</span>';}).join(''); el.innerHTML=html+html; }
   fill('mq1',roles); fill('mq2',roles.slice().reverse());
 
   // palavra rotativa "Feito para ___" (troca rápida + sublinhado muda de cor)
