@@ -305,7 +305,8 @@ section{position:relative}
 .mq-track.rev{animation-direction:reverse; animation-duration:54s}
 .marquee:hover .mq-track{animation-play-state:paused}
 .mq-chip{display:inline-flex; align-items:center; gap:9px; padding:7px 16px 7px 7px; border-radius:99px; border:1px solid var(--line); background:var(--surface); color:var(--ink); font-size:14px; font-weight:500; box-shadow:var(--sh-1); white-space:nowrap}
-.mq-chip .mq-av{width:26px; height:26px; border-radius:50%; flex:none; display:grid; place-items:center; color:#fff; font-size:10px; font-weight:700; box-shadow:inset 0 1.5px 0 rgba(255,255,255,.35), 0 2px 5px -2px rgba(20,48,80,.4)}
+.mq-chip .mq-av{width:26px; height:26px; border-radius:50%; flex:none; display:grid; place-items:center; color:#fff; box-shadow:inset 0 1.5px 0 rgba(255,255,255,.35), 0 2px 5px -2px rgba(20,48,80,.4)}
+.mq-chip .mq-av svg{width:14px; height:14px}
 @keyframes mqscroll{to{transform:translateX(-50%)}}
 @media (prefers-reduced-motion:reduce){.mq-track{animation:none}}
 
@@ -949,8 +950,22 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
   // marquee personas
   var roles=['Founder','CEO','CTO','CMO','CFO','Head de Vendas','Head de Produto','Head de Marketing','Diretor','Gerente','Consultor','Advogado','Médico','Contador','Professor','Pesquisador','Investidor','Coach','Mentor','Designer','Engenheiro','Product Manager','Recrutador','RH','SDR','Account Executive','Tech Lead','Freelancer','Agência','Creator B2B'];
   var mqGrads=['linear-gradient(145deg,#1a85e0,#084e96)','linear-gradient(145deg,#7c3aed,#4f46e5)','linear-gradient(145deg,#0ea5e9,#0369a1)','linear-gradient(145deg,#14b8a6,#0f766e)','linear-gradient(145deg,#f59e0b,#b45309)','linear-gradient(145deg,#ec4899,#be185d)','linear-gradient(145deg,#6366f1,#4338ca)'];
-  function mqInitials(r){ var p=r.replace(/[^A-Za-zÀ-ÿ ]/g,'').trim().split(/\s+/); return ((p[0]||'').charAt(0)+(p[1]?p[1].charAt(0):(p[0]||'').charAt(1)||'')).toUpperCase(); }
-  function fill(id,list){ var el=document.getElementById(id); if(!el) return; var html=list.map(function(r,i){return '<span class="mq-chip"><span class="mq-av" style="background:'+mqGrads[i%mqGrads.length]+'">'+mqInitials(r)+'</span>'+r+'</span>';}).join(''); el.innerHTML=html+html; }
+  var mqIcons={
+    code:'M6 5L3 8l3 3M10 5l3 3-3 3',
+    mega:'M2.5 7l8-3.2v7.4L2.5 9zM2.5 7v2.2M10.5 5.6v4',
+    target:'M3 11l3.6-3.6L9.2 10 13 5.4M10.5 5.4H13v2.5',
+    brief:'M2.5 5.5h11v8h-11zM6 5.5V4a1.5 1.5 0 0 1 1.5-1.5h1A1.5 1.5 0 0 1 10 4v1.5',
+    user:'M8 4.4a2 2 0 1 1 0 4 2 2 0 0 1 0-4M3.6 13c.4-2 2.2-3.2 4.4-3.2s4 1.2 4.4 3.2',
+    pen:'M2.5 13.5l1-3 6-6 2 2-6 6zM8.5 4.5l2 2'
+  };
+  function mqIcon(r){ var s=r.toLowerCase(),k='user';
+    if(/cto|tech|engenh|product manager|developer/.test(s))k='code';
+    else if(/cmo|marketing|creator|ag[êe]ncia|design/.test(s))k='mega';
+    else if(/vendas|sdr|account|comercial/.test(s))k='target';
+    else if(/founder|ceo|cfo|diretor|head|gerente|product/.test(s))k='brief';
+    else if(/freelancer|advogad/.test(s))k='pen';
+    return mqIcons[k]; }
+  function fill(id,list){ var el=document.getElementById(id); if(!el) return; var html=list.map(function(r,i){return '<span class="mq-chip"><span class="mq-av" style="background:'+mqGrads[i%mqGrads.length]+'"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="'+mqIcon(r)+'"/></svg></span>'+r+'</span>';}).join(''); el.innerHTML=html+html; }
   fill('mq1',roles); fill('mq2',roles.slice().reverse());
 
   // palavra rotativa "Feito para ___" (troca rápida + sublinhado muda de cor)
