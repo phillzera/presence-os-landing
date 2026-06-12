@@ -248,14 +248,22 @@ section{position:relative}
 @media (max-width:880px){.iphone{display:none}}
 
 /* AI strip (3 logos grandes) */
-.aistrip{padding:34px 0; text-align:center}
-.aistrip .lbl{font-size:14px; color:var(--ink-3); margin-bottom:18px}
-.aistrip .row{display:flex; flex-wrap:wrap; gap:14px; justify-content:center; align-items:center}
-.aistrip .ai{display:inline-flex; align-items:center; gap:12px; padding:14px 26px; border-radius:var(--r-md); background:#fff; border:1px solid var(--line); box-shadow:var(--sh-1); font-size:17px; font-weight:600; color:var(--ink); transition:box-shadow .18s var(--ease), transform .18s var(--ease), border-color .18s}
-.aistrip .ai:hover{box-shadow:var(--sh-2); transform:translateY(-2px); border-color:var(--i-line)}
-.aistrip .ai .mk{width:28px; height:28px; display:grid; place-items:center; flex:none}
-.aistrip .ai .mk img, .aistrip .ai .mk svg{width:100%; height:100%; object-fit:contain; display:block}
-.aistrip .note{margin-top:16px; font-size:13px; color:var(--ink-3)}
+.aiblock{padding:var(--sec) 0}
+.ai-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:clamp(28px,5vw,56px); align-items:center}
+.ai-copy h2{font-size:clamp(24px,3.4vw,38px); line-height:1.1; font-weight:600; color:var(--ink)}
+.ai-copy > p{margin-top:14px; color:var(--ink-2); font-size:16px; line-height:1.6; max-width:48ch}
+.ai-points{list-style:none; padding:0; margin:22px 0 0; display:grid; gap:13px}
+.ai-points li{display:flex; gap:12px; align-items:flex-start; color:var(--ink-2); font-size:14.5px; line-height:1.45}
+.ai-points li .pic{width:30px; height:30px; border-radius:9px; flex:none; display:grid; place-items:center; color:var(--i); background:var(--i-soft); border:1px solid var(--i-line)}
+.ai-points li b{color:var(--ink); font-weight:600}
+.ai-logos{display:flex; flex-direction:column; gap:11px; padding:22px; border-radius:var(--r-lg); background:linear-gradient(165deg,#fff,var(--i-soft) 150%); border:1px solid var(--i-line); box-shadow:var(--sh-2)}
+.ai-logos .lbl{font-size:12px; font-weight:600; letter-spacing:.04em; text-transform:uppercase; color:var(--ink-3); margin-bottom:3px}
+.ai{display:flex; align-items:center; gap:13px; padding:14px 18px; border-radius:var(--r-md); background:#fff; border:1px solid var(--line); box-shadow:var(--sh-1); font-size:16px; font-weight:600; color:var(--ink); transition:box-shadow .18s var(--ease), transform .18s var(--ease), border-color .18s}
+.ai:hover{box-shadow:var(--sh-2); transform:translateY(-2px); border-color:var(--i-line)}
+.ai .mk{width:26px; height:26px; display:grid; place-items:center; flex:none}
+.ai .mk img, .ai .mk svg{width:100%; height:100%; object-fit:contain; display:block}
+.ai .meta{margin-left:auto; font-size:11px; font-weight:500; color:var(--ink-3)}
+@media (max-width:820px){.ai-grid{grid-template-columns:1fr; gap:28px}}
 
 /* personas marquee */
 .mq-head{text-align:center; margin-bottom:22px}
@@ -269,6 +277,7 @@ section{position:relative}
 .mq-chip{display:inline-flex; align-items:center; gap:8px; padding:10px 17px; border-radius:99px; border:1px solid var(--line); background:var(--surface); color:var(--ink-2); font-size:14.5px; font-weight:500; box-shadow:var(--sh-1); white-space:nowrap}
 .mq-chip .d{width:6px;height:6px;border-radius:50%;background:var(--i);flex:none}
 @keyframes mqscroll{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.mq-track{animation:none}}
 
 /* pilares */
 .pillars{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
@@ -583,16 +592,26 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
   </div>
 </header>
 
-<!-- AI STRIP -->
-<section class="aistrip band reveal">
+<!-- IA + PRIVACIDADE -->
+<section class="aiblock band reveal" id="ia">
   <div class="wrap">
-    <div class="lbl">Funciona com a IA que você já usa</div>
-    <div class="row">
-      <span class="ai"><span class="mk"><img src="https://api.iconify.design/logos/claude-icon.svg" alt="" loading="lazy"></span> Claude</span>
-      <span class="ai"><span class="mk"><img src="https://api.iconify.design/logos/openai-icon.svg" alt="" loading="lazy"></span> ChatGPT</span>
-      <span class="ai"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4285f4"/><stop offset=".5" stop-color="#9168f0"/><stop offset="1" stop-color="#d96570"/></linearGradient></defs><path fill="url(#gem)" d="M12 2c.4 4.9 3.1 7.6 8 8-4.9.4-7.6 3.1-8 8-.4-4.9-3.1-7.6-8-8 4.9-.4 7.6-3.1 8-8z"/></svg></span> Gemini</span>
+    <div class="ai-grid">
+      <div class="ai-copy">
+        <h2>Use a IA que você já tem. E só ela.</h2>
+        <p>Conecte a sua assinatura do Claude ou do ChatGPT, ou a sua API key do Gemini. O PresenceIn roda na sua conta e na sua máquina: a IA trabalha pra você sem que os seus dados ou as suas ideias passeiem por servidor nenhum.</p>
+        <ul class="ai-points">
+          <li><span class="pic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="10" height="7" rx="1.6"/><path d="M5.2 7V5a2.8 2.8 0 0 1 5.6 0v2"/></svg></span><span><b>Roda na sua máquina, com a sua chave.</b> Nada do que você escreve é compartilhado com a gente.</span></li>
+          <li><span class="pic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.2"/><path d="M8 4.5v7M6 6.4c0-1 .9-1.6 2-1.6s2 .6 2 1.6-1 1.5-2 1.6-2 .6-2 1.6.9 1.6 2 1.6 2-.6 2-1.6"/></svg></span><span><b>Sua própria assinatura.</b> Sem mensalidade de IA cobrada por cima do plano.</span></li>
+          <li><span class="pic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.6l5.4 2.2v3.5c0 3.3-2.3 5.5-5.4 6.5-3.1-1-5.4-3.2-5.4-6.5V3.8z"/><path d="M5.7 8l1.6 1.6L10.5 6"/></svg></span><span><b>Nada vai pro LinkedIn sem o seu aval.</b> Você revisa e aprova cada publicação.</span></li>
+        </ul>
+      </div>
+      <div class="ai-logos">
+        <div class="lbl">Compatível com</div>
+        <span class="ai"><span class="mk"><img src="https://api.iconify.design/logos/claude-icon.svg" alt="" loading="lazy"></span> Claude <span class="meta">assinatura</span></span>
+        <span class="ai"><span class="mk"><img src="https://api.iconify.design/logos/openai-icon.svg" alt="" loading="lazy"></span> ChatGPT <span class="meta">OpenAI / Codex</span></span>
+        <span class="ai"><span class="mk"><svg viewBox="0 0 24 24" aria-hidden="true"><defs><linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4285f4"/><stop offset=".5" stop-color="#9168f0"/><stop offset="1" stop-color="#d96570"/></linearGradient></defs><path fill="url(#gem)" d="M12 2c.4 4.9 3.1 7.6 8 8-4.9.4-7.6 3.1-8 8-.4-4.9-3.1-7.6-8-8 4.9-.4 7.6-3.1 8-8z"/></svg></span> Gemini <span class="meta">API key</span></span>
+      </div>
     </div>
-    <div class="note">Você conecta a sua assinatura ou a sua API key. Sem intermediário, sem cota nossa no meio.</div>
   </div>
 </section>
 
@@ -679,8 +698,8 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
   <div class="sec-head reveal"><h2>Três passos. Depois é só aprovar.</h2></div>
   <div class="steps">
     <div class="step reveal"><div class="n">1</div><h3>Aprende sobre você</h3><p>Você mostra como fala e o que quer. Ele absorve o seu tom, as suas ideias e o seu objetivo.</p></div>
-    <div class="step reveal"><div class="n">2</div><h3>Prepara acompanhando o mundo</h3><p>Monitora o seu mercado em qualquer idioma e deixa posts, comentários e respostas prontos.</p></div>
-    <div class="step reveal"><div class="n">3</div><h3>Você aprova e publica</h3><p>Você revisa, aprova e vai pro ar. Nada acontece sem o seu aval.</p></div>
+    <div class="step reveal"><div class="n">2</div><h3>Prepara acompanhando o mundo</h3><p>Monitora o seu mercado em qualquer idioma e deixa posts, comentários e respostas prontos. No Autopilot, prepara um lote inteiro de uma vez.</p></div>
+    <div class="step reveal"><div class="n">3</div><h3>Você aprova e publica</h3><p>Você revisa, ajusta o que quiser e aprova. Vai pro ar no seu nome, no seu tom. Nada acontece sem o seu aval.</p></div>
   </div>
 </section>
 
@@ -718,6 +737,9 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
     <details><summary>Como ele aprende o meu tom?<span class="x"></span></summary><div class="a">Você mostra como fala, as suas ideias e o seu objetivo. O PresenceIn usa isso pra escrever com a sua voz, não com um tom genérico.</div></details>
     <details><summary>Funciona em outros idiomas?<span class="x"></span></summary><div class="a">Sim. Ele acompanha o mundo em qualquer idioma e prepara o conteúdo no idioma que você quiser.</div></details>
     <details><summary>Preciso saber escrever?<span class="x"></span></summary><div class="a">Não. Esse é o ponto. Ele deixa pronto, você só revisa e aprova com um clique.</div></details>
+    <details><summary>O que é o Autopilot?<span class="x"></span></summary><div class="a">É o modo em que a IA prepara um lote inteiro de conteúdo na sua voz de uma vez só. Você revisa tudo junto e aprova o que gostar. Mesmo no Autopilot, nada vai pro ar sem você.</div></details>
+    <details><summary>Não vai ficar genérico, com cara de robô?<span class="x"></span></summary><div class="a">Não. Ele cruza o que está em alta no seu mercado com as suas provas reais (cases, números e histórias que você guarda no Proof Vault) e escreve no seu tom. Sai específico, com a sua bagagem, e ainda audita o risco de soar artificial antes de te entregar.</div></details>
+    <details><summary>Meus dados e tokens estão seguros?<span class="x"></span></summary><div class="a">Sim. A IA roda na sua conta e na sua máquina, com a sua própria chave. Seus tokens ficam criptografados, nada do que você escreve é compartilhado e nada é publicado no LinkedIn sem o seu aval.</div></details>
     <details><summary>Quando lança e como é o acesso?<span class="x"></span></summary><div class="a">Beta privado a partir de 20 de junho de 2026, em lotes pequenos. Quem entra cedo tem acesso premium aos módulos e condição de quem chegou primeiro.</div></details>
   </div>
 </section>
