@@ -66,7 +66,9 @@ main,footer{position:relative; z-index:1}
 .annbar .blip::after{content:''; position:absolute; inset:-3px; border-radius:50%; border:1.5px solid rgba(87,221,134,.55); animation:blippulse 1.7s var(--ease) infinite}
 @keyframes blippulse{0%{transform:scale(.45); opacity:1} 100%{transform:scale(2.1); opacity:0}}
 @media (prefers-reduced-motion:reduce){.annbar .blip::after{animation:none}}
-.annbar .cd{font-family:'Spline Sans Mono',monospace; font-weight:600; background:rgba(255,255,255,.16); padding:2px 9px; border-radius:99px; font-variant-numeric:tabular-nums; letter-spacing:.02em}
+.annbar .cd{font-family:'Spline Sans Mono',monospace; font-weight:600; background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.28); padding:2px 10px; border-radius:99px; font-variant-numeric:tabular-nums; letter-spacing:.02em; animation:cdpulse 2.4s var(--ease) infinite}
+@keyframes cdpulse{0%,100%{box-shadow:0 0 0 0 rgba(255,255,255,.34)}50%{box-shadow:0 0 0 4px rgba(255,255,255,0)}}
+@media (prefers-reduced-motion:reduce){.annbar .cd{animation:none}}
 .annbar a.ann-cta{color:#fff; font-weight:700; text-decoration:underline; text-underline-offset:2px; white-space:nowrap}
 .annbar .ann-x{position:absolute; right:10px; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.16); border:none; color:#fff; width:24px; height:24px; border-radius:50%; cursor:pointer; display:grid; place-items:center; font-size:15px; line-height:1}
 .annbar .row{position:relative}
@@ -79,7 +81,7 @@ main,footer{position:relative; z-index:1}
 .nav.scrolled{background:#fff; border-bottom-color:var(--line); box-shadow:0 6px 22px -10px rgba(20,48,80,.16)}
 .nav .row{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px; height:68px; max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter)}
 .nav .links{display:flex; gap:2px; align-items:center; justify-content:center}
-.nav .links > a, .nav .links .recbtn{display:inline-flex; align-items:center; gap:5px; height:36px; padding:0 14px; border-radius:9px; color:var(--ink-2); font-size:14.5px; font-weight:500; letter-spacing:-.006em; background:none; border:none; cursor:pointer; font-family:inherit; transition:color .18s var(--ease), background .18s var(--ease)}
+.nav .links > a, .nav .links .recbtn{display:inline-flex; align-items:center; gap:5px; height:36px; padding:0 14px; border-radius:9px; color:var(--ink-2); font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:500; letter-spacing:-.01em; background:none; border:none; cursor:pointer; transition:color .18s var(--ease), background .18s var(--ease)}
 .nav .links > a:hover, .nav .links .has-mega:hover .recbtn, .nav .links .has-mega:focus-within .recbtn{color:var(--ink); background:color-mix(in srgb,var(--ink) 5%,transparent)}
 .nav .right{display:flex; justify-content:flex-end; align-items:center; gap:13px}
 .logo{display:inline-flex; align-items:center; gap:10px; color:var(--ink); font-weight:600; font-size:20px; letter-spacing:-.04em}
@@ -622,7 +624,8 @@ input[aria-invalid="true"],textarea[aria-invalid="true"]{border-color:var(--dang
 .is-sent form{display:none}.is-sent .form-ok{display:block}
 @media (max-width:820px){.beta-grid{grid-template-columns:1fr;gap:28px}}
 
-footer{position:relative; overflow:hidden; border-top:1px solid var(--line); background:linear-gradient(180deg,var(--muted-bg),#e6edf6)}
+footer{position:relative; overflow:hidden; background:linear-gradient(180deg,var(--muted-bg),#e3ebf5)}
+footer .fbar{height:3px; background:linear-gradient(90deg,#064c8f,#0a66c2 38%,#1a85e0 68%,#76e8b8); position:relative; z-index:2}
 footer::before{content:''; position:absolute; inset:0; background-image:radial-gradient(rgba(10,102,194,.07) 1px,transparent 1px); background-size:24px 24px; -webkit-mask:radial-gradient(90% 70% at 100% 100%,#000,transparent 68%); mask:radial-gradient(90% 70% at 100% 100%,#000,transparent 68%); pointer-events:none}
 footer::after{content:''; position:absolute; left:-10%; bottom:-30%; width:50%; height:80%; background:radial-gradient(circle at 50% 50%,rgba(26,133,224,.1),transparent 70%); pointer-events:none}
 footer > *{position:relative; z-index:1}
@@ -638,8 +641,12 @@ footer .brand p{color:var(--ink-3);font-size:13.5px;line-height:1.55;max-width:3
 footer .brand .ftrust{display:flex;gap:7px;flex-wrap:wrap;margin-top:16px}
 footer .brand .ftrust span{font-size:11px;font-weight:500;color:var(--ink-2);background:#fff;border:1px solid var(--line);border-radius:99px;padding:4px 11px}
 footer .brand .fmail{display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-size:13px;color:var(--ink-2);font-weight:500} footer .brand .fmail:hover{color:var(--i)} footer .brand .fmail svg{color:var(--i)}
-footer .col h4{font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--ink);margin-bottom:13px}
-footer .col a{display:block;color:var(--ink-2);font-size:13.5px;padding:5px 0;transition:color .15s} footer .col a:hover{color:var(--i)}
+footer .brand .logo{font-size:21px}
+footer .brand .floc{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:12.5px;color:var(--ink-3);font-weight:500} footer .brand .floc svg{color:var(--ok);flex:none}
+footer .col h4{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;display:flex;align-items:center;gap:7px}
+footer .col h4::before{content:'';width:14px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--i),#76e8b8)}
+footer .col a{display:block;color:var(--ink-2);font-size:13.5px;padding:5px 0;width:fit-content;transition:color .15s,transform .15s var(--ease)} footer .col a:hover{color:var(--i);transform:translateX(3px)}
+footer .fprod{display:inline-flex;align-items:center;gap:7px} footer .fprod .fprod-mk{width:17px;height:17px;border-radius:5px;background:linear-gradient(150deg,#1a85e0,#064c8f);color:#fff;display:grid;place-items:center;font-size:10px;font-weight:800;font-family:'Space Grotesk',sans-serif}
 footer .col .fstatus{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--ok-text);background:#e9f9ef;border:1px solid #bfe8cd;border-radius:99px;padding:4px 10px;margin-bottom:11px}
 footer .col .fstatus .d{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(22,163,74,.18)}
 footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 auto;padding:18px var(--gutter);display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center;color:var(--ink-3);font-size:13px} footer .bottom .spacer{flex:1} footer .bottom b{color:var(--ink-2);font-weight:600} footer .bottom a{color:var(--ink-2)} footer .bottom a:hover{color:var(--i)}
@@ -659,7 +666,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
     <div class="row">
       <span class="blip" aria-hidden="true"></span>
       <span>Participe do <b>beta privado</b>, começa em <b>20 de junho</b>. Vagas limitadas.</span>
-      <span class="cd" id="ann-cd">00d 00h 00m</span>
+      <span class="cd" id="ann-cd">00d 00h 00m 00s</span>
       <a class="ann-cta" href="#beta">Quero entrar →</a>
       <button class="ann-x" id="annX" aria-label="Fechar aviso">×</button>
     </div>
@@ -905,13 +912,6 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
           <div class="lg-forgot">Esqueci minha senha</div>
           <div class="lg-foot"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5 2v4c0 3.2-2.1 5.5-5 7-2.9-1.5-5-3.8-5-7v-4z"/><path d="M5.8 8l1.6 1.6L10.4 6.5"/></svg> Você aprova tudo antes de publicar</div>
         </div>
-        <div class="ip-done" id="ipDone">
-          <span class="ipd-ic"><svg width="20" height="20" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.2"><path d="M3 8.5l3 3 7-7.5"/></svg></span>
-          <b>Conectado</b>
-          <span>Sua conta, com a sua IA</span>
-        </div>
-        <div class="ip-cursor" id="ipCursor"><svg width="17" height="17" viewBox="0 0 24 24"><path d="M5 2.5l5.2 15.3 2.1-6 6-2.2z" fill="#fff" stroke="#1c2330" stroke-width="1.5" stroke-linejoin="round"/></svg></div>
-        <div class="ip-click" id="ipClick"></div>
       </div>
     </div>
   </div>
@@ -1219,6 +1219,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
 </main>
 
 <footer>
+  <div class="fbar" aria-hidden="true"></div>
   <div class="fcta reveal">
     <h3>Vire a referência do seu mercado no LinkedIn.</h3>
     <a class="btn primary" href="#beta">Quero minha vaga no beta
@@ -1230,6 +1231,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
       <p>O concierge que faz você ser lembrado no LinkedIn. A IA trabalha, você aprova.</p>
       <div class="ftrust"><span>Escreve no seu tom</span><span>Roda na sua IA</span><span>Você aprova cada post</span></div>
       <a class="fmail" href="mailto:beta@soberanus.com"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="3" width="13" height="10" rx="1.6"/><path d="M2 4l6 4.5L14 4"/></svg> beta@soberanus.com</a>
+      <div class="floc"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 1.5c3 0 5 2.1 5 5 0 3.4-5 8-5 8s-5-4.6-5-8c0-2.9 2-5 5-5z"/><circle cx="8" cy="6.5" r="1.8"/></svg> Feito no Brasil · suporte em português</div>
     </div>
     <div class="col">
       <h4>Produto</h4>
@@ -1258,7 +1260,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
       <a href="#beta">Garantir minha vaga</a>
     </div>
   </div>
-  <div class="bottom"><span>Um produto <b>Soberanus</b></span><span class="spacer"></span><a href="#faq">Privacidade</a><a href="#beta">Beta</a><span>© <span id="yr">2026</span> PresenceIn</span></div>
+  <div class="bottom"><span class="fprod"><span class="fprod-mk">S</span> Um produto <b>Soberanus</b></span><span class="spacer"></span><a href="#faq">Privacidade</a><a href="#faq">Termos</a><a href="#beta">Beta</a><span>© <span id="yr">2026</span> PresenceIn</span></div>
 </footer>
 
 <script>
@@ -1307,7 +1309,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
     var days=Math.floor(d/864e5),h=Math.floor(d/36e5)%24,m=Math.floor(d/6e4)%60,s=Math.floor(d/1e3)%60;
     var set=function(id,v){var e=document.getElementById(id);if(e)e.textContent=pad(v);};
     set('cd-d',days);set('cd-h',h);set('cd-m',m);set('cd-s',s);
-    if(anncd) anncd.textContent=days+'d '+pad(h)+'h '+pad(m)+'m';
+    if(anncd) anncd.textContent=days+'d '+pad(h)+'h '+pad(m)+'m '+pad(s)+'s';
   }
   tick(); setInterval(tick,1000);
 
@@ -1397,31 +1399,6 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
     function stop(){ if(timer){clearInterval(timer);timer=null;} }
     start();
     if('IntersectionObserver' in window){ new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?start():stop();});},{threshold:.05}).observe(panel); }
-  })();
-  // iPhone: cursor toca "Continuar com LinkedIn" -> Conectado
-  (function(){
-    var phone=document.querySelector('.iphone'); if(!phone) return;
-    var screen=phone.querySelector('.ip-screen');
-    var cur=document.getElementById('ipCursor'), clk=document.getElementById('ipClick');
-    var li=document.getElementById('ipLi'), done=document.getElementById('ipDone');
-    if(!cur||!li||!screen) return;
-    if(reduce || !window.gsap) return;
-    function pos(el){ var x=0,y=0,n=el; while(n && n!==screen){ x+=n.offsetLeft; y+=n.offsetTop; n=n.offsetParent; } return {x:x+el.offsetWidth/2, y:y+el.offsetHeight/2}; }
-    function clickFx(){ var px=gsap.getProperty(cur,'x'),py=gsap.getProperty(cur,'y'); gsap.set(clk,{x:px,y:py,scale:.2,opacity:.9}); gsap.to(clk,{scale:1.5,opacity:0,duration:.55,ease:'power2.out'}); gsap.to(cur,{scale:.82,duration:.12,yoyo:true,repeat:1,ease:'power1.inOut'}); }
-    var tl=gsap.timeline({repeat:-1,paused:true,defaults:{ease:'power3.inOut'}});
-    tl.add(function(){ if(done) done.classList.remove('show'); })
-      .add(function(){ var p=pos(li); gsap.set(cur,{x:p.x-26,y:p.y+32,opacity:0,scale:1}); })
-      .to(cur,{opacity:1,duration:.3})
-      .to(cur,{x:function(){return pos(li).x;},y:function(){return pos(li).y;},duration:.9},'+=.5')
-      .add(function(){ li.style.transform='scale(.97)'; })
-      .add(clickFx,'+=.05')
-      .add(function(){ li.style.transform=''; },'+=.18')
-      .add(function(){ if(done) done.classList.add('show'); },'+=.2')
-      .to(cur,{opacity:0,duration:.35},'+=.1')
-      .to({},{duration:1.9})
-      .add(function(){ if(done) done.classList.remove('show'); });
-    tl.play();
-    if('IntersectionObserver' in window){ new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?tl.play():tl.pause();});},{threshold:.05}).observe(phone); }
   })();
   var form=document.getElementById('waitlist'); if(!form) return;
   var errEl=document.getElementById('formErr'),btn=document.getElementById('submitBtn');
