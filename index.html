@@ -453,9 +453,12 @@ section{position:relative}
 .bento .banner .mspark{width:220px; flex:none}
 /* mini-preview do Studio */
 .bento .mini{background:#fff; border:1px solid var(--line); border-radius:12px; padding:13px; box-shadow:var(--sh-1)}
-.bento .mini-row{display:flex; align-items:center; gap:9px; margin-bottom:9px}
-.bento .mini-av{width:28px; height:28px; border-radius:50%; flex:none; object-fit:cover; background:var(--surface-2)}
-.bento .mini-row b{display:block; font-size:13px; color:var(--ink); font-weight:600; line-height:1.2} .bento .mini-row span{font-size:11px; color:var(--ink-3)}
+.bento .mini-src{display:flex; align-items:center; gap:6px; font-size:11px; color:var(--ink-2); font-weight:500; background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:6px 9px} .bento .mini-src svg{color:var(--i); flex:none} .bento .mini-src b{color:var(--ink); font-weight:700} .bento .mini-src .mini-srcn{margin-left:auto; font-size:10px; font-weight:700; color:var(--i); background:var(--i-soft); border:1px solid var(--i-line); border-radius:99px; padding:1px 7px; flex:none}
+.bento .mini-arrow{display:flex; align-items:center; gap:7px; font-size:10.5px; font-weight:600; color:var(--ink-3); padding:7px 2px 9px} .bento .mini-arrow span{width:14px; height:14px; flex:none; border-left:1.5px solid var(--i-line); border-bottom:1.5px solid var(--i-line); border-radius:0 0 0 4px; margin-left:6px}
+.bento .mini-row{display:flex; align-items:center; gap:9px; margin-bottom:11px}
+.bento .mini-av{width:30px; height:30px; border-radius:50%; flex:none; object-fit:cover; background:var(--surface-2)}
+.bento .mini-row b{display:block; font-size:13px; color:var(--ink); font-weight:600; line-height:1.2} .bento .mini-row > span:not(.mini-vz){flex:1; min-width:0} .bento .mini-row > span:not(.mini-vz) span{font-size:11px; color:var(--ink-3)}
+.bento .mini-vz{font-size:10px; font-weight:600; color:var(--ok-text); background:#e9f9ef; border:1px solid #bfe8cd; border-radius:99px; padding:2px 8px; flex:none}
 .bento .mini-tx{font-size:13px; color:var(--ink-2); line-height:1.5; margin-bottom:11px}
 .bento .mini-hd{display:flex; align-items:center; gap:7px; font-size:11px; font-weight:600; color:var(--ink-3); margin-bottom:9px}
 .bento .mini-hd .dot{width:7px; height:7px; border-radius:50%; background:var(--ok); flex:none}
@@ -1005,8 +1008,9 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
           <div class="ftags"><span>Gerar variantes</span><span>Humanizar</span><span>Auditar nota</span><span>Reescrever</span><span>Carrossel</span><span>Imagem</span></div>
         </div>
         <div class="mini">
-          <div class="mini-hd"><span class="dot"></span> Post Inteligente <span class="vz">na sua voz</span></div>
-          <div class="mini-row"><img class="mini-av" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=56&q=80" alt="" loading="lazy"><span><b>Marina Alves</b><span>CISO · Segurança da Informação</span></span></div>
+          <div class="mini-src"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg> Radar: <b>"cultura de segurança"</b> em alta<span class="mini-srcn">12 sinais</span></div>
+          <div class="mini-arrow"><span></span> gerou um post na sua voz</div>
+          <div class="mini-row"><img class="mini-av" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=56&q=80" alt="" loading="lazy"><span><b>Marina Alves</b><span>CISO · Segurança da Informação</span></span><span class="mini-vz">na sua voz</span></div>
           <div class="mini-tx">"Três coisas que eu mudei na rotina de segurança da minha equipe, e por que a primeira é a que ninguém faz…"</div>
           <div class="mini-tools"><span><svg width="9" height="9" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> Variantes</span><span>Humanizar</span><span>Auditar</span><span>Imagem</span></div>
           <div class="mini-foot"><span class="mini-chip ok">Nota 86</span><span class="mini-chip">Risco IA 12</span><span class="mini-send">Enviar →</span></div>
@@ -1085,7 +1089,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
     <div class="step reveal"><div class="n">3</div><div class="tx"><div class="stag">Passo 3</div><h3>Você aprova, publica ou agenda</h3><p>Revisa, ajusta o que quiser e decide: publica na hora ou agenda pro melhor horário. Sempre no seu nome e no seu tom.</p>
       <div class="svis">
         <div class="sv-hd"><span class="sv-dot ok"></span> Aprovações</div>
-        <div class="sv-post"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=56&q=80" alt="" loading="lazy"><span class="sv-pm"><b>Post pronto</b><span>na sua voz</span></span><span class="sv-sched"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/><path d="M2.5 6h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg> Agendado · ter 9h</span></div>
+        <div class="sv-post"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=56&q=80" alt="" loading="lazy"><span class="sv-pm"><b>"Cultura de segurança…"</b><span>pronto · na sua voz</span></span><span class="sv-sched"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/><path d="M2.5 6h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg> Agendado · ter 9h</span></div>
         <div class="sv-acts"><span class="sv-btn">Editar</span><span class="sv-btn">Agendar</span><span class="sv-btn pri">Publicar</span></div>
       </div></div></div>
   </div>
