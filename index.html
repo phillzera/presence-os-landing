@@ -446,8 +446,8 @@ section{position:relative}
 .bento h3{font-size:16px; font-weight:600; color:var(--ink); margin-bottom:6px; letter-spacing:-.01em}
 .bento p{color:var(--ink-2); font-size:13.5px; line-height:1.5}
 /* Studio: hero horizontal */
-.bento .feat{grid-column:span 2; flex-direction:row; align-items:center; gap:26px; background:radial-gradient(135% 140% at 100% 0,var(--i-soft),#fff 58%)}
-.bento .feat .fcopy{flex:1; min-width:0; display:flex; flex-direction:column}
+.bento .feat{grid-column:span 2; flex-direction:row; align-items:stretch; gap:26px; background:radial-gradient(135% 140% at 100% 0,var(--i-soft),#fff 58%)}
+.bento .feat .fcopy{flex:1; min-width:0; display:flex; flex-direction:column; justify-content:center}
 .bento .feat .ic{width:46px; height:46px}
 .bento .feat h3{font-size:22px; margin-bottom:8px}
 .bento .feat .fcopy p{font-size:15px}
@@ -643,7 +643,7 @@ footer .brand .logo{font-size:21px}
 footer .brand .floc{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:12.5px;color:var(--ink-3);font-weight:500} footer .brand .floc svg{color:var(--ok);flex:none}
 footer .col h4{font-family:var(--font-sans);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);margin-bottom:14px;display:flex;align-items:center;gap:7px}
 footer .col h4::before{content:'';width:14px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--i),#76e8b8)}
-footer .col a{display:block;color:var(--ink-2);font-size:13.5px;padding:5px 0;width:fit-content;transition:color .15s,transform .15s var(--ease)} footer .col a:hover{color:var(--i);transform:translateX(3px)}
+footer .col a{display:block;color:var(--ink-2);font-size:13.5px;padding:8px 0;width:fit-content;transition:color .15s,transform .15s var(--ease)} footer .col a:hover{color:var(--i);transform:translateX(3px)}
 footer .fprod{display:inline-flex;align-items:center;gap:7px} footer .fprod .fprod-mk{width:17px;height:17px;border-radius:5px;background:linear-gradient(150deg,#1a85e0,#064c8f);color:#fff;display:grid;place-items:center;font-size:10px;font-weight:800;font-family:var(--font-sans)}
 footer .col .fstatus{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;color:var(--ok-text);background:#e9f9ef;border:1px solid #bfe8cd;border-radius:99px;padding:4px 10px;margin-bottom:11px}
 footer .col .fstatus .d{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 0 3px rgba(22,163,74,.18)}
