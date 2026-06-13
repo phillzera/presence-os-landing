@@ -46,13 +46,8 @@ main,footer{position:relative; z-index:1}
 .ganim .reveal, .ganim .h-anim{opacity:0}
 
 .bg-fx{position:fixed; inset:0; z-index:0; pointer-events:none; overflow:hidden}
-.bg-fx .orb{position:absolute; border-radius:50%; filter:blur(58px); opacity:.7; will-change:transform; animation:drift 26s ease-in-out infinite alternate}
-.bg-fx .o1{width:46vw;height:46vw;left:-10vw;top:-14vh;background:radial-gradient(circle at 42% 42%,#a9d1f8,transparent 62%);animation-duration:23s}
-.bg-fx .o2{width:40vw;height:40vw;right:-10vw;top:-8vh;background:radial-gradient(circle at 52% 48%,#bdd6fb,transparent 60%);animation-duration:29s;animation-delay:-7s}
-.bg-fx .o3{width:38vw;height:38vw;left:40vw;top:20vh;background:radial-gradient(circle at 50% 50%,#cbe4fb,transparent 62%);opacity:.55;animation-duration:35s;animation-delay:-13s}
-@keyframes drift{0%{transform:translate(0,0) scale(1)}50%{transform:translate(3vw,-2.5vh) scale(1.07)}100%{transform:translate(-2.5vw,3vh) scale(.96)}}
-.bg-fx .aurora{position:absolute; left:50%; top:-26vh; width:130vw; height:78vh; transform:translateX(-50%); background:radial-gradient(46% 52% at 50% 50%,rgba(26,133,224,.18),rgba(10,102,194,.06) 44%,transparent 72%); filter:blur(22px); animation:aur 14s ease-in-out infinite alternate}
-@keyframes aur{0%{opacity:.6; transform:translate(-52%,0) scale(1)}100%{opacity:1; transform:translate(-48%,2vh) scale(1.08)}}
+.bg-fx .orb{display:none}
+.bg-fx .aurora{position:absolute; left:50%; top:-32vh; width:115vw; height:64vh; transform:translateX(-50%); background:radial-gradient(50% 56% at 50% 50%,rgba(26,133,224,.09),transparent 70%)}
 .bg-fx .grid{position:absolute;inset:0;background-image:radial-gradient(rgba(20,48,80,.085) 1.1px,transparent 1.1px);background-size:30px 30px;-webkit-mask:radial-gradient(145% 88% at 50% -4%,#000 32%,transparent 80%);mask:radial-gradient(145% 88% at 50% -4%,#000 32%,transparent 80%)}
 .bg-fx .gridlit{position:absolute;inset:0;background-image:radial-gradient(rgba(10,102,194,.65) 1.1px,transparent 1.1px);background-size:30px 30px;-webkit-mask:radial-gradient(220px circle at var(--mx,-400px) var(--my,-400px),#000,transparent 66%);mask:radial-gradient(220px circle at var(--mx,-400px) var(--my,-400px),#000,transparent 66%)}
 .bg-fx .spot{position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,-400px),rgba(26,133,224,.18),transparent 66%)}
@@ -150,16 +145,16 @@ section{position:relative}
 .hero .lede strong{color:var(--ink); font-weight:600}
 .hero .lede .lede-em{display:block; margin-top:14px; font-weight:600; color:var(--ink)}
 .hero .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:42px 0 40px}
-.hero .re{display:inline-flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:0}
-.hero .re span{position:relative; display:inline-flex; align-items:center; gap:9px; padding:8px 16px 8px 8px; font-size:13px; font-weight:500; color:var(--ink-2); background:color-mix(in srgb,#fff 70%,transparent); border:1px solid var(--line); border-radius:var(--r-pill); box-shadow:var(--sh-1); -webkit-backdrop-filter:blur(9px); backdrop-filter:blur(9px); transition:transform .26s var(--ease), box-shadow .26s var(--ease)}
-.hero .re span:hover{transform:translateY(-2px); box-shadow:var(--sh-2)}
-.hero .re .re-ic{width:25px; height:25px; border-radius:50%; background:var(--i-soft); display:grid; place-items:center; flex:none}
-.hero .re .re-ic svg{width:14px; height:14px; color:var(--i); flex:none}
-.hero .re b{color:var(--ink); font-weight:700}
+.hero .re{display:inline-flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:0; margin-top:0; padding:5px; border-radius:var(--r-pill); background:#fff; border:1px solid var(--line); box-shadow:0 10px 30px -16px rgba(20,48,80,.3), var(--sh-1)}
+.hero .re span{position:relative; display:inline-flex; align-items:center; gap:8px; padding:7px 18px; font-size:13.5px; font-weight:500; color:var(--ink-2)}
+.hero .re span + span::before{content:''; position:absolute; left:0; top:50%; transform:translateY(-50%); width:1px; height:16px; background:var(--line-2)}
+.hero .re svg{width:15px; height:15px; color:var(--i); flex:none}
+.hero .re b{color:var(--ink); font-weight:600}
 @media (max-width:620px){
   .hero h1 .nb{white-space:normal}
-  .hero .re{flex-direction:column; align-items:stretch; width:min(360px,92%)}
-  .hero .re span{justify-content:flex-start; padding:10px 12px}
+  .hero .re{flex-direction:column; align-items:stretch; width:min(340px,92%); padding:4px 8px}
+  .hero .re span{justify-content:flex-start; padding:11px 10px}
+  .hero .re span + span::before{left:10px; right:10px; top:0; width:auto; height:1px; transform:none}
 }
 
 /* showcase: macbook + iphone */
@@ -404,11 +399,13 @@ section{position:relative}
 @media (prefers-reduced-motion:reduce){.mq-track{animation:none}}
 
 /* pilares */
-.pillars{display:grid; grid-template-columns:repeat(2,1fr); gap:18px}
-.pillar{background:var(--surface); border:1px solid var(--line); border-radius:var(--r-lg); padding:26px; box-shadow:var(--sh-1); display:flex; gap:16px; align-items:flex-start; transition:box-shadow .16s var(--ease), transform .16s var(--ease), border-color .16s}
-.pillar:hover{box-shadow:var(--sh-2); transform:translateY(-3px); border-color:var(--i-line)}
-.pillar .ic{width:48px;height:48px;border-radius:12px;flex:none;display:grid;place-items:center;color:var(--i);background:var(--i-soft);border:1px solid var(--i-line)}
-.pillar h3{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:6px} .pillar p{color:var(--ink-2);font-size:14.5px;line-height:1.5}
+.pillars{display:grid; grid-template-columns:repeat(2,1fr); gap:0 clamp(30px,5vw,64px)}
+.pillar{display:flex; gap:15px; align-items:flex-start; padding:24px 0; border-top:1px solid var(--line)}
+.pillar:nth-child(1),.pillar:nth-child(2){border-top:none; padding-top:6px}
+.pillar .ic{width:38px;height:38px;border-radius:10px;flex:none;display:grid;place-items:center;color:var(--i);background:var(--i-soft)}
+.pillar .ic svg{width:20px;height:20px}
+.pillar h3{font-size:16.5px;font-weight:600;color:var(--ink);margin-bottom:5px;letter-spacing:-.01em} .pillar p{color:var(--ink-2);font-size:14px;line-height:1.55}
+@media (max-width:680px){.pillars{grid-template-columns:1fr} .pillar:nth-child(2){border-top:1px solid var(--line); padding-top:24px}}
 /* print da plataforma (moldura de navegador) */
 .pscreen{margin:clamp(30px,4vw,48px) 0 clamp(20px,3vw,30px); border-radius:16px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--sh-3); background:#fff}
 .pscreen .pbar{display:flex; align-items:center; gap:12px; height:40px; padding:0 15px; background:linear-gradient(180deg,#f8fbfe,#edf3f9); border-bottom:1px solid var(--line)}
@@ -653,6 +650,20 @@ footer .col .fstatus .d{width:6px;height:6px;border-radius:50%;background:var(--
 footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 auto;padding:18px var(--gutter);display:flex;gap:10px 18px;flex-wrap:wrap;align-items:center;color:var(--ink-3);font-size:13px} footer .bottom .spacer{flex:1} footer .bottom b{color:var(--ink-2);font-weight:600} footer .bottom a{color:var(--ink-2)} footer .bottom a:hover{color:var(--i)}
 @media (max-width:980px){footer .ftop{grid-template-columns:repeat(3,1fr);gap:26px} footer .brand{grid-column:1/-1}}
 @media (max-width:560px){footer .ftop{grid-template-columns:1fr 1fr} footer .fcta{flex-direction:column;align-items:flex-start}}
+/* rodapé premium escuro */
+footer{background:linear-gradient(180deg,#0e2238,#08141f)}
+footer::before{background-image:radial-gradient(rgba(255,255,255,.05) 1.1px,transparent 1.1px)}
+footer::after{background:radial-gradient(circle at 50% 50%,rgba(26,133,224,.16),transparent 70%)}
+footer .ftop{padding-top:14px;padding-bottom:38px}
+footer .brand .logo .nm{color:#fff} footer .brand .logo .nm i{color:#5eb0f0}
+footer .brand p{color:rgba(255,255,255,.58)}
+footer .brand .ftrust span{color:rgba(255,255,255,.82);background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+footer .brand .fmail{color:rgba(255,255,255,.72)} footer .brand .fmail:hover{color:#fff} footer .brand .fmail svg{color:#5eb0f0}
+footer .col h4{color:rgba(255,255,255,.46)}
+footer .col a{color:rgba(255,255,255,.7)} footer .col a:hover{color:#fff}
+footer .col .fstatus{color:#8ef0b8;background:rgba(118,232,184,.1);border-color:rgba(118,232,184,.28)}
+footer .bottom{border-top-color:rgba(255,255,255,.1);color:rgba(255,255,255,.5)} footer .bottom b{color:rgba(255,255,255,.85)} footer .bottom a{color:rgba(255,255,255,.62)} footer .bottom a:hover{color:#fff}
+footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 
 .reveal{will-change:opacity,transform}
 </style>
@@ -727,9 +738,9 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
       <a class="btn secondary" href="#como">Ver como funciona</a>
     </div>
     <div class="re h-anim">
-      <span><i class="re-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/><path d="M9.5 3.5l2.2 2.2"/></svg></i> Escreve <b>no seu tom</b></span>
-      <span><i class="re-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 1.6l5.4 2.2v3.5c0 3.3-2.3 5.5-5.4 6.5-3.1-1-5.4-3.2-5.4-6.5V3.8z"/><path d="M5.7 8l1.6 1.6L10.5 6"/></svg></i> Você aprova <b>cada post</b></span>
-      <span><i class="re-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8.5 1.5L3 9h3.5l-1 5.5L13 7H9z"/></svg></i> Roda na <b>sua própria IA</b></span>
+      <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2.5" y="3" width="11" height="10.5" rx="1.6"/><path d="M2.5 6.3h11M5.5 1.6v2.6M10.5 1.6v2.6"/><path d="M6 9.2l1.3 1.3L10.3 8"/></svg> <b>Toda semana</b>, no seu tom</span>
+      <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 1.6l5.4 2.2v3.5c0 3.3-2.3 5.5-5.4 6.5-3.1-1-5.4-3.2-5.4-6.5V3.8z"/><path d="M5.7 8l1.6 1.6L10.5 6"/></svg> <b>Você aprova</b> cada post</span>
+      <span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="10" height="10" rx="2"/><rect x="6" y="6" width="4" height="4" rx="1"/><path d="M6 1.5v1.5M10 1.5v1.5M6 13v1.5M10 13v1.5M1.5 6H3M1.5 10H3M13 6h1.5M13 10h1.5"/></svg> <b>Sua IA</b>, sua conta</span>
     </div>
   </div>
 
@@ -752,7 +763,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
               <span class="crumb" id="macCrumb">Radar · <b>Oportunidades</b></span><span class="sp"></span>
               <span class="search">Buscar… ⌘K</span>
               <span class="wb-bell"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M8 1.5a4 4 0 0 0-4 4c0 4-1.5 5-1.5 5h11s-1.5-1-1.5-5a4 4 0 0 0-4-4zM6.5 13a1.5 1.5 0 0 0 3 0"/></svg><i></i></span>
-              <span class="wb-prof"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=96&q=80" alt="" loading="lazy"><b>Marina</b></span>
+              <span class="wb-prof"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=96&q=80" alt="" loading="lazy"><b>Marina</b></span>
             </div>
             <div class="app-body">
               <aside class="app-nav">
@@ -842,7 +853,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
                       <div class="st-pv-tab"><svg width="11" height="11" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Como aparece no LinkedIn</div>
                       <div class="li-post">
                         <div class="li-hd">
-                          <img class="li-av" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=160&q=80" alt="" loading="lazy">
+                          <img class="li-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=160&q=80" alt="" loading="lazy">
                           <div class="li-meta">
                             <b>Marina Alves <em>· 1º</em></b>
                             <span class="li-sub">CISO · Segurança da Informação em Fintechs</span>
@@ -1025,7 +1036,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
         <div class="mini">
           <div class="mini-src"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg> Radar: <b>"cultura de segurança"</b> em alta<span class="mini-srcn">12 sinais</span></div>
           <div class="mini-arrow"><span></span> gerou um post na sua voz</div>
-          <div class="mini-row"><img class="mini-av" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><span><b>Marina Alves</b><span>CISO · Segurança da Informação</span></span><span class="mini-vz">na sua voz</span></div>
+          <div class="mini-row"><img class="mini-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><span><b>Marina Alves</b><span>CISO · Segurança da Informação</span></span><span class="mini-vz">na sua voz</span></div>
           <div class="mini-tx">"Três coisas que eu mudei na rotina de segurança da minha equipe, e por que a primeira é a que ninguém faz…"</div>
           <div class="mini-tools"><span><svg width="9" height="9" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> Variantes</span><span>Humanizar</span><span>Auditar</span><span>Imagem</span></div>
           <div class="mini-foot"><span class="mini-chip ok">Nota 86</span><span class="mini-chip">Risco IA 12</span><span class="mini-send">Enviar →</span></div>
@@ -1055,7 +1066,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
         <p>Revise, edite, agende ou publique. Com checagem de segurança antes do envio, nada vai pro LinkedIn sem o seu OK.</p>
         <div class="mapv">
           <div class="card">
-            <img class="av" src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy">
+            <img class="av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy">
             <span class="mt"><b>"Cultura de segurança começa…"</b><span><i class="stp"></i> Pronto · aguardando você</span></span>
             <span class="acts"><i class="yes" title="Aprovar"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2"><path d="M3 8.5l3 3 7-7"/></svg></i><i class="no" title="Editar"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M2 11l7-7 3 3-7 7H2z"/><path d="M9 4l3 3"/></svg></i></span>
           </div>
@@ -1104,7 +1115,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
     <div class="step reveal"><div class="n">3</div><div class="tx"><div class="stag">Passo 3</div><h3>Você aprova, publica ou agenda</h3><p>Revisa, ajusta o que quiser e decide: publica na hora ou agenda pro melhor horário. Sempre no seu nome e no seu tom.</p>
       <div class="svis">
         <div class="sv-hd"><span class="sv-dot ok"></span> Aprovações</div>
-        <div class="sv-post"><img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><span class="sv-pm"><b>"Cultura de segurança…"</b><span>pronto · na sua voz</span></span><span class="sv-sched"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/><path d="M2.5 6h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg> Agendado · ter 9h</span></div>
+        <div class="sv-post"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><span class="sv-pm"><b>"Cultura de segurança…"</b><span>pronto · na sua voz</span></span><span class="sv-sched"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/><path d="M2.5 6h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg> Agendado · ter 9h</span></div>
         <div class="sv-acts"><span class="sv-btn">Editar</span><span class="sv-btn">Agendar</span><span class="sv-btn pri">Publicar</span></div>
       </div></div></div>
   </div>
@@ -1197,7 +1208,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
         </div>
         <div>
           <form id="waitlist" data-endpoint="" data-contact="beta@soberanus.com" novalidate>
-            <div class="form-head"><b>Reserve a sua vaga</b><span>30 segundos. Sem cartão.</span></div>
+            <div class="form-head"><b>Reserve a sua vaga</b><span>Leva 30 segundos. Você é avisado quando a sua abrir.</span></div>
             <div class="field"><label for="nome">Nome</label><input id="nome" name="nome" type="text" autocomplete="name" placeholder="Como te chamamos?" required aria-required="true" aria-describedby="formErr" /></div>
             <div class="field"><label for="email">E-mail profissional</label><input id="email" name="email" type="email" autocomplete="email" placeholder="voce@empresa.com" required aria-required="true" aria-describedby="formErr" /></div>
             <div class="field"><label for="linkedin">Seu LinkedIn <span class="opt">opcional</span></label><input id="linkedin" name="linkedin" type="text" placeholder="linkedin.com/in/voce" /></div>
