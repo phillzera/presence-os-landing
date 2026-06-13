@@ -145,6 +145,7 @@ section{position:relative}
 .hero h1 .hl{color:var(--i)}
 .hero .lede{margin:20px auto 0; font-size:clamp(17px,1.9vw,20px); color:var(--ink-2); line-height:1.55; max-width:52ch; text-wrap:balance}
 .hero .lede strong{color:var(--ink); font-weight:600}
+.hero .lede .lede-em{display:block; margin-top:14px; font-weight:600; color:var(--ink)}
 .hero .cta{display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin:42px 0 40px}
 .hero .re{display:inline-flex; align-items:center; justify-content:center; flex-wrap:wrap; gap:10px; margin-top:0}
 .hero .re span{position:relative; display:inline-flex; align-items:center; gap:9px; padding:8px 16px 8px 8px; font-size:13px; font-weight:500; color:var(--ink-2); background:color-mix(in srgb,#fff 70%,transparent); border:1px solid var(--line); border-radius:var(--r-pill); box-shadow:var(--sh-1); -webkit-backdrop-filter:blur(9px); backdrop-filter:blur(9px); transition:transform .26s var(--ease), box-shadow .26s var(--ease)}
@@ -345,7 +346,7 @@ section{position:relative}
 .lg-foot{margin-top:auto; display:flex; align-items:center; justify-content:center; gap:5px; font-size:7.5px; color:var(--ink-3); font-weight:500; padding-top:11px; text-align:center}
 .lg-foot svg{color:var(--ok); flex:none}
 @media (prefers-reduced-motion:reduce){.lg-fld .car{animation:none}}
-@media (max-width:880px){.iphone{display:none}}
+@media (max-width:880px){.iphone{display:none} .showcase{overflow:hidden; padding-bottom:14px} .showcase::after{display:none}}
 
 /* AI strip (3 logos grandes) */
 .aiblock{padding:var(--sec) 0}
@@ -376,13 +377,15 @@ section{position:relative}
 .rotw .rw{display:inline-block; color:var(--rotc,#0a66c2); transition:opacity .22s var(--ease), transform .22s var(--ease); will-change:opacity,transform}
 .rotw::after{content:''; position:absolute; left:6%; right:6%; bottom:-3px; height:3px; border-radius:3px; background:var(--rotc,#0a66c2); transition:background .35s var(--ease)}
 @media (max-width:520px){.rotw{min-width:8.5ch}}
-.mq-zone{margin-top:clamp(26px,4vw,40px); padding:clamp(18px,3vw,26px) 0; border-radius:var(--r-xl); border:1px solid var(--line); background:radial-gradient(120% 130% at 0 0,var(--i-soft),var(--surface) 58%); box-shadow:var(--sh-1); overflow:hidden}
-.marquee{overflow:hidden; -webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent); mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
-.marquee + .marquee{margin-top:11px}
-.mq-track{display:flex; gap:11px; width:max-content; animation:mqscroll 46s linear infinite}
-.mq-track.rev{animation-direction:reverse; animation-duration:54s}
-.mq-zone .marquee:nth-child(3) .mq-track{animation-duration:50s}
-.mq-zone .marquee:nth-child(4) .mq-track{animation-duration:58s}
+.mq-zone{margin-top:clamp(26px,4vw,40px); padding:4px 0}
+.marquee{overflow:hidden; -webkit-mask:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent); mask:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+.marquee + .marquee{margin-top:12px}
+.mq-track{display:flex; gap:11px; width:max-content; animation:mqscroll 72s linear infinite}
+.mq-track.rev{animation-direction:reverse}
+.mq-zone .marquee:nth-child(1) .mq-track{animation-duration:74s}
+.mq-zone .marquee:nth-child(2) .mq-track{animation-duration:42s}
+.mq-zone .marquee:nth-child(3) .mq-track{animation-duration:80s}
+.mq-zone .marquee:nth-child(4) .mq-track{animation-duration:46s}
 .marquee:hover .mq-track{animation-play-state:paused}
 .mq-chip{display:inline-flex; align-items:center; gap:8px; padding:6px 15px; border-radius:99px; border:1px solid var(--line); background:var(--surface); color:var(--ink-2); font-size:13px; font-weight:600; letter-spacing:-.01em; box-shadow:var(--sh-1); white-space:nowrap}
 .mq-chip .mq-dot{width:6px; height:6px; border-radius:50%; flex:none}
@@ -396,6 +399,33 @@ section{position:relative}
 .pillar:hover{box-shadow:var(--sh-2); transform:translateY(-3px); border-color:var(--i-line)}
 .pillar .ic{width:48px;height:48px;border-radius:12px;flex:none;display:grid;place-items:center;color:var(--i);background:var(--i-soft);border:1px solid var(--i-line)}
 .pillar h3{font-size:18px;font-weight:600;color:var(--ink);margin-bottom:6px} .pillar p{color:var(--ink-2);font-size:14.5px;line-height:1.5}
+/* print da plataforma (moldura de navegador) */
+.pscreen{margin:clamp(30px,4vw,48px) 0 clamp(20px,3vw,30px); border-radius:16px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--sh-3); background:#fff}
+.pscreen .pbar{display:flex; align-items:center; gap:12px; height:40px; padding:0 15px; background:linear-gradient(180deg,#f8fbfe,#edf3f9); border-bottom:1px solid var(--line)}
+.pscreen .pdots{display:flex; gap:7px; flex:none} .pscreen .pdots i{width:11px; height:11px; border-radius:50%; display:block} .pscreen .pdots i:nth-child(1){background:#ff5f57}.pscreen .pdots i:nth-child(2){background:#febc2e}.pscreen .pdots i:nth-child(3){background:#28c840}
+.pscreen .purl{margin:0 auto; width:min(320px,46%); height:26px; border-radius:8px; background:#fff; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; gap:7px; font-size:12px; color:var(--ink-3); font-weight:500} .pscreen .purl svg{color:var(--ok); flex:none}
+.pscreen .pbody{display:grid; grid-template-columns:58px 1fr; min-height:336px}
+.pscreen .prail{background:var(--muted-bg); border-right:1px solid var(--line); padding:14px 0; display:flex; flex-direction:column; align-items:center; gap:7px}
+.pscreen .pr-logo{width:32px; height:32px; border-radius:9px; background:linear-gradient(150deg,#1a85e0,#0a66c2 60%,#064c8f); display:grid; place-items:center; color:#fff; font-weight:800; font-family:'Space Grotesk',sans-serif; font-size:16px; margin-bottom:8px}
+.pscreen .pr-i{width:36px; height:36px; border-radius:10px; display:grid; place-items:center; color:#9aa3b2} .pscreen .pr-i svg{width:18px;height:18px} .pscreen .pr-i.on{background:#fff; color:var(--i); box-shadow:var(--sh-1)}
+.pscreen .pmain{padding:clamp(20px,3vw,30px); min-width:0}
+.pscreen .pm-eye{font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--i); font-weight:700; font-family:'Spline Sans Mono',monospace}
+.pscreen .pm-h{font-size:clamp(19px,2.3vw,25px); font-weight:600; color:var(--ink); margin:5px 0 3px; letter-spacing:-.02em}
+.pscreen .pm-sub{font-size:13.5px; color:var(--ink-3); line-height:1.5}
+.pscreen .pgrid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:22px}
+.pscreen .pcard{border:1px solid var(--line); border-radius:13px; padding:17px; background:#fff; box-shadow:var(--sh-1)}
+.pscreen .pcard h4{font-size:12px; letter-spacing:.04em; text-transform:uppercase; font-weight:700; color:var(--ink-3); margin-bottom:13px; display:flex; align-items:center; gap:7px}
+.pscreen .pcard h4 .stp{margin-left:auto}
+.pscreen .pfield{margin-bottom:12px} .pscreen .pfield:last-child{margin-bottom:0}
+.pscreen .pfield .lbl{font-size:11px; color:var(--ink-3); font-weight:600; margin-bottom:4px}
+.pscreen .pfield .val{font-size:13.5px; color:var(--ink); font-weight:500}
+.pscreen .ptags{display:flex; flex-wrap:wrap; gap:6px}
+.pscreen .ptags span{font-size:12px; font-weight:600; color:var(--i); background:var(--i-soft); border:1px solid var(--i-line); border-radius:99px; padding:4px 11px}
+.pscreen .pmatch{display:flex; align-items:center; gap:11px; margin-bottom:13px}
+.pscreen .pmnum{font-size:24px; font-weight:700; color:var(--ink); font-family:'Space Grotesk',sans-serif; line-height:1} .pscreen .pmnum em{font-size:13px; font-weight:600; color:var(--ink-3); font-style:normal}
+.pscreen .pbar2{flex:1; height:7px; border-radius:4px; background:var(--surface-2); overflow:hidden} .pscreen .pbar2 span{display:block; height:100%; width:94%; border-radius:4px; background:linear-gradient(90deg,#1a85e0,#0a66c2)}
+.pscreen .pquote{margin-top:13px; font-size:13px; color:var(--ink-2); line-height:1.55; background:var(--i-soft); border:1px solid var(--i-line); border-radius:10px; padding:11px 13px}
+@media (max-width:680px){.pscreen .pbody{grid-template-columns:1fr} .pscreen .prail{flex-direction:row; border-right:none; border-bottom:1px solid var(--line); padding:10px 12px; justify-content:flex-start; gap:6px} .pscreen .pr-logo{margin-bottom:0} .pscreen .pgrid{grid-template-columns:1fr}}
 .result{margin-top:18px;border-radius:var(--r-lg);border:1px solid var(--i-line);background:linear-gradient(120deg,#0a66c2,#1a85e0);color:#fff;padding:clamp(24px,4vw,38px);display:flex;gap:22px;align-items:center;flex-wrap:wrap;box-shadow:0 18px 40px -18px rgba(10,102,194,.6)}
 .result .ic{width:52px;height:52px;border-radius:14px;flex:none;display:grid;place-items:center;background:rgba(255,255,255,.18);color:#fff}
 .result h3{color:#fff;font-size:clamp(19px,2.6vw,25px);font-weight:600;margin-bottom:5px} .result p{color:rgba(255,255,255,.92);font-size:15px;line-height:1.5;max-width:62ch}
@@ -483,12 +513,14 @@ section{position:relative}
 /* steps (stepper conectado) */
 .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:26px; position:relative}
 .steps::before{content:''; position:absolute; top:30px; left:calc(16.66% + 12px); right:calc(16.66% + 12px); height:2px; background:repeating-linear-gradient(90deg,var(--i-line) 0 7px,transparent 7px 13px); z-index:0}
-.step{position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; text-align:center}
+.step{position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; text-align:center; height:100%}
+.step .tx{display:flex; flex-direction:column; align-items:center; flex:1; width:100%}
 .step .n{position:relative; font-family:'Space Grotesk',sans-serif; font-weight:600; font-size:23px; color:#fff; width:60px; height:60px; border-radius:18px; display:grid; place-items:center; background:linear-gradient(140deg,#1a85e0,#0a66c2 60%,#064c8f); box-shadow:0 6px 16px -8px rgba(10,102,194,.5); border:4px solid var(--bg)}
 .step .stag{margin-top:16px; font-family:'Spline Sans Mono',monospace; font-size:11px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--i)}
 .step h3{font-size:18px;font-weight:600;color:var(--ink);margin-top:6px; max-width:18ch} .step p{color:var(--ink-2);font-size:14px;line-height:1.55;margin-top:8px;max-width:30ch}
 /* mini-telas da plataforma em cada passo */
-.step .svis{width:100%; max-width:300px; margin:20px auto 0; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:12px; box-shadow:var(--sh-1); text-align:left; display:flex; flex-direction:column; gap:9px}
+.step .svis{width:100%; max-width:300px; margin:22px auto 0; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:12px; box-shadow:var(--sh-1); text-align:left; display:flex; flex-direction:column; gap:9px}
+.step .tx .svis{margin-top:auto}
 .step .sv-hd{display:flex; align-items:center; gap:7px; font-size:11px; font-weight:600; color:var(--ink-3)}
 .step .sv-dot{width:7px; height:7px; border-radius:50%; background:var(--ink-3); flex:none}
 .step .sv-dot.ok{background:var(--ok)} .step .sv-dot.scan{background:var(--i); animation:scanpulse 1.1s ease-in-out infinite}
@@ -515,7 +547,7 @@ section{position:relative}
 .radar-panel .rp-stage > span{font-size:14px; color:var(--ink-2); line-height:1.55}
 .radar-panel .rp-srcs{grid-column:1/-1; border-top:1px solid var(--i-line); padding:14px 0; font-size:12.5px; color:var(--ink-3); text-align:center; font-weight:500}
 .radar-panel .rp-stage{transition:opacity .45s var(--ease)}
-.ganim .radar-panel .rp-stage:not(.on){opacity:.45}
+.ganim .radar-panel .rp-stage:not(.on){opacity:.82}
 .radar-panel .rp-ic{transition:box-shadow .45s var(--ease), transform .45s var(--ease)}
 .radar-panel .rp-stage.on .rp-ic{box-shadow:0 9px 22px -8px rgba(10,102,194,.6), 0 0 0 5px var(--i-soft); transform:scale(1.07)}
 .radar-panel .rp-extra{margin-top:13px; min-height:26px}
@@ -616,9 +648,9 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
   <div class="annbar" id="annbar">
     <div class="row">
       <span class="blip" aria-hidden="true"></span>
-      <span>O beta privado abre em <b>20 de junho</b>. O primeiro lote tem poucas vagas.</span>
+      <span>Participe do <b>beta privado</b>, começa em <b>20 de junho</b>. Vagas limitadas.</span>
       <span class="cd" id="ann-cd">00d 00h 00m</span>
-      <a class="ann-cta" href="#beta">Garanta sua vaga →</a>
+      <a class="ann-cta" href="#beta">Quero entrar →</a>
       <button class="ann-x" id="annX" aria-label="Fechar aviso">×</button>
     </div>
   </div>
@@ -670,7 +702,7 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
 <header class="hero wrap" id="top">
   <div class="inner">
     <h1 class="h-anim">Apareça como autoridade no LinkedIn. <span class="hl nb">Toda semana, no seu tom.</span></h1>
-    <p class="lede h-anim">O PresenceIn aprende como você pensa e escreve, lê o seu mercado no mundo todo sem barreira de idioma e te entrega posts, comentários e respostas prontos. <strong>Você revisa, ajusta e aprova.</strong><br>Sempre na sua voz, nunca com cara de robô.</p>
+    <p class="lede h-anim">O PresenceIn aprende como você pensa e escreve, lê o seu mercado no mundo todo sem barreira de idioma e te entrega posts, comentários e respostas prontos. <strong>Você revisa, ajusta e aprova.</strong><span class="lede-em">Sempre na sua voz, nunca com cara de robô.</span></p>
     <div class="cta h-anim">
       <a class="btn primary" href="#beta">Quero minha vaga no beta
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
@@ -912,6 +944,41 @@ footer .bottom{border-top:1px solid var(--line);max-width:var(--maxw);margin:0 a
   <div class="sec-head reveal">
     <h2>O <span class="brandblue">PresenceIn</span> faz o trabalho. A autoridade é toda sua.</h2>
     <p>Ele aprende sobre você, vigia o seu mercado e deixa tudo pronto. A palavra final é sempre sua.</p>
+  </div>
+  <div class="pscreen reveal" aria-hidden="true">
+    <div class="pbar">
+      <span class="pdots"><i></i><i></i><i></i></span>
+      <span class="purl"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="10" height="7" rx="1.6"/><path d="M5.2 7V5a2.8 2.8 0 0 1 5.6 0v2"/></svg> app.presencein.com/estrategia</span>
+    </div>
+    <div class="pbody">
+      <aside class="prail">
+        <span class="pr-logo">P</span>
+        <span class="pr-i"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg></span>
+        <span class="pr-i"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1.5L3.5 9H7l-1 5.5L12.5 7H9z"/></svg></span>
+        <span class="pr-i"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/></svg></span>
+        <span class="pr-i on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M5 8.5c1.5 1.5 4.5 1.5 6 0M5.5 6.2h.01M10.5 6.2h.01"/></svg></span>
+        <span class="pr-i"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.5-3 2 1.5L13 5"/></svg></span>
+      </aside>
+      <div class="pmain">
+        <div class="pm-eye">Estratégia &amp; Voz</div>
+        <div class="pm-h">O que o PresenceIn aprendeu sobre você</div>
+        <div class="pm-sub">Você ensina uma vez. A partir daí, todo texto sai com a sua cara.</div>
+        <div class="pgrid">
+          <div class="pcard">
+            <h4>Sobre você</h4>
+            <div class="pfield"><div class="lbl">Objetivo</div><div class="val">Virar referência em segurança da informação</div></div>
+            <div class="pfield"><div class="lbl">Público</div><div class="val">Líderes de tech e fintech</div></div>
+            <div class="pfield"><div class="lbl">Pilares</div><div class="ptags"><span>Segurança</span><span>Liderança</span><span>Cultura</span></div></div>
+          </div>
+          <div class="pcard">
+            <h4>Voz detectada <span class="stp"></span></h4>
+            <div class="pmatch"><span class="pmnum">94<em>% match</em></span><span class="pbar2"><span></span></span></div>
+            <div class="ptags"><span>Direto</span><span>Técnico</span><span>1ª pessoa</span><span>Sem jargão</span></div>
+            <div class="pquote">"Na prática, cultura de segurança começa no onboarding, não no incidente." <b>Do jeito que você escreveria.</b></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="pillars">
     <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l1.8 4 4.2.4-3.2 2.8 1 4.3L8 10.8 4.2 13l1-4.3L2 5.9l4.2-.4z"/></svg></div><div><h3>Aprende sobre você</h3><p>Seu tom, suas ideias, o seu jeito de pensar. O texto sai com a sua cara, nunca com a de um robô genérico.</p></div></div>
