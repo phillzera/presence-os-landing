@@ -397,7 +397,7 @@ section{position:relative}
 .mq-zone .marquee:nth-child(3) .mq-track{animation-duration:104s}
 .mq-zone .marquee:nth-child(4) .mq-track{animation-duration:62s}
 .marquee:hover .mq-track{animation-play-state:paused}
-.mq-chip{display:inline-flex; align-items:center; gap:8px; padding:6px 15px; border-radius:99px; border:1px solid var(--line); background:var(--surface); color:var(--ink-2); font-size:13px; font-weight:600; letter-spacing:-.01em; box-shadow:var(--sh-1); white-space:nowrap}
+.mq-chip{display:inline-flex; align-items:center; gap:8px; padding:7px 15px; border-radius:8px; border:1px solid var(--line); background:var(--surface); color:var(--ink-2); font-size:13px; font-weight:600; letter-spacing:-.01em; box-shadow:var(--sh-1); white-space:nowrap}
 .mq-chip .mq-dot{width:6px; height:6px; border-radius:50%; flex:none}
 .brandblue{color:var(--i)}
 @keyframes mqscroll{to{transform:translateX(-50%)}}
@@ -656,14 +656,14 @@ footer .fcta{width:min(var(--maxw),calc(100% - 2*var(--gutter)));margin:clamp(40
 footer .fcta::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.1);top:-130px;right:-50px;pointer-events:none}
 footer .fcta h3{font-size:clamp(21px,2.8vw,30px);font-weight:600;color:#fff;letter-spacing:-.02em;max-width:20ch;line-height:1.15;position:relative}
 footer .fcta .btn.primary{background:#fff;color:var(--i-hover);box-shadow:0 12px 26px -10px rgba(0,0,0,.35);position:relative;overflow:hidden}
-footer .fcta .fcta-morph{position:relative;width:22px;height:22px;flex:none;display:inline-block;perspective:80px}
-footer .fcta-morph .fm-li,footer .fcta-morph .fm-p{position:absolute;inset:0;display:grid;place-items:center;border-radius:6px;backface-visibility:hidden}
-footer .fcta-morph .fm-li{color:#0a66c2;animation:fmLi 5s var(--ease) infinite}
-footer .fcta-morph .fm-p{position:relative;background:linear-gradient(150deg,#1a85e0,#0a66c2 55%,#064c8f);color:#fff;box-shadow:0 2px 6px -1px rgba(10,102,194,.55);animation:fmP 5s var(--ease) infinite}
-footer .fcta-morph .fm-p b{font-family:var(--font-display);font-weight:800;font-size:12px;line-height:1;transform:translateX(-.5px)}
-footer .fcta-morph .fm-p .fm-sig{position:absolute;top:3px;right:2.5px}
-@keyframes fmLi{0%,34%{opacity:1;transform:rotateY(0)}46%,92%{opacity:0;transform:rotateY(90deg)}100%{opacity:1;transform:rotateY(0)}}
-@keyframes fmP{0%,34%{opacity:0;transform:rotateY(-90deg)}46%,92%{opacity:1;transform:rotateY(0)}100%{opacity:0;transform:rotateY(-90deg)}}
+footer .fcta .fcta-flow{display:inline-flex;align-items:center;flex:none}
+footer .fcta-flow .ff-p{width:20px;height:20px;border-radius:6px;background:linear-gradient(150deg,#1a85e0,#064c8f);color:#fff;display:grid;place-items:center;box-shadow:0 2px 5px -1px rgba(10,102,194,.5);flex:none}
+footer .fcta-flow .ff-p b{font-family:var(--font-display);font-weight:800;font-size:11px;line-height:1}
+footer .fcta-flow .ff-line{position:relative;width:18px;height:2px;background:rgba(10,102,194,.22);border-radius:2px;margin:0 4px;flex:none}
+footer .fcta-flow .ff-dot{position:absolute;top:50%;left:0;width:5px;height:5px;border-radius:50%;background:#0a66c2;box-shadow:0 0 6px 1px rgba(10,102,194,.5);transform:translate(-50%,-50%);animation:ffdot 1.9s var(--ease) infinite}
+footer .fcta-flow .ff-in{color:#0a66c2;display:grid;place-items:center;flex:none}
+@keyframes ffdot{0%{left:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:100%;opacity:0}}
+@media (prefers-reduced-motion:reduce){footer .fcta-flow .ff-dot{animation:none;left:50%;opacity:1}}
 @media (prefers-reduced-motion:reduce){footer .fcta-morph .fm-li{display:none}footer .fcta-morph .fm-p{opacity:1;transform:none;animation:none}}
 footer .fcta-btn::after{content:'';position:absolute;top:0;left:-65%;width:45%;height:100%;background:linear-gradient(90deg,transparent,rgba(10,102,194,.16),transparent);transform:skewX(-18deg);transition:left .55s var(--ease);pointer-events:none}
 footer .fcta-btn:hover::after{left:135%}
@@ -675,8 +675,8 @@ footer .ftop{max-width:var(--maxw);margin:0 auto;padding:8px var(--gutter) 30px;
 footer .brand .logo{margin-bottom:14px}
 footer .brand p{color:var(--ink-3);font-size:13.5px;line-height:1.55;max-width:30ch}
 footer .ftrust{max-width:var(--maxw);margin:0 auto;padding:20px var(--gutter);display:flex;flex-wrap:wrap;gap:9px;justify-content:center;border-top:1px solid rgba(255,255,255,.08)}
-footer .ftrust span{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:500;white-space:nowrap;color:rgba(255,255,255,.8);background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:99px;padding:5px 11px}
-footer .ftrust span::before{content:'';width:5px;height:5px;border-radius:50%;background:#5eb0f0;flex:none}
+footer .ftrust span{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:500;white-space:nowrap;color:rgba(255,255,255,.82);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:7px;padding:6px 12px}
+footer .ftrust span::before{content:'';width:8px;height:5px;border-left:1.8px solid #5eb0f0;border-bottom:1.8px solid #5eb0f0;transform:rotate(-45deg);margin-top:-2px;flex:none}
 footer .brand .fmail{display:inline-flex;align-items:center;gap:7px;margin-top:16px;font-size:13px;color:var(--ink-2);font-weight:500} footer .brand .fmail:hover{color:var(--i)} footer .brand .fmail svg{color:var(--i)}
 footer .brand .logo{font-size:21px}
 footer .brand .floc{display:inline-flex;align-items:center;gap:7px;margin-top:14px;font-size:12.5px;color:var(--ink-3);font-weight:500} footer .brand .floc svg{color:var(--ok);flex:none}
@@ -1220,15 +1220,11 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 <section class="sec wrap" id="faq">
   <div class="sec-head reveal"><h2>Perguntas frequentes</h2></div>
   <div class="faq reveal">
-    <details><summary>Como ele escreve sem ficar com cara de IA genérica?<span class="x"></span></summary><div class="a">Ele cruza o que está em alta no seu mercado com as <b>suas</b> ideias, números e histórias, e escreve no seu tom. Antes de te entregar, ainda audita o risco de soar genérico. Sai com a sua cara, não com cara de robô.</div></details>
-    <details><summary>Ele publica sozinho no meu nome?<span class="x"></span></summary><div class="a">Nunca. Ele deixa tudo pronto, você revisa, ajusta e aprova. Nada vai pro LinkedIn sem o seu OK.</div></details>
-    <details><summary>Preciso saber escrever bem?<span class="x"></span></summary><div class="a">Não, é justamente o que ele resolve. O texto chega pronto no seu tom; você só dá o toque final e aprova.</div></details>
-    <details><summary>Como ele aprende a minha voz?<span class="x"></span></summary><div class="a">Você mostra como fala e cola alguns posts antigos. Ele aprende o seu tom, as frases que você repete e o seu jeito de pensar.</div></details>
-    <details><summary>Funciona no meu idioma e no meu nicho?<span class="x"></span></summary><div class="a">Sim. Ele lê o mundo todo em qualquer idioma e cruza tudo com o seu nicho, posicionamento e objetivo.</div></details>
+    <details><summary>Como ele escreve sem ficar com cara de IA?<span class="x"></span></summary><div class="a">Ele cruza o que está em alta no seu mercado com as suas ideias, números e histórias, e escreve no seu tom. Ainda audita o risco de soar genérico antes de te entregar.</div></details>
+    <details><summary>Ele publica sozinho no meu nome?<span class="x"></span></summary><div class="a">Nunca. Deixa tudo pronto; você revisa, ajusta e aprova. Nada vai pro LinkedIn sem o seu OK.</div></details>
+    <details><summary>Como ele aprende a minha voz?<span class="x"></span></summary><div class="a">Você mostra como fala e cola alguns posts antigos. Ele aprende o seu tom, as frases que você repete e o seu jeito de pensar, em qualquer idioma.</div></details>
     <details><summary>Qual IA eu preciso ter?<span class="x"></span></summary><div class="a">A sua. Conecte a assinatura que já paga do ChatGPT, do Claude ou do Gemini. Sem mais uma mensalidade de IA por cima.</div></details>
-    <details><summary>Ele também comenta e responde por mim?<span class="x"></span></summary><div class="a">Sim. Ele sugere onde comentar e deixa comentário e resposta prontos no seu tom. Você aprova e posta, nada é enviado sozinho.</div></details>
-    <details><summary>Dá pra agendar e publicar sem estar no computador?<span class="x"></span></summary><div class="a">Dá. Planeje a semana ou o mês, agende no melhor horário e ele publica por você, sempre com o seu aval.</div></details>
-    <details><summary>Os meus dados ficam seguros?<span class="x"></span></summary><div class="a">Sim. Roda com a sua própria conta de IA, tokens criptografados, nada do que você escreve é compartilhado e nada é publicado sem você aprovar.</div></details>
+    <details><summary>Meus dados ficam seguros?<span class="x"></span></summary><div class="a">Sim. Roda com a sua própria conta de IA, tokens criptografados, e nada é publicado sem você aprovar.</div></details>
     <details><summary>Quando abre e como é o acesso?<span class="x"></span></summary><div class="a">Beta privado a partir de 20 de junho de 2026, em lotes pequenos. Quem entra cedo pega condição de fundador.</div></details>
   </div>
 </section>
@@ -1290,7 +1286,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   <div class="fbar" aria-hidden="true"></div>
   <div class="fcta reveal">
     <h3>Seja a referência que o seu mercado lembra primeiro.</h3>
-    <a class="btn primary fcta-btn" href="#beta"><span class="fcta-morph" aria-hidden="true"><span class="fm-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span><span class="fm-p"><b>P</b><svg class="fm-sig" width="7" height="7" viewBox="0 0 12 12" fill="none" stroke="#76e8b8" stroke-width="1.6" stroke-linecap="round"><circle cx="3" cy="9" r="1.2" fill="#76e8b8" stroke="none"/><path d="M3 6.1A2.9 2.9 0 0 1 5.9 9"/><path d="M3 3.3A5.7 5.7 0 0 1 8.7 9"/></svg></span></span> Quero participar do BETA
+    <a class="btn primary fcta-btn" href="#beta"><span class="fcta-flow" aria-hidden="true"><span class="ff-p"><b>P</b></span><span class="ff-line"><i class="ff-dot"></i></span><span class="ff-in"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span></span> Quero participar do BETA
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
   </div>
   <div class="ftop">
