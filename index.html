@@ -287,7 +287,10 @@ section{position:relative}
 .est-col{display:flex; flex-direction:column; min-height:0} .est-col .st-ed{flex:1}
 .est-side{display:flex; flex-direction:column; gap:8px; min-height:0}
 .es-blk{background:#fff; border:1px solid var(--line); border-radius:9px; padding:9px 10px; box-shadow:var(--sh-1)}
-.es-blk.es-grow{flex:1; min-height:0; overflow:hidden}
+.es-blk.es-grow{flex:1; min-height:0; overflow:hidden; display:flex; flex-direction:column}
+.es-imggen{position:relative; flex:1; min-height:54px; border-radius:8px; overflow:hidden; border:1px solid var(--line)}
+.es-imggen img{width:100%; height:100%; object-fit:cover; display:block}
+.es-imggen .es-imgtag{position:absolute; left:5px; bottom:5px; font-size:7.5px; font-weight:600; color:#fff; background:rgba(8,28,54,.55); border-radius:99px; padding:2px 7px; backdrop-filter:blur(3px)}
 .es-t{display:flex; align-items:center; gap:6px; font-size:7px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); font-weight:700; margin-bottom:7px}
 .es-t em{margin-left:auto; font-style:normal; letter-spacing:0; text-transform:none; font-size:8px; color:var(--ok-text); background:#e9f9ef; border:1px solid #bfe8cd; border-radius:99px; padding:1px 6px}
 .es-chips{display:flex; flex-wrap:wrap; gap:4px}
@@ -842,7 +845,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                       <span class="src on">Notícias tech</span><span class="src on">Reddit</span><span class="src on">Google News</span><span class="src">GitHub</span><span class="src">+2 fontes</span>
                     </div>
                     <div class="rdr-niche">
-                      <span class="nch on">Segurança em Fintech</span><span class="nch">Liderança</span><span class="nch">Carreira em Dados</span><span class="nch-add">+3 nichos</span>
+                      <span class="nch on">Gente &amp; Cultura</span><span class="nch">Liderança</span><span class="nch">Gestão de pessoas</span><span class="nch-add">+3 nichos</span>
                     </div>
                     <div class="rdr-list">
                       <div class="opp"><div class="opp-main"><b>Por que bom talento vai embora</b><span>Pauta quente entre líderes de RH</span></div><span class="opp-fit">fit 9</span></div>
@@ -872,10 +875,8 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                           <div class="es-chips"><span>Direto</span><span>Técnico</span><span>1ª pessoa</span><span>Sem jargão</span></div>
                         </div>
                         <div class="es-blk es-grow">
-                          <div class="es-t">Variantes</div>
-                          <div class="es-var on"><span>A</span> pelo onboarding</div>
-                          <div class="es-var"><span>B</span> pós-incidente</div>
-                          <div class="es-var"><span>C</span> em checklist</div>
+                          <div class="es-t">Imagem <em>gerada ✦</em></div>
+                          <div class="es-imggen"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=280&q=80" alt="" loading="lazy"><span class="es-imgtag">no estilo da sua marca</span></div>
                         </div>
                         <div class="es-acts">
                           <button class="es-btn"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 11l7-7 3 3-7 7H2z"/><path d="M9 4l3 3"/></svg> Editar</button>
