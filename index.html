@@ -415,7 +415,8 @@ section{position:relative}
 .pscreen{margin:clamp(30px,4vw,48px) 0 clamp(20px,3vw,30px); border-radius:16px; overflow:hidden; border:1px solid var(--line); box-shadow:var(--sh-3); background:#fff}
 .pscreen .pbar{display:flex; align-items:center; gap:12px; height:40px; padding:0 15px; background:linear-gradient(180deg,#f8fbfe,#edf3f9); border-bottom:1px solid var(--line)}
 .pscreen .pdots{display:flex; gap:7px; flex:none} .pscreen .pdots i{width:11px; height:11px; border-radius:50%; display:block} .pscreen .pdots i:nth-child(1){background:#ff5f57}.pscreen .pdots i:nth-child(2){background:#febc2e}.pscreen .pdots i:nth-child(3){background:#28c840}
-.pscreen .purl{margin:0 auto; width:min(320px,46%); height:26px; border-radius:8px; background:#fff; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; gap:7px; font-size:12px; color:var(--ink-3); font-weight:500} .pscreen .purl svg{color:var(--ok); flex:none}
+.pscreen .ptitle{display:flex; align-items:center; gap:7px; font-size:12.5px; font-weight:600; color:var(--ink)} .pscreen .pt-mk{width:18px; height:18px; border-radius:5px; background:linear-gradient(150deg,#1a85e0,#064c8f); color:#fff; display:grid; place-items:center; font-family:var(--font-display); font-weight:800; font-size:10px} .pscreen .pt-sep{color:var(--ink-3)} .pscreen .pt-crumb{color:var(--ink-3); font-weight:500}
+.pscreen .pt-prof{margin-left:auto; width:22px; height:22px; border-radius:50%; overflow:hidden; flex:none} .pscreen .pt-prof img{width:100%; height:100%; object-fit:cover}
 .pscreen .pbody{display:grid; grid-template-columns:58px 1fr; min-height:336px}
 .pscreen .prail{background:var(--muted-bg); border-right:1px solid var(--line); padding:14px 0; display:flex; flex-direction:column; align-items:center; gap:7px}
 .pscreen .pr-logo{width:32px; height:32px; border-radius:9px; background:linear-gradient(150deg,#1a85e0,#0a66c2 60%,#064c8f); display:grid; place-items:center; color:#fff; font-weight:800; font-family:var(--font-sans); font-size:16px; margin-bottom:8px}
@@ -644,7 +645,13 @@ footer .fcta{width:min(var(--maxw),calc(100% - 2*var(--gutter)));margin:clamp(40
 footer .fcta::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.1);top:-130px;right:-50px;pointer-events:none}
 footer .fcta h3{font-size:clamp(21px,2.8vw,30px);font-weight:600;color:#fff;letter-spacing:-.02em;max-width:20ch;line-height:1.15;position:relative}
 footer .fcta .btn.primary{background:#fff;color:var(--i-hover);box-shadow:0 12px 26px -10px rgba(0,0,0,.35);position:relative;overflow:hidden}
-footer .fcta .fcta-pmk{width:20px;height:20px;border-radius:6px;background:linear-gradient(150deg,#1a85e0,#0a66c2 55%,#064c8f);color:#fff;display:grid;place-items:center;font-family:var(--font-display);font-weight:800;font-size:12px;flex:none;box-shadow:0 2px 5px -1px rgba(10,102,194,.5)}
+footer .fcta .fcta-morph{position:relative;width:20px;height:20px;flex:none;display:inline-block}
+footer .fcta-morph .fm-li,footer .fcta-morph .fm-p{position:absolute;inset:0;display:grid;place-items:center;border-radius:6px}
+footer .fcta-morph .fm-li{color:#0a66c2;animation:fmLi 4.2s var(--ease) infinite}
+footer .fcta-morph .fm-p{background:linear-gradient(150deg,#1a85e0,#064c8f);color:#fff;font-family:var(--font-display);font-weight:800;font-size:12px;box-shadow:0 2px 5px -1px rgba(10,102,194,.5);animation:fmP 4.2s var(--ease) infinite}
+@keyframes fmLi{0%,16%{opacity:1;transform:scale(1)}26%,100%{opacity:0;transform:scale(.55)}}
+@keyframes fmP{0%,16%{opacity:0;transform:scale(.55)}26%,100%{opacity:1;transform:scale(1)}}
+@media (prefers-reduced-motion:reduce){footer .fcta-morph .fm-li{opacity:0}footer .fcta-morph .fm-p{opacity:1;animation:none}footer .fcta-morph .fm-li{animation:none}}
 footer .fcta-btn::after{content:'';position:absolute;top:0;left:-65%;width:45%;height:100%;background:linear-gradient(90deg,transparent,rgba(10,102,194,.16),transparent);transform:skewX(-18deg);transition:left .55s var(--ease);pointer-events:none}
 footer .fcta-btn:hover::after{left:135%}
 footer .fprod{text-decoration:none} footer .fprod b{color:rgba(255,255,255,.85)} footer .fprod:hover b{color:#fff}
@@ -997,7 +1004,8 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   <div class="pscreen reveal" aria-hidden="true">
     <div class="pbar">
       <span class="pdots"><i></i><i></i><i></i></span>
-      <span class="purl"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="7" width="10" height="7" rx="1.6"/><path d="M5.2 7V5a2.8 2.8 0 0 1 5.6 0v2"/></svg> app.presencein.com/estrategia</span>
+      <span class="ptitle"><span class="pt-mk">P</span> PresenceIn <span class="pt-sep">·</span> <span class="pt-crumb">Estratégia &amp; Voz</span></span>
+      <span class="pt-prof"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=56&q=80" alt="" loading="lazy"></span>
     </div>
     <div class="pbody">
       <aside class="prail">
@@ -1264,7 +1272,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   <div class="fbar" aria-hidden="true"></div>
   <div class="fcta reveal">
     <h3>Seja a referência que o seu mercado lembra primeiro.</h3>
-    <a class="btn primary fcta-btn" href="#beta"><span class="fcta-pmk" aria-hidden="true">P</span> Quero minha vaga no beta
+    <a class="btn primary fcta-btn" href="#beta"><span class="fcta-morph" aria-hidden="true"><span class="fm-li"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span><span class="fm-p">P</span></span> Quero minha vaga no beta
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
   </div>
   <div class="ftop">
