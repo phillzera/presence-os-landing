@@ -1362,7 +1362,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   var rmRot=window.matchMedia&&matchMedia('(prefers-reduced-motion:reduce)').matches;
   if(rotEl&&rotBox&&!rmRot){
     var rotW=['Founders','CEOs','Vendedores','Recrutadores','Consultores','Especialistas','Diretores','Investidores','Creators B2B'];
-    var rotC=['#2563eb','#7c3aed','#0ea5e9','#e11d48','#f59e0b','#10b981'];
+    var rotC=['#0a66c2','#0e9e72','#0958a8'];
     var rwi=0;
     rotBox.style.setProperty('--rotc',rotC[0]);
     setInterval(function(){ rwi=(rwi+1)%rotW.length; rotEl.style.opacity='0'; rotEl.style.transform='translateY(7px)'; setTimeout(function(){ rotEl.textContent=rotW[rwi]; rotBox.style.setProperty('--rotc',rotC[rwi%rotC.length]); rotEl.style.opacity='1'; rotEl.style.transform='translateY(0)'; },200); },1600);
