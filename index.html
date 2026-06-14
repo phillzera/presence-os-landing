@@ -532,7 +532,8 @@ section{position:relative}
 .step .tx{display:flex; flex-direction:column; align-items:center; flex:1; width:100%}
 .step .n{position:relative; font-family:var(--font-sans); font-weight:600; font-size:23px; color:#fff; width:60px; height:60px; border-radius:18px; display:grid; place-items:center; background:linear-gradient(140deg,#1a85e0,#0a66c2 60%,#064c8f); box-shadow:0 6px 16px -8px rgba(10,102,194,.5); border:4px solid var(--bg)}
 .step .stag{margin-top:16px; font-family:var(--font-mono); font-size:11px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--i)}
-.step h3{font-size:19px;font-weight:700;color:var(--ink);margin-top:6px; max-width:16ch} .step p{color:var(--ink-2);font-size:14.5px;line-height:1.55;margin-top:9px;max-width:28ch}
+.step h3{font-size:19px;font-weight:700;color:var(--ink);margin-top:6px; max-width:16ch; min-height:2.3em; display:flex; align-items:center; justify-content:center} .step p{color:var(--ink-2);font-size:14.5px;line-height:1.55;margin-top:9px;max-width:28ch; min-height:4.6em}
+@media (max-width:760px){.step h3{min-height:0;display:block} .step p{min-height:0}}
 /* mini-telas da plataforma em cada passo */
 .step .svis{width:100%; max-width:272px; margin:22px auto 0; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:12px; box-shadow:var(--sh-1); text-align:left; display:flex; flex-direction:column; gap:9px}
 .step .tx .svis{margin-top:auto}
@@ -643,7 +644,7 @@ footer .fcta{width:min(var(--maxw),calc(100% - 2*var(--gutter)));margin:clamp(40
 footer .fcta::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.1);top:-130px;right:-50px;pointer-events:none}
 footer .fcta h3{font-size:clamp(21px,2.8vw,30px);font-weight:600;color:#fff;letter-spacing:-.02em;max-width:20ch;line-height:1.15;position:relative}
 footer .fcta .btn.primary{background:#fff;color:var(--i-hover);box-shadow:0 12px 26px -10px rgba(0,0,0,.35);position:relative;overflow:hidden}
-footer .fcta .btn.primary .li{color:#0a66c2}
+footer .fcta .fcta-pmk{width:20px;height:20px;border-radius:6px;background:linear-gradient(150deg,#1a85e0,#0a66c2 55%,#064c8f);color:#fff;display:grid;place-items:center;font-family:var(--font-display);font-weight:800;font-size:12px;flex:none;box-shadow:0 2px 5px -1px rgba(10,102,194,.5)}
 footer .fcta-btn::after{content:'';position:absolute;top:0;left:-65%;width:45%;height:100%;background:linear-gradient(90deg,transparent,rgba(10,102,194,.16),transparent);transform:skewX(-18deg);transition:left .55s var(--ease);pointer-events:none}
 footer .fcta-btn:hover::after{left:135%}
 footer .fprod{text-decoration:none} footer .fprod b{color:rgba(255,255,255,.85)} footer .fprod:hover b{color:#fff}
@@ -1029,7 +1030,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   </div>
   <div class="pillars">
     <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l1.8 4 4.2.4-3.2 2.8 1 4.3L8 10.8 4.2 13l1-4.3L2 5.9l4.2-.4z"/></svg></div><div><h3>Aprende sobre você</h3><p>Seu tom, suas ideias, o seu jeito de pensar. O texto sai com a sua cara, nunca com a de um robô genérico.</p></div></div>
-    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M2 8h12M8 1.7c1.8 1.7 1.8 10.9 0 12.6M8 1.7c-1.8 1.7-1.8 10.9 0 12.6"/></svg></div><div><h3>Acompanha o mundo</h3><p>Enquanto você toca o resto, ele lê o que importa no seu mercado, em todos os idiomas e no mundo todo, e traz o assunto antes de virar lugar-comum.</p></div></div>
+    <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M2 8h12M8 1.7c1.8 1.7 1.8 10.9 0 12.6M8 1.7c-1.8 1.7-1.8 10.9 0 12.6"/></svg></div><div><h3>Acompanha o mundo</h3><p>Enquanto você toca o resto, ele lê o seu mercado no mundo todo, em todos os idiomas, e te entrega o assunto certo na hora certa, antes de virar conversa batida.</p></div></div>
     <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 8a5 5 0 1 1-1.5-3.5"/><path d="M13 2v3h-3"/></svg></div><div><h3>Faz o trabalho pesado</h3><p>Post, comentário e resposta já prontos quando você abre o app. O esforço fica com ele, a decisão fica com você.</p></div></div>
     <div class="pillar reveal"><div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5.5 2.3v3.6c0 3.4-2.4 5.6-5.5 6.6-3.1-1-5.5-3.2-5.5-6.6V3.8z"/><path d="M5.7 8l1.6 1.6L10.6 6"/></svg></div><div><h3>Você dá a palavra final</h3><p>Nada vai pro ar sem o seu aval. O controle é seu, do rascunho ao publicar.</p></div></div>
   </div>
@@ -1102,7 +1103,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       <div class="bx reveal">
         <div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="3" width="11" height="10.5" rx="1.6"/><path d="M2.5 6.3h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg></div>
         <h3>Calendário editorial</h3>
-        <p>Veja o que está agendado e publicado, reagende e mantenha o seu ritmo sem perder a constância.</p>
+        <p>Planeje a semana ou o mês inteiro, agende os posts no melhor horário e publique sem precisar estar na frente do computador.</p>
         <div class="mcal"><i>S</i><i class="has">T</i><i>Q</i><i class="has">Q</i><i>S</i></div>
       </div>
       <div class="bx banner reveal">
@@ -1118,19 +1119,19 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 <section class="sec wrap" id="como">
   <div class="sec-head reveal"><h2>Comece em minutos. Apareça pra sempre.</h2><p>Você ensina uma vez quem é você. A partir daí, o trabalho é dele e a aprovação é sua.</p></div>
   <div class="steps">
-    <div class="step reveal"><div class="n">1</div><div class="tx"><div class="stag">Passo 1</div><h3>Aprende sobre você</h3><p>Você mostra como fala e o que quer. Ele absorve o seu tom, as suas ideias e o seu objetivo.</p>
+    <div class="step reveal"><div class="n">1</div><div class="tx"><div class="stag">Passo 1</div><h3>Aprende quem é você</h3><p>Você mostra como fala e o que importa. Ele absorve o seu tom, as suas ideias e o seu objetivo de carreira.</p>
       <div class="svis">
         <div class="sv-hd"><span class="sv-dot ok"></span> Sua voz</div>
         <div class="sv-chips"><span>Direto</span><span>Técnico</span><span>1ª pessoa</span><span>Sem jargão</span></div>
         <div class="sv-line">94% de match com os seus posts antigos</div>
       </div></div></div>
-    <div class="step reveal"><div class="n">2</div><div class="tx"><div class="stag">Passo 2</div><h3>Vigia o seu mercado e prepara</h3><p>O Radar lê fóruns e notícias do seu nicho, em todos os idiomas, e a IA já deixa post, comentário e resposta prontos. No Autopilot, um lote de uma vez.</p>
+    <div class="step reveal"><div class="n">2</div><div class="tx"><div class="stag">Passo 2</div><h3>Vigia o seu mercado</h3><p>O Radar lê fóruns e notícias do seu nicho, em todos os idiomas, e já deixa post, comentário e resposta prontos pra você.</p>
       <div class="svis">
         <div class="sv-hd"><span class="sv-dot scan"></span> Radar · varrendo agora</div>
         <div class="sv-opp"><b>Cultura começa no onboarding</b><i>fit 8</i></div>
         <div class="sv-opp"><b>Reuniões que poderiam ser um post</b><i>fit 7</i></div>
       </div></div></div>
-    <div class="step reveal"><div class="n">3</div><div class="tx"><div class="stag">Passo 3</div><h3>Você aprova, publica ou agenda</h3><p>Revisa, ajusta o que quiser e decide: publica na hora ou agenda pro melhor horário. Sempre no seu nome e no seu tom.</p>
+    <div class="step reveal"><div class="n">3</div><div class="tx"><div class="stag">Passo 3</div><h3>Você aprova e publica</h3><p>Revisa, ajusta o que quiser e decide: publica na hora ou agenda pro melhor horário, sempre no seu tom.</p>
       <div class="svis">
         <div class="sv-hd"><span class="sv-dot ok"></span> Aprovações</div>
         <div class="sv-post">
@@ -1145,7 +1146,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 <!-- PROVA SOCIAL -->
 <section class="sec band" id="quem">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>O problema nunca foi ter o que dizer.</h2><p>Foi achar tempo, constância e o assunto certo. É aí que entra o Radar de Autoridade: ele lê o mundo por você e te entrega a oportunidade pronta.</p></div>
+    <div class="sec-head reveal"><h2>O problema nunca foi ter o que dizer.</h2><p>Foi achar tempo, constância e o assunto certo. O Radar de Autoridade entrega o que as pessoas querem ler: sem copiar ninguém, sem falar sem base, sempre atual e com a sua cara.</p></div>
     <div class="radar-panel reveal">
       <div class="rp-stage">
         <div class="rp-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="8" cy="8" r="6.3"/><path d="M2 8h12M8 1.7c1.8 1.7 1.8 10.9 0 12.6M8 1.7c-1.8 1.7-1.8 10.9 0 12.6"/></svg></div>
@@ -1161,7 +1162,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       </div>
       <div class="rp-stage">
         <div class="rp-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="#fff"><path d="M8 1l1.9 4.6L15 6l-4.4 1.6L8 12l-1.6-4.4L1 6l5.1-.4z"/></svg></div>
-        <b>Entrega a pauta pronta</b>
+        <b>Entrega a publicação pronta</b>
         <span>Com ângulo, formato e prioridade, pronta pra virar post, comentário ou carrossel.</span>
         <div class="rp-extra"><div class="rp-result"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Pauta pronta · prioridade alta</div></div>
       </div>
@@ -1192,16 +1193,16 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 <section class="sec wrap" id="faq">
   <div class="sec-head reveal"><h2>Perguntas frequentes</h2></div>
   <div class="faq reveal">
-    <details><summary>Preciso de qual IA?<span class="x"></span></summary><div class="a">A sua. Conecte a assinatura que já tem do ChatGPT, do Claude ou do Gemini. Você usa a IA que já confia, e ela trabalha na sua conta.</div></details>
-    <details><summary>Ele publica sozinho?<span class="x"></span></summary><div class="a">Não. Tudo fica pronto, mas nada vai pro ar sem a sua aprovação. O controle é seu, do começo ao fim.</div></details>
-    <details><summary>Como ele aprende o meu tom?<span class="x"></span></summary><div class="a">Você mostra como fala, as suas ideias e o seu objetivo. O PresenceIn usa isso pra escrever com a sua voz, não com um tom genérico.</div></details>
-    <details><summary>Funciona em outros idiomas?<span class="x"></span></summary><div class="a">Sim. Ele acompanha o mundo em todos os idiomas, sem barreira linguística, e prepara o conteúdo no idioma que você quiser.</div></details>
-    <details><summary>Preciso saber escrever?<span class="x"></span></summary><div class="a">Não. Esse é o ponto. Ele deixa pronto, você só revisa e aprova com um clique.</div></details>
-    <details><summary>O que é o Autopilot?<span class="x"></span></summary><div class="a">É o modo em que a IA prepara um lote inteiro de conteúdo na sua voz de uma vez só. Você revisa tudo junto e aprova o que gostar. Mesmo no Autopilot, nada vai pro ar sem você.</div></details>
-    <details><summary>Ele comenta e responde também?<span class="x"></span></summary><div class="a">Sim. Além de posts, ele sugere onde comentar (no feed, no inbox e em perfis de empresas) e deixa o comentário pronto no seu tom. Você copia, posta e marca como feito. Nada é enviado sozinho.</div></details>
-    <details><summary>Não vai ficar genérico, com cara de robô?<span class="x"></span></summary><div class="a">Não. Ele cruza o que está em alta no seu mercado com as suas provas reais (cases, números e histórias que você guarda no Proof Vault) e escreve no seu tom. Sai específico, com a sua bagagem, e ainda audita o risco de soar artificial antes de te entregar.</div></details>
-    <details><summary>Meus dados e tokens estão seguros?<span class="x"></span></summary><div class="a">Sim. A IA roda na sua conta e na sua máquina, com a sua própria chave. Seus tokens ficam criptografados, nada do que você escreve é compartilhado e nada é publicado no LinkedIn sem o seu aval.</div></details>
-    <details><summary>Quando lança e como é o acesso?<span class="x"></span></summary><div class="a">Beta privado a partir de 20 de junho de 2026, em lotes pequenos. Quem entra cedo tem acesso premium aos módulos e condição de quem chegou primeiro.</div></details>
+    <details><summary>O que ele tem de diferente que não posta parecendo IA?<span class="x"></span></summary><div class="a">Ele cruza o que está em alta no seu mercado com as <b>suas</b> ideias, números e histórias, e escreve no seu tom. Antes de te entregar, ainda audita o risco de soar genérico. Sai com a sua cara, não com cara de robô.</div></details>
+    <details><summary>Ele publica sozinho no meu nome?<span class="x"></span></summary><div class="a">Nunca. Ele deixa tudo pronto, você revisa, ajusta e aprova. Nada vai pro LinkedIn sem o seu OK.</div></details>
+    <details><summary>Preciso saber escrever bem?<span class="x"></span></summary><div class="a">Não, é justamente o que ele resolve. O texto chega pronto no seu tom; você só dá o toque final e aprova.</div></details>
+    <details><summary>Como ele aprende a minha voz?<span class="x"></span></summary><div class="a">Você mostra como fala e cola alguns posts antigos. Ele aprende o seu tom, as frases que você repete e o seu jeito de pensar.</div></details>
+    <details><summary>Funciona no meu idioma e no meu nicho?<span class="x"></span></summary><div class="a">Sim. Ele lê o mundo todo em qualquer idioma e cruza tudo com o seu nicho, posicionamento e objetivo.</div></details>
+    <details><summary>Qual IA eu preciso ter?<span class="x"></span></summary><div class="a">A sua. Conecte a assinatura que já paga do ChatGPT, do Claude ou do Gemini. Sem mais uma mensalidade de IA por cima.</div></details>
+    <details><summary>Ele também comenta e responde por mim?<span class="x"></span></summary><div class="a">Sim. Ele sugere onde comentar e deixa comentário e resposta prontos no seu tom. Você aprova e posta, nada é enviado sozinho.</div></details>
+    <details><summary>Dá pra agendar e publicar sem estar no computador?<span class="x"></span></summary><div class="a">Dá. Planeje a semana ou o mês, agende no melhor horário e ele publica por você, sempre com o seu aval.</div></details>
+    <details><summary>Os meus dados ficam seguros?<span class="x"></span></summary><div class="a">Sim. Roda com a sua própria conta de IA, tokens criptografados, nada do que você escreve é compartilhado e nada é publicado sem você aprovar.</div></details>
+    <details><summary>Quando abre e como é o acesso?<span class="x"></span></summary><div class="a">Beta privado a partir de 20 de junho de 2026, em lotes pequenos. Quem entra cedo pega condição de fundador.</div></details>
   </div>
 </section>
 
@@ -1262,7 +1263,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   <div class="fbar" aria-hidden="true"></div>
   <div class="fcta reveal">
     <h3>Seja a referência que o seu mercado lembra primeiro.</h3>
-    <a class="btn primary fcta-btn" href="#beta"><svg class="li" width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Quero minha vaga no beta
+    <a class="btn primary fcta-btn" href="#beta"><span class="fcta-pmk" aria-hidden="true">P</span> Quero minha vaga no beta
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
   </div>
   <div class="ftop">
