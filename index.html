@@ -1455,7 +1455,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       .to({},{duration:1.9})
       .add(function(){ if(done) done.classList.remove('show'); });
     tl.play();
-    if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ e.isIntersecting?tl.play():tl.pause(); }); },{threshold:.05}).observe(stage); }
+    if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) tl.play(); }); },{threshold:.05}).observe(stage); }
   })();
   // Radar panel: capta -> cruza -> entrega (sequencial)
   (function(){
