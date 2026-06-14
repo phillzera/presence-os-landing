@@ -228,6 +228,8 @@ section{position:relative}
 .li-tx{font-size:9px; color:var(--ink); line-height:1.45; padding:6px 10px 8px}
 .li-tx b{color:#0a66c2; font-weight:500}
 .li-img{width:100%; height:72px; object-fit:cover; display:block; border-top:1px solid var(--line); border-bottom:1px solid var(--line)}
+.li-imgwrap{position:relative; display:block}
+.li-imgbadge{position:absolute; left:8px; bottom:8px; display:inline-flex; align-items:center; gap:4px; font-size:8px; font-weight:700; color:#fff; background:rgba(8,28,54,.55); border-radius:99px; padding:2px 8px; -webkit-backdrop-filter:blur(3px); backdrop-filter:blur(3px)} .li-imgbadge svg{color:#76e8b8; flex:none}
 .li-stats{display:flex; align-items:center; gap:5px; padding:6px 10px; font-size:7.5px; color:var(--ink-3)}
 .li-rx{display:inline-flex} .li-rx i{width:12px; height:12px; border-radius:50%; display:grid; place-items:center; font-size:7px; color:#fff; border:1.5px solid #fff; margin-left:-3px} .li-rx i:first-child{margin-left:0}
 .li-rx .b{background:#378fe9} .li-rx .r{background:#df704d} .li-rx .y{background:#f5bb54}
@@ -290,7 +292,10 @@ section{position:relative}
 .es-blk.es-grow{flex:1; min-height:0; overflow:hidden; display:flex; flex-direction:column}
 .es-imggen{position:relative; flex:1; min-height:54px; border-radius:8px; overflow:hidden; border:1px solid var(--line)}
 .es-imggen img{width:100%; height:100%; object-fit:cover; display:block}
-.es-imggen .es-imgtag{position:absolute; left:5px; bottom:5px; font-size:7.5px; font-weight:600; color:#fff; background:rgba(8,28,54,.55); border-radius:99px; padding:2px 7px; backdrop-filter:blur(3px)}
+.es-imggen .es-imgtag{position:absolute; left:5px; bottom:5px; z-index:2; font-size:7.5px; font-weight:600; color:#fff; background:rgba(8,28,54,.55); border-radius:99px; padding:2px 7px; backdrop-filter:blur(3px)}
+.es-imggen::after{content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(110deg,transparent 32%,rgba(255,255,255,.55) 50%,transparent 68%); transform:translateX(-110%); animation:esshimmer 3s var(--ease) infinite; pointer-events:none}
+@keyframes esshimmer{0%{transform:translateX(-110%)}55%,100%{transform:translateX(110%)}}
+@media (prefers-reduced-motion:reduce){.es-imggen::after{animation:none; display:none}}
 .es-t{display:flex; align-items:center; gap:6px; font-size:7px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); font-weight:700; margin-bottom:7px}
 .es-t em{margin-left:auto; font-style:normal; letter-spacing:0; text-transform:none; font-size:8px; color:var(--ok-text); background:#e9f9ef; border:1px solid #bfe8cd; border-radius:99px; padding:1px 6px}
 .es-chips{display:flex; flex-wrap:wrap; gap:4px}
@@ -904,7 +909,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                           <span class="li-more">···</span>
                         </div>
                         <div class="li-tx">Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding, não no incidente. <b>#cultura #lideranca</b></div>
-                        <img class="li-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=480&q=80" alt="" loading="lazy">
+                        <div class="li-imgwrap"><img class="li-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=480&q=80" alt="" loading="lazy"><span class="li-imgbadge"><svg width="8" height="8" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> Imagem gerada</span></div>
                         <div class="li-stats"><span class="li-rx"><i class="b"></i><i class="r"></i><i class="y"></i></span> Você e 127 outros <span class="sp">24 comentários</span></div>
                         <div class="li-an"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.5-3 2 1.5L13 5"/></svg> Melhor horário: terça, 9h · alcance estimado ~1,1k</div>
                       </div>
