@@ -95,7 +95,7 @@ main,footer{position:relative; z-index:1}
 .nav.scrolled{background:#fff; border-bottom-color:var(--line); box-shadow:0 6px 22px -12px rgba(0,0,0,.1)}
 .nav .row{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px; height:68px; max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter)}
 .nav .links{display:flex; gap:2px; align-items:center; justify-content:center}
-.nav .links > a, .nav .links .recbtn{display:inline-flex; align-items:center; gap:5px; height:36px; padding:0 13px; border-radius:9px; color:var(--ink-2); font-family:var(--font-sans); font-size:14.5px; font-weight:600; letter-spacing:-.005em; background:none; border:none; cursor:pointer; transition:color .18s var(--ease), background .18s var(--ease)}
+.nav .links > a, .nav .links .recbtn{display:inline-flex; align-items:center; gap:5px; height:36px; padding:0 14px; border-radius:9px; color:var(--ink-2); font-family:var(--font-sans); font-size:16px; font-weight:600; letter-spacing:-.01em; background:none; border:none; cursor:pointer; transition:color .18s var(--ease), background .18s var(--ease)}
 .nav .links > a:hover, .nav .links .has-mega:hover .recbtn, .nav .links .has-mega:focus-within .recbtn{color:var(--ink); background:color-mix(in srgb,var(--ink) 5%,transparent)}
 .nav .right{display:flex; justify-content:flex-end; align-items:center; gap:13px}
 .logo{display:inline-flex; align-items:center; gap:10px; color:var(--ink); font-weight:600; font-size:20px; letter-spacing:-.04em}
@@ -281,33 +281,18 @@ section{position:relative}
 .opp-go{font-size:8px; font-weight:700; color:var(--i); flex:none; opacity:0; transition:opacity .35s var(--ease)} .opp.sel .opp-go{opacity:1}
 .est-body{display:flex; flex-direction:column; flex:1; min-height:0} .est-body .st-ed{flex:1}
 .pub-body{display:flex; flex-direction:column; flex:1; min-height:0}
-.pub-prev{display:grid; grid-template-columns:1.5fr 1fr; gap:11px; flex:1; min-height:0; margin-bottom:9px; align-items:stretch}
-.pub-left{min-width:0; display:flex; flex-direction:column}
-.pub-head{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px}
-.pub-head .st-pv-tab{margin-bottom:0}
-.pv-toggle{display:inline-flex; gap:2px; background:var(--surface-2); border:1px solid var(--line); border-radius:99px; padding:2px; flex:none}
-.pv-toggle span{display:inline-flex; align-items:center; gap:4px; font-size:7.5px; font-weight:700; color:var(--ink-3); padding:3px 9px; border-radius:99px; transition:background .25s var(--ease), color .25s var(--ease)}
-.pv-toggle span svg{width:8px; height:8px}
-.pv-toggle span.on{background:#fff; color:var(--i); box-shadow:var(--sh-1)}
-.pub-mob{display:none; justify-content:center; flex:1; min-height:0; padding:2px 0 6px}
-.pub-body.mob .pub-left .li-post{display:none}
-.pub-body.mob .pub-mob{display:flex}
-.pub-mob .pv-phone{width:148px; align-self:flex-start}
+.pub-prev{display:grid; grid-template-columns:1fr 122px; gap:11px; flex:1; min-height:0; margin-bottom:8px; align-items:start}
+.pub-prev .pv-col{display:flex; flex-direction:column; min-width:0}
+.pub-prev .pv-lbl{display:flex; align-items:center; gap:4px; font-size:7px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); margin-bottom:5px}
+.pub-prev .pv-lbl svg{width:9px; height:9px; color:var(--i); flex:none}
 .pub-prev .li-post{width:100%}
-/* painel funcional de aprovação (passo 3) */
-.pub-panel{display:flex; flex-direction:column; gap:7px; min-width:0}
-.pp-status{display:inline-flex; align-items:center; gap:5px; align-self:flex-start; font-size:8px; font-weight:700; color:var(--ok-text); background:#e9f9ef; border:1px solid #bfe8cd; border-radius:99px; padding:3px 9px}
-.pp-status svg{width:9px; height:9px; flex:none}
-.pp-blk{background:#fff; border:1px solid var(--line); border-radius:9px; padding:8px 9px; box-shadow:var(--sh-1)}
-.pp-t{font-size:7px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:700; margin-bottom:6px}
-.pp-check{display:flex; align-items:center; gap:6px; font-size:8.5px; color:var(--ink); font-weight:500; padding:3px 0}
-.pp-check svg{width:11px; height:11px; flex:none; color:var(--ok-text); background:#e9f9ef; border-radius:50%; padding:2px}
-.pp-row{display:flex; align-items:center; gap:6px; font-size:8.5px; color:var(--ink-2); padding:2px 0}
-.pp-row svg{width:11px; height:11px; flex:none; color:var(--i)} .pp-row b{color:var(--ink); font-weight:700; margin-left:auto}
-.pp-sched{margin-top:auto; display:flex; gap:4px}
-.pp-day{flex:1; text-align:center; font-size:8px; font-weight:700; color:var(--ink-3); background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:5px 0}
-.pp-day.on{color:#fff; background:var(--i); border-color:var(--i)}
-.pub-body .li-img{height:118px}
+.pub-prev .pv-phone{width:100%}
+.pub-bar{display:flex; flex-wrap:wrap; align-items:center; gap:6px; margin-bottom:9px}
+.pb-ok{display:inline-flex; align-items:center; gap:5px; font-size:8px; font-weight:700; color:var(--ok-text); background:#e9f9ef; border:1px solid #bfe8cd; border-radius:99px; padding:4px 10px}
+.pb-ok svg{width:9px; height:9px; flex:none}
+.pb-chip{display:inline-flex; align-items:center; gap:5px; font-size:8px; font-weight:600; color:var(--ink-2); background:#fff; border:1px solid var(--line); border-radius:99px; padding:4px 10px; box-shadow:var(--sh-1)}
+.pb-chip svg{width:9px; height:9px; flex:none; color:var(--ok-text)}
+.pub-body .li-img{height:92px}
 .pub-prev .li-tx{padding:7px 12px 9px}
 .li-bar{display:flex; align-items:center; justify-content:space-around; gap:4px; padding:5px 6px; border-top:1px solid var(--line); margin-top:1px}
 .li-bar span{display:inline-flex; align-items:center; gap:3px; font-size:7px; font-weight:600; color:var(--ink-3)} .li-bar svg{flex:none}
@@ -1092,12 +1077,10 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                       <span class="st-voice"><span class="dot"></span> aguardando você</span>
                     </div>
                     <div class="pub-body">
-                      <div class="pub-head">
-                        <span class="st-pv-tab"><svg width="11" height="11" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Como aparece no LinkedIn</span>
-                        <span class="pv-toggle"><span id="pvDesk" class="on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1.5" y="2.5" width="13" height="9" rx="1.3"/><path d="M5.5 14h5M6.5 11.5l-.4 2.5M9.5 11.5l.4 2.5"/></svg> Computador</span><span id="pvMob"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4.5" y="1.5" width="7" height="13" rx="1.6"/><path d="M7 12.6h2"/></svg> Celular</span></span>
-                      </div>
+                      <div class="st-pv-tab"><svg width="11" height="11" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Veja igual ao LinkedIn: no computador <b>e</b> no celular</div>
                       <div class="pub-prev">
-                        <div class="pub-left">
+                        <div class="pv-col">
+                          <div class="pv-lbl"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1.5" y="2.5" width="13" height="9" rx="1.3"/><path d="M5.5 14h5M6.5 11.5l-.4 2.5M9.5 11.5l.4 2.5"/></svg> Computador</div>
                           <div class="li-post">
                             <div class="li-hd">
                               <img class="li-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=160&q=80" alt="" loading="lazy">
@@ -1113,33 +1096,25 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                             <div class="li-stats"><span class="li-rx"><i class="b"></i><i class="r"></i><i class="y"></i></span> Você e 127 outros <span class="sp">24 comentários</span></div>
                             <div class="li-bar"><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 7.5l2.5-4c.4-.6 1.4-.3 1.3.5L7.5 6.5H11c.7 0 1.2.6 1 1.3l-1 4c-.1.5-.6.8-1 .8H5.5V7.5z"/><path d="M4 7.5H2.5v5H4z"/></svg> Gostei</span><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 3.5h12v8H8l-3 2.5V11.5H2z"/></svg> Comentar</span><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13 2L2 7l4 1.5M13 2L9 13l-3-4.5M13 2L6 8.5"/></svg> Enviar</span></div>
                           </div>
-                          <div class="pub-mob">
-                            <div class="pv-phone">
-                              <span class="pv-notch"></span>
-                              <div class="pv-phone-scr">
-                                <div class="mli-hd"><img class="mli-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><div class="mli-meta"><b>Marina Alves</b><span>Head de Gente &amp; Cultura · Agora</span></div></div>
-                                <div class="mli-tx">Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding, não no incidente.</div>
-                                <img class="mli-img" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=360&q=80" alt="" loading="lazy">
-                                <div class="mli-stats"><span class="mli-rx"><i class="b"></i><i class="r"></i></span> 127 · 24 coment.</div>
-                              </div>
+                        </div>
+                        <div class="pv-col pv-col-mob">
+                          <div class="pv-lbl"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4.5" y="1.5" width="7" height="13" rx="1.6"/><path d="M7 12.6h2"/></svg> Celular</div>
+                          <div class="pv-phone">
+                            <span class="pv-notch"></span>
+                            <div class="pv-phone-scr">
+                              <div class="mli-hd"><img class="mli-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><div class="mli-meta"><b>Marina Alves</b><span>Head de Gente &amp; Cultura</span></div></div>
+                              <div class="mli-tx">Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding, não no incidente.</div>
+                              <img class="mli-img" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=360&q=80" alt="" loading="lazy">
+                              <div class="mli-stats"><span class="mli-rx"><i class="b"></i><i class="r"></i></span> 127 · 24 coment.</div>
                             </div>
                           </div>
                         </div>
-                        <aside class="pub-panel">
-                          <div class="pp-status"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Pronto para publicar</div>
-                          <div class="pp-blk">
-                            <div class="pp-t">Checagem da IA</div>
-                            <div class="pp-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Tom de voz: 94% de match</div>
-                            <div class="pp-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Risco de soar IA: baixo</div>
-                            <div class="pp-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Imagem no estilo da marca</div>
-                          </div>
-                          <div class="pp-blk">
-                            <div class="pp-t">Desempenho previsto</div>
-                            <div class="pp-row"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.5V8l2.5 1.5"/></svg> Melhor horário <b>ter, 9h</b></div>
-                            <div class="pp-row"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.5-3 2 1.5L13 5"/></svg> Alcance estimado <b>~1,1k</b></div>
-                          </div>
-                          <div class="pp-sched"><span class="pp-day">S</span><span class="pp-day on">T</span><span class="pp-day">Q</span><span class="pp-day">Q</span><span class="pp-day">S</span></div>
-                        </aside>
+                      </div>
+                      <div class="pub-bar">
+                        <span class="pb-ok"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Pronto pra publicar</span>
+                        <span class="pb-chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Voz 94%</span>
+                        <span class="pb-chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Sem cara de IA</span>
+                        <span class="pb-chip"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.5V8l2.5 1.5"/></svg> Melhor: ter, 9h</span>
                       </div>
                       <div class="pub-actions">
                         <button class="pub-2nd"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11l7-7 3 3-7 7H2z"/><path d="M9 4l3 3"/></svg> Editar</button>
@@ -1725,10 +1700,8 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     function genOn(){ if(genImg) genImg.classList.add('gen'); }
     function genOff(){ if(genImg) genImg.classList.remove('gen'); }
     var selOpp=document.getElementById('oppSel');
-    var pubBody=stage.querySelector('.scr[data-k="2"] .pub-body'), pvDesk=document.getElementById('pvDesk'), pvMob=document.getElementById('pvMob');
-    function setMob(on){ if(pubBody) pubBody.classList.toggle('mob',on); if(pvDesk) pvDesk.classList.toggle('on',!on); if(pvMob) pvMob.classList.toggle('on',on); }
     var tl=gsap.timeline({repeat:-1,paused:true,defaults:{ease:'power3.inOut'}});
-    tl.add(function(){ show(0); genOn(); setMob(false); if(selOpp) selOpp.classList.remove('sel'); if(done) done.classList.remove('show'); })
+    tl.add(function(){ show(0); genOn(); if(selOpp) selOpp.classList.remove('sel'); if(done) done.classList.remove('show'); })
       .add(function(){ var p=tgt('#oppSel'); gsap.set(cur,{x:p.x+44,y:p.y-30,opacity:0,scale:1}); })
       .to(cur,{opacity:1,duration:.4})
       .to({},{duration:.7})
@@ -1744,16 +1717,8 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       .to({},{duration:1.0})
       .to(cur,{x:function(){return tgt('#tRevisar').x;},y:function(){return tgt('#tRevisar').y;},duration:1.1},'+=.5')
       .add(clickFx,'+=.15')
-      .add(function(){ show(2); setMob(false); },'+=.35')
-      .to({},{duration:1.2})
-      .to(cur,{x:function(){return tgt('#pvMob').x;},y:function(){return tgt('#pvMob').y;},duration:.85},'+=.4')
-      .add(clickFx,'+=.15')
-      .add(function(){ setMob(true); })
-      .to({},{duration:1.5})
-      .to(cur,{x:function(){return tgt('#pvDesk').x;},y:function(){return tgt('#pvDesk').y;},duration:.7},'+=.4')
-      .add(clickFx,'+=.15')
-      .add(function(){ setMob(false); })
-      .to({},{duration:.7})
+      .add(function(){ show(2); },'+=.35')
+      .to({},{duration:1.8})
       .to(cur,{x:function(){return tgt('#pubApprove').x;},y:function(){return tgt('#pubApprove').y;},duration:1.0},'+=.5')
       .add(clickFx,'+=.15')
       .add(function(){ if(done) done.classList.add('show'); },'+=.15')
