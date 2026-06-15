@@ -26,8 +26,8 @@
 <link rel="preconnect" href="https://api.iconify.design" crossorigin />
 <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin /><link rel="preconnect" href="https://cdn.fontshare.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600,700,800&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233a9bf0'/%3E%3Cstop offset='1' stop-color='%23054889'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='9' y='23' font-family='Arial,Helvetica,sans-serif' font-size='20' font-weight='700' fill='%23fff'%3EP%3C/text%3E%3Cg stroke='%2376e8b8' stroke-width='2' fill='none' stroke-linecap='round'%3E%3Ccircle cx='20.5' cy='24' r='1.6' fill='%2376e8b8' stroke='none'/%3E%3Cpath d='M20.5 17.5A6.5 6.5 0 0 1 27 24'/%3E%3C/g%3E%3C/svg%3E" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -45,8 +45,8 @@
   --sh-2:0 6px 18px -6px rgba(20,48,80,.14), 0 2px 6px rgba(20,48,80,.06);
   --sh-3:0 30px 70px -24px rgba(20,48,80,.34), 0 8px 20px -12px rgba(20,48,80,.16);
   --maxw:1160px; --gutter:clamp(20px,4vw,40px); --sec:clamp(60px,7vw,100px);
-  --font-display:'Newsreader',Georgia,'Times New Roman',serif;
-  --font-sans:'Switzer',-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,Roboto,Helvetica,Arial,sans-serif;
+  --font-display:'Satoshi',-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --font-sans:'Satoshi',-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,Roboto,Helvetica,Arial,sans-serif;
   --font-mono:'JetBrains Mono',ui-monospace,"SF Mono","SFMono-Regular",Menlo,Monaco,monospace;
 }
 *{box-sizing:border-box}
@@ -761,6 +761,24 @@ footer .bottom{border-top-color:rgba(255,255,255,.1);color:rgba(255,255,255,.5)}
 footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 
 .reveal{will-change:opacity,transform}
+
+/* social proof / por que o LinkedIn */
+.sp-dark{background:radial-gradient(120% 130% at 0% 0%,#0c2a4f,#0a1f3c 55%,#081730); color:#fff; position:relative; overflow:hidden; border-top:1px solid rgba(255,255,255,.06); border-bottom:1px solid rgba(255,255,255,.06)}
+.sp-dark::before{content:''; position:absolute; right:-160px; top:-180px; width:520px; height:520px; border-radius:50%; background:radial-gradient(circle,rgba(118,232,184,.16),transparent 62%); pointer-events:none}
+.sp-dark .wrap{position:relative; z-index:1}
+.sp-dark .sec-head h2{color:#fff} .sp-dark .sec-head h2 .brandblue{color:#7cc0ff}
+.sp-dark .sec-head p{color:rgba(255,255,255,.78)}
+.sp-eye{display:inline-flex; align-items:center; gap:7px; font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#76e8b8; font-weight:500; margin-bottom:14px; justify-content:center; width:100%}
+.sp-eye .blip{width:6px; height:6px; border-radius:50%; background:#76e8b8; box-shadow:0 0 0 4px rgba(118,232,184,.2)}
+.sp-stats{display:grid; grid-template-columns:repeat(4,1fr); gap:clamp(14px,2.4vw,26px); margin-top:clamp(30px,4vw,46px)}
+.sp-stat{text-align:center; padding:clamp(18px,2.4vw,26px) 14px; border-radius:var(--r-lg); background:linear-gradient(180deg,rgba(255,255,255,.07),rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.09)}
+.sp-stat b{display:block; font-family:var(--font-display); font-size:clamp(30px,4.2vw,48px); font-weight:700; color:#fff; line-height:1; letter-spacing:-.02em}
+.sp-stat b em{font-style:normal; color:#76e8b8}
+.sp-stat span{display:block; margin-top:10px; font-size:13px; color:rgba(255,255,255,.7); line-height:1.45}
+.sp-note{margin-top:clamp(22px,3vw,34px); text-align:center; font-size:12.5px; color:rgba(255,255,255,.5); max-width:64ch; margin-left:auto; margin-right:auto}
+.sp-note b{color:rgba(255,255,255,.7); font-weight:600}
+@media (max-width:680px){.sp-stats{grid-template-columns:1fr 1fr; gap:12px}}
+@media (max-width:380px){.sp-stats{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -1067,7 +1085,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   <div class="wrap">
     <div class="mq-head reveal">
       <h2>Feito para <span class="rotw"><span class="rw" id="rotw">Founders</span></span></h2>
-      <p>Quem some do feed, some da cabeça das pessoas. Se a sua próxima oportunidade vem do LinkedIn, aparecer toda semana deixou de ser opcional.</p>
+      <p>As oportunidades vão para quem é lembrado. O PresenceIn mantém você presente no LinkedIn toda semana, no seu tom, sem virar mais uma tarefa na sua agenda.</p>
     </div>
     <div class="mq-zone reveal">
       <div class="marquee"><div class="mq-track" id="mq1"></div></div>
@@ -1137,6 +1155,24 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 </section>
 
 <!-- MÓDULOS -->
+<!-- POR QUE O LINKEDIN (prova social) -->
+<section class="sec sp-dark" id="por-que-linkedin">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="sp-eye"><span class="blip"></span>Por que o LinkedIn</span>
+      <h2>É onde a sua próxima <span class="brandblue">oportunidade procura você</span>.</h2>
+      <p>Antes de te contratar, fechar negócio ou te indicar, as pessoas te pesquisam no LinkedIn. Estar presente e relevante deixou de ser diferencial: virou o ponto de partida.</p>
+    </div>
+    <div class="sp-stats reveal">
+      <div class="sp-stat"><b><em>+1</em> bilhão</b><span>de profissionais em mais de 200 países e territórios</span></div>
+      <div class="sp-stat"><b><em>+67</em> milhões</b><span>de empresas ativas na plataforma</span></div>
+      <div class="sp-stat"><b><em>4</em> em 5</b><span>membros impulsionam decisões de negócio</span></div>
+      <div class="sp-stat"><b>nº <em>1</em></b><span>rede para conteúdo e oportunidades profissionais</span></div>
+    </div>
+    <p class="sp-note reveal">Dados públicos do LinkedIn. A importância de uma presença forte e consistente no LinkedIn é <b>pauta constante na imprensa de negócios</b> (Forbes, Harvard Business Review, Bloomberg, Exame).</p>
+  </div>
+</section>
+
 <section class="sec band" id="modulos">
   <div class="wrap">
     <div class="sec-head reveal"><h2>Uma plataforma inteira pra você <span class="brandblue">virar referência</span>.</h2><p>Do primeiro rascunho ao post no ar, com você no controle de cada etapa.</p></div>
@@ -1355,7 +1391,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   <div class="fbar" aria-hidden="true"></div>
   <div class="fcta reveal">
     <h3>Seja a referência que o seu mercado lembra primeiro.</h3>
-    <a class="btn primary fcta-btn" href="#beta"><span class="fcta-flow" aria-hidden="true"><span class="ff-node ff-phone"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4.5" y="1.5" width="7" height="13" rx="1.5"/><path d="M7 12.5h2"/></svg></span><span class="ff-seg s1"></span><span class="ff-node ff-p"><b>P</b></span><span class="ff-seg s2"></span><span class="ff-node ff-ai"><svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.6 4.2 4.4 1.8-4.4 1.8L8 12l-1.6-4.2L2 6l4.4-1.8z"/></svg></span><span class="ff-seg s3"></span><span class="ff-node ff-in"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span></span> Quero participar do BETA
+    <a class="btn primary fcta-btn" href="#beta">Quero participar do BETA
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
   </div>
   <div class="ftop">
