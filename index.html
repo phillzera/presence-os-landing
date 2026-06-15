@@ -278,7 +278,7 @@ section{position:relative}
 .opp-fit{font-size:8px; font-weight:700; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--line); border-radius:99px; padding:3px 8px; flex:none}
 .opp.sel{border-color:var(--i); box-shadow:0 0 0 2px var(--i-soft), var(--sh-2)}
 .opp.sel .opp-fit.hi{color:#fff; background:var(--i); border-color:var(--i)}
-.opp-go{font-size:8px; font-weight:700; color:var(--i); flex:none}
+.opp-go{font-size:8px; font-weight:700; color:var(--i); flex:none; opacity:0; transition:opacity .35s var(--ease)} .opp.sel .opp-go{opacity:1}
 .est-body{display:flex; flex-direction:column; flex:1; min-height:0} .est-body .st-ed{flex:1}
 .pub-body{display:flex; flex-direction:column; flex:1; min-height:0}
 .pub-prev{display:flex; flex-direction:column; flex:1; min-height:0; margin-bottom:9px; max-width:430px; width:100%; margin-left:auto; margin-right:auto}
@@ -1021,7 +1021,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                     </div>
                     <div class="rdr-list">
                       <div class="opp"><div class="opp-main"><b>Por que bom talento vai embora</b><span>Pauta quente entre líderes de RH</span></div><span class="opp-fit">fit 9</span></div>
-                      <div class="opp sel"><div class="opp-main"><b>Cultura de verdade começa no onboarding</b><span>Forte na sua voz · alcance estimado ~1,1k</span></div><span class="opp-fit hi">fit 8</span><span class="opp-go" id="tGerar">Gerar →</span></div>
+                      <div class="opp sel" id="oppSel"><div class="opp-main"><b>Cultura de verdade começa no onboarding</b><span>Forte na sua voz · alcance estimado ~1,1k</span></div><span class="opp-fit hi">fit 8</span><span class="opp-go" id="tGerar">Gerar →</span></div>
                       <div class="opp"><div class="opp-main"><b>O que um incidente real ensina</b><span>Tema recorrente do seu setor · 2 dias atrás</span></div><span class="opp-fit">fit 7</span></div>
                       <div class="opp"><div class="opp-main"><b>Reuniões que poderiam ser um post</b><span>Pauta quente no Reddit · 1 dia atrás</span></div><span class="opp-fit">fit 7</span></div>
                     </div>
@@ -1668,12 +1668,17 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     var genImg=stage.querySelector('.es-imggen');
     function genOn(){ if(genImg) genImg.classList.add('gen'); }
     function genOff(){ if(genImg) genImg.classList.remove('gen'); }
+    var selOpp=document.getElementById('oppSel');
     var tl=gsap.timeline({repeat:-1,paused:true,defaults:{ease:'power3.inOut'}});
-    tl.add(function(){ show(0); genOn(); if(done) done.classList.remove('show'); })
-      .add(function(){ var p=tgt('.opp.sel'); gsap.set(cur,{x:p.x-34,y:p.y+26,opacity:0,scale:1}); })
+    tl.add(function(){ show(0); genOn(); if(selOpp) selOpp.classList.remove('sel'); if(done) done.classList.remove('show'); })
+      .add(function(){ var p=tgt('#oppSel'); gsap.set(cur,{x:p.x+44,y:p.y-30,opacity:0,scale:1}); })
       .to(cur,{opacity:1,duration:.4})
-      .to({},{duration:1.3})
-      .to(cur,{x:function(){return tgt('#tGerar').x;},y:function(){return tgt('#tGerar').y;},duration:1.05},'+=.45')
+      .to({},{duration:.7})
+      .to(cur,{x:function(){return tgt('#oppSel').x;},y:function(){return tgt('#oppSel').y;},duration:1.0},'+=.3')
+      .add(clickFx,'+=.15')
+      .add(function(){ if(selOpp) selOpp.classList.add('sel'); })
+      .to({},{duration:1.15})
+      .to(cur,{x:function(){return tgt('#tGerar').x;},y:function(){return tgt('#tGerar').y;},duration:.9},'+=.4')
       .add(clickFx,'+=.15')
       .add(function(){ show(1); genOn(); },'+=.35')
       .to({},{duration:1.8})
