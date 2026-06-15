@@ -779,6 +779,51 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 .sp-note b{color:rgba(255,255,255,.7); font-weight:600}
 @media (max-width:680px){.sp-stats{grid-template-columns:1fr 1fr; gap:12px}}
 @media (max-width:380px){.sp-stats{grid-template-columns:1fr 1fr}}
+
+/* dor / pain (logo após o hero) */
+.painhero{padding-top:clamp(40px,5vw,64px)}
+.painhero-grid{display:grid; grid-template-columns:1fr 1fr; gap:0 clamp(24px,4vw,54px); max-width:960px; margin:0 auto}
+.ph-item{display:flex; gap:13px; align-items:flex-start; color:var(--ink-2); font-size:clamp(15px,1.7vw,16.5px); line-height:1.45; padding:16px 2px; border-top:1px solid var(--line)}
+.ph-item .ph-ic{flex:none; width:24px; height:24px; border-radius:50%; display:grid; place-items:center; color:#e11d48; background:#fdecf0; margin-top:1px}
+.ph-item .ph-ic svg{width:13px;height:13px}
+.ph-item:nth-child(1),.ph-item:nth-child(2){border-top:none}
+.painhero-bridge{display:flex; align-items:center; justify-content:center; gap:13px; margin:clamp(30px,4.5vw,46px) auto 0; max-width:780px; text-align:left; font-family:var(--font-display); font-size:clamp(18px,2.3vw,23px); font-weight:700; color:var(--ink); line-height:1.32; letter-spacing:-.015em}
+.painhero-bridge .pb-ic{flex:none; width:36px; height:36px; border-radius:11px; display:grid; place-items:center; background:linear-gradient(150deg,#1a85e0,#064c8f); color:#fff; box-shadow:0 6px 15px -5px rgba(10,102,194,.55)}
+.painhero-bridge b{color:var(--i)}
+@media (max-width:680px){.painhero-grid{grid-template-columns:1fr; max-width:520px} .ph-item:nth-child(2){border-top:1px solid var(--line)} .ph-item:first-child{border-top:none} .painhero-bridge{flex-direction:column; text-align:center; gap:15px}}
+.sec-head .produto-aud{margin-top:16px; font-weight:600; color:var(--ink); font-size:clamp(15px,1.7vw,17px)}
+
+/* casos de uso */
+.cases{display:grid; grid-template-columns:repeat(4,1fr); gap:14px}
+.case{padding:24px 20px; border:1px solid var(--line); border-radius:var(--r-lg); background:var(--surface); box-shadow:var(--sh-1); display:flex; flex-direction:column}
+.case-ic{width:42px; height:42px; border-radius:12px; display:grid; place-items:center; color:var(--i); background:var(--i-soft); border:1px solid var(--i-line); margin-bottom:15px}
+.case h3{font-size:16px; font-weight:700; color:var(--ink); margin-bottom:7px; letter-spacing:-.01em}
+.case p{font-size:13.5px; color:var(--ink-2); line-height:1.5}
+@media (max-width:900px){.cases{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.cases{grid-template-columns:1fr}}
+
+/* antes / depois */
+.ba-table{max-width:760px; margin:0 auto; border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden; background:var(--surface); box-shadow:var(--sh-1)}
+.ba-row{display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--line)}
+.ba-row:first-child{border-top:none}
+.ba-row span{padding:15px 20px; font-size:14.5px; display:flex; align-items:center; gap:9px; line-height:1.35}
+.ba-row .ba-a{color:var(--ink-3); border-right:1px solid var(--line)}
+.ba-row .ba-b{color:var(--ink); font-weight:600}
+.ba-row .ba-b svg{flex:none; color:var(--ok)}
+.ba-head .ba-a,.ba-head .ba-b{font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; font-weight:600; background:var(--muted-bg)}
+.ba-head .ba-a{color:var(--ink-3)} .ba-head .ba-b{color:var(--i)}
+@media (max-width:520px){.ba-row span{padding:12px 13px; font-size:12.5px}}
+
+/* segurança & conformidade */
+.safe-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-width:980px; margin:0 auto}
+.safe-item{display:flex; gap:11px; align-items:center; padding:16px 18px; border-radius:var(--r-md); border:1px solid var(--line); background:var(--surface); font-size:14.5px; color:var(--ink-2); line-height:1.4}
+.safe-item .si-ic{flex:none; width:22px; height:22px; border-radius:50%; display:grid; place-items:center}
+.safe-item .si-ic svg{width:12px; height:12px}
+.safe-item.no .si-ic{color:#e11d48; background:#fdecf0}
+.safe-item.yes{grid-column:1/-1; background:linear-gradient(120deg,var(--i-soft),#fff 80%); border-color:var(--i-line); color:var(--ink); font-weight:600; font-size:15.5px}
+.safe-item.yes .si-ic{color:#fff; background:var(--ok)}
+@media (max-width:760px){.safe-grid{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.safe-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -790,9 +835,8 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   <div class="annbar" id="annbar">
     <div class="row">
       <span class="blip" aria-hidden="true"></span>
-      <span>Participe do <b>BETA PRIVADO</b> · abre em</span>
-      <span class="cd" id="ann-cd">em breve</span>
-      <a class="ann-cta" href="#beta">Inscreva-se já! →</a>
+      <span><b>Beta privado</b> com onboarding de voz incluso · Lote 1 abre em <b>20/06</b></span>
+      <a class="ann-cta" href="#beta">Entrar na lista →</a>
       <button class="ann-x" id="annX" aria-label="Fechar aviso">×</button>
     </div>
   </div>
@@ -817,11 +861,11 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
             </a>
             <div class="mega-grid">
               <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/></svg></span><span><b>Studio</b><span>Posts, comentários e respostas prontos</span></span></a>
-              <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/></svg></span><span><b>Radar de Autoridade</b><span>O que está em alta, na hora certa</span></span></a>
+              <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/></svg></span><span><b>Radar de Oportunidades</b><span>O que está em alta, na hora certa</span></span></a>
               <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.3 8l1.9 1.9L11 6"/></svg></span><span><b>Centro de Aprovação</b><span>Nada vai pro ar sem o seu aval</span></span></a>
               <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M5 8.5c1.5 1.5 4.5 1.5 6 0M5.5 6.2h.01M10.5 6.2h.01"/></svg></span><span><b>Estratégia & Voz</b><span>Seu tom, suas ideias, seu objetivo</span></span></a>
               <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="3" width="11" height="10.5" rx="1.6"/><path d="M2.5 6.3h11"/></svg></span><span><b>Calendário editorial</b><span>Agendado, publicado e reagendado</span></span></a>
-              <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.6-3.2 2 1.6L13 5"/></svg></span><span><b>Analytics & Alertas</b><span>O que repercutiu e o que pede ação</span></span></a>
+              <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.6-3.2 2 1.6L13 5"/></svg></span><span><b>Inteligência editorial</b><span>O que repercutiu e o que pede ação</span></span></a>
             </div>
             </div>
           </div>
@@ -945,7 +989,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                         </div>
                         <div class="es-blk es-grow">
                           <div class="es-t">Imagem <em>gerada ✦</em></div>
-                          <div class="es-imggen"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=280&q=80" alt="" loading="lazy"><span class="es-imgtag">no estilo da sua marca</span></div>
+                          <div class="es-imggen"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=280&q=80" alt="" loading="lazy"><span class="es-imgtag">como se você tivesse feito</span></div>
                         </div>
                         <div class="es-acts">
                           <button class="es-btn"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 11l7-7 3 3-7 7H2z"/><path d="M9 4l3 3"/></svg> Editar</button>
@@ -1057,6 +1101,19 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   </div>
 </header>
 
+<!-- DOR / CONSISTÊNCIA -->
+<section class="sec wrap painhero" id="dor">
+  <div class="sec-head reveal"><h2>Você não tem problema de opinião.<br><span class="brandblue">Tem problema de consistência.</span></h2></div>
+  <div class="painhero-grid reveal">
+    <div class="ph-item"><span class="ph-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>Você sabe o que pensa, mas não transforma isso em post.</div>
+    <div class="ph-item"><span class="ph-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>Você vê o assunto quente tarde demais.</div>
+    <div class="ph-item"><span class="ph-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>Você aparece por uma semana e some por três.</div>
+    <div class="ph-item"><span class="ph-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>Você não quer terceirizar a sua voz para um ghostwriter genérico.</div>
+    <div class="ph-item"><span class="ph-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>Você quer presença, mas não quer virar criador de conteúdo em tempo integral.</div>
+  </div>
+  <div class="painhero-bridge reveal"><span class="pb-ic"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg></span><span>O <b>PresenceIn</b> resolve a operação invisível por trás da sua autoridade.</span></div>
+</section>
+
 <!-- IA + PRIVACIDADE -->
 <section class="aiblock band reveal" id="ia">
   <div class="wrap">
@@ -1099,8 +1156,9 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 <!-- PILARES -->
 <section class="sec wrap" id="produto">
   <div class="sec-head reveal">
-    <h2>O <span class="brandblue">PresenceIn</span> faz o trabalho. A autoridade é toda sua.</h2>
-    <p>Ele aprende sobre você, vigia o seu mercado e deixa tudo pronto.<br>A palavra final é sempre sua.</p>
+    <h2>O <span class="brandblue">PresenceIn</span> faz a operação. A voz, a decisão e a autoridade continuam sendo suas.</h2>
+    <p>Ele encontra sinais do seu mercado, transforma em ângulos, escreve no seu tom, sugere comentários estratégicos e organiza a sua semana editorial. Você aprova o que faz sentido.</p>
+    <p class="produto-aud">Founders, executivos, advisors e especialistas não perdem negócio por falta de competência. Perdem porque o mercado não lembra deles na hora certa.</p>
   </div>
   <div class="pscreen reveal" aria-hidden="true">
     <div class="pbar">
@@ -1195,8 +1253,8 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       </div>
       <div class="bx reveal">
         <div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.2"/><circle cx="8" cy="8" r="2.6"/><path d="M8 8l4.4-4.4"/></svg></div>
-        <h3>Radar de Autoridade</h3>
-        <p>Lê fóruns, notícias e tendências do seu mercado, em todos os idiomas e no mundo todo, e cruza com o seu nicho pra te entregar o assunto certo antes de virar lugar-comum.</p>
+        <h3>Radar de Oportunidades</h3>
+        <p>Encontra assuntos emergentes antes de virarem lugar-comum e cruza com o seu posicionamento, as suas ideias e o seu público. Em todos os idiomas, no mundo todo.</p>
         <div class="trend">
           <span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l4-4 3 3 4-6"/><path d="M11 4h3v3"/></svg> Em alta agora</span>
           <span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l4-4 3 3 4-6"/><path d="M11 4h3v3"/></svg> No seu nicho</span>
@@ -1205,7 +1263,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       </div>
       <div class="bx banner imgbanner reveal">
         <div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="12" height="10" rx="1.8"/><circle cx="5.6" cy="6.6" r="1.1"/><path d="M2.5 11l3.2-3 2.3 1.8 2.6-2.4 3 2.8"/></svg></div>
-        <div class="tx"><h3>Imagens que param o feed</h3><p>De qualquer post, ideia ou link, a IA gera a imagem certa no estilo da sua marca. Capa, ilustração ou carrossel, prontos pra publicar junto.</p></div>
+        <div class="tx"><h3>Criativos no padrão da sua marca</h3><p>Transforme posts, links e ideias em capas, ilustrações e carrosséis consistentes com a sua identidade visual, como se você mesmo tivesse feito. Sem depender de designer para cada publicação.</p></div>
         <div class="imgshow">
           <div class="imgprompt"><svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> Do seu post <em>à imagem pronta</em></div>
           <div class="imgrow"><span class="ig"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=320&q=80" alt="" loading="lazy"><span class="tag">Capa</span></span><span class="ig"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=320&q=80" alt="" loading="lazy"><span class="tag">Ilustração</span></span><span class="ig"><img src="https://images.unsplash.com/photo-1531497865144-0464ef8fb9a9?auto=format&fit=crop&w=320&q=80" alt="" loading="lazy"><span class="tag">Carrossel</span></span></div>
@@ -1240,7 +1298,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       </div>
       <div class="bx banner reveal">
         <div class="ic"><svg width="24" height="24" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.6-3.2 2 1.6L13 5"/></svg></div>
-        <div class="tx"><h3>Analytics & Alertas</h3><p>Cole suas métricas e veja o que funciona: temas, formatos e horários. E seja avisado quando algo pede ação.</p></div>
+        <div class="tx"><h3>Inteligência editorial, não só métrica solta</h3><p>Entenda quais temas geram conversas qualificadas, quais formatos sustentam alcance e quais posts merecem resposta, continuação ou follow-up comercial.</p></div>
         <div class="mspark"><svg viewBox="0 0 120 40" preserveAspectRatio="none"><defs><linearGradient id="msg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0a66c2" stop-opacity=".24"/><stop offset="1" stop-color="#0a66c2" stop-opacity="0"/></linearGradient></defs><path d="M0 33 L20 28 L40 30 L60 20 L80 23 L100 11 L120 5 L120 40 L0 40 Z" fill="url(#msg)"/><path d="M0 33 L20 28 L40 30 L60 20 L80 23 L100 11 L120 5" fill="none" stroke="#0a66c2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="pct">+34% alcance</span></div>
       </div>
     </div>
@@ -1300,24 +1358,61 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       </div>
       <div class="rp-srcs">Você escolhe onde ele procura: Portais de notícias, Reddit, Google News, GitHub e outras fontes do seu mercado.</div>
     </div>
-    <div class="proof-grid">
-      <div class="pain reveal">
-        <h3>Soa familiar?</h3>
-        <ul>
-          <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5"/></svg> Você abre pra postar, trava na primeira frase e fecha o LinkedIn.</li>
-          <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5"/></svg> Some do feed por semanas e ninguém lembra que você existe.</li>
-          <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5"/></svg> Vê um concorrente menos preparado virar autoridade no seu lugar.</li>
-          <li><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.2"/><path d="M5.5 5.5l5 5M10.5 5.5l-5 5"/></svg> Tem o que dizer, mas a oportunidade passa no "depois eu escrevo".</li>
-        </ul>
-      </div>
-      <div class="why reveal">
-        <div class="why-eye"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.5V8l2.5 1.5"/></svg> Por que agora</div>
-        <h3>Quem chega cedo sai na frente.</h3>
-        <p>Beta privado, em lotes pequenos. Quem entra cedo molda o produto e garante acesso premium aos módulos. As primeiras vagas abrem em 20 de junho e não voltam pelo mesmo preço.</p>
-        <a class="btn primary" href="#beta">Quero entrar no primeiro lote
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
-      </div>
+  </div>
+</section>
+
+<!-- CASOS DE USO -->
+<section class="sec wrap" id="casos">
+  <div class="sec-head reveal"><h2>Feito para quem o mercado <span class="brandblue">precisa lembrar</span>.</h2><p>Pessoas cuja próxima oportunidade depende de serem reconhecidas como referência.</p></div>
+  <div class="cases">
+    <div class="case reveal">
+      <span class="case-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5.5 2.3v3.6c0 3.4-2.4 5.6-5.5 6.6-3.1-1-5.5-3.2-5.5-6.6V3.8z"/><path d="M5.7 8l1.6 1.6L10.6 6"/></svg></span>
+      <h3>Founder B2B</h3>
+      <p>Transforma visão de mercado em confiança e conversa comercial.</p>
     </div>
+    <div class="case reveal">
+      <span class="case-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5.5 4L2 8l3.5 4M10.5 4L14 8l-3.5 4"/></svg></span>
+      <h3>CTO / Executivo de tecnologia</h3>
+      <p>Traduz decisões técnicas em autoridade estratégica.</p>
+    </div>
+    <div class="case reveal">
+      <span class="case-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 9.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM2.5 14c.6-2.6 2.7-4 5.5-4s4.9 1.4 5.5 4"/></svg></span>
+      <h3>Consultor / Advisor</h3>
+      <p>Mantém presença sem depender de agência ou ghostwriter.</p>
+    </div>
+    <div class="case reveal">
+      <span class="case-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="6" r="2"/><circle cx="11" cy="6" r="2"/><path d="M1.5 13c.4-2 1.8-3 3.5-3s3.1 1 3.5 3M8 13c.3-1.6 1.6-2.6 3-2.6 1.5 0 2.7 1 3 2.6"/></svg></span>
+      <h3>Líder de comunidade / creator técnico</h3>
+      <p>Organiza repertório, calendário e engajamento sem virar refém do feed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ANTES / DEPOIS -->
+<section class="sec band" id="antes-depois">
+  <div class="wrap">
+    <div class="sec-head reveal"><h2>Antes: inspiração solta. <span class="brandblue">Depois: operação semanal.</span></h2></div>
+    <div class="ba-table reveal">
+      <div class="ba-row ba-head"><span class="ba-a">Antes</span><span class="ba-b">Com PresenceIn</span></div>
+      <div class="ba-row"><span class="ba-a">"Depois eu posto"</span><span class="ba-b"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Semana editorial pronta</span></div>
+      <div class="ba-row"><span class="ba-a">Ideia perdida no WhatsApp</span><span class="ba-b"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Banco de ideias e repertório</span></div>
+      <div class="ba-row"><span class="ba-a">Post com cara de IA</span><span class="ba-b"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Voz calibrada e auditada</span></div>
+      <div class="ba-row"><span class="ba-a">Tendência vista tarde</span><span class="ba-b"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Radar de mercado</span></div>
+      <div class="ba-row"><span class="ba-a">Métrica esquecida</span><span class="ba-b"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Aprendizado para o próximo ciclo</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SEGURANÇA & CONFORMIDADE -->
+<section class="sec wrap" id="seguranca">
+  <div class="sec-head reveal"><h2>Não é automação cega. <span class="brandblue">É presença assistida, com controle humano.</span></h2><p>Tudo passa por você. O PresenceIn nunca age sozinho no seu nome.</p></div>
+  <div class="safe-grid reveal">
+    <div class="safe-item no"><span class="si-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>Não compra engajamento.</div>
+    <div class="safe-item no"><span class="si-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>Não faz auto-like.</div>
+    <div class="safe-item no"><span class="si-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>Não dispara mensagem em massa.</div>
+    <div class="safe-item no"><span class="si-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>Não publica sem a sua aprovação.</div>
+    <div class="safe-item no"><span class="si-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>Não finge que você está online.</div>
+    <div class="safe-item yes"><span class="si-ic"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg></span>Ajuda você a pensar, escrever, revisar e agir melhor. Sempre com a palavra final sendo sua.</div>
   </div>
 </section>
 
@@ -1410,7 +1505,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     <div class="col">
       <h4>Recursos</h4>
       <a href="#modulos">Studio</a>
-      <a href="#modulos">Radar de Autoridade</a>
+      <a href="#modulos">Radar de Oportunidades</a>
       <a href="#modulos">Centro de Aprovação</a>
       <a href="#modulos">Analytics</a>
     </div>
