@@ -445,10 +445,10 @@ section{position:relative}
 .mq-head{text-align:center; margin-bottom:30px}
 .mq-head h2{font-size:clamp(26px,3.6vw,40px); font-weight:600; color:var(--ink); letter-spacing:-.02em}
 .mq-head p{margin:14px auto 0; color:var(--ink-2); font-size:16px; line-height:1.55; max-width:54ch}
-.rotw{display:inline-block; min-width:11ch; text-align:center; position:relative; vertical-align:bottom}
-.rotw .rw{display:inline-block; color:var(--rotc,#0a66c2); transition:opacity .22s var(--ease), transform .22s var(--ease); will-change:opacity,transform}
-.rotw::after{content:''; position:absolute; left:6%; right:6%; bottom:-3px; height:3px; border-radius:3px; background:var(--rotc,#0a66c2); transition:background .35s var(--ease)}
-@media (max-width:520px){.rotw{min-width:8.5ch}}
+.rotw{display:inline-flex; justify-content:center; min-width:13ch; text-align:center; vertical-align:bottom}
+.rotw .rw{display:inline-block; position:relative; color:var(--rotc,#0a66c2); transition:opacity .22s var(--ease), transform .22s var(--ease); will-change:opacity,transform; padding-bottom:4px}
+.rotw .rw::after{content:''; position:absolute; left:0; right:0; bottom:0; height:3px; border-radius:3px; background:var(--rotc,#0a66c2); transition:background .35s var(--ease)}
+@media (max-width:520px){.rotw{min-width:0; width:100%}}
 .mq-zone{margin-top:clamp(26px,4vw,40px); padding:4px 0}
 .marquee{overflow:hidden; -webkit-mask:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent); mask:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
 .marquee + .marquee{margin-top:12px}
@@ -1062,7 +1062,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                       <div class="opp"><div class="opp-main"><b>Por que bom talento vai embora</b><span>Pauta quente entre líderes de RH</span></div><span class="opp-fit">fit 9</span></div>
                       <div class="opp sel" id="oppSel"><div class="opp-main"><b>Cultura de verdade começa no onboarding</b><span>Forte na sua voz · alcance estimado ~1,1k</span></div><span class="opp-fit hi">fit 8</span><span class="opp-go" id="tGerar">Gerar →</span></div>
                       <div class="opp"><div class="opp-main"><b>O que um incidente real ensina</b><span>Tema recorrente do seu setor · 2 dias atrás</span></div><span class="opp-fit">fit 7</span></div>
-                      <div class="opp"><div class="opp-main"><b>Reuniões que poderiam ser um post</b><span>Pauta quente no Reddit · 1 dia atrás</span></div><span class="opp-fit">fit 7</span></div>
+                      <div class="opp"><div class="opp-main"><b>Reuniões que poderiam ser um post</b><span>Pauta quente no Reddit · 1 dia atrás</span></div><span class="opp-fit">fit 6</span></div>
                     </div>
                   </div>
                   <!-- Passo 2: Estúdio escreve na sua voz, com painel pra editar -->
@@ -1301,7 +1301,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
             <h4>Voz detectada <span class="stp"></span></h4>
             <div class="pmatch"><span class="pmnum">94<em>% match</em></span><span class="pbar2"><span></span></span></div>
             <div class="ptags"><span>Direto</span><span>Técnico</span><span>1ª pessoa</span><span>Sem jargão</span></div>
-            <div class="pquote">"Na prática, cultura de verdade começa no onboarding, não no incidente." <b>Do jeito que você escreveria.</b></div>
+            <div class="pquote">"1:1 não é status report. É onde a confiança se constrói (ou se perde)." <b>Do jeito que você escreveria.</b></div>
           </div>
         </div>
       </div>
@@ -1361,10 +1361,10 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
           <div class="ftags"><span>Gerar variantes</span><span>Humanizar</span><span>Auditar nota</span><span>Reescrever</span><span>Carrossel</span><span>Imagem</span></div>
         </div>
         <div class="mini">
-          <div class="mini-src"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><span class="ms-q">Radar: <b>"cultura de verdade"</b> em alta</span><span class="mini-srcn">12 sinais</span></div>
+          <div class="mini-src"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg><span class="ms-q">Radar: <b>"demissão silenciosa"</b> em alta</span><span class="mini-srcn">12 sinais</span></div>
           <div class="mini-arrow"><span></span> gerou um post na sua voz</div>
           <div class="mini-row"><img class="mini-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><span><b>Marina Alves</b><span>Head de Gente & Cultura</span></span><span class="mini-vz">na sua voz</span></div>
-          <div class="mini-tx">"Três coisas que eu mudei na rotina da minha equipe, e por que a primeira é a que ninguém faz…"</div>
+          <div class="mini-tx">"O sinal de demissão silenciosa que todo gestor ignora, e como reverti no meu time…"</div>
           <div class="mini-tools"><span><svg width="9" height="9" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> Variantes</span><span>Humanizar</span><span>Auditar</span><span>Imagem</span></div>
           <div class="mini-foot"><span class="mini-chip ok">Nota 86</span><span class="mini-chip">Risco IA 12</span><span class="mini-send">Enviar →</span></div>
         </div>
@@ -1431,19 +1431,19 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       <div class="svis">
         <div class="sv-hd"><span class="sv-dot ok"></span> Sua voz</div>
         <div class="sv-chips"><span>Direto</span><span>Técnico</span><span>1ª pessoa</span><span>Sem jargão</span></div>
-        <div class="sv-line">94% de match com os seus posts antigos</div>
+        <div class="sv-line">91% de match com os seus posts antigos</div>
       </div></div></div>
     <div class="step reveal"><div class="n">2</div><div class="tx"><div class="stag">Passo 2</div><h3>Vigia o seu mercado</h3><p>O Radar lê fóruns e notícias do seu nicho, em todos os idiomas, e já deixa post, comentário e resposta prontos pra você.</p>
       <div class="svis">
         <div class="sv-hd"><span class="sv-dot scan"></span> Radar · varrendo agora</div>
-        <div class="sv-opp"><b>Cultura começa no onboarding</b><i>fit 8</i></div>
+        <div class="sv-opp"><b>Contratar por contexto, não currículo</b><i>fit 8</i></div>
         <div class="sv-opp"><b>Reuniões que poderiam ser um post</b><i>fit 7</i></div>
       </div></div></div>
     <div class="step reveal"><div class="n">3</div><div class="tx"><div class="stag">Passo 3</div><h3>Você aprova e publica</h3><p>Revisa, ajusta o que quiser e decide: publica na hora ou agenda pro melhor horário, sempre no seu tom.</p>
       <div class="svis">
         <div class="sv-hd"><span class="sv-dot ok"></span> Aprovações</div>
         <div class="sv-post">
-          <div class="sv-row"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><b>"Cultura começa no onboarding…"</b></div>
+          <div class="sv-row"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><b>"Contratar por contexto, não currículo…"</b></div>
           <div class="sv-meta"><span class="sv-st">Pronto · na sua voz</span><span class="sv-sched"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/><path d="M2.5 6h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg> Terça, 9h</span></div>
         </div>
         <div class="sv-acts"><span class="sv-btn">Editar</span><span class="sv-btn">Agendar</span><span class="sv-btn pri">Publicar</span></div>
@@ -1457,19 +1457,19 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     <div class="sec-head reveal"><h2>150 fontes. Últimas 24h. <span class="brandblue">Só o que importa pra você.</span></h2><p>Enquanto você toca o seu trabalho, o Radar varre notícias, fóruns e tendências do seu mercado no mundo todo e separa o assunto certo, antes de virar lugar-comum.</p></div>
     <div class="radar-live reveal" id="radarLive">
       <div class="rl-top">
-        <div class="rl-status"><span class="rl-dot"></span> Varrendo <b>150+ fontes</b> · últimas 24h</div>
+        <div class="rl-status"><span class="rl-dot"></span> Varrendo <b>150 fontes</b> · últimas 24h</div>
         <div class="rl-count"><b id="rlNum">0</b> sinais relevantes hoje</div>
       </div>
       <div class="rl-scan"><span></span></div>
       <div class="rl-srcs"><span>Portais de notícias</span><span>Reddit</span><span>Google News</span><span>GitHub</span><span>X</span><span>Newsletters</span><span>Podcasts</span><span class="more">+143 fontes</span></div>
       <div class="rl-feed">
-        <div class="rl-sig"><span class="rl-fit hi">fit 9</span><div class="rl-meta"><b>Cultura de verdade começa no onboarding</b><span>Em alta entre líderes de RH · há 3h</span></div><span class="rl-go">Gerar post →</span></div>
-        <div class="rl-sig"><span class="rl-fit">fit 8</span><div class="rl-meta"><b>Por que bom talento vai embora antes de 1 ano</b><span>Pauta quente no seu nicho · há 7h</span></div></div>
-        <div class="rl-sig"><span class="rl-fit">fit 7</span><div class="rl-meta"><b>Reuniões que poderiam ser um post</b><span>Discussão no Reddit · há 12h</span></div></div>
+        <div class="rl-sig"><span class="rl-fit hi">fit 9</span><div class="rl-meta"><b>Onboarding remoto: o que mudou em 2026</b><span>Em alta entre líderes de RH · há 3h</span></div><span class="rl-go">Gerar post →</span></div>
+        <div class="rl-sig"><span class="rl-fit">fit 8</span><div class="rl-meta"><b>Reter sênior sem entrar em contraproposta</b><span>Pauta quente no seu nicho · há 7h</span></div></div>
+        <div class="rl-sig"><span class="rl-fit">fit 7</span><div class="rl-meta"><b>Feedback contínuo vs. avaliação anual</b><span>Discussão no Reddit · há 12h</span></div></div>
       </div>
     </div>
     <div class="rl-steps reveal">
-      <div class="rl-step"><span class="rl-stnum">1</span><b>Capta os sinais</b><span>Varre 150+ fontes no mundo todo, em todos os idiomas. Você não abre nada.</span></div>
+      <div class="rl-step"><span class="rl-stnum">1</span><b>Capta os sinais</b><span>Varre 150 fontes no mundo todo, em todos os idiomas. Você não abre nada.</span></div>
       <div class="rl-step"><span class="rl-stnum">2</span><b>Cruza com o seu perfil</b><span>Filtra pelo seu nicho, posição e objetivo. Nunca cai no óbvio.</span></div>
       <div class="rl-step"><span class="rl-stnum">3</span><b>Entrega pronto</b><span>Com ângulo, formato e prioridade, pronto pra virar post ou comentário.</span></div>
     </div>
