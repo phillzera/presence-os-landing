@@ -1419,7 +1419,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     mw.addEventListener('pointermove',function(e){ var r=mw.getBoundingClientRect();var px=(e.clientX-r.left)/r.width-.5,py=(e.clientY-r.top)/r.height-.5; if(setRX){setRX(-py*5);setRY(px*7);}else{book.style.transform='rotateX('+(-py*5)+'deg) rotateY('+(px*7)+'deg)';} });
     mw.addEventListener('pointerleave',function(){ if(setRX){setRX(0);setRY(0);}else{book.style.transform='';} });
   }
-  // MacBook: demo com cursor — Radar -> Sugerir -> Editar/Aprovar -> Publicado
+  // MacBook: demo com cursor. Radar -> Sugerir -> Editar/Aprovar -> Publicado
   (function(){
     var stage=document.getElementById('macStage'); if(!stage) return;
     var scrs=[].slice.call(stage.querySelectorAll('.scr'));
