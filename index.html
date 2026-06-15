@@ -784,14 +784,14 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 .sp-stat span{display:block; margin-top:10px; font-size:13px; color:rgba(255,255,255,.7); line-height:1.45}
 .sp-note{margin-top:clamp(22px,3vw,34px); text-align:center; font-size:12.5px; color:rgba(255,255,255,.5); max-width:64ch; margin-left:auto; margin-right:auto}
 .sp-note b{color:rgba(255,255,255,.7); font-weight:600}
-.sp-source{margin-top:clamp(22px,3vw,32px); display:flex; align-items:center; justify-content:center; gap:7px; font-size:12px; color:rgba(255,255,255,.55); font-weight:500}
-.sp-source img{border-radius:4px; opacity:.95; flex:none}
-.sp-press{margin-top:22px; padding-top:22px; border-top:1px solid rgba(255,255,255,.08); text-align:center}
-.sp-press-lbl{display:block; font-size:11px; letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.42); font-weight:600; margin-bottom:15px}
-.sp-press-row{display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:10px 22px}
-.sp-press-item{display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:600; color:rgba(255,255,255,.78)}
-.sp-press-item img{border-radius:4px; background:#fff; padding:1px; flex:none}
-@media (max-width:560px){.sp-press-row{gap:10px 16px} .sp-press-item{font-size:12.5px}}
+.sp-source{margin-top:clamp(24px,3vw,34px); display:inline-flex; align-items:center; justify-content:center; gap:8px; font-size:12.5px; color:rgba(255,255,255,.62); font-weight:500; width:100%}
+.sp-source img{border-radius:5px; background:#fff; padding:2px; flex:none}
+.sp-press{margin-top:26px; padding-top:26px; border-top:1px solid rgba(255,255,255,.08); text-align:center}
+.sp-press-lbl{display:block; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:rgba(255,255,255,.45); font-weight:600; margin-bottom:18px}
+.sp-press-row{display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:12px}
+.sp-press-item{display:inline-flex; align-items:center; gap:9px; font-size:14.5px; font-weight:600; color:#fff; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.13); border-radius:99px; padding:8px 17px 8px 9px}
+.sp-press-item img{border-radius:6px; background:#fff; padding:2px; flex:none}
+@media (max-width:560px){.sp-press-row{gap:9px} .sp-press-item{font-size:12.5px; padding:6px 13px 6px 7px} .sp-press-item img{width:20px;height:20px}}
 @media (max-width:680px){.sp-stats{grid-template-columns:1fr 1fr; gap:12px}}
 @media (max-width:380px){.sp-stats{grid-template-columns:1fr 1fr}}
 
@@ -818,16 +818,22 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 @media (max-width:520px){.cases{grid-template-columns:1fr}}
 
 /* antes / depois */
-.ba-table{max-width:760px; margin:0 auto; border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden; background:var(--surface); box-shadow:var(--sh-1)}
-.ba-row{display:grid; grid-template-columns:1fr 1fr; border-top:1px solid var(--line)}
+.ba-table{max-width:820px; margin:0 auto; border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden; background:var(--surface); box-shadow:var(--sh-2)}
+.ba-row{display:grid; grid-template-columns:1fr 44px 1fr; align-items:stretch; border-top:1px solid var(--line); transition:background .2s var(--ease)}
 .ba-row:first-child{border-top:none}
+.ba-row:not(.ba-head):hover{background:linear-gradient(90deg,transparent, var(--i-soft) 75%)}
 .ba-row span{padding:15px 20px; font-size:14.5px; display:flex; align-items:center; gap:9px; line-height:1.35}
-.ba-row .ba-a{color:var(--ink-3); border-right:1px solid var(--line)}
+.ba-row .ba-a{color:var(--ink-3)}
+.ba-row .ba-a .bx{flex:none; width:19px; height:19px; border-radius:50%; display:grid; place-items:center; background:#fdecf0; color:#e11d48} .ba-row .ba-a .bx svg{width:10px; height:10px}
+.ba-arrow{display:grid; place-items:center; color:var(--i); opacity:.45}
+.ba-arrow svg{width:16px; height:16px; transition:transform .25s var(--ease)}
+.ba-row:not(.ba-head):hover .ba-arrow svg{transform:translateX(3px)}
+.ba-row:not(.ba-head):hover .ba-arrow{opacity:.8}
 .ba-row .ba-b{color:var(--ink); font-weight:600}
-.ba-row .ba-b svg{flex:none; color:var(--ok)}
+.ba-row .ba-b .bc{flex:none; width:19px; height:19px; padding:3px; border-radius:50%; background:#e9f9ef; color:var(--ok-text)}
 .ba-head .ba-a,.ba-head .ba-b{font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; font-weight:600; background:var(--muted-bg)}
-.ba-head .ba-a{color:var(--ink-3)} .ba-head .ba-b{color:var(--i)}
-@media (max-width:520px){.ba-row span{padding:12px 13px; font-size:12.5px}}
+.ba-head .ba-a{color:var(--ink-3)} .ba-head .ba-b{color:var(--i)} .ba-head .ba-arrow{background:var(--muted-bg)}
+@media (max-width:520px){.ba-row{grid-template-columns:1fr 30px 1fr} .ba-row span{padding:12px 11px; font-size:12px} .ba-arrow svg{width:13px;height:13px}}
 
 /* segurança & conformidade */
 .safe-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-width:980px; margin:0 auto}
@@ -1267,14 +1273,16 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       <div class="sp-stat"><b><em>4</em> em 5</b><span>membros impulsionam decisões de negócio</span></div>
       <div class="sp-stat"><b>nº <em>1</em></b><span>rede para conteúdo e oportunidades profissionais</span></div>
     </div>
-    <div class="sp-source reveal"><img src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=64" alt="" loading="lazy" width="16" height="16"> Dados oficiais do LinkedIn · 2024</div>
+    <div class="sp-source reveal"><img src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=128" alt="" loading="lazy" width="18" height="18"> <span>Dados oficiais do LinkedIn · 2024</span></div>
     <div class="sp-press reveal">
       <span class="sp-press-lbl">Carreira e presença no LinkedIn são pauta recorrente em</span>
       <div class="sp-press-row">
-        <span class="sp-press-item"><img src="https://www.google.com/s2/favicons?domain=forbes.com&sz=64" alt="" loading="lazy" width="18" height="18"> Forbes</span>
-        <span class="sp-press-item"><img src="https://www.google.com/s2/favicons?domain=hbr.org&sz=64" alt="" loading="lazy" width="18" height="18"> Harvard Business Review</span>
-        <span class="sp-press-item"><img src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=64" alt="" loading="lazy" width="18" height="18"> Bloomberg</span>
-        <span class="sp-press-item"><img src="https://www.google.com/s2/favicons?domain=exame.com&sz=64" alt="" loading="lazy" width="18" height="18"> Exame</span>
+        <span class="sp-press-item"><img src="https://www.google.com/s2/favicons?domain=forbes.com&sz=128" alt="" loading="lazy" width="26" height="26"> Forbes</span>
+        <span class="sp-press-item"><img src="https://www.google.com/s2/favicons?domain=hbr.org&sz=128" alt="" loading="lazy" width="26" height="26"> Harvard Business Review</span>
+        <span class="sp-press-item"><img src="https://www.google.com/s2/favicons?domain=bloomberg.com&sz=128" alt="" loading="lazy" width="26" height="26"> Bloomberg</span>
+        <span class="sp-press-item"><img src="https://www.google.com/s2/favicons?domain=exame.com&sz=128" alt="" loading="lazy" width="26" height="26"> Exame</span>
+        <span class="sp-press-item"><img src="https://www.google.com/s2/favicons?domain=fastcompany.com&sz=128" alt="" loading="lazy" width="26" height="26"> Fast Company</span>
+        <span class="sp-press-item"><img src="https://www.google.com/s2/favicons?domain=inc.com&sz=128" alt="" loading="lazy" width="26" height="26"> Inc.</span>
       </div>
     </div>
   </div>
@@ -1410,44 +1418,18 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   </div>
 </section>
 
-<!-- CASOS DE USO -->
-<section class="sec wrap" id="casos">
-  <div class="sec-head reveal"><h2>Feito para quem o mercado <span class="brandblue">precisa lembrar</span>.</h2><p>Pessoas cuja próxima oportunidade depende de serem reconhecidas como referência.</p></div>
-  <div class="cases">
-    <div class="case reveal">
-      <span class="case-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5.5 2.3v3.6c0 3.4-2.4 5.6-5.5 6.6-3.1-1-5.5-3.2-5.5-6.6V3.8z"/><path d="M5.7 8l1.6 1.6L10.6 6"/></svg></span>
-      <h3>Founder B2B</h3>
-      <p>Transforma visão de mercado em confiança e conversa comercial.</p>
-    </div>
-    <div class="case reveal">
-      <span class="case-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5.5 4L2 8l3.5 4M10.5 4L14 8l-3.5 4"/></svg></span>
-      <h3>CTO / Executivo de tecnologia</h3>
-      <p>Traduz decisões técnicas em autoridade estratégica.</p>
-    </div>
-    <div class="case reveal">
-      <span class="case-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 9.5a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM2.5 14c.6-2.6 2.7-4 5.5-4s4.9 1.4 5.5 4"/></svg></span>
-      <h3>Consultor / Advisor</h3>
-      <p>Mantém presença sem depender de agência ou ghostwriter.</p>
-    </div>
-    <div class="case reveal">
-      <span class="case-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="5" cy="6" r="2"/><circle cx="11" cy="6" r="2"/><path d="M1.5 13c.4-2 1.8-3 3.5-3s3.1 1 3.5 3M8 13c.3-1.6 1.6-2.6 3-2.6 1.5 0 2.7 1 3 2.6"/></svg></span>
-      <h3>Líder de comunidade / creator técnico</h3>
-      <p>Organiza repertório, calendário e engajamento sem virar refém do feed.</p>
-    </div>
-  </div>
-</section>
 
 <!-- ANTES / DEPOIS -->
 <section class="sec band" id="antes-depois">
   <div class="wrap">
     <div class="sec-head reveal"><h2>Antes: inspiração solta. <span class="brandblue">Depois: operação semanal.</span></h2></div>
-    <div class="ba-table reveal">
-      <div class="ba-row ba-head"><span class="ba-a">Antes</span><span class="ba-b">Com PresenceIn</span></div>
-      <div class="ba-row"><span class="ba-a">"Depois eu posto"</span><span class="ba-b"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Semana editorial pronta</span></div>
-      <div class="ba-row"><span class="ba-a">Ideia perdida no WhatsApp</span><span class="ba-b"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Banco de ideias e repertório</span></div>
-      <div class="ba-row"><span class="ba-a">Post com cara de IA</span><span class="ba-b"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Voz calibrada e auditada</span></div>
-      <div class="ba-row"><span class="ba-a">Tendência vista tarde</span><span class="ba-b"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Radar de mercado</span></div>
-      <div class="ba-row"><span class="ba-a">Métrica esquecida</span><span class="ba-b"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Aprendizado para o próximo ciclo</span></div>
+    <div class="ba-table">
+      <div class="ba-row ba-head reveal"><span class="ba-a">Antes</span><span class="ba-arrow"></span><span class="ba-b">Com PresenceIn</span></div>
+      <div class="ba-row reveal"><span class="ba-a"><i class="bx"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></i>"Depois eu posto"</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></span><span class="ba-b"><svg class="bc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg>Semana editorial pronta</span></div>
+      <div class="ba-row reveal"><span class="ba-a"><i class="bx"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></i>Ideia perdida no WhatsApp</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></span><span class="ba-b"><svg class="bc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg>Banco de ideias e repertório</span></div>
+      <div class="ba-row reveal"><span class="ba-a"><i class="bx"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></i>Post com cara de IA</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></span><span class="ba-b"><svg class="bc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg>Voz calibrada e auditada</span></div>
+      <div class="ba-row reveal"><span class="ba-a"><i class="bx"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></i>Tendência vista tarde</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></span><span class="ba-b"><svg class="bc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg>Radar de mercado</span></div>
+      <div class="ba-row reveal"><span class="ba-a"><i class="bx"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></i>Métrica esquecida</span><span class="ba-arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></span><span class="ba-b"><svg class="bc" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg>Aprendizado para o próximo ciclo</span></div>
     </div>
   </div>
 </section>
@@ -1461,6 +1443,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     <div class="safe-item no"><span class="si-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>Não dispara mensagem em massa.</div>
     <div class="safe-item no"><span class="si-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>Não publica sem a sua aprovação.</div>
     <div class="safe-item no"><span class="si-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>Não finge que você está online.</div>
+    <div class="safe-item no"><span class="si-ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4l8 8M12 4l-8 8"/></svg></span>Não segue nem conecta sozinho.</div>
     <div class="safe-item yes"><span class="si-ic"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg></span>Ajuda você a pensar, escrever, revisar e agir melhor. Sempre com a palavra final sendo sua.</div>
   </div>
 </section>
