@@ -25,7 +25,7 @@
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
 <link rel="preconnect" href="https://api.iconify.design" crossorigin />
 <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&family=Geist+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%233a9bf0'/%3E%3Cstop offset='1' stop-color='%23054889'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='8' fill='url(%23g)'/%3E%3Ctext x='9' y='23' font-family='Arial,Helvetica,sans-serif' font-size='20' font-weight='700' fill='%23fff'%3EP%3C/text%3E%3Cg stroke='%2376e8b8' stroke-width='2' fill='none' stroke-linecap='round'%3E%3Ccircle cx='20.5' cy='24' r='1.6' fill='%2376e8b8' stroke='none'/%3E%3Cpath d='M20.5 17.5A6.5 6.5 0 0 1 27 24'/%3E%3C/g%3E%3C/svg%3E" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -43,9 +43,9 @@
   --sh-2:0 6px 18px -6px rgba(20,48,80,.14), 0 2px 6px rgba(20,48,80,.06);
   --sh-3:0 30px 70px -24px rgba(20,48,80,.34), 0 8px 20px -12px rgba(20,48,80,.16);
   --maxw:1160px; --gutter:clamp(20px,4vw,40px); --sec:clamp(60px,7vw,100px);
-  --font-display:'Geist',-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
-  --font-sans:'Geist',-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,Roboto,Helvetica,Arial,sans-serif;
-  --font-mono:'Geist Mono',ui-monospace,"SF Mono","SFMono-Regular",Menlo,Monaco,monospace;
+  --font-display:'Bricolage Grotesque',-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  --font-sans:'Manrope',-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,Roboto,Helvetica,Arial,sans-serif;
+  --font-mono:'JetBrains Mono',ui-monospace,"SF Mono","SFMono-Regular",Menlo,Monaco,monospace;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth; scroll-padding-top:120px}
@@ -93,7 +93,7 @@ main,footer{position:relative; z-index:1}
 .nav.scrolled{background:#fff; border-bottom-color:var(--line); box-shadow:0 6px 22px -12px rgba(0,0,0,.1)}
 .nav .row{display:grid; grid-template-columns:1fr auto 1fr; align-items:center; gap:10px; height:68px; max-width:var(--maxw); margin:0 auto; padding:0 var(--gutter)}
 .nav .links{display:flex; gap:2px; align-items:center; justify-content:center}
-.nav .links > a, .nav .links .recbtn{display:inline-flex; align-items:center; gap:5px; height:36px; padding:0 13px; border-radius:9px; color:var(--ink-2); font-family:var(--font-display); font-size:12.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; background:none; border:none; cursor:pointer; transition:color .18s var(--ease), background .18s var(--ease)}
+.nav .links > a, .nav .links .recbtn{display:inline-flex; align-items:center; gap:5px; height:36px; padding:0 13px; border-radius:9px; color:var(--ink-2); font-family:var(--font-sans); font-size:14.5px; font-weight:600; letter-spacing:-.005em; background:none; border:none; cursor:pointer; transition:color .18s var(--ease), background .18s var(--ease)}
 .nav .links > a:hover, .nav .links .has-mega:hover .recbtn, .nav .links .has-mega:focus-within .recbtn{color:var(--ink); background:color-mix(in srgb,var(--ink) 5%,transparent)}
 .nav .right{display:flex; justify-content:flex-end; align-items:center; gap:13px}
 .logo{display:inline-flex; align-items:center; gap:10px; color:var(--ink); font-weight:600; font-size:20px; letter-spacing:-.04em}
@@ -279,7 +279,30 @@ section{position:relative}
 .opp-go{font-size:8px; font-weight:700; color:var(--i); flex:none}
 .est-body{display:flex; flex-direction:column; flex:1; min-height:0} .est-body .st-ed{flex:1}
 .pub-body{display:flex; flex-direction:column; flex:1; min-height:0}
-.pub-body .li-img{height:60px}
+.pub-prev{display:grid; grid-template-columns:1fr 112px; gap:10px; flex:1; min-height:0; align-items:start; margin-bottom:9px}
+.pub-prev .pv-col{display:flex; flex-direction:column; min-width:0}
+.pub-prev .pv-lbl{display:flex; align-items:center; gap:4px; font-size:7px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); margin-bottom:5px}
+.pub-prev .pv-lbl svg{color:var(--i); flex:none}
+.pub-body .li-img{height:84px}
+.pub-prev .li-tx{padding:6px 10px 7px; -webkit-line-clamp:2; display:-webkit-box; -webkit-box-orient:vertical; overflow:hidden}
+.li-bar{display:flex; align-items:center; justify-content:space-around; gap:4px; padding:5px 6px; border-top:1px solid var(--line); margin-top:1px}
+.li-bar span{display:inline-flex; align-items:center; gap:3px; font-size:7px; font-weight:600; color:var(--ink-3)} .li-bar svg{flex:none}
+/* phone (mobile) preview */
+.pv-phone{position:relative; background:linear-gradient(165deg,#1d2c46,#0e1726); border-radius:15px; padding:5px; box-shadow:0 12px 22px -10px rgba(16,30,52,.55)}
+.pv-notch{position:absolute; top:8px; left:50%; transform:translateX(-50%); width:24px; height:4px; border-radius:3px; background:rgba(255,255,255,.28); z-index:2}
+.pv-phone-scr{background:#fff; border-radius:11px; overflow:hidden; padding-top:5px}
+.mli-hd{display:flex; align-items:center; gap:4px; padding:5px 6px 0}
+.mli-av{width:16px; height:16px; border-radius:50%; object-fit:cover; flex:none}
+.mli-meta{min-width:0}
+.mli-meta b{display:block; font-size:6.5px; font-weight:700; color:var(--ink); line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.mli-meta span{display:block; font-size:5.5px; color:var(--ink-3); line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.mli-tx{font-size:6.5px; color:var(--ink); line-height:1.42; padding:5px 6px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
+.mli-img{width:100%; height:50px; object-fit:cover; display:block}
+.mli-stats{display:flex; align-items:center; gap:3px; padding:4px 6px 5px; font-size:5.5px; color:var(--ink-3)}
+.mli-rx{display:inline-flex}
+.mli-rx i{width:8px; height:8px; border-radius:50%; border:1.3px solid #fff; margin-left:-2px} .mli-rx i:first-child{margin-left:0}
+.mli-rx i.b{background:#378fe9} .mli-rx i.r{background:#df704d}
+@media (max-width:520px){.pub-prev{grid-template-columns:1fr 96px; gap:8px}}
 .pub-actions{display:flex; gap:7px; margin-top:9px; flex:none}
 .pub-approve{flex:1; height:29px; border-radius:8px; border:none; background:var(--i); color:#fff; font-size:9px; font-weight:700; font-family:inherit; display:inline-flex; align-items:center; justify-content:center; gap:5px; cursor:pointer; box-shadow:0 6px 13px -5px rgba(10,102,194,.55)}
 .pub-sched{height:29px; border-radius:8px; border:1px solid var(--line); background:#fff; color:var(--ink-2); font-size:9px; font-weight:600; font-family:inherit; padding:0 11px; cursor:pointer; display:inline-flex; align-items:center; gap:5px}
@@ -585,10 +608,12 @@ section{position:relative}
 
 /* prova social */
 .radar-panel{position:relative; background:radial-gradient(135% 145% at 0% 0%, var(--i-soft), #fff 52%); border:1px solid var(--i-line); border-radius:var(--r-xl); padding:clamp(26px,4vw,40px) clamp(24px,4vw,44px) 0; box-shadow:var(--sh-2); margin-bottom:26px; display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(22px,4vw,48px)}
-.radar-panel::before{content:''; position:absolute; top:calc(clamp(26px,4vw,40px) + 22px); left:calc(16.66% + 14px); right:calc(16.66% + 14px); height:2px; background:repeating-linear-gradient(90deg,var(--i) 0 6px,transparent 6px 13px); background-size:13px 2px; opacity:.55; z-index:0; animation:rpflow 1s linear infinite}
+.radar-panel::before{content:''; position:absolute; top:calc(clamp(26px,4vw,40px) + 22px); left:clamp(24px,4vw,44px); right:clamp(24px,4vw,44px); height:2px; border-radius:2px; z-index:0; background:linear-gradient(90deg,transparent 3%,var(--i-line) 19%,var(--i-line) 81%,transparent 97%)}
+.radar-panel::after{content:''; position:absolute; top:calc(clamp(26px,4vw,40px) + 21px); left:clamp(24px,4vw,44px); right:clamp(24px,4vw,44px); height:4px; border-radius:3px; z-index:0; pointer-events:none; background:linear-gradient(90deg,transparent,var(--i),transparent); background-size:28% 100%; background-repeat:no-repeat; background-position:0 0; animation:rpsweep 2.8s var(--ease) infinite}
+@keyframes rpsweep{0%{background-position:0 0}100%{background-position:100% 0}}
 @keyframes rpflow{to{background-position-x:13px}}
-@media (prefers-reduced-motion:reduce){.radar-panel::before{animation:none}}
-.radar-panel .rp-stage{position:relative; z-index:1; padding-bottom:clamp(26px,4vw,40px)}
+@media (prefers-reduced-motion:reduce){.radar-panel::after{animation:none; display:none}}
+.radar-panel .rp-stage{position:relative; z-index:1; padding-bottom:clamp(26px,4vw,40px); display:flex; flex-direction:column; align-items:center; text-align:center}
 .radar-panel .rp-ic{width:46px; height:46px; box-sizing:border-box; border-radius:13px; display:grid; place-items:center; background:linear-gradient(140deg,#3a9bf0,#0a66c2 60%,#084e96); box-shadow:0 9px 20px -8px rgba(10,102,194,.55); margin-bottom:15px; border:3px solid var(--bg)}
 .radar-panel .rp-stage b{display:block; font-size:17px; font-weight:700; color:var(--ink); margin-bottom:6px; letter-spacing:-.01em}
 .radar-panel .rp-stage > span{font-size:14px; color:var(--ink-2); line-height:1.55}
@@ -601,11 +626,11 @@ section{position:relative}
 .radar-panel .rp-stage.on .rp-ic::after{content:''; position:absolute; inset:-3px; border-radius:inherit; border:2px solid var(--i); animation:rpping 1.7s var(--ease) infinite; pointer-events:none}
 @keyframes rpping{0%{opacity:.55; transform:scale(1)}80%,100%{opacity:0; transform:scale(1.45)}}
 @media (prefers-reduced-motion:reduce){.radar-panel .rp-stage.on .rp-ic::after{animation:none; display:none}}
-.radar-panel .rp-extra{margin-top:13px; min-height:26px}
+.radar-panel .rp-extra{margin-top:13px; min-height:26px; width:100%; max-width:230px}
 .radar-panel .rp-scan{height:5px; border-radius:3px; background:var(--surface-2); overflow:hidden; position:relative; opacity:0; transition:opacity .3s var(--ease)}
 .radar-panel .rp-stage.on .rp-scan{opacity:1}
 .radar-panel .rp-scan span{position:absolute; top:0; left:0; width:40%; height:100%; border-radius:3px; background:linear-gradient(90deg,transparent,var(--i),transparent); animation:rdrsweep 1.5s ease-in-out infinite}
-.radar-panel .rp-chips{display:flex; flex-wrap:wrap; gap:5px; opacity:0; transition:opacity .35s var(--ease)}
+.radar-panel .rp-chips{display:flex; flex-wrap:wrap; justify-content:center; gap:5px; opacity:0; transition:opacity .35s var(--ease)}
 .radar-panel .rp-stage.on .rp-chips{opacity:1}
 .radar-panel .rp-chips span{font-size:11px; font-weight:600; color:var(--i); background:var(--i-soft); border:1px solid var(--i-line); border-radius:99px; padding:3px 9px}
 .radar-panel .rp-result{display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:700; color:#fff; background:var(--i); border-radius:99px; padding:5px 11px; opacity:0; transform:translateY(4px); transition:opacity .4s var(--ease), transform .4s var(--ease)}
@@ -679,13 +704,18 @@ footer .fcta::before{content:'';position:absolute;width:280px;height:280px;borde
 footer .fcta h3{font-size:clamp(21px,2.8vw,30px);font-weight:600;color:#fff;letter-spacing:-.02em;max-width:20ch;line-height:1.15;position:relative}
 footer .fcta .btn.primary{background:#fff;color:var(--i-hover);box-shadow:0 12px 26px -10px rgba(0,0,0,.35);position:relative;overflow:hidden}
 footer .fcta .fcta-flow{display:inline-flex;align-items:center;flex:none}
-footer .fcta-flow .ff-p{width:20px;height:20px;border-radius:6px;background:linear-gradient(150deg,#1a85e0,#064c8f);color:#fff;display:grid;place-items:center;box-shadow:0 2px 5px -1px rgba(10,102,194,.5);flex:none}
-footer .fcta-flow .ff-p b{font-family:var(--font-display);font-weight:800;font-size:11px;line-height:1}
-footer .fcta-flow .ff-line{position:relative;width:18px;height:2px;background:rgba(10,102,194,.22);border-radius:2px;margin:0 4px;flex:none}
-footer .fcta-flow .ff-dot{position:absolute;top:50%;left:0;width:5px;height:5px;border-radius:50%;background:#0a66c2;box-shadow:0 0 6px 1px rgba(10,102,194,.5);transform:translate(-50%,-50%);animation:ffdot 1.9s var(--ease) infinite}
-footer .fcta-flow .ff-in{color:#0a66c2;display:grid;place-items:center;flex:none}
-@keyframes ffdot{0%{left:0;opacity:0}12%{opacity:1}88%{opacity:1}100%{left:100%;opacity:0}}
-@media (prefers-reduced-motion:reduce){footer .fcta-flow .ff-dot{animation:none;left:50%;opacity:1}}
+footer .fcta-flow .ff-node{width:18px;height:18px;border-radius:5px;display:grid;place-items:center;flex:none}
+footer .fcta-flow .ff-phone{color:var(--i);background:var(--i-soft);border:1px solid var(--i-line)}
+footer .fcta-flow .ff-p{background:linear-gradient(150deg,#1a85e0,#064c8f);color:#fff;box-shadow:0 2px 5px -1px rgba(10,102,194,.5)}
+footer .fcta-flow .ff-p b{font-family:var(--font-sans);font-weight:800;font-size:10px;line-height:1}
+footer .fcta-flow .ff-ai{color:#0a9e6e;background:rgba(118,232,184,.2);border:1px solid rgba(15,158,114,.28)}
+footer .fcta-flow .ff-in{color:#0a66c2}
+footer .fcta-flow .ff-seg{position:relative;width:12px;height:2px;margin:0 3px;border-radius:2px;flex:none;background:var(--i-line);overflow:hidden}
+footer .fcta-flow .ff-seg::after{content:'';position:absolute;top:0;left:-45%;width:45%;height:100%;border-radius:2px;background:linear-gradient(90deg,transparent,var(--i),transparent);animation:ffseg 1.9s var(--ease) infinite}
+footer .fcta-flow .ff-seg.s2::after{animation-delay:.25s}
+footer .fcta-flow .ff-seg.s3::after{animation-delay:.5s}
+@keyframes ffseg{0%{left:-45%}60%,100%{left:120%}}
+@media (prefers-reduced-motion:reduce){footer .fcta-flow .ff-seg::after{animation:none;left:30%}}
 @media (prefers-reduced-motion:reduce){footer .fcta-morph .fm-li{display:none}footer .fcta-morph .fm-p{opacity:1;transform:none;animation:none}}
 footer .fcta-btn::after{content:'';position:absolute;top:0;left:-65%;width:45%;height:100%;background:linear-gradient(90deg,transparent,rgba(10,102,194,.16),transparent);transform:skewX(-18deg);transition:left .55s var(--ease);pointer-events:none}
 footer .fcta-btn:hover::after{left:135%}
@@ -911,21 +941,38 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                       <span class="st-voice"><span class="dot"></span> aguardando você</span>
                     </div>
                     <div class="pub-body">
-                      <div class="st-pv-tab"><svg width="11" height="11" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Como aparece no LinkedIn</div>
-                      <div class="li-post">
-                        <div class="li-hd">
-                          <img class="li-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=160&q=80" alt="" loading="lazy">
-                          <div class="li-meta">
-                            <b>Marina Alves <em>· 1º</em></b>
-                            <span class="li-sub">Head de Gente & Cultura</span>
-                            <span class="li-time">Agora · <svg width="8" height="8" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6.5"/><path d="M2 8h12M8 1.5c1.7 1.7 1.7 11.3 0 13M8 1.5c-1.7 1.7-1.7 11.3 0 13"/></svg></span>
+                      <div class="st-pv-tab"><svg width="11" height="11" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Veja antes de publicar, igual ao LinkedIn</div>
+                      <div class="pub-prev">
+                        <div class="pv-col">
+                          <div class="pv-lbl"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1.5" y="2.5" width="13" height="9" rx="1.3"/><path d="M5.5 14h5M6.5 11.5l-.4 2.5M9.5 11.5l.4 2.5"/></svg> Computador</div>
+                          <div class="li-post">
+                            <div class="li-hd">
+                              <img class="li-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=160&q=80" alt="" loading="lazy">
+                              <div class="li-meta">
+                                <b>Marina Alves <em>· 1º</em></b>
+                                <span class="li-sub">Head de Gente &amp; Cultura · 8.412 seguidores</span>
+                                <span class="li-time">Agora · <svg width="8" height="8" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6.5"/><path d="M2 8h12M8 1.5c1.7 1.7 1.7 11.3 0 13M8 1.5c-1.7 1.7-1.7 11.3 0 13"/></svg></span>
+                              </div>
+                              <span class="li-more">···</span>
+                            </div>
+                            <div class="li-tx">Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding, não no incidente. <b>#cultura #lideranca</b></div>
+                            <div class="li-imgwrap"><img class="li-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=520&q=80" alt="" loading="lazy"><span class="li-imgbadge"><svg width="8" height="8" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> Imagem gerada</span></div>
+                            <div class="li-stats"><span class="li-rx"><i class="b"></i><i class="r"></i><i class="y"></i></span> Você e 127 outros <span class="sp">24 comentários</span></div>
+                            <div class="li-bar"><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 7.5l2.5-4c.4-.6 1.4-.3 1.3.5L7.5 6.5H11c.7 0 1.2.6 1 1.3l-1 4c-.1.5-.6.8-1 .8H5.5V7.5z"/><path d="M4 7.5H2.5v5H4z"/></svg> Gostei</span><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 3.5h12v8H8l-3 2.5V11.5H2z"/></svg> Comentar</span><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13 2L2 7l4 1.5M13 2L9 13l-3-4.5M13 2L6 8.5"/></svg> Enviar</span></div>
                           </div>
-                          <span class="li-more">···</span>
                         </div>
-                        <div class="li-tx">Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding, não no incidente. <b>#cultura #lideranca</b></div>
-                        <div class="li-imgwrap"><img class="li-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=480&q=80" alt="" loading="lazy"><span class="li-imgbadge"><svg width="8" height="8" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> Imagem gerada</span></div>
-                        <div class="li-stats"><span class="li-rx"><i class="b"></i><i class="r"></i><i class="y"></i></span> Você e 127 outros <span class="sp">24 comentários</span></div>
-                        <div class="li-an"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.5-3 2 1.5L13 5"/></svg> Melhor horário: terça, 9h · alcance estimado ~1,1k</div>
+                        <div class="pv-col pv-col-mob">
+                          <div class="pv-lbl"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4.5" y="1.5" width="7" height="13" rx="1.6"/><path d="M7 12.6h2"/></svg> Celular</div>
+                          <div class="pv-phone">
+                            <span class="pv-notch"></span>
+                            <div class="pv-phone-scr">
+                              <div class="mli-hd"><img class="mli-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><div class="mli-meta"><b>Marina Alves</b><span>Head de Gente &amp; Cultura · Agora</span></div></div>
+                              <div class="mli-tx">Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding…</div>
+                              <img class="mli-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=320&q=80" alt="" loading="lazy">
+                              <div class="mli-stats"><span class="mli-rx"><i class="b"></i><i class="r"></i></span> 127 · 24 coment.</div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                       <div class="pub-actions">
                         <button class="pub-2nd"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11l7-7 3 3-7 7H2z"/><path d="M9 4l3 3"/></svg> Editar</button>
@@ -1149,7 +1196,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       </div>
       <div class="bx reveal">
         <div class="ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="3" width="11" height="10.5" rx="1.6"/><path d="M2.5 6.3h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg></div>
-        <h3>Calendário editorial</h3>
+        <h3>Monte sua semana de publicação</h3>
         <p>Planeje a semana ou o mês inteiro, agende os posts no melhor horário e publique sem precisar estar na frente do computador.</p>
         <div class="mcal"><i>S</i><i class="has">T</i><i>Q</i><i class="has">Q</i><i>S</i></div>
       </div>
@@ -1256,14 +1303,13 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       <div class="beta-grid">
         <div>
           <h2>Garanta o seu lugar no <span class="brandblue">primeiro lote</span>.</h2>
-          <p class="lede">O <strong>BETA PRIVADO</strong> abre em 20 de junho de 2026, em lotes pequenos que fecham rápido.<br>Quem entra agora vira referência primeiro.</p>
+          <p class="lede">O beta privado abre em 20 de junho, em lotes com poucas vagas.<br>Deixe seu e-mail e a gente te avisa assim que a sua abrir.</p>
           <div class="countdown" id="countdown" aria-label="Contagem regressiva para o lançamento">
             <div class="cd-box"><div class="num" id="cd-d">00</div><div class="lab">dias</div></div>
             <div class="cd-box"><div class="num" id="cd-h">00</div><div class="lab">horas</div></div>
             <div class="cd-box"><div class="num" id="cd-m">00</div><div class="lab">min</div></div>
             <div class="cd-box"><div class="num" id="cd-s">00</div><div class="lab">seg</div></div>
           </div>
-          <div class="cd-line">para a abertura do Beta</div>
           <div class="req2">
             <div class="req2-h">Use a IA que você já paga</div>
             <div class="req2-list">
@@ -1307,7 +1353,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   <div class="fbar" aria-hidden="true"></div>
   <div class="fcta reveal">
     <h3>Seja a referência que o seu mercado lembra primeiro.</h3>
-    <a class="btn primary fcta-btn" href="#beta"><span class="fcta-flow" aria-hidden="true"><span class="ff-p"><b>P</b></span><span class="ff-line"><i class="ff-dot"></i></span><span class="ff-in"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span></span> Quero participar do BETA
+    <a class="btn primary fcta-btn" href="#beta"><span class="fcta-flow" aria-hidden="true"><span class="ff-node ff-phone"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4.5" y="1.5" width="7" height="13" rx="1.5"/><path d="M7 12.5h2"/></svg></span><span class="ff-seg s1"></span><span class="ff-node ff-p"><b>P</b></span><span class="ff-seg s2"></span><span class="ff-node ff-ai"><svg width="11" height="11" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.6 4.2 4.4 1.8-4.4 1.8L8 12l-1.6-4.2L2 6l4.4-1.8z"/></svg></span><span class="ff-seg s3"></span><span class="ff-node ff-in"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span></span> Quero participar do BETA
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
   </div>
   <div class="ftop">
@@ -1344,7 +1390,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     </div>
   </div>
   <div class="ftrust"><span>Escreve no seu tom</span><span>Agenda os posts</span><span>Gera as imagens</span><span>Sabe o que comentar</span><span>Sabe o que responder</span><span>Roda na sua IA</span><span>Você aprova tudo</span></div>
-  <div class="bottom"><a class="fprod" href="https://soberanus.com" target="_blank" rel="noopener"><img class="fprod-logo" src="https://soberanus.com/logo.png" alt="Soberanus" loading="lazy"> Um produto <b>Soberanus</b></a><span class="fcopyr">Todos os direitos reservados © <span id="yr">2026</span> PresenceIn</span><span class="flinks"><a href="#faq">Privacidade</a><a href="#faq">Termos</a></span></div>
+  <div class="bottom"><a class="fprod" href="https://soberanus.com" target="_blank" rel="noopener"><img class="fprod-logo" src="https://soberanus.com/logo.png" alt="Soberanus" loading="lazy"> Um produto <b>Soberanus</b></a><span class="fcopyr">PresenceIn © <span id="yr">2026</span> · Todos os direitos reservados</span><span class="flinks"><a href="#faq">Privacidade</a><a href="#faq">Termos</a></span></div>
 </footer>
 
 <script>
