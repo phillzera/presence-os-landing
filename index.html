@@ -281,8 +281,8 @@ section{position:relative}
 .opp-go{font-size:8px; font-weight:700; color:var(--i); flex:none; opacity:0; transition:opacity .35s var(--ease)} .opp.sel .opp-go{opacity:1}
 .est-body{display:flex; flex-direction:column; flex:1; min-height:0} .est-body .st-ed{flex:1}
 .pub-body{display:flex; flex-direction:column; flex:1; min-height:0}
-.pub-prev{display:flex; flex-direction:column; flex:1; min-height:0; margin-bottom:9px; max-width:63%; width:100%; margin-left:0; margin-right:auto}
-.pub-actions{max-width:63%}
+.pub-prev{display:grid; grid-template-columns:1.5fr 1fr; gap:11px; flex:1; min-height:0; margin-bottom:9px; align-items:stretch}
+.pub-left{min-width:0; display:flex; flex-direction:column}
 .pub-head{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px}
 .pub-head .st-pv-tab{margin-bottom:0}
 .pv-toggle{display:inline-flex; gap:2px; background:var(--surface-2); border:1px solid var(--line); border-radius:99px; padding:2px; flex:none}
@@ -290,10 +290,23 @@ section{position:relative}
 .pv-toggle span svg{width:8px; height:8px}
 .pv-toggle span.on{background:#fff; color:var(--i); box-shadow:var(--sh-1)}
 .pub-mob{display:none; justify-content:center; flex:1; min-height:0; padding:2px 0 6px}
-.pub-body.mob .li-post{display:none}
+.pub-body.mob .pub-left .li-post{display:none}
 .pub-body.mob .pub-mob{display:flex}
-.pub-mob .pv-phone{width:154px; align-self:flex-start}
+.pub-mob .pv-phone{width:148px; align-self:flex-start}
 .pub-prev .li-post{width:100%}
+/* painel funcional de aprovação (passo 3) */
+.pub-panel{display:flex; flex-direction:column; gap:7px; min-width:0}
+.pp-status{display:inline-flex; align-items:center; gap:5px; align-self:flex-start; font-size:8px; font-weight:700; color:var(--ok-text); background:#e9f9ef; border:1px solid #bfe8cd; border-radius:99px; padding:3px 9px}
+.pp-status svg{width:9px; height:9px; flex:none}
+.pp-blk{background:#fff; border:1px solid var(--line); border-radius:9px; padding:8px 9px; box-shadow:var(--sh-1)}
+.pp-t{font-size:7px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); font-weight:700; margin-bottom:6px}
+.pp-check{display:flex; align-items:center; gap:6px; font-size:8.5px; color:var(--ink); font-weight:500; padding:3px 0}
+.pp-check svg{width:11px; height:11px; flex:none; color:var(--ok-text); background:#e9f9ef; border-radius:50%; padding:2px}
+.pp-row{display:flex; align-items:center; gap:6px; font-size:8.5px; color:var(--ink-2); padding:2px 0}
+.pp-row svg{width:11px; height:11px; flex:none; color:var(--i)} .pp-row b{color:var(--ink); font-weight:700; margin-left:auto}
+.pp-sched{margin-top:auto; display:flex; gap:4px}
+.pp-day{flex:1; text-align:center; font-size:8px; font-weight:700; color:var(--ink-3); background:var(--surface-2); border:1px solid var(--line); border-radius:6px; padding:5px 0}
+.pp-day.on{color:#fff; background:var(--i); border-color:var(--i)}
 .pub-body .li-img{height:118px}
 .pub-prev .li-tx{padding:7px 12px 9px}
 .li-bar{display:flex; align-items:center; justify-content:space-around; gap:4px; padding:5px 6px; border-top:1px solid var(--line); margin-top:1px}
@@ -386,7 +399,7 @@ section{position:relative}
 .os-dock .dk.on::after{content:'';position:absolute;bottom:-5px;left:50%;transform:translateX(-50%);width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,.9)}
 @media (max-width:560px){.os-dock .dk{width:24px;height:24px}}
 /* iphone */
-.iphone{position:absolute; right:-6px; bottom:-40px; width:172px; aspect-ratio:9/20.9; border-radius:30px; padding:6px; background:linear-gradient(160deg,#3a3a3e,#161618); box-shadow:0 38px 70px -24px rgba(0,0,0,.6), inset 0 0 0 1px rgba(0,0,0,.6), inset 0 0 0 2.5px #2a2a2e; z-index:25; transform:rotate(0deg)}
+.iphone{position:absolute; right:-34px; bottom:-66px; width:168px; aspect-ratio:9/20.9; border-radius:30px; padding:6px; background:linear-gradient(160deg,#3a3a3e,#161618); box-shadow:0 38px 70px -24px rgba(0,0,0,.6), inset 0 0 0 1px rgba(0,0,0,.6), inset 0 0 0 2.5px #2a2a2e; z-index:25; transform:rotate(0deg)}
 .ip-screen{position:relative; height:100%; border-radius:23px; overflow:hidden; background:#f3f2ef; text-align:left; display:flex; flex-direction:column}
 .ip-island{position:absolute; top:8px; left:50%; transform:translateX(-50%); width:42px; height:12px; background:#000; border-radius:99px; z-index:6}
 .ip-stat{height:27px; display:flex; align-items:flex-end; justify-content:space-between; padding:0 13px 3px; font-size:8.5px; font-weight:700; color:var(--ink); flex:none; background:#fff}
@@ -1084,7 +1097,8 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                         <span class="pv-toggle"><span id="pvDesk" class="on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1.5" y="2.5" width="13" height="9" rx="1.3"/><path d="M5.5 14h5M6.5 11.5l-.4 2.5M9.5 11.5l.4 2.5"/></svg> Computador</span><span id="pvMob"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4.5" y="1.5" width="7" height="13" rx="1.6"/><path d="M7 12.6h2"/></svg> Celular</span></span>
                       </div>
                       <div class="pub-prev">
-                        <div class="li-post">
+                        <div class="pub-left">
+                          <div class="li-post">
                             <div class="li-hd">
                               <img class="li-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=160&q=80" alt="" loading="lazy">
                               <div class="li-meta">
@@ -1099,17 +1113,34 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                             <div class="li-stats"><span class="li-rx"><i class="b"></i><i class="r"></i><i class="y"></i></span> Você e 127 outros <span class="sp">24 comentários</span></div>
                             <div class="li-bar"><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 7.5l2.5-4c.4-.6 1.4-.3 1.3.5L7.5 6.5H11c.7 0 1.2.6 1 1.3l-1 4c-.1.5-.6.8-1 .8H5.5V7.5z"/><path d="M4 7.5H2.5v5H4z"/></svg> Gostei</span><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 3.5h12v8H8l-3 2.5V11.5H2z"/></svg> Comentar</span><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13 2L2 7l4 1.5M13 2L9 13l-3-4.5M13 2L6 8.5"/></svg> Enviar</span></div>
                           </div>
-                        <div class="pub-mob">
-                          <div class="pv-phone">
-                            <span class="pv-notch"></span>
-                            <div class="pv-phone-scr">
-                              <div class="mli-hd"><img class="mli-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><div class="mli-meta"><b>Marina Alves</b><span>Head de Gente &amp; Cultura · Agora</span></div></div>
-                              <div class="mli-tx">Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding, não no incidente.</div>
-                              <img class="mli-img" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=360&q=80" alt="" loading="lazy">
-                              <div class="mli-stats"><span class="mli-rx"><i class="b"></i><i class="r"></i></span> 127 · 24 coment.</div>
+                          <div class="pub-mob">
+                            <div class="pv-phone">
+                              <span class="pv-notch"></span>
+                              <div class="pv-phone-scr">
+                                <div class="mli-hd"><img class="mli-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><div class="mli-meta"><b>Marina Alves</b><span>Head de Gente &amp; Cultura · Agora</span></div></div>
+                                <div class="mli-tx">Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding, não no incidente.</div>
+                                <img class="mli-img" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=360&q=80" alt="" loading="lazy">
+                                <div class="mli-stats"><span class="mli-rx"><i class="b"></i><i class="r"></i></span> 127 · 24 coment.</div>
+                              </div>
                             </div>
                           </div>
                         </div>
+                        <aside class="pub-panel">
+                          <div class="pp-status"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Pronto para publicar</div>
+                          <div class="pp-blk">
+                            <div class="pp-t">Checagem da IA</div>
+                            <div class="pp-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Tom de voz: 94% de match</div>
+                            <div class="pp-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Risco de soar IA: baixo</div>
+                            <div class="pp-check"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Imagem no estilo da marca</div>
+                          </div>
+                          <div class="pp-blk">
+                            <div class="pp-t">Desempenho previsto</div>
+                            <div class="pp-row"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.5V8l2.5 1.5"/></svg> Melhor horário <b>ter, 9h</b></div>
+                            <div class="pp-row"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.5-3 2 1.5L13 5"/></svg> Alcance estimado <b>~1,1k</b></div>
+                          </div>
+                          <div class="pp-sched"><span class="pp-day">S</span><span class="pp-day on">T</span><span class="pp-day">Q</span><span class="pp-day">Q</span><span class="pp-day">S</span></div>
+                        </aside>
+                      </div>
                       <div class="pub-actions">
                         <button class="pub-2nd"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11l7-7 3 3-7 7H2z"/><path d="M9 4l3 3"/></svg> Editar</button>
                         <button class="pub-2nd"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/><path d="M2.5 6h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg> Agendar</button>
