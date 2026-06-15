@@ -283,6 +283,16 @@ section{position:relative}
 .pub-body{display:flex; flex-direction:column; flex:1; min-height:0}
 .pub-prev{display:flex; flex-direction:column; flex:1; min-height:0; margin-bottom:9px; max-width:63%; width:100%; margin-left:0; margin-right:auto}
 .pub-actions{max-width:63%}
+.pub-head{display:flex; align-items:center; justify-content:space-between; gap:8px; margin-bottom:8px}
+.pub-head .st-pv-tab{margin-bottom:0}
+.pv-toggle{display:inline-flex; gap:2px; background:var(--surface-2); border:1px solid var(--line); border-radius:99px; padding:2px; flex:none}
+.pv-toggle span{display:inline-flex; align-items:center; gap:4px; font-size:7.5px; font-weight:700; color:var(--ink-3); padding:3px 9px; border-radius:99px; transition:background .25s var(--ease), color .25s var(--ease)}
+.pv-toggle span svg{width:8px; height:8px}
+.pv-toggle span.on{background:#fff; color:var(--i); box-shadow:var(--sh-1)}
+.pub-mob{display:none; justify-content:center; flex:1; min-height:0; padding:2px 0 6px}
+.pub-body.mob .li-post{display:none}
+.pub-body.mob .pub-mob{display:flex}
+.pub-mob .pv-phone{width:154px; align-self:flex-start}
 .pub-prev .li-post{width:100%}
 .pub-body .li-img{height:118px}
 .pub-prev .li-tx{padding:7px 12px 9px}
@@ -1069,7 +1079,10 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                       <span class="st-voice"><span class="dot"></span> aguardando você</span>
                     </div>
                     <div class="pub-body">
-                      <div class="st-pv-tab"><svg width="11" height="11" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Veja antes de publicar, igual ao LinkedIn</div>
+                      <div class="pub-head">
+                        <span class="st-pv-tab"><svg width="11" height="11" viewBox="0 0 24 24" fill="#0a66c2"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg> Como aparece no LinkedIn</span>
+                        <span class="pv-toggle"><span id="pvDesk" class="on"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1.5" y="2.5" width="13" height="9" rx="1.3"/><path d="M5.5 14h5M6.5 11.5l-.4 2.5M9.5 11.5l.4 2.5"/></svg> Computador</span><span id="pvMob"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4.5" y="1.5" width="7" height="13" rx="1.6"/><path d="M7 12.6h2"/></svg> Celular</span></span>
+                      </div>
                       <div class="pub-prev">
                         <div class="li-post">
                             <div class="li-hd">
@@ -1086,6 +1099,17 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                             <div class="li-stats"><span class="li-rx"><i class="b"></i><i class="r"></i><i class="y"></i></span> Você e 127 outros <span class="sp">24 comentários</span></div>
                             <div class="li-bar"><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 7.5l2.5-4c.4-.6 1.4-.3 1.3.5L7.5 6.5H11c.7 0 1.2.6 1 1.3l-1 4c-.1.5-.6.8-1 .8H5.5V7.5z"/><path d="M4 7.5H2.5v5H4z"/></svg> Gostei</span><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 3.5h12v8H8l-3 2.5V11.5H2z"/></svg> Comentar</span><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13 2L2 7l4 1.5M13 2L9 13l-3-4.5M13 2L6 8.5"/></svg> Enviar</span></div>
                           </div>
+                        <div class="pub-mob">
+                          <div class="pv-phone">
+                            <span class="pv-notch"></span>
+                            <div class="pv-phone-scr">
+                              <div class="mli-hd"><img class="mli-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><div class="mli-meta"><b>Marina Alves</b><span>Head de Gente &amp; Cultura · Agora</span></div></div>
+                              <div class="mli-tx">Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding, não no incidente.</div>
+                              <img class="mli-img" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=360&q=80" alt="" loading="lazy">
+                              <div class="mli-stats"><span class="mli-rx"><i class="b"></i><i class="r"></i></span> 127 · 24 coment.</div>
+                            </div>
+                          </div>
+                        </div>
                       <div class="pub-actions">
                         <button class="pub-2nd"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11l7-7 3 3-7 7H2z"/><path d="M9 4l3 3"/></svg> Editar</button>
                         <button class="pub-2nd"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2.5" y="3" width="11" height="10" rx="1.6"/><path d="M2.5 6h11M5.5 1.6v2.6M10.5 1.6v2.6"/></svg> Agendar</button>
@@ -1670,8 +1694,10 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     function genOn(){ if(genImg) genImg.classList.add('gen'); }
     function genOff(){ if(genImg) genImg.classList.remove('gen'); }
     var selOpp=document.getElementById('oppSel');
+    var pubBody=stage.querySelector('.scr[data-k="2"] .pub-body'), pvDesk=document.getElementById('pvDesk'), pvMob=document.getElementById('pvMob');
+    function setMob(on){ if(pubBody) pubBody.classList.toggle('mob',on); if(pvDesk) pvDesk.classList.toggle('on',!on); if(pvMob) pvMob.classList.toggle('on',on); }
     var tl=gsap.timeline({repeat:-1,paused:true,defaults:{ease:'power3.inOut'}});
-    tl.add(function(){ show(0); genOn(); if(selOpp) selOpp.classList.remove('sel'); if(done) done.classList.remove('show'); })
+    tl.add(function(){ show(0); genOn(); setMob(false); if(selOpp) selOpp.classList.remove('sel'); if(done) done.classList.remove('show'); })
       .add(function(){ var p=tgt('#oppSel'); gsap.set(cur,{x:p.x+44,y:p.y-30,opacity:0,scale:1}); })
       .to(cur,{opacity:1,duration:.4})
       .to({},{duration:.7})
@@ -1687,8 +1713,16 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       .to({},{duration:1.0})
       .to(cur,{x:function(){return tgt('#tRevisar').x;},y:function(){return tgt('#tRevisar').y;},duration:1.1},'+=.5')
       .add(clickFx,'+=.15')
-      .add(function(){ show(2); },'+=.35')
-      .to({},{duration:1.4})
+      .add(function(){ show(2); setMob(false); },'+=.35')
+      .to({},{duration:1.2})
+      .to(cur,{x:function(){return tgt('#pvMob').x;},y:function(){return tgt('#pvMob').y;},duration:.85},'+=.4')
+      .add(clickFx,'+=.15')
+      .add(function(){ setMob(true); })
+      .to({},{duration:1.5})
+      .to(cur,{x:function(){return tgt('#pvDesk').x;},y:function(){return tgt('#pvDesk').y;},duration:.7},'+=.4')
+      .add(clickFx,'+=.15')
+      .add(function(){ setMob(false); })
+      .to({},{duration:.7})
       .to(cur,{x:function(){return tgt('#pubApprove').x;},y:function(){return tgt('#pubApprove').y;},duration:1.0},'+=.5')
       .add(clickFx,'+=.15')
       .add(function(){ if(done) done.classList.add('show'); },'+=.15')
