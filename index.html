@@ -329,9 +329,18 @@ section{position:relative}
 .es-imggen{position:relative; flex:1; min-height:54px; border-radius:8px; overflow:hidden; border:1px solid var(--line)}
 .es-imggen img{width:100%; height:100%; object-fit:cover; display:block}
 .es-imggen .es-imgtag{position:absolute; left:5px; bottom:5px; z-index:2; font-size:7.5px; font-weight:600; color:#fff; background:rgba(8,28,54,.55); border-radius:99px; padding:2px 7px; backdrop-filter:blur(3px)}
-.es-imggen::after{content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(110deg,transparent 32%,rgba(255,255,255,.55) 50%,transparent 68%); transform:translateX(-110%); animation:esshimmer 3s var(--ease) infinite; pointer-events:none}
+.es-imggen::after{content:''; position:absolute; inset:0; z-index:1; background:linear-gradient(110deg,transparent 32%,rgba(255,255,255,.55) 50%,transparent 68%); transform:translateX(-110%); pointer-events:none}
+.es-imggen.gen::after{animation:esshimmer 1.1s var(--ease) infinite}
 @keyframes esshimmer{0%{transform:translateX(-110%)}55%,100%{transform:translateX(110%)}}
-@media (prefers-reduced-motion:reduce){.es-imggen::after{animation:none; display:none}}
+.es-imggen img{transition:filter .5s var(--ease), transform .5s var(--ease)}
+.es-imggen.gen img{filter:blur(5px) saturate(.55); transform:scale(1.05)}
+.es-imggen .es-imgtag{transition:opacity .35s var(--ease)}
+.es-imggen.gen .es-imgtag{opacity:0}
+.es-imggen .es-gen{position:absolute; inset:0; z-index:3; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px; background:linear-gradient(135deg,rgba(234,240,247,.86),rgba(220,230,242,.92)); color:var(--i-hover); font-size:7.5px; font-weight:700; letter-spacing:.02em; opacity:0; pointer-events:none; transition:opacity .4s var(--ease)}
+.es-imggen.gen .es-gen{opacity:1}
+.es-gen .es-spin{width:15px; height:15px; border-radius:50%; border:2px solid var(--i-line); border-top-color:var(--i); animation:esspin .7s linear infinite}
+@keyframes esspin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.es-imggen.gen::after{animation:none} .es-gen .es-spin{animation:none}}
 .es-t{display:flex; align-items:center; gap:6px; font-size:7px; letter-spacing:.07em; text-transform:uppercase; color:var(--ink-3); font-weight:700; margin-bottom:7px}
 .es-t em{margin-left:auto; font-style:normal; letter-spacing:0; text-transform:none; font-size:8px; color:var(--ok-text); background:#e9f9ef; border:1px solid #bfe8cd; border-radius:99px; padding:1px 6px}
 .es-chips{display:flex; flex-wrap:wrap; gap:4px}
@@ -1021,7 +1030,11 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                       <div class="est-col">
                         <div class="st-ed">
                           <p>Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding, não no incidente.</p>
-                          <p>Três coisas que eu mudei na minha equipe<span class="cursor"></span></p>
+                          <p>Três coisas que mudei na minha equipe e que mudaram o jogo:</p>
+                          <p>1. Toda contratação começa com contexto, não com tarefa.</p>
+                          <p>2. Feedback virou rotina semanal, não evento anual.</p>
+                          <p>3. O combinado fica escrito, não na memória de quem estava na sala.</p>
+                          <p>Cultura não é o que está no mural. É o que acontece quando ninguém está olhando.<span class="cursor"></span></p>
                         </div>
                         <div class="st-tools"><span>Variantes</span><span>Humanizar</span><span>Auditar</span><span class="t1"><svg width="8" height="8" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> Gerar imagem</span></div>
                         <div class="st-foot"><span class="st-chip ok">Nota 86</span><span class="st-chip">Risco IA 12</span><span class="st-send" id="tRevisar">Revisar →</span></div>
@@ -1033,7 +1046,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                         </div>
                         <div class="es-blk es-grow">
                           <div class="es-t">Imagem <em>gerada ✦</em></div>
-                          <div class="es-imggen"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=280&q=80" alt="" loading="lazy"><span class="es-imgtag">como se você tivesse feito</span></div>
+                          <div class="es-imggen"><img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=280&q=80" alt="" loading="lazy"><span class="es-imgtag">como se você tivesse feito</span><span class="es-gen"><span class="es-spin"></span>Gerando imagem…</span></div>
                         </div>
                         <div class="es-acts">
                           <button class="es-btn"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M2 11l7-7 3 3-7 7H2z"/><path d="M9 4l3 3"/></svg> Editar</button>
@@ -1103,20 +1116,27 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 
     <!-- iPHONE: tela de login do PresenceIn -->
     <div class="iphone">
-      <div class="ip-screen ipfeed">
+      <div class="ip-screen login">
         <div class="ip-island"></div>
         <div class="ip-stat"><span>9:41</span><span class="ic"><svg width="13" height="9" viewBox="0 0 16 11" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".6"/><rect x="3.8" y="5" width="2.6" height="6" rx=".6"/><rect x="7.6" y="2.6" width="2.6" height="8.4" rx=".6"/><rect x="11.4" y="0" width="2.6" height="11" rx=".6"/></svg><svg width="17" height="9" viewBox="0 0 24 12" fill="none"><rect x="1" y="1.5" width="19" height="9" rx="2.4" stroke="currentColor" stroke-width="1.2" opacity=".5"/><rect x="2.6" y="3" width="14" height="6" rx="1.2" fill="currentColor"/><rect x="21" y="4" width="1.6" height="4" rx=".8" fill="currentColor" opacity=".5"/></svg></span></div>
-        <div class="ipm-bar"><span class="ipm-li"><svg width="13" height="13" viewBox="0 0 24 24" fill="#fff"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span><span class="ipm-search"><svg width="9" height="9" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg> Pesquisar</span><span class="ipm-msg"><svg width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 3.5h12v8H8l-3 2.5V11.5H2z"/></svg></span></div>
-        <div class="ipm-feed">
-          <div class="ipm-post">
-            <div class="ipm-hd"><img class="ipm-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=120&q=80" alt="" loading="lazy"><div class="ipm-meta"><b>Marina Alves</b><span>Head de Gente &amp; Cultura</span><span>Agora · <svg width="6" height="6" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6.5"/><path d="M2 8h12M8 1.5c1.7 1.7 1.7 11.3 0 13M8 1.5c-1.7 1.7-1.7 11.3 0 13"/></svg></span></div><span class="ipm-more">···</span></div>
-            <div class="ipm-tx">Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding, não no incidente. <b>#cultura</b></div>
-            <img class="ipm-img" src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=360&q=80" alt="" loading="lazy">
-            <div class="ipm-stats"><span class="ipm-rx"><i class="b"></i><i class="r"></i><i class="y"></i></span> 127 <span class="ipm-sp">· 24 comentários</span></div>
-            <div class="ipm-acts"><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 7.5l2.5-4c.4-.6 1.4-.3 1.3.5L7.5 6.5H11c.7 0 1.2.6 1 1.3l-1 4c-.1.5-.6.8-1 .8H5.5V7.5z"/><path d="M4 7.5H2.5v5H4z"/></svg> Gostei</span><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 3.5h12v8H8l-3 2.5V11.5H2z"/></svg> Comentar</span><span><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13 2L2 7l4 1.5M13 2L9 13l-3-4.5"/></svg> Enviar</span></div>
+        <div class="lg">
+          <div class="lg-top">
+            <span class="lg-mk"><b>P</b><svg class="sig" width="8" height="8" viewBox="0 0 12 12" fill="none" stroke="#76e8b8" stroke-width="1.5" stroke-linecap="round"><circle cx="3" cy="9" r="1.25" fill="#76e8b8" stroke="none"/><path d="M3 6.1A2.9 2.9 0 0 1 5.9 9"/><path d="M3 3.3A5.7 5.7 0 0 1 8.7 9"/></svg></span>
+            <span class="lg-wm">PresenceIn</span>
           </div>
+          <div class="lg-h">Bem-vindo<br>de volta.</div>
+          <div class="lg-sub">Sua presença no LinkedIn, conduzida pela IA e aprovada por você.</div>
+          <div class="lg-li" id="ipLi">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="#fff"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            Continuar com LinkedIn
+          </div>
+          <div class="lg-or">ou com e-mail</div>
+          <div class="lg-fld"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="1.5" y="3" width="13" height="10" rx="1.8"/><path d="M2 4l6 4.5L14 4"/></svg> <span class="ph">marina@empresa.com</span></div>
+          <div class="lg-fld"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="7" width="10" height="7" rx="1.6"/><path d="M5.2 7V5a2.8 2.8 0 0 1 5.6 0v2"/></svg> <span class="dots">••••••••</span><span class="car"></span></div>
+          <div class="lg-enter">Entrar</div>
+          <div class="lg-forgot">Esqueci minha senha</div>
+          <div class="lg-foot"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5 2v4c0 3.2-2.1 5.5-5 7-2.9-1.5-5-3.8-5-7v-4z"/><path d="M5.8 8l1.6 1.6L10.4 6.5"/></svg> Você aprova tudo antes de publicar</div>
         </div>
-        <div class="ipm-tabbar"><i class="on"></i><i></i><i></i><i></i></div>
       </div>
     </div>
   </div>
@@ -1662,21 +1682,30 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       gsap.to(clk,{scale:1.5,opacity:0,duration:.55,ease:'power2.out'});
       gsap.to(cur,{scale:.8,duration:.12,yoyo:true,repeat:1,ease:'power1.inOut'});
     }
+    var genImg=stage.querySelector('.es-imggen');
+    function genOn(){ if(genImg) genImg.classList.add('gen'); }
+    function genOff(){ if(genImg) genImg.classList.remove('gen'); }
     var tl=gsap.timeline({repeat:-1,paused:true,defaults:{ease:'power3.inOut'}});
-    tl.add(function(){ show(0); if(done) done.classList.remove('show'); })
+    tl.add(function(){ show(0); genOn(); if(done) done.classList.remove('show'); })
       .add(function(){ var p=tgt('.opp.sel'); gsap.set(cur,{x:p.x-34,y:p.y+26,opacity:0,scale:1}); })
-      .to(cur,{opacity:1,duration:.3})
-      .to(cur,{x:function(){return tgt('#tGerar').x;},y:function(){return tgt('#tGerar').y;},duration:.85},'+=.35')
-      .add(clickFx,'+=.12')
-      .add(function(){ show(1); },'+=.28')
-      .to(cur,{x:function(){return tgt('#tRevisar').x;},y:function(){return tgt('#tRevisar').y;},duration:.95},'+=.55')
-      .add(clickFx,'+=.12')
-      .add(function(){ show(2); },'+=.28')
-      .to(cur,{x:function(){return tgt('#pubApprove').x;},y:function(){return tgt('#pubApprove').y;},duration:.9},'+=.55')
-      .add(clickFx,'+=.12')
-      .add(function(){ if(done) done.classList.add('show'); },'+=.1')
-      .to(cur,{opacity:0,duration:.4},'+=.25')
+      .to(cur,{opacity:1,duration:.4})
+      .to({},{duration:1.3})
+      .to(cur,{x:function(){return tgt('#tGerar').x;},y:function(){return tgt('#tGerar').y;},duration:1.05},'+=.45')
+      .add(clickFx,'+=.15')
+      .add(function(){ show(1); genOn(); },'+=.35')
+      .to({},{duration:1.8})
+      .add(genOff)
+      .to({},{duration:1.0})
+      .to(cur,{x:function(){return tgt('#tRevisar').x;},y:function(){return tgt('#tRevisar').y;},duration:1.1},'+=.5')
+      .add(clickFx,'+=.15')
+      .add(function(){ show(2); },'+=.35')
+      .to({},{duration:1.4})
+      .to(cur,{x:function(){return tgt('#pubApprove').x;},y:function(){return tgt('#pubApprove').y;},duration:1.0},'+=.5')
+      .add(clickFx,'+=.15')
+      .add(function(){ if(done) done.classList.add('show'); },'+=.15')
       .to({},{duration:1.9})
+      .to(cur,{opacity:0,duration:.45},'+=.2')
+      .to({},{duration:1.6})
       .add(function(){ if(done) done.classList.remove('show'); });
     tl.play();
     if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) tl.play(); }); },{threshold:.05}).observe(stage); }
