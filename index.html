@@ -654,6 +654,33 @@ section{position:relative}
 .radar-panel .rp-result{display:inline-flex; align-items:center; gap:6px; font-size:11.5px; font-weight:700; color:#fff; background:var(--i); border-radius:99px; padding:5px 11px; opacity:0; transform:translateY(4px); transition:opacity .4s var(--ease), transform .4s var(--ease)}
 .radar-panel .rp-stage.on .rp-result{opacity:1; transform:none}
 @media (max-width:820px){.radar-panel{grid-template-columns:1fr; gap:0; padding:24px 22px 0} .radar-panel::before,.radar-panel::after{display:none} .radar-panel .rp-stage{padding-bottom:20px; border-bottom:1px solid var(--i-line); margin-bottom:20px} .radar-panel .rp-stage:nth-of-type(3){border-bottom:none}}
+
+/* Radar ao vivo (console) */
+.radar-live{background:radial-gradient(135% 150% at 0% 0%, var(--i-soft), #fff 56%); border:1px solid var(--i-line); border-radius:var(--r-xl); padding:clamp(20px,3vw,30px); box-shadow:var(--sh-2); max-width:800px; margin:0 auto}
+.rl-top{display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.rl-status{display:inline-flex; align-items:center; gap:9px; font-size:15px; font-weight:600; color:var(--ink)} .rl-status b{color:var(--i)}
+.rl-dot{width:9px; height:9px; border-radius:50%; background:#16a34a; box-shadow:0 0 0 4px rgba(22,163,74,.18); animation:rldot 1.7s var(--ease) infinite; flex:none}
+@keyframes rldot{50%{box-shadow:0 0 0 8px rgba(22,163,74,0)}}
+@media (prefers-reduced-motion:reduce){.rl-dot{animation:none}}
+.rl-count{font-size:13px; color:var(--ink-3)} .rl-count b{font-size:21px; color:var(--i); font-family:var(--font-display); font-weight:700; letter-spacing:-.02em}
+.rl-scan{height:5px; border-radius:3px; background:var(--surface-2); overflow:hidden; position:relative; margin:15px 0}
+.rl-scan span{position:absolute; top:0; left:0; height:100%; width:38%; border-radius:3px; background:linear-gradient(90deg,transparent,var(--i),transparent); animation:rdrsweep 1.9s ease-in-out infinite}
+@media (prefers-reduced-motion:reduce){.rl-scan span{animation:none; left:0; width:100%; opacity:.4}}
+.rl-srcs{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px}
+.rl-srcs span{font-size:12px; font-weight:600; color:var(--ink-2); background:#fff; border:1px solid var(--line); border-radius:99px; padding:5px 11px}
+.rl-srcs span.more{color:var(--i); background:var(--i-soft); border-color:var(--i-line)}
+.rl-feed{display:flex; flex-direction:column; gap:8px}
+.rl-sig{display:flex; align-items:center; gap:12px; background:#fff; border:1px solid var(--line); border-radius:11px; padding:12px 14px; box-shadow:var(--sh-1); transition:transform .18s var(--ease), box-shadow .18s var(--ease)}
+.rl-sig:hover{transform:translateY(-2px); box-shadow:var(--sh-2)}
+.rl-sig:first-child{border-color:var(--i); box-shadow:0 0 0 2px var(--i-soft), var(--sh-1)}
+.rl-fit{font-size:11px; font-weight:700; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--line); border-radius:8px; padding:6px 9px; flex:none}
+.rl-fit.hi{color:#fff; background:var(--i); border-color:var(--i)}
+.rl-meta{flex:1; min-width:0} .rl-meta b{display:block; font-size:14.5px; color:var(--ink); font-weight:600; letter-spacing:-.01em} .rl-meta span{font-size:12.5px; color:var(--ink-3)}
+.rl-go{font-size:12.5px; font-weight:700; color:var(--i); flex:none; white-space:nowrap}
+.rl-steps{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:800px; margin:26px auto 0}
+.rl-stnum{display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:9px; background:var(--i); color:#fff; font-weight:700; font-size:14px; margin-bottom:11px; box-shadow:0 5px 12px -4px rgba(10,102,194,.5)}
+.rl-step b{display:block; font-size:15.5px; color:var(--ink); margin-bottom:5px; letter-spacing:-.01em} .rl-step span{font-size:13.5px; color:var(--ink-2); line-height:1.5}
+@media (max-width:680px){.rl-steps{grid-template-columns:1fr; gap:16px} .rl-sig .rl-go{display:none} .rl-meta b{font-size:13.5px}}
 .proof-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:24px; align-items:stretch}
 .proof-grid .why{display:flex; flex-direction:column}
 .pain{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);padding:28px;box-shadow:var(--sh-1)}
@@ -1424,27 +1451,24 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 <!-- PROVA SOCIAL -->
 <section class="sec band" id="quem">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>Esteja sempre <span class="brandblue">um passo à frente</span>.</h2><p>O Radar acompanha as maiores novidades do seu mercado em tempo real. Você não precisa pesquisar nem ficar por dentro de tudo: ele traz o que é mais útil pra você, na hora certa.</p></div>
-    <div class="radar-panel reveal">
-      <div class="rp-stage">
-        <div class="rp-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><circle cx="8" cy="8" r="6.3"/><path d="M2 8h12M8 1.7c1.8 1.7 1.8 10.9 0 12.6M8 1.7c-1.8 1.7-1.8 10.9 0 12.6"/></svg></div>
-        <b>Capta os sinais</b>
-        <span>Lê fóruns, notícias e tendências do seu mercado, em todos os idiomas e no mundo todo. Sem você abrir nada.</span>
-        <div class="rp-extra"><div class="rp-scan"><span></span></div></div>
+    <div class="sec-head reveal"><h2>150 fontes. Últimas 24h. <span class="brandblue">Só o que importa pra você.</span></h2><p>Enquanto você toca o seu trabalho, o Radar varre notícias, fóruns e tendências do seu mercado no mundo todo e separa o assunto certo, antes de virar lugar-comum.</p></div>
+    <div class="radar-live reveal" id="radarLive">
+      <div class="rl-top">
+        <div class="rl-status"><span class="rl-dot"></span> Varrendo <b>150+ fontes</b> · últimas 24h</div>
+        <div class="rl-count"><b id="rlNum">0</b> sinais relevantes hoje</div>
       </div>
-      <div class="rp-stage">
-        <div class="rp-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="1.6"><path d="M1.5 3h13l-5 6v4l-3 1.5V9z"/></svg></div>
-        <b>Cruza com o seu perfil</b>
-        <span>Filtra pelo seu nicho, posicionamento e objetivo. Nunca cai no óbvio nem repete o de sempre.</span>
-        <div class="rp-extra"><div class="rp-chips"><span>Nicho</span><span>Posição</span><span>Objetivo</span></div></div>
+      <div class="rl-scan"><span></span></div>
+      <div class="rl-srcs"><span>Portais de notícias</span><span>Reddit</span><span>Google News</span><span>GitHub</span><span>X</span><span>Newsletters</span><span>Podcasts</span><span class="more">+143 fontes</span></div>
+      <div class="rl-feed">
+        <div class="rl-sig"><span class="rl-fit hi">fit 9</span><div class="rl-meta"><b>Cultura de verdade começa no onboarding</b><span>Em alta entre líderes de RH · há 3h</span></div><span class="rl-go">Gerar post →</span></div>
+        <div class="rl-sig"><span class="rl-fit">fit 8</span><div class="rl-meta"><b>Por que bom talento vai embora antes de 1 ano</b><span>Pauta quente no seu nicho · há 7h</span></div></div>
+        <div class="rl-sig"><span class="rl-fit">fit 7</span><div class="rl-meta"><b>Reuniões que poderiam ser um post</b><span>Discussão no Reddit · há 12h</span></div></div>
       </div>
-      <div class="rp-stage">
-        <div class="rp-ic"><svg width="22" height="22" viewBox="0 0 16 16" fill="#fff"><path d="M8 1l1.9 4.6L15 6l-4.4 1.6L8 12l-1.6-4.4L1 6l5.1-.4z"/></svg></div>
-        <b>Entrega a publicação pronta</b>
-        <span>Com ângulo, formato e prioridade, pronta pra virar post, comentário ou carrossel.</span>
-        <div class="rp-extra"><div class="rp-result"><svg width="11" height="11" viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Pauta pronta · prioridade alta</div></div>
-      </div>
-      <div class="rp-srcs">Você escolhe onde ele procura: Portais de notícias, Reddit, Google News, GitHub e outras fontes do seu mercado.</div>
+    </div>
+    <div class="rl-steps reveal">
+      <div class="rl-step"><span class="rl-stnum">1</span><b>Capta os sinais</b><span>Varre 150+ fontes no mundo todo, em todos os idiomas. Você não abre nada.</span></div>
+      <div class="rl-step"><span class="rl-stnum">2</span><b>Cruza com o seu perfil</b><span>Filtra pelo seu nicho, posição e objetivo. Nunca cai no óbvio.</span></div>
+      <div class="rl-step"><span class="rl-stnum">3</span><b>Entrega pronto</b><span>Com ângulo, formato e prioridade, pronto pra virar post ou comentário.</span></div>
     </div>
   </div>
 </section>
@@ -1729,7 +1753,14 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     tl.play();
     if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) tl.play(); }); },{threshold:.05}).observe(stage); }
   })();
-  // Radar panel: capta -> cruza -> entrega (sequencial)
+  // Radar ao vivo: conta os sinais quando entra na tela
+  (function(){
+    var el=document.getElementById('rlNum'), live=document.getElementById('radarLive'); if(!el||!live) return;
+    var target=47, started=false;
+    function run(){ if(started) return; started=true; var n=0, step=Math.max(1,Math.round(target/30)); var iv=setInterval(function(){ n+=step; if(n>=target){n=target; clearInterval(iv);} el.textContent=n; },42); }
+    if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) run(); }); },{threshold:.3}).observe(live); } else { run(); }
+  })();
+  // Radar panel (legado): capta -> cruza -> entrega (sequencial)
   (function(){
     var panel=document.querySelector('.radar-panel'); if(!panel) return;
     var stages=[].slice.call(panel.querySelectorAll('.rp-stage')); if(!stages.length) return;
