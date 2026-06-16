@@ -759,8 +759,13 @@ footer .fcta{width:min(var(--maxw),calc(100% - 2*var(--gutter)));margin:clamp(40
 footer .fcta::before{content:'';position:absolute;width:280px;height:280px;border-radius:50%;background:rgba(255,255,255,.1);top:-130px;right:-50px;pointer-events:none}
 footer .fcta h3{font-size:clamp(21px,2.8vw,30px);font-weight:600;color:#fff;letter-spacing:-.02em;max-width:20ch;line-height:1.15;position:relative}
 footer .fcta .btn.primary{background:#fff;color:var(--i-hover);box-shadow:0 12px 26px -10px rgba(0,0,0,.35);position:relative;overflow:hidden}
-footer .fcta .fcta-flow{display:inline-flex;align-items:center;flex:none}
-footer .fcta-flow .ff-node{width:18px;height:18px;border-radius:5px;display:grid;place-items:center;flex:none}
+footer .fcta .fcta-l{flex:1 1 360px;min-width:0;display:flex;flex-direction:column;gap:14px}
+footer .fcta .fcta-flow{display:inline-flex;align-items:center;align-self:flex-start;flex:none;background:rgba(255,255,255,.96);border-radius:99px;padding:7px 13px;box-shadow:0 8px 20px -10px rgba(0,0,0,.4)}
+footer .fcta .fcta-cap{font-size:12.5px;line-height:1.5;color:rgba(255,255,255,.84);max-width:50ch}
+footer .fcta-flow .ff-node{width:19px;height:19px;border-radius:6px;display:grid;place-items:center;flex:none}
+footer .fcta-flow .ff-node svg{width:11px;height:11px}
+footer .fcta-flow .ff-news{color:#b4710a;background:rgba(245,187,92,.22);border:1px solid rgba(245,187,92,.45)}
+footer .fcta-flow .ff-seg.s4::after{animation-delay:.75s}
 footer .fcta-flow .ff-phone{color:var(--i);background:var(--i-soft);border:1px solid var(--i-line)}
 footer .fcta-flow .ff-p{background:linear-gradient(150deg,#1a85e0,#064c8f);color:#fff;box-shadow:0 2px 5px -1px rgba(10,102,194,.5)}
 footer .fcta-flow .ff-p b{font-family:var(--font-sans);font-weight:800;font-size:10px;line-height:1}
@@ -1329,7 +1334,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   </div>
   <div class="result reveal">
     <div class="ic"><svg width="34" height="34" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14V2M2 14h12"/><path d="M5 11l2.6-3.2 2 1.6L13 4.5"/><path d="M13 4.5h-2.4M13 4.5V7"/></svg></div>
-    <div><h3>Presente toda semana, sem o trabalho de toda semana.</h3><p>A consistência que faz o mercado lembrar de você primeiro, sem gastar horas por dia nem virar mais uma tarefa na agenda.</p></div>
+    <div><h3>Presente toda semana, sem o trabalho de toda semana.</h3><p>A presença constante que abre portas, sem custar horas do seu dia.</p></div>
   </div>
 </section>
 
@@ -1588,7 +1593,21 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 <footer>
   <div class="fbar" aria-hidden="true"></div>
   <div class="fcta reveal">
-    <h3>Seja a referência que o seu mercado lembra primeiro.</h3>
+    <div class="fcta-l">
+      <h3>Seja a referência que o seu mercado lembra primeiro.</h3>
+      <div class="fcta-flow" role="img" aria-label="Como funciona: você, o PresenceIn, a sua IA, o Radar de notícias e o seu LinkedIn, em ciclo">
+        <span class="ff-node ff-phone"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4.5" y="1.5" width="7" height="13" rx="1.6"/><path d="M7 12.7h2"/></svg></span>
+        <span class="ff-seg"></span>
+        <span class="ff-node ff-p"><b>P</b></span>
+        <span class="ff-seg s2"></span>
+        <span class="ff-node ff-ai"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 .5l1.7 4.6L14 6l-4.3 1.5L8 12 6.3 7.5 2 6l4.3-1.5z"/></svg></span>
+        <span class="ff-seg s3"></span>
+        <span class="ff-node ff-news"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="3" width="12" height="10" rx="1.4"/><path d="M4.3 6h4.4M4.3 8.4h4.4M4.3 10.6h3M11 6.6h1.6v2.8H11z"/></svg></span>
+        <span class="ff-seg s4"></span>
+        <span class="ff-node ff-in"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.13 1.45-2.13 2.94v5.67H9.35V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span>
+      </div>
+      <span class="fcta-cap">Você ensina quem é. O PresenceIn lê o seu mercado, usa a sua IA e mantém o seu LinkedIn vivo. Em ciclo, sem você sumir.</span>
+    </div>
     <a class="btn primary fcta-btn" href="#beta">Quero participar do beta
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
   </div>
@@ -1662,7 +1681,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     var rotC=['#0a66c2','#0e9e72','#0958a8'];
     var rwi=0;
     rotBox.style.setProperty('--rotc',rotC[0]);
-    setInterval(function(){ rwi=(rwi+1)%rotW.length; rotEl.style.opacity='0'; rotEl.style.transform='translateY(7px)'; setTimeout(function(){ rotEl.textContent=rotW[rwi]; rotBox.style.setProperty('--rotc',rotC[rwi%rotC.length]); rotEl.style.opacity='1'; rotEl.style.transform='translateY(0)'; },200); },1600);
+    setInterval(function(){ rwi=(rwi+1)%rotW.length; rotEl.style.opacity='0'; rotEl.style.transform='translateY(7px)'; setTimeout(function(){ rotEl.textContent=rotW[rwi]; rotBox.style.setProperty('--rotc',rotC[rwi%rotC.length]); rotEl.style.opacity='1'; rotEl.style.transform='translateY(0)'; },200); },2600);
   }
 
   // contador
