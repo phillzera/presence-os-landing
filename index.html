@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-<title>PresenceIn: pare de ser invisível no LinkedIn</title>
+<title>PresenceIn: vire autoridade no LinkedIn, no seu tom</title>
 <meta name="description" content="O PresenceIn aprende sobre você, acompanha o mundo em todos os idiomas e deixa seus posts, comentários e respostas prontos. Você revisa, aprova e publica. Beta privado a partir de 20 de junho. Vagas limitadas." />
 <meta name="theme-color" content="#0a66c2" />
 <meta property="og:type" content="website" />
@@ -281,7 +281,7 @@ section{position:relative}
 .opp-go{font-size:8px; font-weight:700; color:var(--i); flex:none; opacity:0; transition:opacity .35s var(--ease)} .opp.sel .opp-go{opacity:1}
 .est-body{display:flex; flex-direction:column; flex:1; min-height:0} .est-body .st-ed{flex:1}
 .pub-body{display:flex; flex-direction:column; flex:1; min-height:0}
-.pub-prev{display:grid; grid-template-columns:1fr 122px; gap:11px; flex:1; min-height:0; margin-bottom:8px; align-items:start}
+.pub-prev{display:grid; grid-template-columns:1fr 148px; gap:12px; flex:1; min-height:0; margin-bottom:8px; align-items:start}
 .pub-prev .pv-col{display:flex; flex-direction:column; min-width:0}
 .pub-prev .pv-lbl{display:flex; align-items:center; gap:4px; font-size:7px; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3); margin-bottom:5px}
 .pub-prev .pv-lbl svg{width:9px; height:9px; color:var(--i); flex:none}
@@ -300,18 +300,23 @@ section{position:relative}
 .pv-phone{position:relative; background:linear-gradient(165deg,#1d2c46,#0e1726); border-radius:15px; padding:5px; box-shadow:0 12px 22px -10px rgba(16,30,52,.55)}
 .pv-notch{position:absolute; top:8px; left:50%; transform:translateX(-50%); width:24px; height:4px; border-radius:3px; background:rgba(255,255,255,.28); z-index:2}
 .pv-phone-scr{background:#fff; border-radius:11px; overflow:hidden; padding-top:5px}
-.mli-hd{display:flex; align-items:center; gap:4px; padding:5px 6px 0}
-.mli-av{width:16px; height:16px; border-radius:50%; object-fit:cover; flex:none}
+.mli-hd{display:flex; align-items:center; gap:5px; padding:7px 8px 0}
+.mli-av{width:19px; height:19px; border-radius:50%; object-fit:cover; flex:none}
 .mli-meta{min-width:0}
-.mli-meta b{display:block; font-size:6.5px; font-weight:700; color:var(--ink); line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-.mli-meta span{display:block; font-size:5.5px; color:var(--ink-3); line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-.mli-tx{font-size:6.5px; color:var(--ink); line-height:1.42; padding:5px 6px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden}
-.mli-img{width:100%; height:50px; object-fit:cover; display:block}
-.mli-stats{display:flex; align-items:center; gap:3px; padding:4px 6px 5px; font-size:5.5px; color:var(--ink-3)}
+.mli-meta b{display:block; font-size:7.5px; font-weight:700; color:var(--ink); line-height:1.18; white-space:nowrap; overflow:hidden; text-overflow:ellipsis} .mli-meta b em{font-style:normal; color:var(--ink-3); font-weight:600}
+.mli-meta span{display:block; font-size:6px; color:var(--ink-3); line-height:1.2; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.mli-time{display:flex !important; align-items:center; gap:2px} .mli-time svg{width:5.5px; height:5.5px}
+.mli-tx{font-size:7px; color:var(--ink); line-height:1.45; padding:6px 8px 5px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden} .mli-tx b{color:var(--i); font-weight:600}
+.mli-imgwrap{position:relative; display:block}
+.mli-img{width:100%; height:58px; object-fit:cover; display:block; border-top:1px solid var(--line)}
+.mli-imgbadge{position:absolute; left:5px; bottom:5px; display:inline-flex; align-items:center; gap:2px; font-size:5.5px; font-weight:600; color:#fff; background:rgba(12,22,38,.74); padding:2px 5px; border-radius:99px} .mli-imgbadge svg{width:5.5px; height:5.5px}
+.mli-stats{display:flex; align-items:center; gap:4px; padding:5px 8px; font-size:6px; color:var(--ink-3); border-bottom:1px solid var(--line)} .mli-stats .sp{margin-left:auto}
 .mli-rx{display:inline-flex}
-.mli-rx i{width:8px; height:8px; border-radius:50%; border:1.3px solid #fff; margin-left:-2px} .mli-rx i:first-child{margin-left:0}
-.mli-rx i.b{background:#378fe9} .mli-rx i.r{background:#df704d}
-@media (max-width:520px){.pub-prev{grid-template-columns:1fr 96px; gap:8px}}
+.mli-rx i{width:9px; height:9px; border-radius:50%; border:1.3px solid #fff; margin-left:-2.5px} .mli-rx i:first-child{margin-left:0}
+.mli-rx i.b{background:#378fe9} .mli-rx i.r{background:#df704d} .mli-rx i.y{background:#f5bb5c}
+.mli-bar{display:flex; align-items:center; padding:4px 4px 6px}
+.mli-bar span{flex:1; display:inline-flex; align-items:center; justify-content:center; gap:2.5px; font-size:6px; font-weight:600; color:var(--ink-3)} .mli-bar svg{width:8px; height:8px}
+@media (max-width:520px){.pub-prev{grid-template-columns:1fr 118px; gap:9px}}
 .pub-actions{display:flex; gap:7px; margin-top:9px; flex:none}
 .pub-approve{flex:1; height:29px; border-radius:8px; border:none; background:var(--i); color:#fff; font-size:9px; font-weight:700; font-family:inherit; display:inline-flex; align-items:center; justify-content:center; gap:5px; cursor:pointer; box-shadow:0 6px 13px -5px rgba(10,102,194,.55)}
 .pub-sched{height:29px; border-radius:8px; border:1px solid var(--line); background:#fff; color:var(--ink-2); font-size:9px; font-weight:600; font-family:inherit; padding:0 11px; cursor:pointer; display:inline-flex; align-items:center; gap:5px}
@@ -599,10 +604,10 @@ section{position:relative}
 .step .tx{display:flex; flex-direction:column; align-items:center; flex:1; width:100%}
 .step .n{position:relative; font-family:var(--font-sans); font-weight:600; font-size:23px; color:#fff; width:60px; height:60px; border-radius:18px; display:grid; place-items:center; background:linear-gradient(140deg,#1a85e0,#0a66c2 60%,#064c8f); box-shadow:0 6px 16px -8px rgba(10,102,194,.5); border:4px solid var(--bg)}
 .step .stag{margin-top:16px; font-family:var(--font-mono); font-size:11px; font-weight:500; letter-spacing:.08em; text-transform:uppercase; color:var(--i)}
-.step h3{font-size:19px;font-weight:700;color:var(--ink);margin-top:6px; max-width:16ch; min-height:2.3em; display:flex; align-items:center; justify-content:center} .step p{color:var(--ink-2);font-size:14.5px;line-height:1.55;margin-top:9px;max-width:28ch; min-height:4.6em}
+.step h3{font-size:19px;font-weight:700;color:var(--ink);margin-top:8px; max-width:16ch; min-height:2.3em; display:flex; align-items:center; justify-content:center} .step p{color:var(--ink-2);font-size:14.5px;line-height:1.55;margin-top:11px;max-width:27ch; min-height:4.65em}
 @media (max-width:760px){.step h3{min-height:0;display:block} .step p{min-height:0}}
 /* mini-telas da plataforma em cada passo */
-.step .svis{width:100%; max-width:272px; margin:22px auto 0; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:12px; box-shadow:var(--sh-1); text-align:left; display:flex; flex-direction:column; gap:9px}
+.step .svis{width:100%; max-width:272px; margin:26px auto 0; min-height:172px; background:var(--surface); border:1px solid var(--line); border-radius:14px; padding:14px; box-shadow:var(--sh-1); text-align:left; display:flex; flex-direction:column; gap:10px; justify-content:center}
 .step .tx .svis{margin-top:auto}
 .step .sv-hd{display:flex; align-items:center; gap:7px; font-size:11px; font-weight:600; color:var(--ink-3)}
 .step .sv-dot{width:7px; height:7px; border-radius:50%; background:var(--ink-3); flex:none}
@@ -666,9 +671,13 @@ section{position:relative}
 .rl-scan{height:5px; border-radius:3px; background:var(--surface-2); overflow:hidden; position:relative; margin:15px 0}
 .rl-scan span{position:absolute; top:0; left:0; height:100%; width:38%; border-radius:3px; background:linear-gradient(90deg,transparent,var(--i),transparent); animation:rdrsweep 1.9s ease-in-out infinite}
 @media (prefers-reduced-motion:reduce){.rl-scan span{animation:none; left:0; width:100%; opacity:.4}}
-.rl-srcs{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:16px}
+.rl-srcs{display:flex; flex-wrap:wrap; gap:7px; margin-bottom:11px}
 .rl-srcs span{font-size:12px; font-weight:600; color:var(--ink-2); background:#fff; border:1px solid var(--line); border-radius:99px; padding:5px 11px}
 .rl-srcs span.more{color:var(--i); background:var(--i-soft); border-color:var(--i-line)}
+.rl-srcs span.add{display:inline-flex; align-items:center; gap:5px; color:var(--ink-3); background:transparent; border:1px dashed var(--i-line); cursor:default; transition:color .18s var(--ease),border-color .18s var(--ease),background .18s var(--ease)}
+.rl-srcs span.add svg{width:11px; height:11px}
+.rl-srcs span.add:hover{color:var(--i); border-color:var(--i); background:var(--i-soft)}
+.rl-srcnote{font-size:13px; color:var(--ink-2); margin-bottom:16px; line-height:1.5} .rl-srcnote b{color:var(--ink); font-weight:600}
 .rl-feed{display:flex; flex-direction:column; gap:8px}
 .rl-sig{display:flex; align-items:center; gap:12px; background:#fff; border:1px solid var(--line); border-radius:11px; padding:12px 14px; box-shadow:var(--sh-1); transition:transform .18s var(--ease), box-shadow .18s var(--ease)}
 .rl-sig:hover{transform:translateY(-2px); box-shadow:var(--sh-2)}
@@ -678,7 +687,9 @@ section{position:relative}
 .rl-meta{flex:1; min-width:0} .rl-meta b{display:block; font-size:14.5px; color:var(--ink); font-weight:600; letter-spacing:-.01em} .rl-meta span{font-size:12.5px; color:var(--ink-3)}
 .rl-go{font-size:12.5px; font-weight:700; color:var(--i); flex:none; white-space:nowrap}
 .rl-steps{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; max-width:800px; margin:26px auto 0}
-.rl-stnum{display:inline-flex; align-items:center; justify-content:center; width:28px; height:28px; border-radius:9px; background:var(--i); color:#fff; font-weight:700; font-size:14px; margin-bottom:11px; box-shadow:0 5px 12px -4px rgba(10,102,194,.5)}
+.rl-step{position:relative}
+.rl-stic{display:inline-flex; align-items:center; justify-content:center; width:38px; height:38px; border-radius:12px; background:linear-gradient(155deg,#fff,var(--i-soft)); border:1px solid var(--i-line); color:var(--i); margin-bottom:13px}
+.rl-stic svg{width:20px; height:20px}
 .rl-step b{display:block; font-size:15.5px; color:var(--ink); margin-bottom:5px; letter-spacing:-.01em} .rl-step span{font-size:13.5px; color:var(--ink-2); line-height:1.5}
 @media (max-width:680px){.rl-steps{grid-template-columns:1fr; gap:16px} .rl-sig .rl-go{display:none} .rl-meta b{font-size:13.5px}}
 .proof-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:24px; align-items:stretch}
@@ -800,7 +811,7 @@ footer .brand .fmail{color:rgba(255,255,255,.72)} footer .brand .fmail:hover{col
 footer .col h4{color:rgba(255,255,255,.46)}
 footer .col a{color:rgba(255,255,255,.7)} footer .col a:hover{color:#fff}
 footer .col .fstatus{color:rgba(255,255,255,.82)}
-footer .bottom{border-top-color:rgba(255,255,255,.1);color:rgba(255,255,255,.5)} footer .bottom b{color:rgba(255,255,255,.85)} footer .bottom a{color:rgba(255,255,255,.62)} footer .bottom a:hover{color:#fff}
+footer .bottom{border-top-color:rgba(255,255,255,.1);color:rgba(255,255,255,.64)} footer .bottom b{color:rgba(255,255,255,.85)} footer .bottom a{color:rgba(255,255,255,.62)} footer .bottom a:hover{color:#fff}
 footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 
 .reveal{will-change:opacity,transform}
@@ -857,22 +868,24 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 .tf-lbl{display:flex; align-items:center; justify-content:center; gap:8px; font-size:13px; font-weight:700; color:var(--i); margin:0 auto 16px; text-align:center}
 .tf-lbl svg{width:16px; height:16px; flex:none}
 .tf-lbl.two{margin-top:clamp(36px,5vw,56px)}
-.ba-table{max-width:820px; margin:0 auto; border:1px solid var(--line); border-radius:var(--r-lg); overflow:hidden; background:var(--surface); box-shadow:var(--sh-2)}
-.ba-row{display:grid; grid-template-columns:1fr 44px 1fr; align-items:stretch; border-top:1px solid var(--line); transition:background .2s var(--ease)}
+.ba-table{position:relative; max-width:860px; margin:0 auto; border:1px solid var(--line); border-radius:var(--r-xl); overflow:hidden; background:var(--surface); box-shadow:var(--sh-2); isolation:isolate}
+.ba-table::before{content:''; position:absolute; top:0; bottom:0; left:calc(50% + 26px); right:0; background:linear-gradient(180deg,rgba(10,102,194,.085),rgba(10,102,194,.02)); z-index:0; pointer-events:none}
+.ba-row{position:relative; z-index:1; display:grid; grid-template-columns:1fr 52px 1fr; align-items:stretch; border-top:1px solid var(--line); transition:background .22s var(--ease)}
 .ba-row:first-child{border-top:none}
-.ba-row:not(.ba-head):hover{background:linear-gradient(90deg,transparent, var(--i-soft) 75%)}
-.ba-row span{padding:15px 20px; font-size:14.5px; display:flex; align-items:center; gap:9px; line-height:1.35}
+.ba-row:not(.ba-head):hover{background:linear-gradient(90deg,transparent 32%, rgba(10,102,194,.07))}
+.ba-row span{padding:16px 22px; font-size:14.5px; display:flex; align-items:center; gap:11px; line-height:1.35}
 .ba-row .ba-a{color:var(--ink-3)}
-.ba-row .ba-a .bx{flex:none; width:19px; height:19px; border-radius:50%; display:grid; place-items:center; background:#fdecf0; color:#e11d48} .ba-row .ba-a .bx svg{width:10px; height:10px}
-.ba-arrow{display:grid; place-items:center; color:var(--i); opacity:.45}
-.ba-arrow svg{width:16px; height:16px; transition:transform .25s var(--ease)}
-.ba-row:not(.ba-head):hover .ba-arrow svg{transform:translateX(3px)}
-.ba-row:not(.ba-head):hover .ba-arrow{opacity:.8}
+.ba-row .ba-a .bx{flex:none; width:20px; height:20px; border-radius:50%; display:grid; place-items:center; background:#f3e9ec; color:#bc5a72} .ba-row .ba-a .bx svg{width:10px; height:10px}
+.ba-arrow{display:grid; place-items:center; color:var(--i); opacity:.5}
+.ba-arrow svg{width:17px; height:17px; transition:transform .28s var(--ease)}
+.ba-row:not(.ba-head):hover .ba-arrow svg{transform:translateX(4px)}
+.ba-row:not(.ba-head):hover .ba-arrow{opacity:1}
 .ba-row .ba-b{color:var(--ink); font-weight:600}
-.ba-row .ba-b .bc{flex:none; width:19px; height:19px; padding:3px; border-radius:50%; background:#e9f9ef; color:var(--ok-text)}
-.ba-head .ba-a,.ba-head .ba-b{font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; font-weight:600; background:var(--muted-bg)}
-.ba-head .ba-a{color:var(--ink-3)} .ba-head .ba-b{color:var(--i)} .ba-head .ba-arrow{background:var(--muted-bg)}
-@media (max-width:520px){.ba-row{grid-template-columns:1fr 30px 1fr} .ba-row span{padding:12px 11px; font-size:12px} .ba-arrow svg{width:13px;height:13px}}
+.ba-row .ba-b .bc{flex:none; width:21px; height:21px; padding:4px; border-radius:50%; background:linear-gradient(150deg,#1a85e0,#0a66c2); color:#fff; box-shadow:0 4px 9px -4px rgba(10,102,194,.6)}
+.ba-head{border-bottom:1px solid var(--line)}
+.ba-head .ba-a,.ba-head .ba-b{font-family:var(--font-mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; font-weight:600; padding-top:13px; padding-bottom:13px}
+.ba-head .ba-a{color:var(--ink-3)} .ba-head .ba-b{color:var(--i)}
+@media (max-width:520px){.ba-table::before{left:calc(50% + 14px)} .ba-row{grid-template-columns:1fr 28px 1fr} .ba-row span{padding:13px 12px; font-size:12px; gap:8px} .ba-arrow svg{width:13px;height:13px} .ba-row .ba-a .bx,.ba-row .ba-b .bc{width:17px;height:17px}}
 
 /* segurança & conformidade */
 .safe-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:12px; max-width:980px; margin:0 auto}
@@ -959,7 +972,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
             </a>
             <div class="mega-grid">
               <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 14l1.2-3.4 7-7 2.2 2.2-7 7z"/></svg></span><span><b>Studio</b><span>Posts, comentários e respostas prontos</span></span></a>
-              <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/></svg></span><span><b>Radar de Oportunidades</b><span>150 fontes, o assunto certo antes de todos</span></span></a>
+              <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><circle cx="8" cy="8" r="2.4"/></svg></span><span><b>Radar de Oportunidades</b><span>Mais de mil fontes, o assunto certo antes de todos</span></span></a>
               <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="2.5" width="11" height="11" rx="2"/><path d="M5.3 8l1.9 1.9L11 6"/></svg></span><span><b>Centro de Aprovação</b><span>Nada vai pro ar sem o seu aval</span></span></a>
               <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6.3"/><path d="M5 8.5c1.5 1.5 4.5 1.5 6 0M5.5 6.2h.01M10.5 6.2h.01"/></svg></span><span><b>Estratégia & Voz</b><span>Seu tom, suas ideias, seu objetivo</span></span></a>
               <a href="#modulos"><span class="mi"><svg width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2.5" y="3" width="11" height="10.5" rx="1.6"/><path d="M2.5 6.3h11"/></svg></span><span><b>Calendário editorial</b><span>Semana planejada, agendada e no ar</span></span></a>
@@ -969,7 +982,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
           </div>
         </div>
         <a href="#como">Como funciona</a>
-        <a href="#quem">Quem usa</a>
+        <a href="#quem">Radar</a>
         <a href="#faq">FAQ</a>
       </div>
       <div class="right">
@@ -988,7 +1001,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     <h1 class="h-anim">Vire autoridade no LinkedIn <span class="hl nb">Toda semana, no seu tom</span></h1>
     <p class="lede h-anim">O PresenceIn aprende como você pensa e escreve.<br>Ele busca notícias atualizadas sobre o seu mercado no mundo todo e te entrega posts, comentários e respostas prontos.<span class="lede-em">Sempre na sua voz, nunca com cara de IA.</span></p>
     <div class="cta h-anim">
-      <a class="btn primary" href="#beta">Quero participar do BETA
+      <a class="btn primary" href="#beta">Quero participar do beta
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
       <a class="btn secondary" href="#como">Ver como funciona</a>
     </div>
@@ -1132,10 +1145,11 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
                           <div class="pv-phone">
                             <span class="pv-notch"></span>
                             <div class="pv-phone-scr">
-                              <div class="mli-hd"><img class="mli-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><div class="mli-meta"><b>Marina Alves</b><span>Head de Gente &amp; Cultura</span></div></div>
-                              <div class="mli-tx">Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding, não no incidente.</div>
-                              <img class="mli-img" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=360&q=80" alt="" loading="lazy">
-                              <div class="mli-stats"><span class="mli-rx"><i class="b"></i><i class="r"></i></span> 127 · 24 coment.</div>
+                              <div class="mli-hd"><img class="mli-av" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=112&q=80" alt="" loading="lazy"><div class="mli-meta"><b>Marina Alves <em>· 1º</em></b><span>Head de Gente &amp; Cultura</span><span class="mli-time">Agora · <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="8" cy="8" r="6.5"/><path d="M2 8h12M8 1.5c1.7 1.7 1.7 11.3 0 13M8 1.5c-1.7 1.7-1.7 11.3 0 13"/></svg></span></div></div>
+                              <div class="mli-tx">Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding, não no incidente. <b>#cultura</b></div>
+                              <div class="mli-imgwrap"><img class="mli-img" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=360&q=80" alt="" loading="lazy"><span class="mli-imgbadge"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0l1.8 4.5L14 6l-4.2 1.5L8 12l-1.8-4.5L2 6l4.2-1.5z"/></svg> Imagem gerada</span></div>
+                              <div class="mli-stats"><span class="mli-rx"><i class="b"></i><i class="r"></i><i class="y"></i></span> 127 <span class="sp">24 coment.</span></div>
+                              <div class="mli-bar"><span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 7.5l2.5-4c.4-.6 1.4-.3 1.3.5L7.5 6.5H11c.7 0 1.2.6 1 1.3l-1 4c-.1.5-.6.8-1 .8H5.5V7.5z"/><path d="M4 7.5H2.5v5H4z"/></svg> Gostei</span><span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 3.5h12v8H8l-3 2.5V11.5H2z"/></svg> Comentar</span><span><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M13 2L2 7l4 1.5M13 2L9 13l-3-4.5M13 2L6 8.5"/></svg> Enviar</span></div>
                             </div>
                           </div>
                         </div>
@@ -1454,14 +1468,15 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 <!-- PROVA SOCIAL -->
 <section class="sec band" id="quem">
   <div class="wrap">
-    <div class="sec-head reveal"><h2>150 fontes. Últimas 24h. <span class="brandblue">Só o que importa pra você.</span></h2><p>Enquanto você toca o seu trabalho, o Radar varre notícias, fóruns e tendências do seu mercado no mundo todo e separa o assunto certo, antes de virar lugar-comum.</p></div>
+    <div class="sec-head reveal"><h2>Mais de mil fontes mundiais. Últimas 24h. <span class="brandblue">Só o que importa pra você.</span></h2><p>Enquanto você trabalha, o PresenceIn percorre e aprende sobre os principais assuntos do seu mercado, consumindo notícias, fóruns e tendências no mundo todo. E separa o que vale a pena, antes de virar lugar-comum.</p></div>
     <div class="radar-live reveal" id="radarLive">
       <div class="rl-top">
-        <div class="rl-status"><span class="rl-dot"></span> Varrendo <b>150 fontes</b> · últimas 24h</div>
+        <div class="rl-status"><span class="rl-dot"></span> Varrendo <b>+1.000 fontes</b> · últimas 24h</div>
         <div class="rl-count"><b id="rlNum">0</b> sinais relevantes hoje</div>
       </div>
       <div class="rl-scan"><span></span></div>
-      <div class="rl-srcs"><span>Portais de notícias</span><span>Reddit</span><span>Google News</span><span>GitHub</span><span>X</span><span>Newsletters</span><span>Podcasts</span><span class="more">+143 fontes</span></div>
+      <div class="rl-srcs"><span>Portais de notícias</span><span>Reddit</span><span>Google News</span><span>GitHub</span><span>X</span><span>Newsletters</span><span>Podcasts</span><span class="more">e centenas de outras</span><span class="add"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M8 3.5v9M3.5 8h9"/></svg> Adicionar fonte</span></div>
+      <div class="rl-srcnote">Você no controle das fontes: <b>adicione, remova ou personalize</b> o que o Radar acompanha, quando quiser.</div>
       <div class="rl-feed">
         <div class="rl-sig"><span class="rl-fit hi">fit 9</span><div class="rl-meta"><b>Onboarding remoto: o que mudou em 2026</b><span>Em alta entre líderes de RH · há 3h</span></div><span class="rl-go">Gerar post →</span></div>
         <div class="rl-sig"><span class="rl-fit">fit 8</span><div class="rl-meta"><b>Reter sênior sem entrar em contraproposta</b><span>Pauta quente no seu nicho · há 7h</span></div></div>
@@ -1469,9 +1484,9 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       </div>
     </div>
     <div class="rl-steps reveal">
-      <div class="rl-step"><span class="rl-stnum">1</span><b>Capta os sinais</b><span>Varre 150 fontes no mundo todo, em todos os idiomas. Você não abre nada.</span></div>
-      <div class="rl-step"><span class="rl-stnum">2</span><b>Cruza com o seu perfil</b><span>Filtra pelo seu nicho, posição e objetivo. Nunca cai no óbvio.</span></div>
-      <div class="rl-step"><span class="rl-stnum">3</span><b>Entrega pronto</b><span>Com ângulo, formato e prioridade, pronto pra virar post ou comentário.</span></div>
+      <div class="rl-step"><span class="rl-stic"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="2.2"/><path d="M11 4.2a6.8 6.8 0 0 1 6.8 6.8M11 1.3a9.7 9.7 0 0 1 9.7 9.7"/></svg></span><b>Capta os sinais</b><span>Varre mais de mil fontes no mundo todo, em todos os idiomas. Você não abre nada.</span></div>
+      <div class="rl-step"><span class="rl-stic"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="11" cy="11" r="7"/><path d="M11 1.5v3.5M11 17v3.5M1.5 11H5M17 11h3.5"/><circle cx="11" cy="11" r="1.6" fill="currentColor" stroke="none"/></svg></span><b>Cruza com o seu perfil</b><span>Filtra pelo seu nicho, posição e objetivo. Nunca cai no óbvio.</span></div>
+      <div class="rl-step"><span class="rl-stic"><svg viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 6.2l8-3.7 8 3.7v9.6l-8 3.7-8-3.7z"/><path d="M3 6.2l8 3.7 8-3.7M11 9.9v9.3"/></svg></span><b>Entrega pronto</b><span>Com ângulo, formato e prioridade, pronto pra virar post ou comentário.</span></div>
     </div>
   </div>
 </section>
@@ -1574,7 +1589,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   <div class="fbar" aria-hidden="true"></div>
   <div class="fcta reveal">
     <h3>Seja a referência que o seu mercado lembra primeiro.</h3>
-    <a class="btn primary fcta-btn" href="#beta">Quero participar do BETA
+    <a class="btn primary fcta-btn" href="#beta">Quero participar do beta
       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></a>
   </div>
   <div class="ftop">
@@ -1588,7 +1603,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       <a href="#produto">Visão geral</a>
       <a href="#modulos">Funcionalidades</a>
       <a href="#como">Como funciona</a>
-      <a href="#quem">Quem usa</a>
+      <a href="#quem">Radar</a>
     </div>
     <div class="col">
       <h4>Recursos</h4>
