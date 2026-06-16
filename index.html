@@ -1343,10 +1343,10 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       <p>Antes de te contratar, fechar negócio ou te indicar, as pessoas te pesquisam no LinkedIn. Estar presente e relevante virou o ponto de partida.</p>
     </div>
     <div class="sp-stats reveal">
-      <div class="sp-stat"><b><em>+1,3</em> bi</b><span>de profissionais em mais de 200 países</span></div>
-      <div class="sp-stat"><b><em>83</em> mi</b><span>de profissionais no Brasil</span></div>
-      <div class="sp-stat"><b><em>+70</em> mi</b><span>de empresas presentes na plataforma</span></div>
-      <div class="sp-stat"><b><em>2</em>/seg</b><span>novos profissionais entram a cada segundo</span></div>
+      <div class="sp-stat"><b><em data-to="1.3" data-dec="1" data-prefix="+">+1,3</em> bi</b><span>de profissionais em mais de 200 países</span></div>
+      <div class="sp-stat"><b><em data-to="83" data-dec="0" data-prefix="">83</em> mi</b><span>de profissionais no Brasil</span></div>
+      <div class="sp-stat"><b><em data-to="70" data-dec="0" data-prefix="+">+70</em> mi</b><span>de empresas presentes na plataforma</span></div>
+      <div class="sp-stat"><b><em data-to="2" data-dec="0" data-prefix="">2</em>/seg</b><span>novos profissionais entram a cada segundo</span></div>
     </div>
     <div class="sp-source reveal"><img src="https://www.google.com/s2/favicons?domain=linkedin.com&sz=128" alt="" loading="lazy" width="18" height="18"> <span>Dados do LinkedIn · 2026</span></div>
     <div class="sp-press reveal">
@@ -1774,6 +1774,23 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     var target=47, started=false;
     function run(){ if(started) return; started=true; var n=0, step=Math.max(1,Math.round(target/30)); var iv=setInterval(function(){ n+=step; if(n>=target){n=target; clearInterval(iv);} el.textContent=n; },42); }
     if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) run(); }); },{threshold:.3}).observe(live); } else { run(); }
+  })();
+  // Prova social: count-up dos números (1,3 bi / 83 mi / +70 mi / 2/seg)
+  (function(){
+    var grid=document.querySelector('.sp-stats'); if(!grid) return;
+    var ems=[].slice.call(grid.querySelectorAll('em[data-to]')); if(!ems.length) return;
+    function fmt(v,dec,prefix){ var s=dec>0 ? v.toFixed(dec).replace('.',',') : String(Math.round(v)); return prefix+s; }
+    if(reduce){ return; } // mantém os valores finais já no HTML
+    var done=false;
+    function finalAll(){ ems.forEach(function(em){ em.textContent=fmt(parseFloat(em.getAttribute('data-to')),+em.getAttribute('data-dec'),em.getAttribute('data-prefix')||''); }); }
+    function run(){ if(done) return; done=true;
+      ems.forEach(function(em){ var to=parseFloat(em.getAttribute('data-to')), dec=+em.getAttribute('data-dec'), pre=em.getAttribute('data-prefix')||''; var t0=null, dur=1200;
+        function frame(ts){ if(t0===null) t0=ts; var p=Math.min(1,(ts-t0)/dur); var e=1-Math.pow(1-p,3); em.textContent=fmt(to*e,dec,pre); if(p<1) requestAnimationFrame(frame); else em.textContent=fmt(to,dec,pre); }
+        em.textContent=fmt(0,dec,pre); requestAnimationFrame(frame);
+      });
+      setTimeout(finalAll,1600); // safety: garante valores finais mesmo se o rAF travar/pausar
+    }
+    if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) run(); }); },{threshold:.4}).observe(grid); } else { run(); }
   })();
   // Radar panel (legado): capta -> cruza -> entrega (sequencial)
   (function(){
