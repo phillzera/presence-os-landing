@@ -1792,6 +1792,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     }
     function pos(el){ var ref=cur.offsetParent||stage; var x=0,y=0,n=el; while(n && n!==ref){ x+=n.offsetLeft; y+=n.offsetTop; n=n.offsetParent; } return {x:x+el.offsetWidth/2, y:y+el.offsetHeight/2}; }
     function tgt(sel){ var el=stage.querySelector(sel); return el?pos(el):{x:0,y:0}; }
+    if(window.innerWidth<=560){ show(0); if(done) done.classList.remove('show'); return; } // mobile: macbook estático no Radar (telas densas não cabem)
     if(reduce || !window.gsap){
       show(2); if(done) done.classList.remove('show');
       if(!reduce){ var i=0; setInterval(function(){ i=(i+1)%3; show(i); if(done) done.classList.toggle('show', i===2); },2800); }
