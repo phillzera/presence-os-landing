@@ -450,7 +450,7 @@ section{position:relative}
 /* Mobile (<=700px): macbook (UI desktop densa) não cabe bem -> mostra o iPhone, centralizado. Demo completo do macbook fica no tablet/desktop. */
 @media (max-width:700px){
   .showcase{overflow:visible; padding-bottom:0; perspective:none; max-width:none; margin-top:clamp(30px,6vw,48px)}
-  .macbook{display:none}
+  .macbook,.showcase .mb-base{display:none} /* mb-base é IRMÃO do macbook no showcase: precisa esconder junto, senão sobra uma barra torta + overflow de 26px */
   .iphone{display:block; position:static; margin:0 auto; right:auto; bottom:auto; transform:none; width:min(252px,66vw)}
 }
 
@@ -660,7 +660,7 @@ section{position:relative}
 .step .sv-acts{display:flex; gap:6px; margin-top:8px}
 .step .sv-btn{flex:1; text-align:center; font-size:11px; font-weight:600; color:var(--ink-2); background:var(--surface-2); border:1px solid var(--line); border-radius:7px; padding:6px 0}
 .step .sv-btn.pri{color:#fff; background:var(--i); border-color:var(--i)}
-@media (max-width:760px){.steps{grid-template-columns:1fr; gap:18px} .steps::before{left:26px; top:27px; bottom:27px; right:auto; width:2px; height:auto; background:repeating-linear-gradient(180deg,var(--i-line) 0 7px,transparent 7px 13px)} .step{flex-direction:row; align-items:flex-start; text-align:left; gap:16px} .step .n{width:52px;height:52px;font-size:20px;border-radius:16px;flex:none} .step .stag{margin-top:4px} .step h3{margin-top:2px} .step .tx{padding-top:2px; align-items:flex-start; text-align:left} .step .svis{margin:14px 0 0}}
+@media (max-width:760px){.steps{grid-template-columns:1fr; gap:18px} .steps::before{left:26px; top:27px; bottom:27px; right:auto; width:2px; height:auto; background:repeating-linear-gradient(180deg,var(--i-line) 0 7px,transparent 7px 13px)} .step{flex-direction:row; align-items:flex-start; text-align:left; gap:16px} .step .n{width:52px;height:52px;font-size:20px;border-radius:16px;flex:none} .step .stag{margin-top:4px} .step h3{margin-top:2px} .step .tx{padding-top:2px; align-items:flex-start; text-align:left; min-width:0} .step .svis{margin:14px 0 0; max-width:min(272px, calc(100vw - 120px))}}
 
 /* prova social */
 .radar-panel{position:relative; background:radial-gradient(135% 145% at 0% 0%, var(--i-soft), #fff 52%); border:1px solid var(--i-line); border-radius:var(--r-xl); padding:clamp(26px,4vw,40px) clamp(24px,4vw,44px) 0; box-shadow:var(--sh-2); margin-bottom:26px; display:grid; grid-template-columns:repeat(3,1fr); gap:clamp(22px,4vw,48px)}
