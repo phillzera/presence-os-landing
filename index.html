@@ -177,9 +177,10 @@ section{position:relative}
 .hero .re .ra{color:var(--i); font-style:normal; font-weight:700}
 @media (max-width:620px){
   .hero h1 .nb{white-space:normal}
-  .hero .re{flex-direction:column; align-items:stretch; width:fit-content; max-width:92%; padding:4px 8px}
-  .hero .re span{justify-content:center; padding:11px 16px; white-space:nowrap; font-size:12.5px; gap:7px}
-  .hero .re span + span::before{left:10px; right:10px; top:0; width:auto; height:1px; transform:none}
+  /* 3 chips SEPARADOS (pílulas individuais), empilhados e centralizados */
+  .hero .re{flex-direction:column; align-items:center; width:100%; max-width:100%; padding:0; gap:9px; background:none; border:none; box-shadow:none}
+  .hero .re span{justify-content:center; padding:9px 18px; white-space:nowrap; font-size:12.5px; gap:7px; background:#fff; border:1px solid var(--line); border-radius:var(--r-pill); box-shadow:0 8px 22px -14px rgba(20,48,80,.32), var(--sh-1)}
+  .hero .re span + span::before{display:none}
 }
 
 /* showcase: macbook + iphone */
@@ -192,18 +193,6 @@ section{position:relative}
 .mb-base{position:relative; width:114%; margin:0 0 0 -7%; height:14px; border-radius:0 0 12px 12px; background:linear-gradient(180deg,#46464a,#26262a 55%,#0e0e10); box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 16px 26px -12px rgba(0,0,0,.5)}
 .mb-base::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:118px;height:6px;background:#16161a;border-radius:0 0 7px 7px}
 @media (max-width:760px){.mb-screen{aspect-ratio:16/13}}
-@media (max-width:560px){
-  /* macbook: renderiza em tamanho desktop e ESCALA pra caber (nítido, cabe, e cicla os 3 passos). JS seta o scale + altura do showcase. */
-  .showcase{position:relative; overflow:hidden; padding-bottom:0}
-  .macbook.mb-scaled{position:absolute; top:0; left:50%; width:960px; transform-origin:top center; will-change:transform}
-  /* mantém o layout DESKTOP dentro do macbook escalado (desfaz os colapsos mobile internos) */
-  .macbook.mb-scaled .app-nav{display:flex}
-  .macbook.mb-scaled .app-body{grid-template-columns:46px 1fr}
-  .macbook.mb-scaled .est-grid{grid-template-columns:1.3fr 1fr}
-  .macbook.mb-scaled .est-side{display:flex}
-  .macbook.mb-scaled .st-compose{display:block}
-  .macbook .pub-done{backdrop-filter:none;-webkit-backdrop-filter:none}
-}
 .os-bar{position:absolute; top:0; left:0; right:0; height:22px; display:flex; align-items:center; gap:12px; padding:0 11px; font-size:10px; color:#fff; background:rgba(16,30,52,.42); backdrop-filter:blur(8px); z-index:20}
 .os-bar .apple{width:9px;height:11px;opacity:.95} .os-bar b{font-weight:600} .os-bar .mi{opacity:.78;font-weight:500} .os-bar .sp{flex:1} .os-bar .st{display:inline-flex;align-items:center;gap:9px;opacity:.92}
 @media (max-width:720px){.os-bar .mi{display:none}}
@@ -458,6 +447,12 @@ section{position:relative}
 .ip-done b{font-size:15px; color:var(--ink); font-weight:700; letter-spacing:-.02em; font-family:var(--font-sans)} .ip-done span{font-size:9.5px; color:var(--ink-3)}
 @media (prefers-reduced-motion:reduce){.lg-fld .car{animation:none} .ip-cursor,.ip-click{display:none}}
 @media (max-width:1140px){.iphone{display:none} .showcase{overflow:hidden; padding-bottom:14px} .showcase::after{display:none}}
+/* Mobile (<=700px): macbook (UI desktop densa) não cabe bem -> mostra o iPhone, centralizado. Demo completo do macbook fica no tablet/desktop. */
+@media (max-width:700px){
+  .showcase{overflow:visible; padding-bottom:0; perspective:none; max-width:none; margin-top:clamp(30px,6vw,48px)}
+  .macbook{display:none}
+  .iphone{display:block; position:static; margin:0 auto; right:auto; bottom:auto; transform:none; width:min(252px,66vw)}
+}
 
 /* AI strip (3 logos grandes) */
 .aiblock{padding:var(--sec) 0}
@@ -543,7 +538,11 @@ section{position:relative}
 .pscreen .pmnum{font-size:24px; font-weight:700; color:var(--ink); font-family:var(--font-sans); line-height:1} .pscreen .pmnum em{font-size:13px; font-weight:600; color:var(--ink-3); font-style:normal}
 .pscreen .pbar2{flex:1; height:7px; border-radius:4px; background:var(--surface-2); overflow:hidden} .pscreen .pbar2 span{display:block; height:100%; width:94%; border-radius:4px; background:linear-gradient(90deg,#1a85e0,#0a66c2)}
 .pscreen .pquote{margin-top:13px; font-size:13px; color:var(--ink-2); line-height:1.55; background:var(--i-soft); border:1px solid var(--i-line); border-radius:10px; padding:11px 13px}
-@media (max-width:680px){.pscreen .pbody{grid-template-columns:1fr} .pscreen .prail{flex-direction:row; border-right:none; border-bottom:1px solid var(--line); padding:10px 12px; justify-content:flex-start; gap:6px} .pscreen .pr-logo{margin-bottom:0} .pscreen .pgrid{grid-template-columns:1fr}}
+@media (max-width:680px){.pscreen .pbody{grid-template-columns:1fr} .pscreen .pgrid{grid-template-columns:1fr}
+  /* mobile: esconde a moldura de "app desktop" (barra de janela + trilho de ícones), mostra só o conteúdo limpo */
+  .pscreen .pbar,.pscreen .prail{display:none}
+  .pscreen{border-radius:14px}
+  .pscreen .pmain{padding:clamp(18px,5vw,26px)}}
 .result{margin-top:18px;border-radius:var(--r-lg);border:1px solid var(--i-line);background:linear-gradient(120deg,#0a66c2,#1a85e0);color:#fff;padding:clamp(24px,4vw,38px);display:flex;gap:22px;align-items:center;flex-wrap:wrap;box-shadow:0 18px 40px -18px rgba(10,102,194,.6)}
 .result .ic{width:66px;height:66px;border-radius:17px;flex:none;display:grid;place-items:center;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.25);color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
 .result h3{color:#fff;font-size:clamp(19px,2.6vw,25px);font-weight:600;margin-bottom:5px} .result p{color:rgba(255,255,255,.92);font-size:15px;line-height:1.5;max-width:62ch}
@@ -889,7 +888,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 .sp-press-row{display:flex; flex-wrap:wrap; align-items:center; justify-content:center; gap:12px}
 .sp-press-item{display:inline-flex; align-items:center; gap:9px; font-size:14.5px; font-weight:600; color:#fff; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.13); border-radius:99px; padding:8px 17px 8px 9px}
 .sp-press-item img{border-radius:6px; background:#fff; padding:2px; flex:none}
-@media (max-width:560px){.sp-press-row{display:grid; grid-template-columns:1fr 1fr; gap:8px; max-width:330px; margin:0 auto} .sp-press-item{justify-content:flex-start; font-size:11.5px; padding:7px 11px 7px 7px; white-space:nowrap} .sp-press-item img{width:18px;height:18px}}
+@media (max-width:560px){.sp-press-row{flex-direction:column; align-items:center; gap:8px} .sp-press-item{width:230px; max-width:80%; justify-content:flex-start; font-size:12.5px; padding:8px 14px 8px 9px; white-space:nowrap} .sp-press-item img{width:18px;height:18px}}
 @media (max-width:680px){.sp-stats{grid-template-columns:1fr 1fr; gap:12px}}
 @media (max-width:380px){.sp-stats{grid-template-columns:1fr 1fr}}
 
@@ -1803,6 +1802,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     }
     function pos(el){ var ref=cur.offsetParent||stage; var x=0,y=0,n=el; while(n && n!==ref){ x+=n.offsetLeft; y+=n.offsetTop; n=n.offsetParent; } return {x:x+el.offsetWidth/2, y:y+el.offsetHeight/2}; }
     function tgt(sel){ var el=stage.querySelector(sel); return el?pos(el):{x:0,y:0}; }
+    if(window.innerWidth<=700){ show(0); return; } // mobile: macbook oculto (mostra iPhone), não roda a timeline
     if(reduce || !window.gsap){
       show(2); if(done) done.classList.remove('show');
       if(!reduce){ var i=0; setInterval(function(){ i=(i+1)%3; show(i); if(done) done.classList.toggle('show', i===2); },2800); }
@@ -1846,26 +1846,6 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       .add(function(){ if(done) done.classList.remove('show'); });
     tl.play();
     if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) tl.play(); }); },{threshold:.05}).observe(stage); }
-  })();
-  // MacBook no mobile: renderiza em tamanho desktop (960px) e escala pra caber, nítido e ciclando
-  (function(){
-    var mb=document.getElementById('macbook'), sc=document.getElementById('showcase'); if(!mb||!sc) return;
-    var BASE=960;
-    function fit(){
-      if(window.innerWidth<=560){
-        mb.classList.add('mb-scaled');
-        mb.style.transform='none';            // mede a altura natural em 960px
-        var natH=mb.offsetHeight;
-        var s=sc.clientWidth/BASE;
-        mb.style.transform='translateX(-50%) scale('+s+')';
-        sc.style.height=Math.round(natH*s)+'px';
-      } else {
-        mb.classList.remove('mb-scaled'); mb.style.transform=''; sc.style.height='';
-      }
-    }
-    fit();
-    var rt; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(fit,150); },{passive:true});
-    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
   })();
   // Radar ao vivo: conta os sinais quando entra na tela
   (function(){
