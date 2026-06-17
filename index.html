@@ -177,8 +177,8 @@ section{position:relative}
 .hero .re .ra{color:var(--i); font-style:normal; font-weight:700}
 @media (max-width:620px){
   .hero h1 .nb{white-space:normal}
-  .hero .re{flex-direction:column; align-items:stretch; width:min(340px,92%); padding:4px 8px}
-  .hero .re span{justify-content:flex-start; padding:11px 12px; white-space:nowrap; font-size:12.5px; gap:7px}
+  .hero .re{flex-direction:column; align-items:stretch; width:fit-content; max-width:92%; padding:4px 8px}
+  .hero .re span{justify-content:center; padding:11px 16px; white-space:nowrap; font-size:12.5px; gap:7px}
   .hero .re span + span::before{left:10px; right:10px; top:0; width:auto; height:1px; transform:none}
 }
 
@@ -192,7 +192,18 @@ section{position:relative}
 .mb-base{position:relative; width:114%; margin:0 0 0 -7%; height:14px; border-radius:0 0 12px 12px; background:linear-gradient(180deg,#46464a,#26262a 55%,#0e0e10); box-shadow:inset 0 1px 0 rgba(255,255,255,.22), 0 16px 26px -12px rgba(0,0,0,.5)}
 .mb-base::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:118px;height:6px;background:#16161a;border-radius:0 0 7px 7px}
 @media (max-width:760px){.mb-screen{aspect-ratio:16/13}}
-@media (max-width:560px){.macbook .mb-screen{aspect-ratio:16/13} .macbook .app-body{font-size:9px} .macbook .app-screens .scr[data-k="0"]{opacity:1!important;transform:none!important} .macbook .app-screens .scr:not([data-k="0"]){opacity:0!important} .macbook .mac-cursor,.macbook .mac-click{display:none} #macStage .rdr-niche{display:none} #macStage .rdr-list .opp:nth-child(n+4){display:none}}
+@media (max-width:560px){
+  /* macbook: renderiza em tamanho desktop e ESCALA pra caber (nítido, cabe, e cicla os 3 passos). JS seta o scale + altura do showcase. */
+  .showcase{position:relative; overflow:hidden; padding-bottom:0}
+  .macbook.mb-scaled{position:absolute; top:0; left:50%; width:960px; transform-origin:top center; will-change:transform}
+  /* mantém o layout DESKTOP dentro do macbook escalado (desfaz os colapsos mobile internos) */
+  .macbook.mb-scaled .app-nav{display:flex}
+  .macbook.mb-scaled .app-body{grid-template-columns:46px 1fr}
+  .macbook.mb-scaled .est-grid{grid-template-columns:1.3fr 1fr}
+  .macbook.mb-scaled .est-side{display:flex}
+  .macbook.mb-scaled .st-compose{display:block}
+  .macbook .pub-done{backdrop-filter:none;-webkit-backdrop-filter:none}
+}
 .os-bar{position:absolute; top:0; left:0; right:0; height:22px; display:flex; align-items:center; gap:12px; padding:0 11px; font-size:10px; color:#fff; background:rgba(16,30,52,.42); backdrop-filter:blur(8px); z-index:20}
 .os-bar .apple{width:9px;height:11px;opacity:.95} .os-bar b{font-weight:600} .os-bar .mi{opacity:.78;font-weight:500} .os-bar .sp{flex:1} .os-bar .st{display:inline-flex;align-items:center;gap:9px;opacity:.92}
 @media (max-width:720px){.os-bar .mi{display:none}}
@@ -986,7 +997,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   <div class="annbar" id="annbar">
     <div class="row">
       <span class="blip" aria-hidden="true"></span>
-      <span class="ann-txt"><b>Beta privado</b><span class="ann-mid"> com onboarding de voz incluso</span> · Lote 1 abre em <b>20/06</b></span>
+      <span class="ann-txt"><b>Beta privado</b><span class="ann-mid"> com onboarding de voz incluso</span> · abre em <b>20/06</b></span>
       <a class="ann-cta" href="#beta">Entrar na lista →</a>
       <button class="ann-x" id="annX" aria-label="Fechar aviso">×</button>
     </div>
@@ -1792,7 +1803,6 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
     }
     function pos(el){ var ref=cur.offsetParent||stage; var x=0,y=0,n=el; while(n && n!==ref){ x+=n.offsetLeft; y+=n.offsetTop; n=n.offsetParent; } return {x:x+el.offsetWidth/2, y:y+el.offsetHeight/2}; }
     function tgt(sel){ var el=stage.querySelector(sel); return el?pos(el):{x:0,y:0}; }
-    if(window.innerWidth<=560){ show(0); if(done) done.classList.remove('show'); return; } // mobile: macbook estático no Radar (telas densas não cabem)
     if(reduce || !window.gsap){
       show(2); if(done) done.classList.remove('show');
       if(!reduce){ var i=0; setInterval(function(){ i=(i+1)%3; show(i); if(done) done.classList.toggle('show', i===2); },2800); }
@@ -1836,6 +1846,26 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       .add(function(){ if(done) done.classList.remove('show'); });
     tl.play();
     if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) tl.play(); }); },{threshold:.05}).observe(stage); }
+  })();
+  // MacBook no mobile: renderiza em tamanho desktop (960px) e escala pra caber, nítido e ciclando
+  (function(){
+    var mb=document.getElementById('macbook'), sc=document.getElementById('showcase'); if(!mb||!sc) return;
+    var BASE=960;
+    function fit(){
+      if(window.innerWidth<=560){
+        mb.classList.add('mb-scaled');
+        mb.style.transform='none';            // mede a altura natural em 960px
+        var natH=mb.offsetHeight;
+        var s=sc.clientWidth/BASE;
+        mb.style.transform='translateX(-50%) scale('+s+')';
+        sc.style.height=Math.round(natH*s)+'px';
+      } else {
+        mb.classList.remove('mb-scaled'); mb.style.transform=''; sc.style.height='';
+      }
+    }
+    fit();
+    var rt; window.addEventListener('resize',function(){ clearTimeout(rt); rt=setTimeout(fit,150); },{passive:true});
+    if(document.fonts&&document.fonts.ready) document.fonts.ready.then(fit);
   })();
   // Radar ao vivo: conta os sinais quando entra na tela
   (function(){
