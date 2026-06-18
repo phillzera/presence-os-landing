@@ -479,7 +479,7 @@ section{position:relative}
 .mq-head{text-align:center; margin-bottom:30px}
 .mq-head h2{font-size:clamp(26px,3.6vw,40px); font-weight:600; color:var(--ink); letter-spacing:-.02em}
 .mq-head p{margin:14px auto 0; color:var(--ink-2); font-size:16px; line-height:1.55; max-width:54ch}
-.rotw{display:inline-flex; justify-content:center; min-width:13ch; text-align:center; vertical-align:bottom}
+.rotw{display:inline-flex; justify-content:center; min-width:0; text-align:center; vertical-align:bottom; margin-top:.06em}
 .rotw .rw{display:inline-block; position:relative; color:var(--rotc,#0a66c2); transition:opacity .22s var(--ease), transform .22s var(--ease); will-change:opacity,transform; padding-bottom:4px}
 .rotw .rw::after{content:''; position:absolute; left:0; right:0; bottom:0; height:3px; border-radius:3px; background:var(--rotc,#0a66c2); transition:background .35s var(--ease)}
 @media (max-width:520px){.rotw{min-width:0; width:100%}}
@@ -902,7 +902,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 .painhero-bridge{display:flex; align-items:center; justify-content:center; gap:13px; margin:clamp(30px,4.5vw,46px) auto 0; max-width:780px; text-align:left; font-family:var(--font-display); font-size:clamp(18px,2.3vw,23px); font-weight:700; color:var(--ink); line-height:1.32; letter-spacing:-.015em}
 .painhero-bridge .pb-ic{flex:none; width:36px; height:36px; border-radius:11px; display:grid; place-items:center; background:linear-gradient(150deg,#1a85e0,#064c8f); color:#fff; box-shadow:0 6px 15px -5px rgba(10,102,194,.55)}
 .painhero-bridge b{color:var(--i)}
-@media (max-width:680px){.painhero-grid{grid-template-columns:1fr; max-width:520px} .ph-item:nth-child(5){grid-column:auto} .painhero-bridge{flex-direction:column; text-align:center; gap:15px}}
+@media (max-width:680px){.painhero-grid{grid-template-columns:1fr; max-width:520px} .ph-item:nth-child(5){grid-column:auto} .painhero-bridge{align-items:flex-start; gap:11px}}
 .sec-head .produto-aud{margin-top:16px; font-weight:600; color:var(--ink); font-size:clamp(15px,1.7vw,17px)}
 
 /* casos de uso */
@@ -985,6 +985,61 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 .ipm-tabbar{display:flex; justify-content:space-around; align-items:center; padding:7px 0 9px; background:#fff; border-top:1px solid #e3e8ef; margin-top:auto}
 .ipm-tabbar i{width:14px; height:14px; border-radius:4px; background:#cfd8e3}
 .ipm-tabbar i.on{background:#0a66c2}
+/* iPhone DEMO de 3 passos (Radar->Sugerir->Publicar) — só no mobile */
+.iphone .ip-screen.ipdemo{display:none}
+.ip-screen.ipdemo{background:linear-gradient(180deg,#fff,#eef4fb); padding:0; flex-direction:column}
+.ipd-top{display:flex; align-items:center; gap:7px; padding:5px 13px 7px}
+.ipd-top .ipd-mk{width:22px;height:22px;border-radius:7px;background:linear-gradient(150deg,#3a9bf0,#0a66c2 55%,#064c8f);color:#fff;display:grid;place-items:center;font-weight:800;font-size:12px;font-family:var(--font-sans);flex:none}
+.ipd-top .ipd-nm{font-size:12.5px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+.ipd-top .ipd-prof{margin-left:auto;width:22px;height:22px} .ipd-top .ipd-prof img{width:22px;height:22px;border-radius:50%;object-fit:cover}
+.ipd-steps{display:flex;align-items:center;padding:0 13px 9px}
+.ipd-step{display:inline-flex;align-items:center;gap:4px;font-size:9.5px;font-weight:600;color:var(--ink-3);flex:none}
+.ipd-step b{width:16px;height:16px;border-radius:50%;background:var(--surface-2);color:var(--ink-3);display:grid;place-items:center;font-size:9px;font-family:var(--font-sans)}
+.ipd-step.on{color:var(--i)} .ipd-step.on b{background:var(--i);color:#fff}
+.ipd-step.done b{background:var(--ok);color:#fff}
+.ipd-seg{flex:1;height:2px;margin:0 6px;border-radius:2px;background:var(--line)}
+.ipd-seg.fill{background:var(--i)}
+.ipd-body{position:relative;flex:1;min-height:0;margin:0 11px}
+.ipd-scr{position:absolute;inset:0;opacity:0;transform:translateY(7px);transition:opacity .5s var(--ease),transform .5s var(--ease);pointer-events:none;display:flex;flex-direction:column;gap:8px}
+.ipd-scr.on{opacity:1;transform:none}
+.ipd-eye{display:flex;align-items:center;gap:5px;font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--ink-3)} .ipd-eye svg{width:11px;height:11px;color:var(--ok-text);flex:none}
+.ipd-dot{width:7px;height:7px;border-radius:50%;background:var(--ok);flex:none}
+.ipd-spark{width:10px;height:10px;background:var(--i);flex:none;clip-path:polygon(50% 0,60% 40%,100% 50%,60% 60%,50% 100%,40% 60%,0 50%,40% 40%)}
+.ipd-sig{display:flex;align-items:center;gap:8px;background:#fff;border:1px solid var(--line);border-radius:10px;padding:9px 10px;box-shadow:var(--sh-1)}
+.ipd-sig.hi{border-color:var(--i);box-shadow:0 0 0 2px var(--i-soft),var(--sh-1)}
+.ipd-sigm{flex:1;min-width:0} .ipd-sigm b{display:block;font-size:11px;color:var(--ink);font-weight:600;line-height:1.2} .ipd-sigm span{display:block;font-size:8.5px;color:var(--ink-3);margin-top:2px}
+.ipd-sig i{font-style:normal;font-size:9px;font-weight:700;color:var(--i);background:var(--i-soft);border:1px solid var(--i-line);border-radius:99px;padding:2px 7px;flex:none}
+.ipd-sig.hi i{background:var(--i);color:#fff;border-color:var(--i)}
+.ipd-go{margin-top:auto;display:flex;align-items:center;justify-content:center;gap:6px;height:36px;border-radius:10px;background:var(--i);color:#fff;font-size:11.5px;font-weight:700;box-shadow:0 7px 16px -6px rgba(10,102,194,.6)} .ipd-go svg{width:14px;height:14px}
+.ipd-draft{background:#fff;border:1px solid var(--line);border-radius:12px;padding:11px;box-shadow:var(--sh-1)}
+.ipd-dhd{display:flex;align-items:center;gap:7px;margin-bottom:8px} .ipd-dhd img{width:24px;height:24px;border-radius:50%;object-fit:cover;flex:none} .ipd-dhd b{font-size:11px;color:var(--ink)} .ipd-dhd em{font-style:normal;font-size:9px;color:var(--ink-3)} .ipd-dhd .ipd-vz{margin-left:auto;font-size:9px;font-weight:700;color:var(--ok-text);background:#e9f9ef;border:1px solid #bfe8cd;border-radius:99px;padding:1px 7px}
+.ipd-draft p{font-size:11.5px;color:var(--ink);line-height:1.5;margin:0} .ipd-cur{display:inline-block;width:2px;height:13px;background:var(--i);margin-left:1px;vertical-align:-2px;animation:ipcur 1s step-end infinite}
+@keyframes ipcur{50%{opacity:0}}
+.ipd-tools{display:flex;flex-wrap:wrap;gap:5px} .ipd-tools span{font-size:9.5px;font-weight:600;color:var(--ink-2);background:#fff;border:1px solid var(--line);border-radius:7px;padding:4px 9px}
+.ipd-foot{display:flex;align-items:center;gap:6px;margin-top:auto} .ipd-chip{font-size:9px;font-weight:600;color:var(--ink-2);background:#fff;border:1px solid var(--line);border-radius:99px;padding:3px 8px} .ipd-chip.ok{color:var(--ok-text);background:#e9f9ef;border-color:#bfe8cd} .ipd-go2{margin-left:auto;font-size:11.5px;font-weight:700;color:var(--i)}
+.ipd-li{background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden;box-shadow:var(--sh-1)}
+.ipd-lihd{display:flex;align-items:center;gap:7px;padding:9px 10px 0} .ipd-lihd img{width:27px;height:27px;border-radius:50%;object-fit:cover;flex:none} .ipd-lim b{font-size:10.5px;color:var(--ink)} .ipd-lim em{font-style:normal;font-weight:500;color:var(--ink-3);font-size:8.5px} .ipd-lim span{display:block;font-size:8.5px;color:var(--ink-3)}
+.ipd-litx{font-size:10.5px;color:var(--ink);line-height:1.45;padding:7px 10px} .ipd-litx b{color:var(--i);font-weight:500}
+.ipd-liimg{position:relative} .ipd-liimg img{width:100%;height:86px;object-fit:cover;display:block;border-top:1px solid var(--line)} .ipd-libadge{position:absolute;left:8px;bottom:8px;font-size:8px;font-weight:600;color:#fff;background:rgba(8,28,54,.62);border-radius:99px;padding:2px 8px}
+.ipd-listats{display:flex;align-items:center;gap:5px;font-size:9px;color:var(--ink-3);padding:7px 10px} .ipd-rx{display:inline-flex} .ipd-rx i{width:11px;height:11px;border-radius:50%;border:1.4px solid #fff;margin-left:-3px} .ipd-rx i:first-child{margin-left:0} .ipd-rx i.b{background:#378fe9}.ipd-rx i.r{background:#df704d}.ipd-rx i.y{background:#f5bb54}
+.ipd-acts{display:flex;gap:7px;margin-top:auto} .ipd-2nd{flex:none;height:36px;display:inline-flex;align-items:center;padding:0 15px;border-radius:10px;border:1px solid var(--line);background:#fff;font-size:11.5px;font-weight:600;color:var(--ink-2)} .ipd-pub{flex:1;height:36px;display:inline-flex;align-items:center;justify-content:center;gap:5px;border-radius:10px;background:var(--i);color:#fff;font-size:11.5px;font-weight:700;box-shadow:0 7px 16px -6px rgba(10,102,194,.6)} .ipd-pub svg{width:13px;height:13px;flex:none}
+.ipd-cap{text-align:center;font-size:9.5px;color:var(--ink-3);padding:9px 12px 12px;font-weight:500}
+@media (prefers-reduced-motion:reduce){.ipd-scr{transition:none} .ipd-cur{animation:none}}
+@media (max-width:700px){.iphone .ip-screen.login{display:none} .iphone .ip-screen.ipdemo{display:flex}}
+/* Ajustes finos mobile: form, footer, touch targets */
+@media (max-width:560px){
+  .req2{display:none}                       /* tira "Use a IA que você já paga" do form no mobile */
+  .beta-card{padding:24px 18px}
+  .field{margin-bottom:17px}
+  .fa-opt{padding:13px 14px; margin-top:15px; gap:11px}
+  footer .fcta{padding:30px 24px 26px; gap:18px}
+  footer .fcta .fcta-l{gap:13px; flex:0 0 auto}
+  footer .ftrust{gap:7px; padding:18px 16px}
+  footer .ftrust span{font-size:10.5px; padding:6px 11px}
+  footer .col a{padding:11px 0}             /* touch target ~44px */
+  footer .bottom a{padding:7px 4px}
+  .annbar .ann-x{width:30px; height:30px; right:6px}
+}
 </style>
 </head>
 <body>
@@ -1280,6 +1335,46 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
           <div class="lg-foot"><svg width="10" height="10" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 1.5l5 2v4c0 3.2-2.1 5.5-5 7-2.9-1.5-5-3.8-5-7v-4z"/><path d="M5.8 8l1.6 1.6L10.4 6.5"/></svg> Você aprova tudo antes de publicar</div>
         </div>
       </div>
+      <!-- DEMO 3 passos dentro do celular (só no mobile): Radar -> Sugerir -> Publicar -->
+      <div class="ip-screen ipdemo" id="ipdemo" aria-hidden="true">
+        <div class="ip-island"></div>
+        <div class="ip-stat"><span>9:41</span><span class="ic"><svg width="13" height="9" viewBox="0 0 16 11" fill="currentColor"><rect x="0" y="7" width="2.6" height="4" rx=".6"/><rect x="3.8" y="5" width="2.6" height="6" rx=".6"/><rect x="7.6" y="2.6" width="2.6" height="8.4" rx=".6"/><rect x="11.4" y="0" width="2.6" height="11" rx=".6"/></svg><svg width="17" height="9" viewBox="0 0 24 12" fill="none"><rect x="1" y="1.5" width="19" height="9" rx="2.4" stroke="currentColor" stroke-width="1.2" opacity=".5"/><rect x="2.6" y="3" width="14" height="6" rx="1.2" fill="currentColor"/><rect x="21" y="4" width="1.6" height="4" rx=".8" fill="currentColor" opacity=".5"/></svg></span></div>
+        <div class="ipd-top"><span class="ipd-mk"><b>P</b></span><span class="ipd-nm">PresenceIn</span><span class="ipd-prof"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=48&q=80" alt="" loading="lazy"></span></div>
+        <div class="ipd-steps">
+          <span class="ipd-step on" data-k="0"><b>1</b> Radar</span><span class="ipd-seg" data-s="0"></span>
+          <span class="ipd-step" data-k="1"><b>2</b> Sugerir</span><span class="ipd-seg" data-s="1"></span>
+          <span class="ipd-step" data-k="2"><b>3</b> Publicar</span>
+        </div>
+        <div class="ipd-body">
+          <div class="ipd-scr on" data-k="0">
+            <div class="ipd-eye"><span class="ipd-dot"></span> Radar · varrendo agora</div>
+            <div class="ipd-sig hi"><div class="ipd-sigm"><b>IA e o futuro do trabalho</b><span>Em alta entre líderes · há 2h</span></div><i>fit 9</i></div>
+            <div class="ipd-sig"><div class="ipd-sigm"><b>O fim da avaliação anual</b><span>Pauta quente no seu nicho · há 6h</span></div><i>fit 8</i></div>
+            <div class="ipd-sig"><div class="ipd-sigm"><b>Reter talento sênior</b><span>Tendência forte no setor · há 11h</span></div><i>fit 7</i></div>
+            <div class="ipd-go"><span>Gerar post na sua voz</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></div>
+          </div>
+          <div class="ipd-scr" data-k="1">
+            <div class="ipd-eye"><span class="ipd-spark"></span> Studio · escrevendo na sua voz</div>
+            <div class="ipd-draft">
+              <div class="ipd-dhd"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=64&q=80" alt="" loading="lazy"><span><b>Marina Alves</b><em>· na sua voz</em></span><span class="ipd-vz">94%</span></div>
+              <p>Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding, não no incidente.<span class="ipd-cur"></span></p>
+            </div>
+            <div class="ipd-tools"><span>Variantes</span><span>Humanizar</span><span>Auditar</span><span>Imagem</span></div>
+            <div class="ipd-foot"><span class="ipd-chip ok">Nota 86</span><span class="ipd-chip">Sem cara de IA</span><span class="ipd-go2">Revisar →</span></div>
+          </div>
+          <div class="ipd-scr" data-k="2">
+            <div class="ipd-eye"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Aprovações · você no controle</div>
+            <div class="ipd-li">
+              <div class="ipd-lihd"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=64&q=80" alt="" loading="lazy"><div class="ipd-lim"><b>Marina Alves <em>· 1º</em></b><span>Head de Gente &amp; Cultura</span></div></div>
+              <div class="ipd-litx">Todo mundo fala em "cultura de verdade". Na prática, ela começa no onboarding. <b>#cultura</b></div>
+              <div class="ipd-liimg"><img src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=320&q=80" alt="" loading="lazy"><span class="ipd-libadge">✦ Imagem gerada</span></div>
+              <div class="ipd-listats"><span class="ipd-rx"><i class="b"></i><i class="r"></i><i class="y"></i></span> Você e 127 · 24 coment.</div>
+            </div>
+            <div class="ipd-acts"><span class="ipd-2nd">Editar</span><span class="ipd-pub"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2"><path d="M3 8.5l3 3 7-7.5"/></svg> Aprovar e publicar</span></div>
+          </div>
+        </div>
+        <div class="ipd-cap">Você no controle, do sinal ao post no ar.</div>
+      </div>
     </div>
   </div>
 </header>
@@ -1302,7 +1397,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
   <div class="wrap">
     <div class="ai-grid">
       <div class="ai-copy">
-        <h2>Conectado à sua conta, com a sua assinatura.</h2>
+        <h2>Conectado à sua conta, <span class="brandblue">com a sua assinatura.</span></h2>
         <p>Você conecta a assinatura que já paga, ChatGPT, Claude ou Gemini, e o PresenceIn escreve com ela. Sem mais uma mensalidade de IA por cima, e as suas ideias continuam sendo só suas.</p>
         <ul class="ai-points">
           <li><span class="pic"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="7" width="10" height="7" rx="1.6"/><path d="M5.2 7V5a2.8 2.8 0 0 1 5.6 0v2"/></svg></span><span><b>Use a sua assinatura.</b> Nada do que você escreve é compartilhado com a gente.</span></li>
@@ -1324,7 +1419,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
 <section class="sec personas-sec" id="personas">
   <div class="wrap">
     <div class="mq-head reveal">
-      <h2>Feito para <span class="rotw"><span class="rw" id="rotw">Founders</span></span></h2>
+      <h2>Feito para<br><span class="rotw"><span class="rw" id="rotw">Founders</span></span></h2>
       <p>As oportunidades vão para quem é lembrado. O PresenceIn mantém você presente no LinkedIn toda semana, no seu tom, sem virar mais uma tarefa na sua agenda.</p>
     </div>
     <div class="mq-zone reveal">
@@ -1628,7 +1723,7 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
             <div class="field"><label for="nome">Nome</label><input id="nome" name="nome" type="text" autocomplete="name" placeholder="Como te chamamos?" required aria-required="true" aria-describedby="formErr" /></div>
             <div class="field"><label for="email">E-mail profissional</label><input id="email" name="email" type="email" autocomplete="email" placeholder="voce@empresa.com" required aria-required="true" aria-describedby="formErr" /></div>
             <div class="field"><label for="linkedin">Seu LinkedIn</label><input id="linkedin" name="linkedin" type="text" inputmode="url" autocomplete="url" placeholder="linkedin.com/in/voce" required aria-required="true" aria-describedby="formErr" /></div>
-            <label class="fa-opt"><input type="checkbox" id="founder" name="founder" value="sim"><span class="fa-box"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.2"><path d="M3 8.5l3 3 7-7"/></svg></span><span class="fa-tx"><b>Quero o acesso antecipado ao beta</b>: onboarding de voz, calibração inicial e acompanhamento próximo nos primeiros posts. Vagas bem limitadas.</span></label>
+            <label class="fa-opt"><input type="checkbox" id="founder" name="founder" value="sim"><span class="fa-box"><svg viewBox="0 0 16 16" fill="none" stroke="#fff" stroke-width="2.2"><path d="M3 8.5l3 3 7-7"/></svg></span><span class="fa-tx"><b>Quero o onboarding guiado</b>: a gente calibra a sua voz com você e acompanha de perto os seus primeiros posts. Vagas bem limitadas.</span></label>
             <div class="hp" aria-hidden="true"><label>Deixe este campo em branco<input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label></div>
             <button class="btn primary block" type="submit" id="submitBtn">Garantir minha vaga no beta
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.9"><path d="M3 8h9M8.5 4.5L12 8l-3.5 3.5"/></svg></button>
@@ -1846,6 +1941,26 @@ footer .fcta{box-shadow:0 22px 50px -24px rgba(0,0,0,.6)}
       .add(function(){ if(done) done.classList.remove('show'); });
     tl.play();
     if('IntersectionObserver' in window){ new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting) tl.play(); }); },{threshold:.05}).observe(stage); }
+  })();
+  // iPhone demo (mobile): cicla Radar -> Sugerir -> Publicar
+  (function(){
+    var demo=document.getElementById('ipdemo'); if(!demo) return;
+    var scrs=[].slice.call(demo.querySelectorAll('.ipd-scr'));
+    var steps=[].slice.call(demo.querySelectorAll('.ipd-step'));
+    var segs=[].slice.call(demo.querySelectorAll('.ipd-seg'));
+    function show(n){
+      scrs.forEach(function(s){ s.classList.toggle('on',+s.getAttribute('data-k')===n); });
+      steps.forEach(function(s){ var k=+s.getAttribute('data-k'); s.classList.toggle('on',k===n); s.classList.toggle('done',k<n); });
+      segs.forEach(function(s){ s.classList.toggle('fill',+s.getAttribute('data-s')<n); });
+    }
+    show(0);
+    if(reduce) return;
+    var i=0, iv=null;
+    function start(){ if(iv) return; iv=setInterval(function(){ i=(i+1)%3; show(i); },2900); }
+    function stop(){ if(iv){ clearInterval(iv); iv=null; } }
+    if('IntersectionObserver' in window){
+      new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting && window.innerWidth<=700) start(); else stop(); }); },{threshold:.25}).observe(demo);
+    } else if(window.innerWidth<=700){ start(); }
   })();
   // Radar ao vivo: conta os sinais quando entra na tela
   (function(){
